@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://odhadnemovitostiolomouc.cz/sitemap.xml
