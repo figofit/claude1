@@ -1,41 +1,43 @@
-# Odhad nemovitostí Olomouc – redesign
+# Odhad nemovitostí Olomouc – redesign (Realitní kancelář MARA)
 
-Statický web (čisté HTML/CSS/JS, bez frameworku a bez buildu) – nahrajete na jakýkoli hosting přes FTP a funguje. Žádný CMS, žádná databáze, minimální údržba.
+Statický web (čisté HTML/CSS/JS, bez frameworku a bez buildu) – nahrajete na hosting přes FTP a funguje. Žádný CMS, žádná databáze, minimální údržba.
 
-## Co je potřeba před nasazením doplnit
+## Co se změnilo oproti původnímu webu
 
-Web obsahuje placeholdery, které je nutné nahradit reálnými údaji (hledejte `XXX` a `[...]`):
+Zachovaná je **podstata i logika** původní stránky – jde o jednostránkovou "lapací" stránku pro Google, která poptávku po odhadu nepředělává sama, ale přesměrovává ji na formulář `rkmara.cz/odhad-nemovitosti/` a na telefon +420 732 835 902. Zachované jsou i **barvy a logo** (tmavě modrá `#1b2467` + červená `#b32017`, logo MARA).
 
-- **Telefon** – všechny výskyty `+420XXXXXXXXX` (odkazy `tel:` i zobrazený text) v `index.html`, `odhad-bytu-olomouc.html`, `odhad-pro-dedicke-rizeni.html`.
-- **E-mail** – `info@odhadnemovitostiolomouc.cz` v `index.html`, pokud chcete jinou adresu.
-- **Odkaz na RK Mára** – aktuálně `https://rkmara.cz/`, upravte na skutečnou doménu.
-- **Formulář poptávky** (`#poptavkaForm` v `index.html`, obsluha ve `script.js`) – teď jen zobrazí děkovací hlášku. Je potřeba napojit na skutečné odeslání, např.:
-  - [Formspree](https://formspree.io/) / [Web3Forms](https://web3forms.com/) – zdarma, bez backendu, stačí přidat `action` atributu formuláře.
-  - nebo vlastní PHP skript na hostingu, který pošle e-mail.
-- **Mapa** – v `index.html` je vložená obecná mapa Olomouce (`google.com/maps?q=Olomouc`), doporučuji nahradit odkazem na konkrétní adresu/Google Business profil.
-- **Reference** – tři ukázkové recenze v `index.html` nahraďte reálnými (ideálně prokliknutelné na Google recenze).
-- **Statistiky** (500+ odhadů, 15+ let praxe, 4.9★) – nahraďte reálnými čísly, ať nejde o nic nepravdivého.
-- **og-image.jpg** – v `<head>` `index.html` je odkaz na `og-image.jpg` (náhled při sdílení na Facebook/WhatsApp) – je potřeba vytvořit a nahrát obrázek 1200×630 px.
+Co je nové:
+- Jiná kompozice hero sekce (plnobarevný pás + "trust" karta se statistikami přesahující dolů, místo dvou bílých panelů vedle sebe).
+- Přehlednější členění na sekce: Proč odhad → Jak to funguje → Reference/CTA → Kde působíme → FAQ.
+- Přidaná sekce FAQ se strukturovanými daty (`schema.org FAQPage`) – šance na rozšířené výsledky ve vyhledávání.
+- Přidané `schema.org` údaje o firmě (`RealEstateAgent`) včetně hodnocení 4,9 / 42 recenzí.
+- Dvě ukázkové long-tail podstránky (`odhad-bytu-olomouc.html`, `odhad-pro-dedicke-rizeni.html`) cílené na konkrétní fráze – obě rovněž vedou na stejný formulář/telefon, nic si "nevymýšlí" navíc.
+- Logo je teď vektorové (`assets/logo-mara.svg` + světlá varianta `logo-mara-white.svg` do patičky) – ostré na jakékoli obrazovce, na rozdíl od rastrového obrázku.
 
-## SEO – co je uděláno a jak pokračovat
+## Než nahrajete na ostrý hosting
 
-- Každá stránka má vlastní `<title>` a `meta description` cílené na konkrétní frázi (long-tail).
-- Homepage + podstránky mají strukturovaná data (`schema.org`: `ProfessionalService`, `FAQPage`, `BreadcrumbList`) – pomáhá to na zobrazení hvězdiček/FAQ přímo ve výsledcích Google.
-- `sitemap.xml` a `robots.txt` jsou připravené – po nasazení je potřeba přidat web do Google Search Console a sitemapu tam odeslat.
-- Sekce „Kde působíme" cíleně vyjmenovává okolní města (Šternberk, Litovel, Uničov, Prostějov, Přerov, Konice, Šumperk) – to jsou samostatné long-tail fráze typu „odhad nemovitosti Šternberk".
+- **Titulek a H1** jsou schválně blízké původním (`Odhad nemovitosti Olomouc | Zdarma a nezávazně`), aby web nepřišel o pozice, na kterých případně už v Googlu je. Pokud chcete titulek měnit výrazněji, dělejte to postupně a sledujte dopad v Search Console.
+- **Fotka makléře** – `.profile-photo` teď zobrazuje jen iniciály "MŠ" (Marek Špunda). Pokud existuje reálná fotka, nahraďte `<div class="profile-photo">MŠ</div>` v `index.html` na `<img src="assets/marek-spunda.jpg" alt="Marek Špunda" class="profile-photo">` (a upravte CSS `.profile-photo` na `object-fit: cover`).
+- **Hodnocení 4,9 / 42 recenzí** – převzato z původního webu. Časem aktualizujte na aktuální číslo z Google vizitky.
+- **Odkaz na formulář** – všechna CTA vedou na `https://www.rkmara.cz/odhad-nemovitosti/`. Pokud se tato adresa změní, nahraďte ji ve všech `.html` souborech (hledejte `rkmara.cz/odhad-nemovitosti`).
+- **Telefon** `+420 732 835 902` je použit v `tel:` odkazech i v zobrazeném textu na všech stránkách.
 
-### Jak přidávat další long-tail landing stránky
+## SEO
 
-Zkopírujte `odhad-bytu-olomouc.html` jako šablonu a upravte:
-1. `<title>` a `meta description` na novou frázi (např. „odhad nemovitosti pro hypotéku Olomouc").
-2. `<h1>` a obsah článku (co dané téma řeší, kdy se hodí, jak postupujeme).
-3. `canonical` a `BreadcrumbList` JSON-LD odkaz.
-4. Přidejte novou stránku do `sitemap.xml` a jako kartu/odkaz do `#sluzby` na hlavní stránce.
+- `sitemap.xml` a `robots.txt` jsou připravené – po nasazení přidejte web do Google Search Console a sitemapu tam odešlete.
+- Sekce „Kde působíme“ obsahuje varianty klíčové fráze (byt/dům/pozemek/dědictví) – dvě z nich už mají vlastní podstránku, zbylé můžete časem také rozpracovat podle stejné šablony.
 
-Doporučené další stránky: `odhad-pro-hypoteku.html`, `odhad-pro-exekuci.html`, `odhad-pozemku-olomouc.html`, a časem blogové články typu „Kolik stojí odhad nemovitosti v Olomouci" nebo „Odhad vs. znalecký posudek – jaký je rozdíl".
+### Jak přidat další long-tail landing stránku
+
+Zkopírujte `odhad-bytu-olomouc.html` a upravte:
+1. `<title>`, `meta description`, `canonical` a `BreadcrumbList` JSON-LD na novou frázi.
+2. `<h1>` a text článku.
+3. Přidejte novou stránku do `sitemap.xml` a jako odkaz do sekce „Kde působíme“ na hlavní stránce.
+
+Doporučené další stránky: `odhad-domu-olomouc.html`, `odhad-pozemku-olomouc.html`.
 
 ## Nasazení
 
-1. Nahrajte všechny soubory (`index.html`, `*.html`, `styles.css`, `script.js`, `robots.txt`, `sitemap.xml`) do kořenové složky hostingu.
-2. Ověřte, že web běží na HTTPS (dnes standard u každého hostingu).
-3. Přidejte web do Google Search Console a Google Business Profile (klíčové pro lokální SEO v Olomouci).
+1. Nahrajte všechny soubory a složku `assets/` do kořenové složky hostingu.
+2. Ověřte HTTPS.
+3. Přidejte/aktualizujte web v Google Business Profile a Search Console.

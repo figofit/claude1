@@ -12,13 +12,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-  var form = document.getElementById("poptavkaForm");
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      // TODO: napojit na skutečné odeslání (e-mail / Formspree / vlastní backend).
-      form.innerHTML = "<p style=\"color:#2f7a4d;font-weight:600;\">Děkujeme! Ozveme se vám do 24 hodin.</p>";
-    });
-  }
 });
