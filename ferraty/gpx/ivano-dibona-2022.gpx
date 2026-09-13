@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="MojeFerraty (ukázková trasa)" xmlns="http://www.topografix.com/GPX/1/1">
+  <trk>
+    <name>Via Ferrata Ivano Dibona - ukázková trasa</name>
+    <trkseg>
+      <trkpt lat="46.5510" lon="12.1590"><ele>1980</ele></trkpt>
+      <trkpt lat="46.5525" lon="12.1605"><ele>2050</ele></trkpt>
+      <trkpt lat="46.5538" lon="12.1622"><ele>2140</ele></trkpt>
+      <trkpt lat="46.5549" lon="12.1638"><ele>2230</ele></trkpt>
+      <trkpt lat="46.5558" lon="12.1650"><ele>2310</ele></trkpt>
+      <trkpt lat="46.5566" lon="12.1660"><ele>2390</ele></trkpt>
+      <trkpt lat="46.5575" lon="12.1668"><ele>2450</ele></trkpt>
+      <trkpt lat="46.5580" lon="12.1665"><ele>2519</ele></trkpt>
+      <trkpt lat="46.5588" lon="12.1672"><ele>2500</ele></trkpt>
+      <trkpt lat="46.5595" lon="12.1680"><ele>2460</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

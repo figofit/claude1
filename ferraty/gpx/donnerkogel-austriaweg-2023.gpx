@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="MojeFerraty (ukázková trasa)" xmlns="http://www.topografix.com/GPX/1/1">
+  <trk>
+    <name>Donnerkogel - Austriaweg - ukázková trasa</name>
+    <trkseg>
+      <trkpt lat="47.5560" lon="13.5460"><ele>1680</ele></trkpt>
+      <trkpt lat="47.5568" lon="13.5472"><ele>1760</ele></trkpt>
+      <trkpt lat="47.5575" lon="13.5484"><ele>1840</ele></trkpt>
+      <trkpt lat="47.5581" lon="13.5495"><ele>1910</ele></trkpt>
+      <trkpt lat="47.5586" lon="13.5488"><ele>1970</ele></trkpt>
+      <trkpt lat="47.5589" lon="13.5480"><ele>2020</ele></trkpt>
+      <trkpt lat="47.5590" lon="13.5490"><ele>2054</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

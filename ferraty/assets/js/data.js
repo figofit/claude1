@@ -1,0 +1,250 @@
+/*
+ * Moje ferraty — načítání dat a sdílené pomocné funkce.
+ * Načteno jako obyčejný <script> na každé stránce, vystavuje globální objekt `Ferraty`.
+ * Stránka musí běžet přes http(s) (fetch nefunguje z file://) — viz README.md.
+ */
+(function (global) {
+  "use strict";
+
+  const DATA_URL = "data/ferraty.json";
+
+  // Hüsler A–E (klasická stupnice via ferrat) použitá pro řazení podle obtížnosti.
+  const HUSLER_RANK = { A: 1, B: 2, C: 3, D: 4, E: 5 };
+
+  let cache = null;
+
+  async function loadAll() {
+    if (cache) return cache;
+    const res = await fetch(DATA_URL, { cache: "no-store" });
+    if (!res.ok) {
+      throw new Error("Nepodařilo se načíst data/ferraty.json (HTTP " + res.status + ")");
+    }
+    const json = await res.json();
+    cache = (json.records || []).map(normalizeRecord);
+    return cache;
+  }
+
+  async function byId(id) {
+    const all = await loadAll();
+    return all.find((r) => r.id === id) || null;
+  }
+
+  // Doplní chybějící vnořené objekty jako null, ať šablony nemusí kontrolovat
+  // existenci na každém kroku. Nikdy nedosazuje smysluplné hodnoty — jen strukturu.
+  function normalizeRecord(r) {
+    return Object.assign(
+      {
+        country: null,
+        region: null,
+        locality: null,
+        coordinates: null,
+        date: null,
+        status: null,
+        difficulty: null,
+        length_m: null,
+        elevationGain_m: null,
+        summit: null,
+        altitude_m: null,
+        duration_min: null,
+        myRating: null,
+        note: null,
+        track: null,
+        photos: [],
+        sourceUrl: null,
+        relatedIds: [],
+      },
+      r
+    );
+  }
+
+  function escapeHtml(value) {
+    if (value === null || value === undefined) return "";
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function slugify(str) {
+    return String(str || "")
+      .normalize("NFD")
+      .replace(/[̀-ͯ]/g, "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
+
+  function difficultyRank(difficulty) {
+    const grade = difficulty && difficulty.grade;
+    if (!grade) return Infinity;
+    const parts = String(grade).split(/[\/\-–]/).map((p) => p.trim().toUpperCase());
+    const ranks = parts.map((p) => HUSLER_RANK[p]).filter((n) => n !== undefined);
+    if (ranks.length) {
+      return ranks.reduce((a, b) => a + b, 0) / ranks.length;
+    }
+    const num = parseFloat(grade);
+    return isNaN(num) ? Infinity : num;
+  }
+
+  function formatDifficulty(difficulty) {
+    if (!difficulty || !difficulty.grade) return "—";
+    return difficulty.scale ? `${difficulty.grade} (${difficulty.scale})` : difficulty.grade;
+  }
+
+  const STATUS_META = {
+    "dokončeno": { label: "Dokončeno", cls: "badge--done" },
+    "nedokončeno": { label: "Nedokončeno", cls: "badge--unfinished" },
+    "pokus": { label: "Pokus", cls: "badge--attempt" },
+  };
+
+  function statusMeta(status) {
+    return STATUS_META[status] || { label: status || "Neuvedeno", cls: "badge--muted" };
+  }
+
+  function formatDate(iso, opts) {
+    if (!iso) return "—";
+    const d = new Date(iso + "T00:00:00");
+    if (isNaN(d.getTime())) return "—";
+    const options = opts || { day: "numeric", month: "long", year: "numeric" };
+    return new Intl.DateTimeFormat("cs-CZ", options).format(d);
+  }
+
+  function yearOf(iso) {
+    if (!iso) return null;
+    const m = /^(\d{4})-/.exec(iso);
+    return m ? parseInt(m[1], 10) : null;
+  }
+
+  function fmtNumber(n) {
+    return new Intl.NumberFormat("cs-CZ").format(n);
+  }
+
+  function fmtLength(m) {
+    return m === null || m === undefined ? "—" : `${fmtNumber(m)} m`;
+  }
+
+  function fmtElevation(m) {
+    return m === null || m === undefined ? "—" : `${fmtNumber(m)} m`;
+  }
+
+  function fmtAltitude(m) {
+    return m === null || m === undefined ? "—" : `${fmtNumber(m)} m n. m.`;
+  }
+
+  function fmtDuration(min) {
+    if (min === null || min === undefined) return "—";
+    const h = Math.floor(min / 60);
+    const m = min % 60;
+    if (h === 0) return `${m} min`;
+    if (m === 0) return `${h} h`;
+    return `${h} h ${m} min`;
+  }
+
+  function ratingValue(myRating, key) {
+    return myRating && typeof myRating[key] === "number" ? myRating[key] : null;
+  }
+
+  function ratingStarsHtml(value, max) {
+    max = max || 5;
+    if (value === null || value === undefined) {
+      return `<span class="rating" data-empty="true">nehodnoceno</span>`;
+    }
+    let out = "";
+    for (let i = 1; i <= max; i++) out += i <= value ? "★" : "☆";
+    return `<span class="rating" title="${value}/${max}">${out}</span>`;
+  }
+
+  // ---- Statistiky ----
+
+  function computeStats(records) {
+    const total = records.length;
+    const byStatusCount = { "dokončeno": 0, "nedokončeno": 0, "pokus": 0 };
+    records.forEach((r) => {
+      if (byStatusCount[r.status] !== undefined) byStatusCount[r.status]++;
+    });
+
+    const countrySet = new Set(records.map((r) => r.country).filter(Boolean));
+
+    const byCountry = countMap(records, (r) => r.country);
+    const byDifficulty = countMap(records, (r) => (r.difficulty && r.difficulty.grade) || null);
+    const byYear = countMap(records, (r) => yearOf(r.date));
+
+    const completed = records.filter((r) => r.status === "dokončeno");
+
+    let hardest = null;
+    completed.forEach((r) => {
+      if (!r.difficulty || !r.difficulty.grade) return;
+      const rank = difficultyRank(r.difficulty);
+      if (rank === Infinity) return;
+      if (!hardest || rank > hardest._rank) {
+        hardest = Object.assign({ _rank: rank }, r);
+      }
+    });
+
+    const ratedOverall = records.filter((r) => ratingValue(r.myRating, "overall") !== null);
+    const avgOverall = ratedOverall.length
+      ? ratedOverall.reduce((sum, r) => sum + r.myRating.overall, 0) / ratedOverall.length
+      : null;
+
+    const completedWithGain = completed.filter((r) => r.elevationGain_m !== null && r.elevationGain_m !== undefined);
+    const totalElevationGain = completedWithGain.reduce((sum, r) => sum + r.elevationGain_m, 0);
+
+    const withGpx = records.filter((r) => r.track && r.track.file).length;
+    const withPhotos = records.filter((r) => r.photos && r.photos.length > 0).length;
+
+    return {
+      total,
+      byStatusCount,
+      countriesCount: countrySet.size,
+      byCountry,
+      byDifficulty,
+      byYear,
+      hardest,
+      avgOverall,
+      ratedOverallCount: ratedOverall.length,
+      totalElevationGain,
+      elevationGainKnownCount: completedWithGain.length,
+      completedCount: completed.length,
+      withGpx,
+      withPhotos,
+    };
+  }
+
+  // Vrátí pole [{key, count}] seřazené sestupně dle počtu; null klíče (neuvedeno) na konec.
+  function countMap(records, keyFn) {
+    const map = new Map();
+    records.forEach((r) => {
+      const key = keyFn(r);
+      map.set(key, (map.get(key) || 0) + 1);
+    });
+    const entries = Array.from(map.entries()).map(([key, count]) => ({ key, count }));
+    entries.sort((a, b) => {
+      if (a.key === null || a.key === undefined) return 1;
+      if (b.key === null || b.key === undefined) return -1;
+      return b.count - a.count;
+    });
+    return entries;
+  }
+
+  global.Ferraty = {
+    loadAll,
+    byId,
+    escapeHtml,
+    slugify,
+    difficultyRank,
+    formatDifficulty,
+    statusMeta,
+    formatDate,
+    yearOf,
+    fmtNumber,
+    fmtLength,
+    fmtElevation,
+    fmtAltitude,
+    fmtDuration,
+    ratingValue,
+    ratingStarsHtml,
+    computeStats,
+  };
+})(window);

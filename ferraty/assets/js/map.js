@@ -1,0 +1,83 @@
+/* Moje ferraty — logika stránky Mapa (mapa.html) */
+(function () {
+  "use strict";
+
+  const STATUS_COLOR = {
+    "dokončeno": "#33513c",
+    "pokus": "#af5330",
+    "nedokončeno": "#7a7869",
+  };
+
+  function makeIcon(status) {
+    const color = STATUS_COLOR[status] || "#7a7869";
+    return L.divIcon({
+      className: "",
+      html: `<span style="display:block;width:16px;height:16px;border-radius:50%;background:${color};border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,0.25);"></span>`,
+      iconSize: [16, 16],
+      iconAnchor: [8, 8],
+      popupAnchor: [0, -8],
+    });
+  }
+
+  function popupHtml(r) {
+    const status = Ferraty.statusMeta(r.status);
+    const overall = Ferraty.ratingValue(r.myRating, "overall");
+    return `
+      <div class="map-popup">
+        <h4>${Ferraty.escapeHtml(r.name)}</h4>
+        <div class="flex-wrap-gap" style="margin-bottom:6px;">
+          <span class="badge ${status.cls}">${status.label}</span>
+          <span class="badge badge--difficulty">${Ferraty.escapeHtml(Ferraty.formatDifficulty(r.difficulty))}</span>
+        </div>
+        <div class="text-muted" style="font-size:0.85rem;">
+          ${Ferraty.escapeHtml(r.country || "—")} · ${Ferraty.formatDate(r.date, { day: "numeric", month: "numeric", year: "numeric" })}
+        </div>
+        <div style="margin:6px 0;">${Ferraty.ratingStarsHtml(overall)}</div>
+        <a class="btn btn--outline btn--sm" href="detail.html?id=${encodeURIComponent(r.id)}">Otevřít detail</a>
+      </div>
+    `;
+  }
+
+  async function init() {
+    const map = L.map("map-full");
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: "&copy; OpenStreetMap přispěvatelé",
+      maxZoom: 18,
+    }).addTo(map);
+
+    let records = [];
+    try {
+      records = await Ferraty.loadAll();
+    } catch (err) {
+      console.error(err);
+      document.getElementById("map-note").textContent =
+        "Data se nepodařilo načíst. Stránku otevírej přes http(s) server, ne přímo ze souboru.";
+      map.setView([46.8, 10.5], 5);
+      return;
+    }
+
+    const withCoords = records.filter((r) => r.coordinates && typeof r.coordinates.lat === "number" && typeof r.coordinates.lng === "number");
+    const markers = [];
+
+    withCoords.forEach((r) => {
+      const marker = L.marker([r.coordinates.lat, r.coordinates.lng], { icon: makeIcon(r.status) })
+        .bindPopup(popupHtml(r));
+      marker.addTo(map);
+      markers.push(marker);
+    });
+
+    if (markers.length) {
+      const group = L.featureGroup(markers);
+      map.fitBounds(group.getBounds().pad(0.25));
+    } else {
+      map.setView([46.8, 10.5], 5);
+    }
+
+    const missing = records.length - withCoords.length;
+    document.getElementById("map-note").textContent = missing
+      ? `${missing} ${missing === 1 ? "ferrata nemá" : "ferrat nemá"} vyplněné GPS souřadnice, takže na mapě chybí.`
+      : "";
+  }
+
+  document.addEventListener("DOMContentLoaded", init);
+})();

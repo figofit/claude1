@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>Přidat ferratu | Moje ferraty</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="pridat">
+
+<header id="app-header" class="site-header"></header>
+
+<main class="container">
+  <h1>Přidat ferratu</h1>
+  <p class="page-lead">
+    Žádný backend, žádná databáze — formulář jen správně poskládá záznam ve formátu, který aplikace čte.
+    Vyplněné pole nech prázdné, pokud údaj nemáš; nic se nedomýšlí.
+  </p>
+
+  <form id="add-form">
+    <section class="section" style="margin-top:20px;">
+      <h2>Základní údaje</h2>
+      <div class="form-grid">
+        <div class="form-field form-field--full">
+          <label for="f-name">Název ferraty *</label>
+          <input type="text" id="f-name" required placeholder="např. Donnerkogel – Austriaweg">
+        </div>
+        <div class="form-field">
+          <label for="f-country">Země</label>
+          <input type="text" id="f-country" placeholder="např. Rakousko">
+        </div>
+        <div class="form-field">
+          <label for="f-region">Oblast / pohoří</label>
+          <input type="text" id="f-region" placeholder="např. Dachstein">
+        </div>
+        <div class="form-field">
+          <label for="f-locality">Lokalita</label>
+          <input type="text" id="f-locality" placeholder="např. Gosau">
+        </div>
+        <div class="form-field">
+          <label for="f-lat">GPS — zeměpisná šířka</label>
+          <input type="number" id="f-lat" step="any" placeholder="47.559">
+        </div>
+        <div class="form-field">
+          <label for="f-lng">GPS — zeměpisná délka</label>
+          <input type="number" id="f-lng" step="any" placeholder="13.549">
+        </div>
+        <div class="form-field">
+          <label for="f-date">Datum absolvování</label>
+          <input type="date" id="f-date">
+        </div>
+        <div class="form-field">
+          <label for="f-status">Stav</label>
+          <select id="f-status">
+            <option value="dokončeno">Dokončeno</option>
+            <option value="pokus">Pokus</option>
+            <option value="nedokončeno">Nedokončeno</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Technická data</h2>
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="f-grade">Oficiální obtížnost</label>
+          <input type="text" id="f-grade" placeholder="např. C/D">
+        </div>
+        <div class="form-field">
+          <label for="f-scale">Stupnice obtížnosti</label>
+          <input type="text" id="f-scale" value="Hüsler" placeholder="např. Hüsler">
+        </div>
+        <div class="form-field">
+          <label for="f-length">Délka (m)</label>
+          <input type="number" id="f-length" min="0" step="1">
+        </div>
+        <div class="form-field">
+          <label for="f-gain">Převýšení (m)</label>
+          <input type="number" id="f-gain" min="0" step="1">
+        </div>
+        <div class="form-field">
+          <label for="f-summit">Nejvyšší bod / cílový vrchol</label>
+          <input type="text" id="f-summit">
+        </div>
+        <div class="form-field">
+          <label for="f-altitude">Nadmořská výška (m)</label>
+          <input type="number" id="f-altitude" min="0" step="1">
+        </div>
+        <div class="form-field">
+          <label for="f-duration">Čas (v minutách)</label>
+          <input type="number" id="f-duration" min="0" step="5" placeholder="např. 240 pro 4 h">
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Moje hodnocení</h2>
+      <p class="text-muted" style="margin-top:-8px;">Nepovinné — cokoliv nechceš hodnotit, nech na „Nehodnoceno“.</p>
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="f-rate-technical">Technická obtížnost</label>
+          <select id="f-rate-technical" class="rating-select"><option value="">Nehodnoceno</option></select>
+        </div>
+        <div class="form-field">
+          <label for="f-rate-physical">Fyzická náročnost</label>
+          <select id="f-rate-physical" class="rating-select"><option value="">Nehodnoceno</option></select>
+        </div>
+        <div class="form-field">
+          <label for="f-rate-exposure">Expozice</label>
+          <select id="f-rate-exposure" class="rating-select"><option value="">Nehodnoceno</option></select>
+        </div>
+        <div class="form-field">
+          <label for="f-rate-views">Výhledy</label>
+          <select id="f-rate-views" class="rating-select"><option value="">Nehodnoceno</option></select>
+        </div>
+        <div class="form-field">
+          <label for="f-rate-overall">Celkové hodnocení</label>
+          <select id="f-rate-overall" class="rating-select"><option value="">Nehodnoceno</option></select>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Poznámka, trasa, fotografie, zdroj</h2>
+      <div class="form-grid">
+        <div class="form-field form-field--full">
+          <label for="f-note">Moje poznámka</label>
+          <textarea id="f-note" placeholder="Volný text — dojmy, počasí, doporučení do budoucna…"></textarea>
+        </div>
+        <div class="form-field">
+          <label for="f-track">Soubor s trasou (GPX/TCX)</label>
+          <input type="text" id="f-track" placeholder="např. donnerkogel-2023.gpx">
+          <span class="hint">Jen název souboru — formulář sám doplní složku <code>gpx/</code>. Soubor tam nahraj ručně.</span>
+        </div>
+        <div class="form-field">
+          <label for="f-photos">Fotografie (název souboru na řádek)</label>
+          <textarea id="f-photos" placeholder="01.jpg&#10;02.jpg"></textarea>
+          <span class="hint">Formulář sám doplní složku <code>photos/&lt;id&gt;/</code>. Soubory tam nahraj ručně.</span>
+        </div>
+        <div class="form-field">
+          <label for="f-source">Odkaz na zdroj / oficiální popis</label>
+          <input type="url" id="f-source" placeholder="https://…">
+        </div>
+      </div>
+    </section>
+
+    <div class="notice notice--warn" id="form-error" hidden></div>
+
+    <div class="flex-wrap-gap" style="margin:24px 0;">
+      <button type="submit" class="btn btn--primary">Vygenerovat záznam</button>
+      <button type="reset" class="btn btn--outline">Vymazat formulář</button>
+    </div>
+  </form>
+
+  <section class="section" id="result-section" hidden>
+    <h2>Vygenerovaný záznam</h2>
+    <p class="text-muted">ID záznamu: <code id="result-id"></code></p>
+    <div class="output-box">
+      <textarea id="result-json" readonly></textarea>
+      <div class="output-actions">
+        <button type="button" class="btn btn--outline btn--sm" id="btn-copy">Kopírovat JSON</button>
+        <button type="button" class="btn btn--outline btn--sm" id="btn-download">Stáhnout jako .json</button>
+      </div>
+    </div>
+
+    <div class="notice notice--ok" id="copy-notice" hidden>Zkopírováno do schránky.</div>
+
+    <h2 style="margin-top:32px;">Jak záznam zařadit do aplikace</h2>
+    <ol class="steps">
+      <li>Otevři soubor <code>data/ferraty.json</code> a najdi pole <code>"records"</code>.</li>
+      <li>Vlož zkopírovaný záznam na konec pole (za poslední <code>}</code> předchozího záznamu přidej čárku a pak nový záznam).</li>
+      <li>Pokud máš GPX/TCX trasu, nahraj soubor do složky <code>gpx/</code> pod stejným názvem, jaký je uvedený v poli <code>track.file</code> výše.</li>
+      <li>Pokud máš fotografie, vytvoř složku <code>photos/<span id="steps-id">ID</span>/</code> a nahraj do ní soubory se stejnými názvy, jaké jsou uvedené v poli <code>photos</code>.</li>
+      <li>Ulož a nahraj změny na hosting (případně commitni a pushni). Seznam, mapa i statistiky se při dalším načtení stránky aktualizují automaticky — nikde jinde nic upravovat nemusíš.</li>
+    </ol>
+  </section>
+
+</main>
+
+<footer id="app-footer" class="site-footer"></footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/add.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>Mapa ferrat | Moje ferraty</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="mapa">
+
+<header id="app-header" class="site-header"></header>
+
+<main class="container">
+  <div class="section__head">
+    <div>
+      <h1>Mapa</h1>
+      <p class="page-lead">Všechny ferraty se známými souřadnicemi. Klikni na bod pro rychlý náhled a odkaz na detail.</p>
+    </div>
+  </div>
+
+  <div class="flex-wrap-gap" style="margin-bottom:14px;">
+    <span class="badge badge--done">● Dokončeno</span>
+    <span class="badge badge--attempt">● Pokus</span>
+    <span class="badge badge--unfinished">● Nedokončeno</span>
+  </div>
+
+  <div class="map-container">
+    <div id="map-full"></div>
+  </div>
+
+  <p id="map-note" class="text-faint" style="margin-top:12px;"></p>
+</main>
+
+<footer id="app-footer" class="site-footer"></footer>
+
+<script src="assets/vendor/leaflet/leaflet.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/map.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>Ferraty — seznam | Moje ferraty</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="ferraty">
+
+<header id="app-header" class="site-header"></header>
+
+<main class="container">
+  <div class="section__head">
+    <div>
+      <h1>Ferraty</h1>
+      <p class="page-lead">Kompletní seznam. Řaď kliknutím na záhlaví sloupce, filtruj a hledej vpravo/vlevo v panelu níže.</p>
+    </div>
+  </div>
+
+  <form id="filters" class="filters" role="search">
+    <div class="filter-field filter-field--grow">
+      <label for="f-search">Hledat</label>
+      <input type="search" id="f-search" placeholder="Název nebo oblast…">
+    </div>
+    <div class="filter-field">
+      <label for="f-country">Země</label>
+      <select id="f-country"><option value="">Všechny</option></select>
+    </div>
+    <div class="filter-field">
+      <label for="f-difficulty">Obtížnost</label>
+      <select id="f-difficulty"><option value="">Všechny</option></select>
+    </div>
+    <div class="filter-field">
+      <label for="f-year">Rok</label>
+      <select id="f-year"><option value="">Všechny</option></select>
+    </div>
+    <div class="filter-field">
+      <label for="f-status">Stav</label>
+      <select id="f-status">
+        <option value="">Všechny</option>
+        <option value="dokončeno">Dokončeno</option>
+        <option value="pokus">Pokus</option>
+        <option value="nedokončeno">Nedokončeno</option>
+      </select>
+    </div>
+    <button type="button" id="f-reset" class="btn btn--outline btn--sm filters__reset">Zrušit filtry</button>
+  </form>
+
+  <p id="result-count" class="filters__count"></p>
+
+  <div class="table-wrap">
+    <div class="table-scroll">
+      <table class="ferraty-table" id="ferraty-table">
+        <thead>
+          <tr>
+            <th><button data-sort="name">Název <span class="sort-arrow"></span></button></th>
+            <th><button data-sort="country">Země <span class="sort-arrow"></span></button></th>
+            <th>Oblast</th>
+            <th><button data-sort="date">Datum <span class="sort-arrow"></span></button></th>
+            <th><button data-sort="difficulty">Obtížnost <span class="sort-arrow"></span></button></th>
+            <th>Stav</th>
+            <th>Hodnocení</th>
+          </tr>
+        </thead>
+        <tbody id="ferraty-tbody">
+          <tr><td colspan="7" class="empty-state">Načítám…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<footer id="app-footer" class="site-footer"></footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/list.js"></script>
+</body>
+</html>

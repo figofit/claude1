@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>Moje ferraty — přehled</title>
+<meta name="description" content="Osobní evidence absolvovaných via ferrat: přehled, mapa, statistiky a snadné přidávání nových záznamů.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="prehled">
+
+<header id="app-header" class="site-header"></header>
+
+<main class="container">
+
+  <section class="hero">
+    <div class="hero__content">
+      <div class="hero__eyebrow">Osobní horský deník</div>
+      <h1>Moje ferraty</h1>
+      <p>Evidence všech absolvovaných, rozpracovaných i nedokončených via ferrat — s mapou, statistikami a poznámkami z hor.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="ferraty.html">Zobrazit seznam</a>
+        <a class="btn btn--ghost" href="mapa.html">Otevřít mapu</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div id="stat-row" class="stat-row" aria-live="polite">
+      <div class="stat-tile"><div class="stat-tile__value">…</div><div class="stat-tile__label">Načítám data</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__head">
+      <h2>Poslední záznamy</h2>
+      <a href="ferraty.html">Celý seznam →</a>
+    </div>
+    <div id="latest-list" class="table-wrap">
+      <p class="empty-state">Načítám…</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="callout">
+      Chybí ti tu tvoje ferrata? Přidání nového záznamu nevyžaduje žádný backend ani úpravu kódu —
+      stačí vyplnit formulář na stránce <a href="pridat.html">Přidat ferratu</a> a vygenerovaný záznam
+      vložit do <code>data/ferraty.json</code>.
+    </div>
+  </section>
+
+</main>
+
+<footer id="app-footer" class="site-footer"></footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/home.js"></script>
+</body>
+</html>

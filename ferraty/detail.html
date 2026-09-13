@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>Detail ferraty | Moje ferraty</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="ferraty">
+
+<header id="app-header" class="site-header"></header>
+
+<main class="container" id="detail-root">
+  <p class="detail-breadcrumb"><a href="ferraty.html">Ferraty</a> / <span id="crumb-name">…</span></p>
+  <p class="empty-state" id="loading-state">Načítám záznam…</p>
+
+  <div id="detail-content" hidden>
+    <div class="detail-header">
+      <h1 id="d-name" class="mt-0"></h1>
+      <span id="d-status" class="badge"></span>
+      <span id="d-difficulty" class="badge badge--difficulty"></span>
+    </div>
+    <p class="detail-sub" id="d-sub"></p>
+
+    <div class="fact-list" id="d-facts"></div>
+
+    <div class="detail-layout">
+      <div>
+        <section class="section" style="margin-top:0;">
+          <h2>Poznámka</h2>
+          <div id="d-note"></div>
+        </section>
+
+        <section class="section" id="gallery-section">
+          <h2>Fotografie</h2>
+          <div id="d-gallery"></div>
+        </section>
+      </div>
+
+      <aside>
+        <div class="sidebar-card">
+          <h3>Moje hodnocení</h3>
+          <div class="rating-grid" id="d-ratings"></div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Na mapě</h3>
+          <div class="map-container"><div id="map-mini"></div></div>
+          <p class="text-faint" id="d-map-note" style="margin-top:8px;font-size:0.8rem;"></p>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Odkazy</h3>
+          <div class="flex-wrap-gap" id="d-links"></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer id="app-footer" class="site-footer"></footer>
+
+<script src="assets/vendor/leaflet/leaflet.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/detail.js"></script>
+</body>
+</html>

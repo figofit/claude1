@@ -1,0 +1,182 @@
+/* Moje ferraty — logika stránky Přidat ferratu (pridat.html) */
+(function () {
+  "use strict";
+
+  let existingIds = new Set();
+
+  function fillRatingOptions() {
+    document.querySelectorAll(".rating-select").forEach((select) => {
+      for (let i = 1; i <= 5; i++) {
+        const opt = document.createElement("option");
+        opt.value = String(i);
+        opt.textContent = `${i} / 5`;
+        select.appendChild(opt);
+      }
+    });
+  }
+
+  function orNull(value) {
+    const v = (value || "").trim();
+    return v === "" ? null : v;
+  }
+
+  function numOrNull(value) {
+    if (value === "" || value === null || value === undefined) return null;
+    const n = Number(value);
+    return isNaN(n) ? null : n;
+  }
+
+  function extensionOf(filename) {
+    const m = /\.([a-zA-Z0-9]+)$/.exec(filename.trim());
+    const ext = m ? m[1].toLowerCase() : "gpx";
+    return ext === "tcx" ? "tcx" : "gpx";
+  }
+
+  function baseSlug(name, date) {
+    let slug = Ferraty.slugify(name);
+    const year = date ? date.slice(0, 4) : null;
+    if (year) slug += "-" + year;
+    return slug || "ferrata";
+  }
+
+  function uniqueId(base) {
+    if (!existingIds.has(base)) return base;
+    let i = 2;
+    while (existingIds.has(`${base}-${i}`)) i++;
+    return `${base}-${i}`;
+  }
+
+  function val(id) {
+    return document.getElementById(id).value;
+  }
+
+  function buildRecord() {
+    const name = val("f-name").trim();
+    const date = orNull(val("f-date"));
+    const id = uniqueId(baseSlug(name, date));
+
+    const lat = val("f-lat");
+    const lng = val("f-lng");
+    const coordinates = lat !== "" && lng !== "" ? { lat: Number(lat), lng: Number(lng) } : null;
+
+    const grade = orNull(val("f-grade"));
+    const difficulty = grade ? { grade, scale: orNull(val("f-scale")) } : null;
+
+    const ratingKeys = ["technical", "physical", "exposure", "views", "overall"];
+    const ratingValues = ratingKeys.map((k) => numOrNull(val(`f-rate-${k}`)));
+    const hasAnyRating = ratingValues.some((v) => v !== null);
+    const myRating = hasAnyRating
+      ? ratingKeys.reduce((obj, k, i) => Object.assign(obj, { [k]: ratingValues[i] }), {})
+      : null;
+
+    const trackFileName = val("f-track").trim();
+    const track = trackFileName ? { file: `gpx/${trackFileName}`, format: extensionOf(trackFileName) } : null;
+
+    const photos = val("f-photos")
+      .split("\n")
+      .map((l) => l.trim())
+      .filter(Boolean)
+      .map((f) => `photos/${id}/${f}`);
+
+    const now = new Date().toISOString();
+
+    return {
+      id,
+      type: "ferrata",
+      name,
+      country: orNull(val("f-country")),
+      region: orNull(val("f-region")),
+      locality: orNull(val("f-locality")),
+      coordinates,
+      date,
+      status: val("f-status"),
+      difficulty,
+      length_m: numOrNull(val("f-length")),
+      elevationGain_m: numOrNull(val("f-gain")),
+      summit: orNull(val("f-summit")),
+      altitude_m: numOrNull(val("f-altitude")),
+      duration_min: numOrNull(val("f-duration")),
+      myRating,
+      note: orNull(val("f-note")),
+      track,
+      photos,
+      sourceUrl: orNull(val("f-source")),
+      relatedIds: [],
+      createdAt: now,
+      updatedAt: now,
+    };
+  }
+
+  function showError(message) {
+    const el = document.getElementById("form-error");
+    el.textContent = message;
+    el.hidden = false;
+  }
+
+  function hideError() {
+    document.getElementById("form-error").hidden = true;
+  }
+
+  function onSubmit(evt) {
+    evt.preventDefault();
+    hideError();
+
+    if (!val("f-name").trim()) {
+      showError("Vyplň prosím alespoň název ferraty.");
+      return;
+    }
+
+    const record = buildRecord();
+    const json = JSON.stringify(record, null, 2) + ",";
+
+    document.getElementById("result-id").textContent = record.id;
+    document.getElementById("result-json").value = json;
+    document.getElementById("steps-id").textContent = record.id;
+    document.getElementById("result-section").hidden = false;
+    document.getElementById("copy-notice").hidden = true;
+    document.getElementById("result-section").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function onCopy() {
+    const textarea = document.getElementById("result-json");
+    textarea.select();
+    navigator.clipboard
+      .writeText(textarea.value)
+      .then(() => {
+        document.getElementById("copy-notice").hidden = false;
+      })
+      .catch(() => {
+        document.execCommand("copy");
+        document.getElementById("copy-notice").hidden = false;
+      });
+  }
+
+  function onDownload() {
+    const id = document.getElementById("result-id").textContent || "ferrata";
+    const blob = new Blob([document.getElementById("result-json").value], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${id}.json`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  }
+
+  async function init() {
+    fillRatingOptions();
+    try {
+      const records = await Ferraty.loadAll();
+      existingIds = new Set(records.map((r) => r.id));
+    } catch (err) {
+      console.warn("Nepodařilo se načíst existující data, kontrola duplicitních ID bude vynechána.", err);
+    }
+
+    document.getElementById("add-form").addEventListener("submit", onSubmit);
+    document.getElementById("btn-copy").addEventListener("click", onCopy);
+    document.getElementById("btn-download").addEventListener("click", onDownload);
+  }
+
+  document.addEventListener("DOMContentLoaded", init);
+})();
