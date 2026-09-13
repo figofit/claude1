@@ -1,0 +1,267 @@
+---
+import { render } from 'astro:content';
+import Layout from '../../components/Layout.astro';
+import MapCanvas from '../../components/MapCanvas.astro';
+import StatCard from '../../components/StatCard.astro';
+import { getAtlasData, byId } from '../../lib/content';
+import { computeStats } from '../../lib/stats';
+import {
+  formatDateRange,
+  formatKm,
+  formatElevation,
+  formatMeters,
+  formatDate,
+  TRANSPORT_LABELS,
+  ACTIVITY_TYPE_LABELS,
+  RESULT_LABELS,
+  PLACE_TYPE_LABELS,
+} from '../../lib/format';
+
+export async function getStaticPaths() {
+  const { trips } = await getAtlasData();
+  return trips.map((trip) => ({ params: { trip: trip.id }, props: { tripId: trip.id } }));
+}
+
+const { tripId } = Astro.props;
+const data = await getAtlasData();
+const trip = data.trips.find((t) => t.id === tripId)!;
+const { Content } = await render(trip);
+
+const placesById = byId(data.places);
+const peaksById = byId(data.peaks);
+const ferratasById = byId(data.ferratas);
+const ridgesById = byId(data.ridges);
+
+const tripRoutes = data.routes.filter((r) => r.data.trip.id === tripId);
+const tripAscents = data.ascents.filter((a) => a.data.trip.id === tripId);
+
+const stats = computeStats({
+  trips: [trip],
+  places: data.places,
+  routes: tripRoutes,
+  peaks: data.peaks,
+  ferratas: data.ferratas,
+  ridges: data.ridges,
+  ascents: tripAscents,
+});
+
+const visitedPlaceIds = new Set<string>();
+for (const r of tripRoutes) {
+  visitedPlaceIds.add(r.data.from.id);
+  visitedPlaceIds.add(r.data.to.id);
+}
+for (const a of tripAscents) if (a.data.from) visitedPlaceIds.add(a.data.from.id);
+const visitedPlaces = [...visitedPlaceIds]
+  .map((id) => placesById.get(id))
+  .filter((p): p is NonNullable<typeof p> => Boolean(p) && ['city', 'town', 'village'].includes(p!.data.type));
+
+const statusLabel: Record<string, string> = { ongoing: 'Probíhá', planned: 'Plánováno', completed: 'Dokončeno' };
+---
+
+<Layout title={trip.data.title} description={trip.data.summary}>
+  <section class="container page-head">
+    <p class="eyebrow">{formatDateRange(trip.data.dateStart, trip.data.dateEnd, trip.data.datePrecision)} · {trip.data.countries.join(' · ')}</p>
+    <h1>{trip.data.title}</h1>
+    <div class="head-tags">
+      <span class="tag">{statusLabel[trip.data.status]}</span>
+      {trip.data.tags.map((t) => <span class="tag">{t}</span>)}
+    </div>
+  </section>
+
+  {(tripRoutes.length > 0 || tripAscents.length > 0) && (
+    <section class="container">
+      <MapCanvas id={`trip-map-${trip.id}`} variant="trip" tripId={trip.id} height="480px" />
+    </section>
+  )}
+
+  <section class="section container">
+    <div class="stat-grid">
+      <StatCard value={String(visitedPlaces.length)} label="navštívených míst" />
+      <StatCard value={String(tripRoutes.length)} label="přesunů" />
+      <StatCard value={String(tripAscents.length)} label={tripAscents.length === 1 ? 'horská výprava' : 'horských výprav'} />
+      <StatCard
+        value={formatKm(stats.kmFoot.value + stats.kmCar.value + stats.kmTrain.value + stats.kmBus.value + stats.kmOtherLand.value + stats.kmBoat.value + stats.kmAir.value)}
+        label="najeto/našlapáno celkem"
+        note={stats.kmFoot.complete ? undefined : '*'}
+      />
+      {stats.highestPointM !== undefined && <StatCard value={formatMeters(stats.highestPointM)} label="nejvýše dosažený bod" />}
+    </div>
+  </section>
+
+  {trip.body && (
+    <section class="section container prose">
+      <Content />
+    </section>
+  )}
+
+  {tripAscents.length > 0 && (
+    <section class="section container">
+      <h2>Horské výpravy</h2>
+      <div class="ascent-list">
+        {tripAscents.map((a) => {
+          const target = a.data.peak ? peaksById.get(a.data.peak.id) : a.data.ferrata ? ferratasById.get(a.data.ferrata.id) : a.data.ridge ? ridgesById.get(a.data.ridge.id) : undefined;
+          return (
+            <a class="ascent-row" href={`/vystupy/${a.id}`}>
+              <div>
+                <strong>{target?.data.name ?? '—'}</strong>
+                <span class="text-muted"> · {ACTIVITY_TYPE_LABELS[a.data.activityType]}</span>
+              </div>
+              <div class="ascent-meta">
+                {a.data.date && <span>{formatDate(a.data.date, a.data.datePrecision)}</span>}
+                {a.data.maxElevationM !== undefined && <span>{formatElevation(a.data.maxElevationM)}</span>}
+                <span class={`result result-${a.data.result}`}>{RESULT_LABELS[a.data.result]}</span>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </section>
+  )}
+
+  {tripRoutes.length > 0 && (
+    <section class="section container">
+      <h2>Přesuny</h2>
+      <div class="route-list">
+        {tripRoutes.map((r) => (
+          <div class="route-row">
+            <span>{placesById.get(r.data.from.id)?.data.name ?? r.data.from.id} → {placesById.get(r.data.to.id)?.data.name ?? r.data.to.id}</span>
+            <span class="text-muted">{TRANSPORT_LABELS[r.data.mode]}{r.data.distanceKm ? ` · ${formatKm(r.data.distanceKm)}` : ''}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {visitedPlaces.length > 0 && (
+    <section class="section container">
+      <h2>Navštívená místa</h2>
+      <div class="place-tags">
+        {visitedPlaces.map((p) => <span class="tag">{p!.data.name} <span class="text-faint">· {PLACE_TYPE_LABELS[p!.data.type]}</span></span>)}
+      </div>
+    </section>
+  )}
+
+  {trip.data.photos.length > 0 && (
+    <section class="section container">
+      <h2>Fotky</h2>
+      <div class="photo-grid">
+        {trip.data.photos.map((src) => <img src={src} alt="" loading="lazy" />)}
+      </div>
+    </section>
+  )}
+</Layout>
+
+<style>
+  .page-head {
+    padding-block: var(--space-6) var(--space-4);
+  }
+
+  .page-head h1 {
+    font-size: var(--text-4xl);
+  }
+
+  .head-tags {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    margin-top: var(--space-3);
+  }
+
+  .prose :global(p) {
+    max-width: 70ch;
+    font-size: var(--text-lg);
+    color: var(--text);
+  }
+
+  .prose :global(h2) {
+    font-size: var(--text-2xl);
+    margin-top: var(--space-6);
+  }
+
+  h2 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-4);
+  }
+
+  .ascent-list,
+  .route-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .ascent-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.15s ease;
+  }
+
+  .ascent-row:hover {
+    border-color: var(--accent);
+  }
+
+  .ascent-meta {
+    display: flex;
+    gap: var(--space-3);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    align-items: center;
+  }
+
+  .result {
+    font-weight: 600;
+    padding: 0.2em 0.7em;
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    background: var(--bg-elevated-2);
+  }
+
+  .result-summit,
+  .result-repeat_summit {
+    color: #7cc48f;
+  }
+
+  .result-not_completed,
+  .result-attempt {
+    color: var(--accent);
+  }
+
+  .route-row {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    padding: var(--space-3) var(--space-4);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+  }
+
+  .place-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--space-3);
+  }
+
+  .photo-grid img {
+    border-radius: var(--radius-md);
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+</style>

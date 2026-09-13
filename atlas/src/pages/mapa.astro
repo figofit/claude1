@@ -1,0 +1,30 @@
+---
+import Layout from '../components/Layout.astro';
+import MapCanvas from '../components/MapCanvas.astro';
+---
+
+<Layout title="Mapa" description="Interaktivní mapa všech cest, tras, vrcholů a výprav.">
+  <section class="container page-head">
+    <p class="eyebrow">Mapa</p>
+    <h1>Kde jsem byl a jak jsem se tam dostal</h1>
+    <p class="text-muted">
+      Filtruj podle druhu dopravy nebo typu místa. Přerušovaná a tečkovaná čára znamená, že trasa
+      není zaznamenaná přesnou GPS stopou - je jen rekonstruovaná nebo orientační.
+    </p>
+  </section>
+
+  <section class="container">
+    <MapCanvas id="full-map" variant="full" height="calc(100vh - 260px)" />
+  </section>
+</Layout>
+
+<style>
+  .page-head {
+    padding-block: var(--space-6) var(--space-4);
+    max-width: 720px;
+  }
+
+  .page-head h1 {
+    font-size: var(--text-3xl);
+  }
+</style>

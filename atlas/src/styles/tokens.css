@@ -1,0 +1,73 @@
+/*
+ * Design tokeny cestovatelského atlasu.
+ * Záměrně jeden pevný tmavý "expediční" vzhled (jako Gaia GPS/Strava dark
+ * mode), ne generický admin - mapa má být to nejjasnější na stránce.
+ * Barvy tras/míst jsou sladěné s src/lib/colors.ts (ta má vlastní hex kvůli
+ * MapLibre, ale odstíny jsou schválně identické).
+ */
+
+:root {
+  /* povrchy */
+  --bg: #14181c;
+  --bg-elevated: #1b2027;
+  --bg-elevated-2: #242a33;
+  --border: #323a44;
+  --border-soft: #262c34;
+
+  /* text */
+  --text: #ece7dc;
+  --text-muted: #a7aeb8;
+  --text-faint: #6b7280;
+
+  /* akcent - zlatá, sdílená s barvou vrcholů na mapě */
+  --accent: #d4a24c;
+  --accent-hover: #e3b563;
+  --accent-ink: #241d0f;
+
+  /* sémantické (ladí s src/lib/colors.ts) */
+  --c-foot: #c1622d;
+  --c-car: #3a6ea5;
+  --c-train: #7d5ba6;
+  --c-bus: #2e8b7e;
+  --c-hitchhike: #d4a24c;
+  --c-boat: #4fa8c9;
+  --c-plane: #8fa3b0;
+  --c-mixed: #9b9b93;
+  --c-ferrata: #ad3b32;
+  --c-ridge: #9c7a3c;
+
+  --font-display: 'Fraunces Variable', 'Fraunces', ui-serif, Georgia, serif;
+  --font-body: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.15rem;
+  --text-xl: 1.4rem;
+  --text-2xl: 1.85rem;
+  --text-3xl: 2.4rem;
+  --text-4xl: clamp(2.6rem, 5vw, 3.6rem);
+  --text-5xl: clamp(3rem, 7vw, 5rem);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-full: 999px;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.45);
+
+  --max-width: 1240px;
+
+  color-scheme: dark;
+}

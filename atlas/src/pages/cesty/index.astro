@@ -1,0 +1,63 @@
+---
+import Layout from '../../components/Layout.astro';
+import TripCard from '../../components/TripCard.astro';
+import { getAtlasData, sortTripsByDate } from '../../lib/content';
+
+const { trips } = await getAtlasData();
+const sorted = sortTripsByDate(trips);
+
+const byYear = new Map<number, typeof sorted>();
+for (const trip of sorted) {
+  const year = trip.data.dateStart.getFullYear();
+  if (!byYear.has(year)) byYear.set(year, []);
+  byYear.get(year)!.push(trip);
+}
+const years = [...byYear.keys()].sort((a, b) => b - a);
+---
+
+<Layout title="Cesty" description="Všechny výpravy v atlasu, seřazené podle roku.">
+  <section class="container page-head">
+    <p class="eyebrow">Timeline</p>
+    <h1>Cesty</h1>
+    <p class="text-muted">{sorted.length} {sorted.length === 1 ? 'zaznamenaná výprava' : 'zaznamenaných výprav'}.</p>
+  </section>
+
+  <section class="container">
+    {
+      years.length === 0 ? (
+        <p class="text-muted">Zatím tu není žádná cesta - přidej první přes `npm run new:trip`.</p>
+      ) : (
+        years.map((year) => (
+          <div class="year-block">
+            <h2>{year}</h2>
+            <div class="trip-grid">
+              {byYear.get(year)!.map((trip) => <TripCard trip={trip} />)}
+            </div>
+          </div>
+        ))
+      )
+    }
+  </section>
+</Layout>
+
+<style>
+  .page-head {
+    padding-block: var(--space-6) var(--space-4);
+  }
+
+  .year-block {
+    margin-bottom: var(--space-7);
+  }
+
+  .year-block h2 {
+    font-size: var(--text-2xl);
+    color: var(--accent);
+    margin-bottom: var(--space-4);
+  }
+
+  .trip-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-4);
+  }
+</style>

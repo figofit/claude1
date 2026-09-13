@@ -1,0 +1,124 @@
+---
+import Layout from '../../components/Layout.astro';
+import MapCanvas from '../../components/MapCanvas.astro';
+import StatCard from '../../components/StatCard.astro';
+import { getAtlasData } from '../../lib/content';
+import {
+  formatDate,
+  formatKm,
+  formatElevation,
+  formatMeters,
+  formatDuration,
+  formatDays,
+  NEZNAMO,
+  ACTIVITY_TYPE_LABELS,
+  RESULT_LABELS,
+  TRACK_QUALITY_LABELS,
+} from '../../lib/format';
+
+export async function getStaticPaths() {
+  const { ascents } = await getAtlasData();
+  return ascents.map((a) => ({ params: { ascent: a.id }, props: { ascentId: a.id } }));
+}
+
+const { ascentId } = Astro.props;
+const data = await getAtlasData();
+const ascent = data.ascents.find((a) => a.id === ascentId)!;
+
+const trip = data.trips.find((t) => t.id === ascent.data.trip.id)!;
+const peak = ascent.data.peak ? data.peaks.find((p) => p.id === ascent.data.peak!.id) : undefined;
+const ferrata = ascent.data.ferrata ? data.ferratas.find((f) => f.id === ascent.data.ferrata!.id) : undefined;
+const ridge = ascent.data.ridge ? data.ridges.find((r) => r.id === ascent.data.ridge!.id) : undefined;
+const target = peak ?? ferrata ?? ridge;
+const fromPlace = ascent.data.from ? data.places.find((p) => p.id === ascent.data.from!.id) : undefined;
+const country = peak?.data.country ?? ferrata?.data.country ?? ridge?.data.country;
+---
+
+<Layout title={target ? `${target.data.name} - ${trip.data.title}` : trip.data.title}>
+  <section class="container page-head">
+    <p class="eyebrow">
+      {ascent.data.date ? formatDate(ascent.data.date, ascent.data.datePrecision) : NEZNAMO}
+      {country ? ` · ${country}` : ''}
+      · <a href={`/cesty/${trip.id}`}>{trip.data.title}</a>
+    </p>
+    <h1>{target?.data.name ?? 'Výstup'}</h1>
+    <div class="head-tags">
+      <span class="tag">{ACTIVITY_TYPE_LABELS[ascent.data.activityType]}</span>
+      <span class={`tag result-${ascent.data.result}`}>{RESULT_LABELS[ascent.data.result]}</span>
+      {peak && <a class="tag" href={`/vrcholy/${peak.id}`}>o vrcholu →</a>}
+      {ferrata && <a class="tag" href={`/ferraty/${ferrata.id}`}>o ferratě →</a>}
+      {ridge && <a class="tag" href={`/hrebenovky/${ridge.id}`}>o hřebenovce →</a>}
+    </div>
+  </section>
+
+  <section class="container">
+    <MapCanvas id={`ascent-map-${ascent.id}`} variant="trip" tripId={trip.id} height="420px" />
+  </section>
+
+  <section class="section container">
+    <div class="stat-grid">
+      <StatCard value={fromPlace?.data.name ?? NEZNAMO} label="start" />
+      <StatCard value={target?.data.name ?? NEZNAMO} label="cíl" />
+      <StatCard value={formatKm(ascent.data.distanceKm)} label="délka" />
+      <StatCard value={formatMeters(ascent.data.elevationGainM)} label="převýšení" />
+      <StatCard value={formatElevation(ascent.data.maxElevationM)} label="maximální výška" />
+      <StatCard value={formatDuration(ascent.data.durationMin)} label="čas" />
+      {ascent.data.days !== undefined && <StatCard value={formatDays(ascent.data.days)} label="počet dní" />}
+      <StatCard value={ascent.data.track ? TRACK_QUALITY_LABELS[ascent.data.track.quality] : 'Bez trasy'} label="kvalita trasy" />
+    </div>
+  </section>
+
+  {ascent.data.notes && (
+    <section class="section container prose">
+      <h2>Poznámka</h2>
+      <p>{ascent.data.notes}</p>
+    </section>
+  )}
+</Layout>
+
+<style>
+  .page-head {
+    padding-block: var(--space-6) var(--space-4);
+  }
+
+  .page-head h1 {
+    font-size: var(--text-4xl);
+  }
+
+  .page-head a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .head-tags {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    margin-top: var(--space-3);
+  }
+
+  .head-tags a.tag {
+    text-decoration: none;
+  }
+
+  .result-summit,
+  .result-repeat_summit {
+    color: #7cc48f;
+  }
+
+  .result-not_completed,
+  .result-attempt {
+    color: var(--accent);
+  }
+
+  .prose p {
+    max-width: 65ch;
+    font-size: var(--text-lg);
+    color: var(--text);
+    white-space: pre-line;
+  }
+
+  h2 {
+    font-size: var(--text-2xl);
+  }
+</style>

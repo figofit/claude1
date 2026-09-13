@@ -1,0 +1,103 @@
+---
+const nav = [
+  { href: '/mapa', label: 'Mapa' },
+  { href: '/cesty', label: 'Cesty' },
+  { href: '/vrcholy', label: 'Hory' },
+  { href: '/mista', label: 'Místa' },
+  { href: '/statistiky', label: 'Statistiky' },
+];
+const path = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container bar">
+    <a href="/" class="brand">
+      <span class="brand-mark">▲</span>
+      <span>Atlas cest</span>
+    </a>
+    <nav aria-label="Hlavní navigace">
+      <ul>
+        {
+          nav.map((item) => (
+            <li>
+              <a href={item.href} aria-current={path === item.href || path.startsWith(`${item.href}/`) ? 'page' : undefined}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding-block: var(--space-3);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--text);
+    flex-shrink: 0;
+  }
+
+  .brand-mark {
+    color: var(--accent);
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: var(--space-1);
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  nav ul::-webkit-scrollbar {
+    display: none;
+  }
+
+  nav a {
+    display: block;
+    padding: 0.5em 0.9em;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    white-space: nowrap;
+    transition: color 0.15s ease, background 0.15s ease;
+  }
+
+  nav a:hover {
+    color: var(--text);
+    background: var(--bg-elevated-2);
+  }
+
+  nav a[aria-current='page'] {
+    color: var(--accent-ink);
+    background: var(--accent);
+  }
+</style>

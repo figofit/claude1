@@ -1,0 +1,143 @@
+---
+import Layout from '../../components/Layout.astro';
+import { getAtlasData, isSummitResult } from '../../lib/content';
+import { formatElevation } from '../../lib/format';
+
+const data = await getAtlasData();
+
+const ascentsByPeak = new Map<string, typeof data.ascents>();
+for (const a of data.ascents) {
+  if (!a.data.peak) continue;
+  const id = a.data.peak.id;
+  if (!ascentsByPeak.has(id)) ascentsByPeak.set(id, []);
+  ascentsByPeak.get(id)!.push(a);
+}
+
+const rows = data.peaks
+  .map((peak) => {
+    const ascents = ascentsByPeak.get(peak.id) ?? [];
+    const summited = ascents.some((a) => isSummitResult(a.data.result));
+    return { peak, ascents, summited };
+  })
+  .sort((a, b) => (b.peak.data.elevation ?? 0) - (a.peak.data.elevation ?? 0));
+---
+
+<Layout title="Vrcholy" description="Katalog vrcholů a historie výstupů.">
+  <section class="container page-head">
+    <p class="eyebrow">Hory</p>
+    <h1>Vrcholy</h1>
+    <nav class="subnav">
+      <a href="/vrcholy" aria-current="page">Vrcholy</a>
+      <a href="/ferraty">Ferraty</a>
+      <a href="/hrebenovky">Hřebenovky</a>
+    </nav>
+  </section>
+
+  <section class="container">
+    {
+      rows.length === 0 ? (
+        <p class="text-muted">Zatím žádný vrchol - přidej ho přes `npm run new:peak`.</p>
+      ) : (
+        <div class="peak-grid">
+          {rows.map(({ peak, ascents, summited }) => (
+            <a class="peak-card" href={`/vrcholy/${peak.id}`}>
+              <div class="peak-card-top">
+                <span class="text-faint">{peak.data.country}{peak.data.range ? ` · ${peak.data.range}` : ''}</span>
+                <span class={`badge ${summited ? 'badge-done' : 'badge-open'}`}>{summited ? 'zdoláno' : ascents.length > 0 ? 'pokus' : 'v katalogu'}</span>
+              </div>
+              <h3>{peak.data.name}</h3>
+              <span class="elevation">{formatElevation(peak.data.elevation)}</span>
+            </a>
+          ))}
+        </div>
+      )
+    }
+  </section>
+</Layout>
+
+<style>
+  .page-head {
+    padding-block: var(--space-6) var(--space-4);
+  }
+
+  .subnav {
+    display: flex;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+  }
+
+  .subnav a {
+    text-decoration: none;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-muted);
+    padding: 0.5em 1.1em;
+    border-radius: var(--radius-full);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-soft);
+  }
+
+  .subnav a[aria-current='page'] {
+    color: var(--accent-ink);
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .peak-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: var(--space-4);
+    padding-bottom: var(--space-8);
+  }
+
+  .peak-card {
+    display: block;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .peak-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .peak-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--text-xs);
+    margin-bottom: var(--space-3);
+  }
+
+  .badge {
+    padding: 0.2em 0.7em;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+  }
+
+  .badge-done {
+    background: rgba(124, 196, 143, 0.15);
+    color: #7cc48f;
+  }
+
+  .badge-open {
+    background: var(--bg-elevated-2);
+    color: var(--text-faint);
+  }
+
+  .peak-card h3 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-1);
+  }
+
+  .elevation {
+    font-family: var(--font-display);
+    color: var(--accent);
+    font-size: var(--text-lg);
+  }
+</style>

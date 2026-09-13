@@ -1,0 +1,35 @@
+{
+  "name": "cestovatelsky-atlas",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "tracks:build": "node scripts/build-tracks.mjs",
+    "predev": "node scripts/build-tracks.mjs && node scripts/copy-maplibre-assets.mjs",
+    "prebuild": "node scripts/build-tracks.mjs && node scripts/copy-maplibre-assets.mjs",
+    "new:trip": "node scripts/new-entry.mjs trip",
+    "new:place": "node scripts/new-entry.mjs place",
+    "new:route": "node scripts/new-entry.mjs route",
+    "new:peak": "node scripts/new-entry.mjs peak",
+    "new:ferrata": "node scripts/new-entry.mjs ferrata",
+    "new:ridge": "node scripts/new-entry.mjs ridge",
+    "new:ascent": "node scripts/new-entry.mjs ascent"
+  },
+  "dependencies": {
+    "@fontsource-variable/fraunces": "^5.3.0",
+    "@fontsource/inter": "^5.3.0",
+    "astro": "^7.3.2",
+    "maplibre-gl": "^6.9.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@types/geojson": "^7946.0.16",
+    "@types/node": "^22.20.2",
+    "typescript": "^6.0.3"
+  }
+}

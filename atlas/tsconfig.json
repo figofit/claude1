@@ -1,0 +1,9 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist", "node_modules", "public/maplibre-gl-worker.mjs", "public/maplibre-gl-shared.mjs"],
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "types": ["node", "geojson"]
+  }
+}

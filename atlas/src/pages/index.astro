@@ -1,0 +1,102 @@
+---
+import Layout from '../components/Layout.astro';
+import MapCanvas from '../components/MapCanvas.astro';
+import StatCard from '../components/StatCard.astro';
+import TripCard from '../components/TripCard.astro';
+import { getAtlasData, sortTripsByDate } from '../lib/content';
+import { computeStats } from '../lib/stats';
+import { countLabel, formatKm } from '../lib/format';
+
+const data = await getAtlasData();
+const stats = computeStats(data);
+const recentTrips = sortTripsByDate(data.trips).slice(0, 3);
+
+const totalKm =
+  stats.kmFoot.value + stats.kmCar.value + stats.kmTrain.value + stats.kmBus.value + stats.kmOtherLand.value + stats.kmBoat.value + stats.kmAir.value;
+---
+
+<Layout title="Atlas cest" description="Osobní cestovatelský atlas - mapa cest, hor, ferrat a výprav, budovaná roky.">
+  <section class="hero container">
+    <p class="eyebrow">Osobní cestovatelský atlas</p>
+    <h1>Každá cesta na jedné mapě, roky vedle sebe.</h1>
+    <p class="hero-lead">
+      Pozemní trasy, lety, pěší výpravy, vrcholy a ferraty - jedna rostoucí databáze míst a cest,
+      která se dá donekonečna doplňovat, aniž by bylo potřeba přestavovat web.
+    </p>
+    <div class="hero-actions">
+      <a href="/mapa" class="btn btn-accent">Otevřít mapu</a>
+      <a href="/cesty" class="btn btn-ghost">Procházet cesty</a>
+    </div>
+  </section>
+
+  <section class="container">
+    <MapCanvas id="home-map" variant="full" height="560px" />
+  </section>
+
+  <section class="section container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Zatím v číslech</p>
+        <h2>Dlouhodobé statistiky</h2>
+      </div>
+      <a href="/statistiky" class="btn btn-ghost">Všechny statistiky →</a>
+    </div>
+    <div class="stat-grid">
+      <StatCard value={String(stats.countriesVisited.length)} label={countLabel(stats.countriesVisited.length, { one: 'navštívená země', few: 'navštívené země', many: 'navštívené země', other: 'navštívených zemí' })} />
+      <StatCard value={String(stats.citiesCount)} label="navštívených měst" />
+      <StatCard value={String(stats.peaksCount)} label="zdolaných vrcholů" />
+      <StatCard value={String(stats.tripsCount)} label={countLabel(stats.tripsCount, { one: 'výprava', few: 'výpravy', many: 'výpravy', other: 'výprav' })} />
+      <StatCard value={formatKm(totalKm)} label="celkem najeto/nalétáno/našlapáno" note={stats.kmFoot.complete && stats.kmCar.complete ? undefined : '*'} />
+      <StatCard value={stats.highestPointM ? `${Math.round(stats.highestPointM)} m` : '—'} label="nejvýše dosažený bod" />
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Timeline</p>
+        <h2>Poslední výpravy</h2>
+      </div>
+      <a href="/cesty" class="btn btn-ghost">Všechny cesty →</a>
+    </div>
+    {
+      recentTrips.length > 0 ? (
+        <div class="trip-grid">
+          {recentTrips.map((trip) => <TripCard trip={trip} />)}
+        </div>
+      ) : (
+        <p class="text-muted">Zatím tu není žádná cesta - přidej první přes `npm run new:trip`.</p>
+      )
+    }
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    padding-block: var(--space-8) var(--space-6);
+    max-width: 760px;
+  }
+
+  .hero h1 {
+    font-size: var(--text-5xl);
+    margin-bottom: var(--space-4);
+  }
+
+  .hero-lead {
+    font-size: var(--text-lg);
+    max-width: 56ch;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    margin-top: var(--space-5);
+  }
+
+  .trip-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-4);
+  }
+</style>

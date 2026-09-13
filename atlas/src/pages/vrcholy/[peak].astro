@@ -1,0 +1,157 @@
+---
+import Layout from '../../components/Layout.astro';
+import MapCanvas from '../../components/MapCanvas.astro';
+import StatCard from '../../components/StatCard.astro';
+import { getAtlasData, isSummitResult, sortByDateDesc } from '../../lib/content';
+import { formatElevation, formatMeters, formatDate, RESULT_LABELS, ACTIVITY_TYPE_LABELS, NEZNAMO } from '../../lib/format';
+
+export async function getStaticPaths() {
+  const { peaks } = await getAtlasData();
+  return peaks.map((peak) => ({ params: { peak: peak.id }, props: { peakId: peak.id } }));
+}
+
+const { peakId } = Astro.props;
+const data = await getAtlasData();
+const peak = data.peaks.find((p) => p.id === peakId)!;
+
+const ascents = sortByDateDesc(data.ascents.filter((a) => a.data.peak?.id === peakId));
+const trips = new Map(data.trips.map((t) => [t.id, t]));
+const summited = ascents.some((a) => isSummitResult(a.data.result));
+const bestElevation = ascents.reduce((max, a) => Math.max(max, a.data.maxElevationM ?? 0), 0);
+---
+
+<Layout title={peak.data.name} description={peak.data.description}>
+  <section class="container page-head">
+    <p class="eyebrow">{peak.data.country}{peak.data.range ? ` · ${peak.data.range}` : ''} · <a href="/vrcholy">Vrcholy</a></p>
+    <h1>{peak.data.name}</h1>
+    <div class="head-tags">
+      <span class="tag">{formatElevation(peak.data.elevation)}</span>
+      <span class={`tag ${summited ? 'tag-done' : ''}`}>{summited ? 'Zdoláno' : ascents.length > 0 ? 'Zatím jen pokus' : 'Zatím nezdoláno'}</span>
+    </div>
+    {peak.data.description && <p class="description">{peak.data.description}</p>}
+  </section>
+
+  <section class="container">
+    <MapCanvas id={`peak-map-${peak.id}`} variant="mini" height="380px" />
+  </section>
+
+  <section class="section container">
+    <div class="stat-grid">
+      <StatCard value={String(ascents.length)} label={ascents.length === 1 ? 'zaznamenaný výstup' : 'zaznamenaných výstupů'} />
+      {bestElevation > 0 && <StatCard value={formatMeters(bestElevation)} label="nejvýše dosaženo" />}
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Historie výstupů</h2>
+    {
+      ascents.length === 0 ? (
+        <p class="text-muted">Zatím žádný zaznamenaný pokus. Přidej ho přes `npm run new:ascent`.</p>
+      ) : (
+        <div class="ascent-list">
+          {ascents.map((a) => (
+            <a class="ascent-row" href={`/vystupy/${a.id}`}>
+              <div>
+                <strong>{a.data.date ? formatDate(a.data.date, a.data.datePrecision) : NEZNAMO}</strong>
+                <span class="text-muted"> · {trips.get(a.data.trip.id)?.data.title} · {ACTIVITY_TYPE_LABELS[a.data.activityType]}</span>
+              </div>
+              <div class="ascent-meta">
+                {a.data.maxElevationM !== undefined && <span>{formatElevation(a.data.maxElevationM)}</span>}
+                <span class={`result result-${a.data.result}`}>{RESULT_LABELS[a.data.result]}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      )
+    }
+  </section>
+</Layout>
+
+<style>
+  .page-head {
+    padding-block: var(--space-6) var(--space-4);
+    max-width: 760px;
+  }
+
+  .page-head a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .page-head h1 {
+    font-size: var(--text-4xl);
+  }
+
+  .description {
+    margin-top: var(--space-4);
+    font-size: var(--text-lg);
+  }
+
+  .head-tags {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    margin-top: var(--space-3);
+  }
+
+  .tag-done {
+    background: rgba(124, 196, 143, 0.15);
+    color: #7cc48f;
+  }
+
+  h2 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-4);
+  }
+
+  .ascent-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .ascent-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.15s ease;
+  }
+
+  .ascent-row:hover {
+    border-color: var(--accent);
+  }
+
+  .ascent-meta {
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+  }
+
+  .result {
+    font-weight: 600;
+    padding: 0.2em 0.7em;
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    background: var(--bg-elevated-2);
+  }
+
+  .result-summit,
+  .result-repeat_summit {
+    color: #7cc48f;
+  }
+
+  .result-not_completed,
+  .result-attempt {
+    color: var(--accent);
+  }
+</style>

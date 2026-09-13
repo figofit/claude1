@@ -1,0 +1,171 @@
+---
+import Layout from '../components/Layout.astro';
+import StatCard from '../components/StatCard.astro';
+import { getAtlasData } from '../lib/content';
+import { computeStats, type PartialSum } from '../lib/stats';
+import { formatKm, formatMeters, countLabel } from '../lib/format';
+
+const data = await getAtlasData();
+const stats = computeStats(data);
+
+function km(v: PartialSum) {
+  return { value: formatKm(v.value), note: v.complete ? undefined : '*' };
+}
+
+const maxYearCount = Math.max(1, ...stats.tripsByYear.map((y) => y.count));
+const maxCountryCount = Math.max(1, ...stats.countriesByTrips.map((c) => c.count));
+
+const hasPartial = [stats.kmFoot, stats.kmCar, stats.kmTrain, stats.kmBus, stats.kmOtherLand, stats.kmBoat, stats.kmAir, stats.elevationGainFoot].some(
+  (s) => !s.complete,
+);
+---
+
+<Layout title="Statistiky" description="Dlouhodobé statistiky cestovatelského atlasu.">
+  <section class="container page-head">
+    <p class="eyebrow">Čísla</p>
+    <h1>Statistiky</h1>
+    <p class="text-muted">
+      Počítané automaticky ze všech uložených dat. Hvězdička (*) znamená, že součet je částečný -
+      některým záznamům chybí přesné číslo, takže se do součtu nepočítaly (radši neúplný součet než
+      vymyšlené číslo).
+    </p>
+  </section>
+
+  <section class="section container">
+    <h2>Přehled</h2>
+    <div class="stat-grid">
+      <StatCard value={String(stats.countriesVisited.length)} label={countLabel(stats.countriesVisited.length, { one: 'navštívená země', few: 'navštívené země', many: 'navštívené země', other: 'navštívených zemí' })} />
+      <StatCard value={String(stats.citiesCount)} label="navštívených měst" />
+      <StatCard value={`${stats.peaksCount} / ${stats.peaksCatalogCount}`} label="zdolaných vrcholů z katalogu" />
+      <StatCard value={`${stats.ferratasCount} / ${stats.ferratasCatalogCount}`} label="zdolaných ferrat z katalogu" />
+      <StatCard value={`${stats.ridgesCount} / ${stats.ridgesCatalogCount}`} label="zdolaných hřebenovek z katalogu" />
+      <StatCard value={String(stats.tripsCount)} label={countLabel(stats.tripsCount, { one: 'výprava', few: 'výpravy', many: 'výpravy', other: 'výprav' })} />
+      <StatCard value={stats.highestPointM ? formatMeters(stats.highestPointM) : '—'} label="nejvýše dosažený bod" />
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Kilometry podle druhu dopravy</h2>
+    <div class="stat-grid">
+      <StatCard value={km(stats.kmFoot).value} note={km(stats.kmFoot).note} label="pěšky (vč. horských výprav)" />
+      <StatCard value={km(stats.kmCar).value} note={km(stats.kmCar).note} label="autem" />
+      <StatCard value={km(stats.kmTrain).value} note={km(stats.kmTrain).note} label="vlakem" />
+      <StatCard value={km(stats.kmBus).value} note={km(stats.kmBus).note} label="autobusem" />
+      <StatCard value={km(stats.kmOtherLand).value} note={km(stats.kmOtherLand).note} label="jinou pozemní dopravou" />
+      <StatCard value={km(stats.kmBoat).value} note={km(stats.kmBoat).note} label="lodí" />
+      <StatCard value={km(stats.kmAir).value} note={km(stats.kmAir).note} label="letecky" />
+      <StatCard value={km(stats.elevationGainFoot).value.replace('km', 'm')} note={km(stats.elevationGainFoot).note} label="převýšení pěších tras" />
+    </div>
+    {hasPartial && <p class="text-faint note">* u některých úseků chybí přesné číslo - součet je dolní odhad.</p>}
+  </section>
+
+  <section class="section container two-col">
+    <div>
+      <h2>Výpravy podle roku</h2>
+      {
+        stats.tripsByYear.length === 0 ? (
+          <p class="text-muted">Zatím žádná data.</p>
+        ) : (
+          <div class="bars">
+            {stats.tripsByYear.map((y) => (
+              <div class="bar-row">
+                <span class="bar-label">{y.year}</span>
+                <div class="bar-track">
+                  <div class="bar-fill" style={`width:${(y.count / maxYearCount) * 100}%`} />
+                </div>
+                <span class="bar-value">{y.count}</span>
+              </div>
+            ))}
+          </div>
+        )
+      }
+    </div>
+    <div>
+      <h2>Země podle počtu návštěv</h2>
+      {
+        stats.countriesByTrips.length === 0 ? (
+          <p class="text-muted">Zatím žádná data.</p>
+        ) : (
+          <div class="bars">
+            {stats.countriesByTrips.map((c) => (
+              <div class="bar-row">
+                <span class="bar-label">{c.country}</span>
+                <div class="bar-track">
+                  <div class="bar-fill" style={`width:${(c.count / maxCountryCount) * 100}%`} />
+                </div>
+                <span class="bar-value">{c.count}</span>
+              </div>
+            ))}
+          </div>
+        )
+      }
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-head {
+    padding-block: var(--space-6) var(--space-4);
+    max-width: 760px;
+  }
+
+  h2 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-4);
+  }
+
+  .note {
+    margin-top: var(--space-3);
+    font-size: var(--text-xs);
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-7);
+  }
+
+  @media (max-width: 800px) {
+    .two-col {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .bars {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .bar-row {
+    display: grid;
+    grid-template-columns: 3.5em 1fr 2.5em;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .bar-label {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+  }
+
+  .bar-track {
+    height: 10px;
+    background: var(--bg-elevated-2);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: var(--radius-full);
+  }
+
+  .bar-value {
+    font-size: var(--text-sm);
+    color: var(--text);
+    text-align: right;
+    font-weight: 600;
+  }
+</style>

@@ -1,0 +1,14 @@
+---
+interface Props {
+  value: string;
+  label: string;
+  /** malá poznámka vpravo nahoře u čísla, např. "*" pro částečný součet */
+  note?: string;
+}
+const { value, label, note } = Astro.props;
+---
+
+<div class="stat-card">
+  <span class="value">{value}{note && <sup>{note}</sup>}</span>
+  <span class="label">{label}</span>
+</div>

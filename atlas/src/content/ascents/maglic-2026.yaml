@@ -1,0 +1,16 @@
+trip: cerna-hora-2026
+peak: maglic
+activityType: hike
+result: not_completed
+date: "2026-09-01"
+datePrecision: month
+from: mratinje
+maxElevationM: 2000
+track:
+  quality: approximate
+notes: >
+  Výstup pěšky z černohorské strany. Přibližně kolem 2000 m n. m., asi hodinu
+  pod vrcholem, jsem na jediné pokračující cestě narazil na volně žijícího
+  medvěda. Z bezpečnostních důvodů jsem se rozhodl vrátit - vrchol nebyl
+  dosažen. Přesná GPS stopa, přesné datum a další detaily budou doplněny
+  dodatečně.

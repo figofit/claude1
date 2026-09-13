@@ -1,0 +1,136 @@
+---
+import Layout from '../../components/Layout.astro';
+import { getAtlasData, isSummitResult, sortByDateDesc } from '../../lib/content';
+import { formatMeters, formatKm, formatDate, RESULT_LABELS, NEZNAMO } from '../../lib/format';
+
+export async function getStaticPaths() {
+  const { ferratas } = await getAtlasData();
+  return ferratas.map((f) => ({ params: { ferrata: f.id }, props: { ferrataId: f.id } }));
+}
+
+const { ferrataId } = Astro.props;
+const data = await getAtlasData();
+const ferrata = data.ferratas.find((f) => f.id === ferrataId)!;
+const targetPeak = ferrata.data.targetPeak ? data.peaks.find((p) => p.id === ferrata.data.targetPeak!.id) : undefined;
+
+const ascents = sortByDateDesc(data.ascents.filter((a) => a.data.ferrata?.id === ferrataId));
+const trips = new Map(data.trips.map((t) => [t.id, t]));
+const done = ascents.some((a) => isSummitResult(a.data.result));
+---
+
+<Layout title={ferrata.data.name} description={ferrata.data.description}>
+  <section class="container page-head">
+    <p class="eyebrow">{ferrata.data.country}{ferrata.data.area ? ` · ${ferrata.data.area}` : ''} · <a href="/ferraty">Ferraty</a></p>
+    <h1>{ferrata.data.name}</h1>
+    <div class="head-tags">
+      {ferrata.data.difficulty && <span class="tag">Obtížnost {ferrata.data.difficulty}</span>}
+      {ferrata.data.distanceKm && <span class="tag">{formatKm(ferrata.data.distanceKm)}</span>}
+      {ferrata.data.elevationGainM && <span class="tag">{formatMeters(ferrata.data.elevationGainM)}</span>}
+      <span class={`tag ${done ? 'tag-done' : ''}`}>{done ? 'Zdoláno' : ascents.length > 0 ? 'Zatím jen pokus' : 'Zatím nezdoláno'}</span>
+    </div>
+    {ferrata.data.description && <p class="description">{ferrata.data.description}</p>}
+    {targetPeak && <p class="text-muted">Vede na vrchol <a href={`/vrcholy/${targetPeak.id}`}>{targetPeak.data.name}</a>.</p>}
+  </section>
+
+  <section class="section container">
+    <h2>Historie výstupů</h2>
+    {
+      ascents.length === 0 ? (
+        <p class="text-muted">Zatím žádný zaznamenaný pokus. Přidej ho přes `npm run new:ascent`.</p>
+      ) : (
+        <div class="ascent-list">
+          {ascents.map((a) => (
+            <a class="ascent-row" href={`/vystupy/${a.id}`}>
+              <div>
+                <strong>{a.data.date ? formatDate(a.data.date, a.data.datePrecision) : NEZNAMO}</strong>
+                <span class="text-muted"> · {trips.get(a.data.trip.id)?.data.title}</span>
+              </div>
+              <span class={`result result-${a.data.result}`}>{RESULT_LABELS[a.data.result]}</span>
+            </a>
+          ))}
+        </div>
+      )
+    }
+  </section>
+</Layout>
+
+<style>
+  .page-head {
+    padding-block: var(--space-6) var(--space-4);
+    max-width: 760px;
+  }
+
+  .page-head a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .page-head h1 {
+    font-size: var(--text-4xl);
+  }
+
+  .description {
+    margin-top: var(--space-4);
+    font-size: var(--text-lg);
+  }
+
+  .head-tags {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    margin-top: var(--space-3);
+  }
+
+  .tag-done {
+    background: rgba(124, 196, 143, 0.15);
+    color: #7cc48f;
+  }
+
+  h2 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-4);
+  }
+
+  .ascent-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .ascent-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.15s ease;
+  }
+
+  .ascent-row:hover {
+    border-color: var(--accent);
+  }
+
+  .result {
+    font-weight: 600;
+    padding: 0.2em 0.7em;
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    background: var(--bg-elevated-2);
+  }
+
+  .result-summit,
+  .result-repeat_summit {
+    color: #7cc48f;
+  }
+
+  .result-not_completed,
+  .result-attempt {
+    color: var(--accent);
+  }
+</style>

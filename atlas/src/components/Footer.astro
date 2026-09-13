@@ -1,0 +1,38 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container bar">
+    <p class="text-faint">Atlas cest - osobní databáze výprav. Provozováno od {year}.</p>
+    <p class="text-faint">
+      Mapová data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a>
+      přispěvatelé, dlaždice <a href="https://openfreemap.org" target="_blank" rel="noopener noreferrer">OpenFreeMap</a>.
+    </p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--border-soft);
+    padding-block: var(--space-5);
+    margin-top: var(--space-8);
+  }
+
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
+
+  p {
+    margin: 0;
+    font-size: var(--text-xs);
+  }
+
+  a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+</style>

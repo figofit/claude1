@@ -1,0 +1,74 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatDateRange } from '../lib/format';
+
+interface Props {
+  trip: CollectionEntry<'trips'>;
+}
+const { trip } = Astro.props;
+const statusLabel: Record<string, string> = { ongoing: 'Probíhá', planned: 'Plánováno', completed: '' };
+---
+
+<a href={`/cesty/${trip.id}`} class="trip-card">
+  <div class="trip-card-top">
+    <span class="trip-dates">{formatDateRange(trip.data.dateStart, trip.data.dateEnd, trip.data.datePrecision)}</span>
+    {statusLabel[trip.data.status] && <span class="tag">{statusLabel[trip.data.status]}</span>}
+  </div>
+  <h3>{trip.data.title}</h3>
+  <p class="trip-countries">{trip.data.countries.join(' · ')}</p>
+  {trip.data.summary && <p class="trip-summary">{trip.data.summary}</p>}
+</a>
+
+<style>
+  .trip-card {
+    display: block;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .trip-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .trip-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    margin-bottom: var(--space-2);
+  }
+
+  .trip-dates {
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-faint);
+  }
+
+  .trip-card h3 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-1);
+  }
+
+  .trip-countries {
+    font-size: var(--text-sm);
+    color: var(--accent);
+    margin-bottom: var(--space-2);
+  }
+
+  .trip-summary {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

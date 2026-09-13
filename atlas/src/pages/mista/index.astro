@@ -1,0 +1,90 @@
+---
+import Layout from '../../components/Layout.astro';
+import { getAtlasData } from '../../lib/content';
+import { PLACE_TYPE_LABELS } from '../../lib/format';
+
+const data = await getAtlasData();
+
+const tripsByPlace = new Map<string, Set<string>>();
+const addTrip = (placeId: string, tripId: string) => {
+  if (!tripsByPlace.has(placeId)) tripsByPlace.set(placeId, new Set());
+  tripsByPlace.get(placeId)!.add(tripId);
+};
+for (const r of data.routes) {
+  addTrip(r.data.from.id, r.data.trip.id);
+  addTrip(r.data.to.id, r.data.trip.id);
+}
+for (const a of data.ascents) if (a.data.from) addTrip(a.data.from.id, a.data.trip.id);
+
+const tripTitles = new Map(data.trips.map((t) => [t.id, t.data.title]));
+
+const sorted = [...data.places].sort((a, b) => a.data.name.localeCompare(b.data.name, 'cs'));
+---
+
+<Layout title="Místa" description="Všechna zaznamenaná města, vesnice a další místa.">
+  <section class="container page-head">
+    <p class="eyebrow">Rejstřík</p>
+    <h1>Místa</h1>
+    <p class="text-muted">{sorted.length} {sorted.length === 1 ? 'místo v atlasu' : 'míst v atlasu'} (vrcholy mají vlastní sekci - <a href="/vrcholy">Hory</a>).</p>
+  </section>
+
+  <section class="container">
+    {
+      sorted.length === 0 ? (
+        <p class="text-muted">Zatím žádné místo - přidej ho přes `npm run new:place`.</p>
+      ) : (
+        <div class="place-list">
+          {sorted.map((p) => {
+            const trips = [...(tripsByPlace.get(p.id) ?? [])].map((id) => tripTitles.get(id)).filter(Boolean);
+            return (
+              <div class="place-row">
+                <div>
+                  <strong>{p.data.name}</strong>
+                  <span class="text-faint"> · {p.data.country} · {PLACE_TYPE_LABELS[p.data.type]}</span>
+                </div>
+                <span class="text-muted place-trips">{trips.length > 0 ? trips.join(', ') : '—'}</span>
+              </div>
+            );
+          })}
+        </div>
+      )
+    }
+  </section>
+</Layout>
+
+<style>
+  .page-head {
+    padding-block: var(--space-6) var(--space-4);
+  }
+
+  .page-head a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .place-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--border-soft);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: var(--space-8);
+  }
+
+  .place-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    background: var(--bg-elevated);
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .place-trips {
+    font-size: var(--text-sm);
+    text-align: right;
+  }
+</style>

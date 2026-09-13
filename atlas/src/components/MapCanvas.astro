@@ -1,0 +1,214 @@
+---
+interface Props {
+  id: string;
+  /** full = filtry + legenda (stránka /mapa); trip = jen daná cesta, bez filtrů; mini = malá needitovatelná náhledovka */
+  variant?: 'full' | 'trip' | 'mini';
+  tripId?: string;
+  height?: string;
+}
+
+const { id, variant = 'full', tripId, height = '640px' } = Astro.props;
+
+const FILTERS: { key: string; label: string }[] = [
+  { key: 'all', label: 'Vše' },
+  { key: 'foot', label: 'Pěšky' },
+  { key: 'car', label: 'Autem' },
+  { key: 'train', label: 'Vlakem' },
+  { key: 'bus', label: 'Autobusem' },
+  { key: 'hitchhike', label: 'Odvoz / stop' },
+  { key: 'boat', label: 'Lodí' },
+  { key: 'plane', label: 'Letadlem' },
+  { key: 'cities', label: 'Města' },
+  { key: 'peaks', label: 'Hory' },
+  { key: 'ferratas', label: 'Ferraty' },
+  { key: 'ridges', label: 'Hřebenovky' },
+];
+
+const LEGEND = [
+  { color: 'var(--c-foot)', label: 'Pěšky' },
+  { color: 'var(--c-car)', label: 'Auto' },
+  { color: 'var(--c-train)', label: 'Vlak' },
+  { color: 'var(--c-bus)', label: 'Autobus' },
+  { color: 'var(--c-hitchhike)', label: 'Odvoz / stop' },
+  { color: 'var(--c-boat)', label: 'Loď' },
+  { color: 'var(--c-plane)', label: 'Letadlo' },
+  { color: 'var(--c-ferrata)', label: 'Via ferrata' },
+  { color: 'var(--c-ridge)', label: 'Hřebenovka' },
+];
+---
+
+<div class="map-shell" style={`--map-height:${height}`}>
+  {
+    variant === 'full' && (
+      <div class="map-toolbar">
+        <div class="map-filters" role="group" aria-label="Filtr mapy">
+          {FILTERS.map((f) => (
+            <button type="button" class="chip" data-category={f.key} aria-pressed={f.key === 'all' ? 'true' : 'false'}>
+              {f.label}
+            </button>
+          ))}
+        </div>
+        <label class="land-toggle">
+          <input type="checkbox" class="land-only-input" />
+          <span>Jen po zemi (bez letů)</span>
+        </label>
+      </div>
+    )
+  }
+
+  <div class="map-frame">
+    <div class="map-canvas" id={id} data-trip={tripId ?? ''} data-interactive={variant !== 'mini' ? 'true' : 'false'}></div>
+  </div>
+
+  {
+    variant !== 'mini' && (
+      <div class="map-legend">
+        {LEGEND.map((l) => (
+          <span class="legend-item">
+            <i style={`background:${l.color}`} />
+            {l.label}
+          </span>
+        ))}
+        <span class="legend-item legend-note">
+          <i class="dash-solid" /> GPS
+          <i class="dash-dashed" /> rekonstrukce
+          <i class="dash-dotted" /> orientační
+        </span>
+      </div>
+    )
+  }
+</div>
+
+<script>
+  import { TravelMap, type FilterCategory } from '../lib/map/TravelMap';
+
+  function initMap(el: HTMLElement) {
+    const tripId = el.dataset.trip || undefined;
+    const interactive = el.dataset.interactive !== 'false';
+    const map = new TravelMap({ container: el, tripId, interactive });
+    map.load().catch((err) => console.error('Nepodařilo se načíst mapová data:', err));
+
+    const shell = el.closest('.map-shell');
+    if (!shell) return;
+
+    const filterButtons = shell.querySelectorAll<HTMLButtonElement>('.chip');
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+        map.setCategory((btn.dataset.category ?? 'all') as FilterCategory);
+        const landInput = shell.querySelector<HTMLInputElement>('.land-only-input');
+        if (landInput && btn.dataset.category === 'plane') landInput.checked = false;
+      });
+    });
+
+    const landInput = shell.querySelector<HTMLInputElement>('.land-only-input');
+    landInput?.addEventListener('change', () => {
+      map.setLandOnly(landInput.checked);
+      if (landInput.checked) {
+        filterButtons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.category === 'all')));
+      }
+    });
+  }
+
+  document.querySelectorAll<HTMLElement>('.map-canvas').forEach(initMap);
+</script>
+
+<style>
+  .map-shell {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .map-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+  }
+
+  .map-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .land-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  .land-toggle input {
+    accent-color: var(--accent);
+    width: 1.05em;
+    height: 1.05em;
+  }
+
+  .map-frame {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow-md);
+  }
+
+  .map-canvas {
+    width: 100%;
+    height: var(--map-height, 640px);
+    background: var(--bg-elevated);
+  }
+
+  .map-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+  }
+
+  .legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .legend-item i {
+    display: inline-block;
+    width: 14px;
+    height: 4px;
+    border-radius: 2px;
+  }
+
+  .legend-note {
+    gap: 0.6em;
+    padding-left: var(--space-3);
+    border-left: 1px solid var(--border);
+  }
+
+  .dash-solid {
+    background: var(--text-faint);
+  }
+
+  .dash-dashed {
+    background-image: linear-gradient(90deg, var(--text-faint) 60%, transparent 40%);
+    background-size: 6px 4px;
+    background-color: transparent;
+  }
+
+  .dash-dotted {
+    background-image: linear-gradient(90deg, var(--text-faint) 30%, transparent 30%);
+    background-size: 4px 4px;
+    background-color: transparent;
+  }
+
+  @media (max-width: 640px) {
+    .map-canvas {
+      height: min(var(--map-height, 640px), 68vh);
+    }
+  }
+</style>
