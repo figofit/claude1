@@ -56,6 +56,10 @@
         return r.date || "";
       case "difficulty":
         return Ferraty.difficultyRank(r.difficulty);
+      case "elevationGain_m":
+        return r.elevationGain_m === null || r.elevationGain_m === undefined ? -Infinity : r.elevationGain_m;
+      case "altitude_m":
+        return r.altitude_m === null || r.altitude_m === undefined ? -Infinity : r.altitude_m;
       default:
         return "";
     }
@@ -86,7 +90,7 @@
 
   function renderRows(records) {
     if (!records.length) {
-      els.tbody.innerHTML = `<tr><td colspan="7" class="empty-state">Žádný výstup neodpovídá zvoleným filtrům.</td></tr>`;
+      els.tbody.innerHTML = `<tr><td colspan="9" class="empty-state">Žádný výstup neodpovídá zvoleným filtrům.</td></tr>`;
       return;
     }
     els.tbody.innerHTML = records
@@ -101,6 +105,8 @@
           <td class="muted-cell" data-label="Oblast">${Ferraty.escapeHtml(r.region || "—")}</td>
           <td data-label="Datum">${Ferraty.formatDate(r.date, { day: "numeric", month: "numeric", year: "numeric" })}</td>
           <td data-label="Obtížnost"><span class="badge badge--difficulty">${Ferraty.escapeHtml(Ferraty.formatDifficulty(r.difficulty))}</span></td>
+          <td data-label="Převýšení">${Ferraty.fmtElevation(r.elevationGain_m)}</td>
+          <td data-label="Výška">${Ferraty.fmtAltitude(r.altitude_m)}</td>
           <td data-label="Hodnocení">${Ferraty.ratingStarsHtml(overall)}</td>
         </tr>`;
       })
@@ -139,7 +145,7 @@
       allRecords = await Ferraty.loadAll();
     } catch (err) {
       console.error(err);
-      els.tbody.innerHTML = `<tr><td colspan="7" class="empty-state">Data se nepodařilo načíst. Stránku otevírej přes http(s) server, ne přímo ze souboru.</td></tr>`;
+      els.tbody.innerHTML = `<tr><td colspan="9" class="empty-state">Data se nepodařilo načíst. Stránku otevírej přes http(s) server, ne přímo ze souboru.</td></tr>`;
       return;
     }
 
@@ -167,7 +173,7 @@
           sortDir = sortDir === "asc" ? "desc" : "asc";
         } else {
           sortKey = key;
-          sortDir = key === "date" ? "desc" : "asc";
+          sortDir = key === "date" || key === "elevationGain_m" || key === "altitude_m" ? "desc" : "asc";
         }
         render();
       });
