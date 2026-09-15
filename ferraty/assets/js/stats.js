@@ -96,7 +96,10 @@
 
     document.getElementById("stat-row").innerHTML = renderStatRow(stats);
     document.getElementById("by-type").innerHTML = renderBreakdown(stats.byType, (k) => Ferraty.typeMeta(k).label);
-    document.getElementById("by-country").innerHTML = renderBreakdown(stats.byCountry, (k) => k);
+    document.getElementById("by-country").innerHTML = renderBreakdown(stats.byCountry, (k) => {
+      const flag = Ferraty.countryFlag(k);
+      return flag ? `${flag} ${k}` : k;
+    });
     document.getElementById("by-difficulty").innerHTML = renderBreakdown(sortByDifficultyRank(stats.byDifficulty), (k) => k);
     const byYearSorted = stats.byYear.slice().sort((a, b) => {
       if (a.key === null) return 1;

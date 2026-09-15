@@ -34,7 +34,7 @@
         return `
         <tr>
           <td class="cell-title"><a class="row-link" href="detail.html?id=${encodeURIComponent(r.id)}">${Ferraty.escapeHtml(r.name)}</a></td>
-          <td class="muted-cell" data-label="Země">${Ferraty.escapeHtml(r.country || "—")}</td>
+          <td class="muted-cell" data-label="Země">${Ferraty.countryLabelHtml(r.country)}</td>
           <td data-label="Datum">${Ferraty.formatDate(r.date)}</td>
         </tr>`;
       })

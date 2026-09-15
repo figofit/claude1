@@ -101,7 +101,7 @@
         <tr>
           <td class="cell-title"><a class="row-link" href="detail.html?id=${encodeURIComponent(r.id)}">${Ferraty.escapeHtml(r.name)}</a></td>
           <td data-label="Typ"><span class="badge ${type.cls}">${type.label}</span></td>
-          <td data-label="Země">${Ferraty.escapeHtml(r.country || "—")}</td>
+          <td data-label="Země">${Ferraty.countryLabelHtml(r.country)}</td>
           <td class="muted-cell" data-label="Oblast">${Ferraty.escapeHtml(r.region || "—")}</td>
           <td data-label="Datum">${Ferraty.formatDate(r.date, { day: "numeric", month: "numeric", year: "numeric" })}</td>
           <td data-label="Obtížnost"><span class="badge badge--difficulty">${Ferraty.escapeHtml(Ferraty.formatDifficulty(r.difficulty))}</span></td>

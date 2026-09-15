@@ -30,7 +30,7 @@
           <span class="badge badge--difficulty">${Ferraty.escapeHtml(Ferraty.formatDifficulty(r.difficulty))}</span>
         </div>
         <div class="text-muted" style="font-size:0.85rem;">
-          ${Ferraty.escapeHtml(r.country || "—")} · ${Ferraty.formatDate(r.date, { day: "numeric", month: "numeric", year: "numeric" })}
+          ${Ferraty.countryLabelHtml(r.country)} · ${Ferraty.formatDate(r.date, { day: "numeric", month: "numeric", year: "numeric" })}
         </div>
         <div style="margin:6px 0;">${Ferraty.ratingStarsHtml(overall)}</div>
         <a class="btn btn--outline btn--sm" href="detail.html?id=${encodeURIComponent(r.id)}">Otevřít detail</a>

@@ -11,6 +11,70 @@
   // Hüsler A–E (klasická stupnice via ferrat) použitá pro řazení podle obtížnosti.
   const HUSLER_RANK = { A: 1, B: 2, C: 3, D: 4, E: 5 };
 
+  const COUNTRY_FLAGS = {
+    "Rakousko": "🇦🇹",
+    "Německo": "🇩🇪",
+    "Švýcarsko": "🇨🇭",
+    "Lichtenštejnsko": "🇱🇮",
+    "Itálie": "🇮🇹",
+    "Francie": "🇫🇷",
+    "Španělsko": "🇪🇸",
+    "Portugalsko": "🇵🇹",
+    "Andorra": "🇦🇩",
+    "Slovinsko": "🇸🇮",
+    "Slovensko": "🇸🇰",
+    "Česko": "🇨🇿",
+    "Polsko": "🇵🇱",
+    "Maďarsko": "🇭🇺",
+    "Rumunsko": "🇷🇴",
+    "Bulharsko": "🇧🇬",
+    "Řecko": "🇬🇷",
+    "Chorvatsko": "🇭🇷",
+    "Slovinsko ": "🇸🇮",
+    "Bosna a Hercegovina": "🇧🇦",
+    "Srbsko": "🇷🇸",
+    "Černá Hora": "🇲🇪",
+    "Severní Makedonie": "🇲🇰",
+    "Albánie": "🇦🇱",
+    "Kosovo": "🇽🇰",
+    "Gruzie": "🇬🇪",
+    "Arménie": "🇦🇲",
+    "Ázerbájdžán": "🇦🇿",
+    "Rusko": "🇷🇺",
+    "Turecko": "🇹🇷",
+    "Maroko": "🇲🇦",
+    "Alžírsko": "🇩🇿",
+    "Tunisko": "🇹🇳",
+    "Egypt": "🇪🇬",
+    "Kypr": "🇨🇾",
+    "Norsko": "🇳🇴",
+    "Švédsko": "🇸🇪",
+    "Finsko": "🇫🇮",
+    "Island": "🇮🇸",
+    "Velká Británie": "🇬🇧",
+    "Irsko": "🇮🇪",
+    "Nizozemsko": "🇳🇱",
+    "Belgie": "🇧🇪",
+    "Lucembursko": "🇱🇺",
+    "Ukrajina": "🇺🇦",
+    "Bělorusko": "🇧🇾",
+    "Moldavsko": "🇲🇩",
+    "Malta": "🇲🇹",
+    "Dánsko": "🇩🇰",
+  };
+
+  function countryFlag(country) {
+    return COUNTRY_FLAGS[country] || "";
+  }
+
+  // Vrátí escapovaný název země s emoji vlaječkou (pokud ji známe), pro přímé vložení do HTML.
+  function countryLabelHtml(country) {
+    if (!country) return "—";
+    const flag = countryFlag(country);
+    const name = escapeHtml(country);
+    return flag ? `${flag} ${name}` : name;
+  }
+
   let cache = null;
 
   async function loadAll() {
@@ -236,6 +300,8 @@
     difficultyRank,
     formatDifficulty,
     typeMeta,
+    countryFlag,
+    countryLabelHtml,
     formatDate,
     yearOf,
     fmtNumber,

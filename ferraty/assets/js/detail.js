@@ -166,8 +166,9 @@
     typeBadge.className = `badge ${type.cls}`;
     document.getElementById("d-difficulty").textContent = Ferraty.formatDifficulty(record.difficulty);
 
-    const subParts = [record.locality, record.region, record.country].filter(Boolean);
-    document.getElementById("d-sub").textContent = subParts.length ? subParts.join(" · ") : "Lokalita neuvedena";
+    const subParts = [record.locality, record.region].filter(Boolean).map((p) => Ferraty.escapeHtml(p));
+    if (record.country) subParts.push(Ferraty.countryLabelHtml(record.country));
+    document.getElementById("d-sub").innerHTML = subParts.length ? subParts.join(" · ") : "Lokalita neuvedena";
 
     document.getElementById("d-facts").innerHTML = renderFacts(record);
     document.getElementById("d-ratings").innerHTML = renderRatings(record);

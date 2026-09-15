@@ -335,21 +335,27 @@
         "lat": 42.7003,
         "lng": 44.5183
       },
-      "date": null,
+      "date": "2025-06-27",
       "difficulty": null,
       "length_m": null,
       "elevationGain_m": null,
       "summit": null,
-      "altitude_m": 5054,
+      "altitude_m": 5047,
       "duration_min": null,
-      "myRating": null,
-      "note": null,
+      "myRating": {
+        "technical": 4,
+        "physical": 5,
+        "exposure": 4,
+        "views": 5,
+        "overall": 5
+      },
+      "note": "Kazbek podruhé — a tentokrát to vyšlo. Poprvé (2023) jsem musel otočit, o dva roky později (25.–27. 6. 2025) jsem se vrátil s klidnější aklimatizací, hlídáním tempa a respektem k výšce. Vrchol nemá kříž ani žádnou relikvii — jen zaoblenou čepičku, odkud vidíš celý Kavkaz jako na dlani. Pro mě TOP 3 zážitek života, hlavně jako výhra nad vlastními chybami z minula.",
       "track": null,
       "photos": [],
-      "sourceUrl": null,
+      "sourceUrl": "https://michaldokoupil.cz/kazbek/",
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-16T00:00:00Z"
+      "updatedAt": "2026-09-18T00:00:00Z"
     },
     {
       "id": "aneto",
@@ -449,21 +455,27 @@
         "lat": 47.1636,
         "lng": 12.7439
       },
-      "date": null,
+      "date": "2022-08-16",
       "difficulty": null,
       "length_m": null,
-      "elevationGain_m": null,
+      "elevationGain_m": 2600,
       "summit": null,
       "altitude_m": 3564,
       "duration_min": null,
-      "myRating": null,
-      "note": null,
+      "myRating": {
+        "technical": 3,
+        "physical": 4,
+        "exposure": 3,
+        "views": 4,
+        "overall": 4
+      },
+      "note": "Dvoudenní výstup z Kaprunu s nocí na Heinrich-Schwaiger-Haus (2802 m) — přes 2600 výškových metrů po svých. Druhý den (sestup) sám o sobě 25 000 kroků.",
       "track": null,
       "photos": [],
-      "sourceUrl": null,
+      "sourceUrl": "https://michaldokoupil.cz/grosses-wiesbachhorn/",
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-16T00:00:00Z"
+      "updatedAt": "2026-09-18T00:00:00Z"
     },
     {
       "id": "teide",
@@ -476,21 +488,29 @@
         "lat": 28.2717,
         "lng": -16.6423
       },
-      "date": null,
+      "date": "2022-11-28",
       "difficulty": null,
-      "length_m": null,
-      "elevationGain_m": null,
+      "length_m": 9300,
+      "elevationGain_m": 1365,
       "summit": null,
       "altitude_m": 3715,
-      "duration_min": null,
-      "myRating": null,
-      "note": null,
+      "duration_min": 540,
+      "myRating": {
+        "technical": 2,
+        "physical": 3,
+        "exposure": 2,
+        "views": 5,
+        "overall": 5
+      },
+      "note": "Nechtěl jsem ho 'jen odškrtnout lanovkou' — start pěšky od ~2350 m, 7 h do vrcholu (11:30–18:30), sestup s čelovkou ke silnici do 20:30. Kontrola povolení kousek pod vrcholem (150 vm), ale hlavně: západ slunce, oceán a stín Teide promítnutý jako obří pyramida na moře. Půl roku to byl můj nejvyšší dosažený vrchol (do Toubkalu v květnu 2023).",
       "track": null,
       "photos": [],
-      "sourceUrl": null,
-      "relatedIds": [],
+      "sourceUrl": "https://michaldokoupil.cz/teide-3715m-tenerife/",
+      "relatedIds": [
+        "toubkal"
+      ],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-16T00:00:00Z"
+      "updatedAt": "2026-09-18T00:00:00Z"
     },
     {
       "id": "gerlachovsky-stit",
@@ -498,26 +518,32 @@
       "name": "Gerlachovský štít",
       "country": "Slovensko",
       "region": "Vysoké Tatry",
-      "locality": null,
+      "locality": "Batizovská dolina",
       "coordinates": {
         "lat": 49.1664,
         "lng": 20.1347
       },
-      "date": null,
+      "date": "2022-03-28",
       "difficulty": null,
       "length_m": null,
       "elevationGain_m": null,
       "summit": null,
       "altitude_m": 2655,
-      "duration_min": null,
-      "myRating": null,
-      "note": null,
+      "duration_min": 600,
+      "myRating": {
+        "technical": 4,
+        "physical": 5,
+        "exposure": 4,
+        "views": 4,
+        "overall": 5
+      },
+      "note": "Zimní výstup 28. 3. — zhruba 10 h celkem od startu k autu, z toho ~9 h čistého pohybu a přes 36 000 kroků. Gerlach ti nedá nic zadarmo ani na konci března.",
       "track": null,
       "photos": [],
-      "sourceUrl": null,
+      "sourceUrl": "https://michaldokoupil.cz/gerlachovsky-stit-batizovska-proba-brezen/",
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-16T00:00:00Z"
+      "updatedAt": "2026-09-18T00:00:00Z"
     },
     {
       "id": "moldoveanu",
@@ -790,6 +816,177 @@
       ],
       "createdAt": "2026-09-17T00:00:00Z",
       "updatedAt": "2026-09-17T00:00:00Z"
+    },
+    {
+      "id": "ankogel",
+      "type": "vrchol",
+      "name": "Ankogel",
+      "country": "Rakousko",
+      "region": "Vysoké Taury – Ankogelgruppe",
+      "locality": "Mallnitz",
+      "coordinates": {
+        "lat": 47.028,
+        "lng": 13.243
+      },
+      "date": "2022-05-24",
+      "difficulty": null,
+      "length_m": null,
+      "elevationGain_m": null,
+      "summit": null,
+      "altitude_m": 3252,
+      "duration_min": 780,
+      "myRating": {
+        "technical": 3,
+        "physical": 4,
+        "exposure": 3,
+        "views": 4,
+        "overall": 4
+      },
+      "note": "Na otočku přímo z centra Mallnitz (žádná chata) — start kolem 5:00, vrchol ~11:45 (výstup ~7 h), zpátky v Mallnitz 17:45, celkem ~13 h na nohou. Přes Ankogelbahn, Hannoverhaus a Kleiner Ankogel (~3096 m) po hřebeni k vrcholovému kříži. Moje první alpská třítisícovka a celkově druhá v životě (první byl Mulhacén).",
+      "track": null,
+      "photos": [],
+      "sourceUrl": "https://michaldokoupil.cz/ankogel-z-mallnitz/",
+      "relatedIds": [
+        "mulhacen"
+      ],
+      "createdAt": "2026-09-18T00:00:00Z",
+      "updatedAt": "2026-09-18T00:00:00Z"
+    },
+    {
+      "id": "zla-kolata",
+      "type": "vrchol",
+      "name": "Zla Kolata",
+      "country": "Černá Hora",
+      "region": "Prokletije",
+      "locality": "Vusanje",
+      "coordinates": {
+        "lat": 42.593,
+        "lng": 19.816
+      },
+      "date": "2021-10-20",
+      "difficulty": null,
+      "length_m": null,
+      "elevationGain_m": null,
+      "summit": null,
+      "altitude_m": 2534,
+      "duration_min": null,
+      "myRating": {
+        "technical": 3,
+        "physical": 3,
+        "exposure": 3,
+        "views": 5,
+        "overall": 5
+      },
+      "note": "Sólo výstup v Prokletije — start z Vusanje/Gusinje, cesta přes suť a skalnaté věže. Pod sněhem na vrcholu jsem našel červený nápis 'Zla Kolata / Kolata keqe' — připomínka, že hora leží přesně na hranici Albánie a Černé Hory. Bez extra vybavení, spoléhal jsem na předpověď a info z Instagramu.",
+      "track": null,
+      "photos": [],
+      "sourceUrl": "https://michaldokoupil.cz/zla-kolata/",
+      "relatedIds": [],
+      "createdAt": "2026-09-18T00:00:00Z",
+      "updatedAt": "2026-09-18T00:00:00Z"
+    },
+    {
+      "id": "toubkal",
+      "type": "vrchol",
+      "name": "Toubkal",
+      "country": "Maroko",
+      "region": "Vysoký Atlas",
+      "locality": "Imlil",
+      "coordinates": {
+        "lat": 31.0595,
+        "lng": -7.9152
+      },
+      "date": "2023-05-24",
+      "difficulty": null,
+      "length_m": null,
+      "elevationGain_m": 2375,
+      "summit": null,
+      "altitude_m": 4167,
+      "duration_min": null,
+      "myRating": {
+        "technical": 2,
+        "physical": 4,
+        "exposure": 2,
+        "views": 4,
+        "overall": 5
+      },
+      "note": "Na jeden zátah — start z Imlilu (~1800 m) přes Refugio (~3150 m) na vrchol (14:15–14:45). V dobrých podmínkách překvapivě snadný a dobře značený trail. Moje první čtyřtisícovka vůbec.",
+      "track": null,
+      "photos": [],
+      "sourceUrl": "https://michaldokoupil.cz/toubkal/",
+      "relatedIds": [
+        "teide"
+      ],
+      "createdAt": "2026-09-18T00:00:00Z",
+      "updatedAt": "2026-09-18T00:00:00Z"
+    },
+    {
+      "id": "mulhacen",
+      "type": "vrchol",
+      "name": "Mulhacén",
+      "country": "Španělsko",
+      "region": "Sierra Nevada",
+      "locality": "Capileira",
+      "coordinates": {
+        "lat": 37.0538,
+        "lng": -3.3088
+      },
+      "date": "2022-01-15",
+      "difficulty": null,
+      "length_m": 14000,
+      "elevationGain_m": 2100,
+      "summit": null,
+      "altitude_m": 3479,
+      "duration_min": null,
+      "myRating": {
+        "technical": 2,
+        "physical": 3,
+        "exposure": 2,
+        "views": 4,
+        "overall": 5
+      },
+      "note": "Moje úplně první třítisícovka — z Capileiry (nejvýše položené vesnice na Pyrenejském poloostrově) přes Refugio de Poqueira (~2500 m) na vrchol (2100 vm celkem). Nejvyšší hora pevninského Španělska i celého Pyrenejského poloostrova.",
+      "track": null,
+      "photos": [],
+      "sourceUrl": "https://michaldokoupil.cz/mulhacen-spanelsko-prvni-tritisicovka/",
+      "relatedIds": [
+        "ankogel"
+      ],
+      "createdAt": "2026-09-18T00:00:00Z",
+      "updatedAt": "2026-09-18T00:00:00Z"
+    },
+    {
+      "id": "orla-perc",
+      "type": "hřebenovka",
+      "name": "Orla Perć",
+      "country": "Polsko",
+      "region": "Vysoké Tatry",
+      "locality": "Zakopane",
+      "coordinates": {
+        "lat": 49.2325,
+        "lng": 20.0016
+      },
+      "date": "2020-11-07",
+      "difficulty": null,
+      "length_m": null,
+      "elevationGain_m": null,
+      "summit": null,
+      "altitude_m": null,
+      "duration_min": null,
+      "myRating": {
+        "technical": 4,
+        "physical": 3,
+        "exposure": 4,
+        "views": 5,
+        "overall": 5
+      },
+      "note": "Sólo hřebenovka v polských Tatrách na začátku listopadu 2020 — babí léto nahoře, covid v pozadí. Den 1 rozcvička na Kościelci, noc na chatě Murowaniec, den 2 Zawrat → Orla Perć: řetězy, kramle i žebřík, ale hlavně čistý soustředěný mód '100 % přítomnost'. Paní na chatě mě kvůli covidu nejdřív nechtěla ubytovat, nakonec se to vyřešilo lidsky.",
+      "track": null,
+      "photos": [],
+      "sourceUrl": "https://michaldokoupil.cz/solo-orla-perc-koscielec/",
+      "relatedIds": [],
+      "createdAt": "2026-09-18T00:00:00Z",
+      "updatedAt": "2026-09-18T00:00:00Z"
     }
   ]
 }
