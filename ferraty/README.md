@@ -62,7 +62,6 @@ Každý záznam v `data/ferraty.json` → `records[]` vypadá takto (viz i ukáz
   "coordinates": { "lat": 47.559, "lng": 13.549 },
 
   "date": "2023-08-12",                   // YYYY-MM-DD, nebo null
-  "status": "dokončeno",                  // "dokončeno" | "nedokončeno" | "pokus"
 
   "difficulty": { "grade": "C/D", "scale": "Hüsler" },  // nebo null
   "length_m": 850,
@@ -152,7 +151,7 @@ základu:
 
 - Pro nový modul (např. vrcholy) by vznikl vlastní soubor `data/vrcholy.json` se stejnou
   obálkou (`id`, `type: "peak"`, společná pole `name/country/region/locality/coordinates/
-  date/status/myRating/note/track/photos/sourceUrl/relatedIds`) a specifickými poli podle
+  date/myRating/note/track/photos/sourceUrl/relatedIds`) a specifickými poli podle
   potřeby (např. `prominence_m`).
 - `id` je stabilní a nezávislé na pořadí v souboru — proto ho lze bezpečně použít i z jiného
   modulu.

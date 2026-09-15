@@ -8,9 +8,11 @@
       "country": "Rakousko",
       "region": "Salzkammergut – Totes Gebirge (Loser)",
       "locality": "Altaussee",
-      "coordinates": { "lat": 47.661, "lng": 13.797 },
+      "coordinates": {
+        "lat": 47.661,
+        "lng": 13.797
+      },
       "date": null,
-      "status": "dokončeno",
       "difficulty": null,
       "length_m": null,
       "elevationGain_m": null,
@@ -33,9 +35,11 @@
       "country": "Rakousko",
       "region": "Salzkammergut",
       "locality": "Mondsee",
-      "coordinates": { "lat": 47.851, "lng": 13.418 },
+      "coordinates": {
+        "lat": 47.851,
+        "lng": 13.418
+      },
       "date": null,
-      "status": "dokončeno",
       "difficulty": null,
       "length_m": null,
       "elevationGain_m": null,
@@ -58,9 +62,11 @@
       "country": "Rakousko",
       "region": "Totes Gebirge (Hoher Priel)",
       "locality": null,
-      "coordinates": { "lat": 47.716, "lng": 13.998 },
+      "coordinates": {
+        "lat": 47.716,
+        "lng": 13.998
+      },
       "date": null,
-      "status": "dokončeno",
       "difficulty": null,
       "length_m": null,
       "elevationGain_m": null,
@@ -83,10 +89,15 @@
       "country": "Rakousko",
       "region": "Salzkammergut (Attersee)",
       "locality": null,
-      "coordinates": { "lat": 47.879, "lng": 13.539 },
+      "coordinates": {
+        "lat": 47.879,
+        "lng": 13.539
+      },
       "date": null,
-      "status": "dokončeno",
-      "difficulty": { "grade": "D/E", "scale": "Hüsler" },
+      "difficulty": {
+        "grade": "D/E",
+        "scale": "Hüsler"
+      },
       "length_m": null,
       "elevationGain_m": null,
       "summit": null,
@@ -108,10 +119,15 @@
       "country": "Rakousko",
       "region": "Salzkammergut (Traunstein)",
       "locality": "Gmunden",
-      "coordinates": { "lat": 47.895, "lng": 13.801 },
+      "coordinates": {
+        "lat": 47.895,
+        "lng": 13.801
+      },
       "date": null,
-      "status": "dokončeno",
-      "difficulty": { "grade": "D", "scale": "Hüsler" },
+      "difficulty": {
+        "grade": "D",
+        "scale": "Hüsler"
+      },
       "length_m": null,
       "elevationGain_m": null,
       "summit": null,
@@ -133,9 +149,11 @@
       "country": "Rakousko",
       "region": "Hohe Wand (Dolní Rakousko)",
       "locality": null,
-      "coordinates": { "lat": 47.816, "lng": 16.033 },
+      "coordinates": {
+        "lat": 47.816,
+        "lng": 16.033
+      },
       "date": null,
-      "status": "dokončeno",
       "difficulty": null,
       "length_m": null,
       "elevationGain_m": null,
@@ -158,9 +176,11 @@
       "country": "Slovinsko",
       "region": "Julské Alpy",
       "locality": "Mojstrana",
-      "coordinates": { "lat": 46.4347, "lng": 13.9503 },
+      "coordinates": {
+        "lat": 46.4347,
+        "lng": 13.9503
+      },
       "date": null,
-      "status": "dokončeno",
       "difficulty": null,
       "length_m": null,
       "elevationGain_m": null,
@@ -183,9 +203,11 @@
       "country": "Slovensko",
       "region": "Vysoké Tatry",
       "locality": null,
-      "coordinates": { "lat": 49.166, "lng": 20.283 },
+      "coordinates": {
+        "lat": 49.166,
+        "lng": 20.283
+      },
       "date": null,
-      "status": "dokončeno",
       "difficulty": null,
       "length_m": null,
       "elevationGain_m": null,
@@ -210,7 +232,6 @@
       "locality": null,
       "coordinates": null,
       "date": null,
-      "status": "dokončeno",
       "difficulty": null,
       "length_m": null,
       "elevationGain_m": null,
@@ -233,9 +254,11 @@
       "country": "Německo",
       "region": "Wetterstein (Zugspitzplatt)",
       "locality": null,
-      "coordinates": { "lat": 47.421, "lng": 10.98 },
+      "coordinates": {
+        "lat": 47.421,
+        "lng": 10.98
+      },
       "date": null,
-      "status": "dokončeno",
       "difficulty": null,
       "length_m": null,
       "elevationGain_m": null,
@@ -260,7 +283,6 @@
       "locality": null,
       "coordinates": null,
       "date": null,
-      "status": "dokončeno",
       "difficulty": null,
       "length_m": null,
       "elevationGain_m": null,
@@ -285,7 +307,6 @@
       "locality": null,
       "coordinates": null,
       "date": null,
-      "status": "dokončeno",
       "difficulty": null,
       "length_m": null,
       "elevationGain_m": null,

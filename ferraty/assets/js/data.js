@@ -39,7 +39,6 @@
         locality: null,
         coordinates: null,
         date: null,
-        status: null,
         difficulty: null,
         length_m: null,
         elevationGain_m: null,
@@ -91,16 +90,6 @@
   function formatDifficulty(difficulty) {
     if (!difficulty || !difficulty.grade) return "—";
     return difficulty.scale ? `${difficulty.grade} (${difficulty.scale})` : difficulty.grade;
-  }
-
-  const STATUS_META = {
-    "dokončeno": { label: "Dokončeno", cls: "badge--done" },
-    "nedokončeno": { label: "Nedokončeno", cls: "badge--unfinished" },
-    "pokus": { label: "Pokus", cls: "badge--attempt" },
-  };
-
-  function statusMeta(status) {
-    return STATUS_META[status] || { label: status || "Neuvedeno", cls: "badge--muted" };
   }
 
   function formatDate(iso, opts) {
@@ -160,10 +149,6 @@
 
   function computeStats(records) {
     const total = records.length;
-    const byStatusCount = { "dokončeno": 0, "nedokončeno": 0, "pokus": 0 };
-    records.forEach((r) => {
-      if (byStatusCount[r.status] !== undefined) byStatusCount[r.status]++;
-    });
 
     const countrySet = new Set(records.map((r) => r.country).filter(Boolean));
 
@@ -171,10 +156,8 @@
     const byDifficulty = countMap(records, (r) => (r.difficulty && r.difficulty.grade) || null);
     const byYear = countMap(records, (r) => yearOf(r.date));
 
-    const completed = records.filter((r) => r.status === "dokončeno");
-
     let hardest = null;
-    completed.forEach((r) => {
+    records.forEach((r) => {
       if (!r.difficulty || !r.difficulty.grade) return;
       const rank = difficultyRank(r.difficulty);
       if (rank === Infinity) return;
@@ -188,15 +171,14 @@
       ? ratedOverall.reduce((sum, r) => sum + r.myRating.overall, 0) / ratedOverall.length
       : null;
 
-    const completedWithGain = completed.filter((r) => r.elevationGain_m !== null && r.elevationGain_m !== undefined);
-    const totalElevationGain = completedWithGain.reduce((sum, r) => sum + r.elevationGain_m, 0);
+    const withGain = records.filter((r) => r.elevationGain_m !== null && r.elevationGain_m !== undefined);
+    const totalElevationGain = withGain.reduce((sum, r) => sum + r.elevationGain_m, 0);
 
     const withGpx = records.filter((r) => r.track && r.track.file).length;
     const withPhotos = records.filter((r) => r.photos && r.photos.length > 0).length;
 
     return {
       total,
-      byStatusCount,
       countriesCount: countrySet.size,
       byCountry,
       byDifficulty,
@@ -205,8 +187,7 @@
       avgOverall,
       ratedOverallCount: ratedOverall.length,
       totalElevationGain,
-      elevationGainKnownCount: completedWithGain.length,
-      completedCount: completed.length,
+      elevationGainKnownCount: withGain.length,
       withGpx,
       withPhotos,
     };
@@ -235,7 +216,6 @@
     slugify,
     difficultyRank,
     formatDifficulty,
-    statusMeta,
     formatDate,
     yearOf,
     fmtNumber,

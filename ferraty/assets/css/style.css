@@ -29,13 +29,6 @@
   --stone: #83806d;
   --sand: #e7ddc2;
 
-  --status-done: #33513c;
-  --status-done-bg: #e3ebe1;
-  --status-attempt: #af5330;
-  --status-attempt-bg: #f5e6dc;
-  --status-unfinished: #7a7869;
-  --status-unfinished-bg: #eae7dd;
-
   --radius-s: 6px;
   --radius-m: 10px;
   --radius-l: 16px;
@@ -451,9 +444,6 @@ table.ferraty-table {
   font-weight: 600;
   white-space: nowrap;
 }
-.badge--done { background: var(--status-done-bg); color: var(--status-done); }
-.badge--attempt { background: var(--status-attempt-bg); color: var(--status-attempt); }
-.badge--unfinished { background: var(--status-unfinished-bg); color: var(--status-unfinished); }
 .badge--difficulty { background: var(--sand); color: var(--forest-dark); }
 .badge--muted { background: var(--bg-alt); color: var(--text-faint); }
 

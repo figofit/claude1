@@ -143,11 +143,7 @@
     document.title = `${record.name} | Moje ferraty`;
     document.getElementById("crumb-name").textContent = record.name;
 
-    const status = Ferraty.statusMeta(record.status);
     document.getElementById("d-name").textContent = record.name;
-    const statusBadge = document.getElementById("d-status");
-    statusBadge.textContent = status.label;
-    statusBadge.className = `badge ${status.cls}`;
     document.getElementById("d-difficulty").textContent = Ferraty.formatDifficulty(record.difficulty);
 
     const subParts = [record.locality, record.region, record.country].filter(Boolean);

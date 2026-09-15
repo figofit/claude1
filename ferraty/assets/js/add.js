@@ -89,7 +89,6 @@
       locality: orNull(val("f-locality")),
       coordinates,
       date,
-      status: val("f-status"),
       difficulty,
       length_m: numOrNull(val("f-length")),
       elevationGain_m: numOrNull(val("f-gain")),

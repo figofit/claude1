@@ -8,9 +8,8 @@
       : "—";
     const tiles = [
       { value: stats.total, label: "Ferrat celkem" },
-      { value: stats.byStatusCount["dokončeno"], label: "Dokončeno" },
       { value: stats.countriesCount, label: "Zemí navštíveno" },
-      { value: hardestLabel, label: "Nejtěžší dokončená", note: stats.hardest ? Ferraty.escapeHtml(stats.hardest.name) : "zatím žádná" },
+      { value: hardestLabel, label: "Nejtěžší ferrata", note: stats.hardest ? Ferraty.escapeHtml(stats.hardest.name) : "zatím žádná" },
     ];
     return tiles
       .map(
@@ -32,20 +31,18 @@
     }
     const rows = latest
       .map((r) => {
-        const status = Ferraty.statusMeta(r.status);
         return `
         <tr>
           <td class="cell-title"><a class="row-link" href="detail.html?id=${encodeURIComponent(r.id)}">${Ferraty.escapeHtml(r.name)}</a></td>
           <td class="muted-cell" data-label="Země">${Ferraty.escapeHtml(r.country || "—")}</td>
           <td data-label="Datum">${Ferraty.formatDate(r.date)}</td>
-          <td data-label="Stav"><span class="badge ${status.cls}">${status.label}</span></td>
         </tr>`;
       })
       .join("");
     return `
       <div class="table-scroll">
         <table class="ferraty-table">
-          <thead><tr><th>Název</th><th>Země</th><th>Datum</th><th>Stav</th></tr></thead>
+          <thead><tr><th>Název</th><th>Země</th><th>Datum</th></tr></thead>
           <tbody>${rows}</tbody>
         </table>
       </div>`;

@@ -6,9 +6,6 @@
     const avgLabel = stats.avgOverall !== null ? stats.avgOverall.toFixed(1) : "—";
     const tiles = [
       { value: stats.total, label: "Ferrat celkem" },
-      { value: stats.byStatusCount["dokončeno"], label: "Dokončeno" },
-      { value: stats.byStatusCount["pokus"], label: "Pokusů" },
-      { value: stats.byStatusCount["nedokončeno"], label: "Nedokončeno" },
       { value: stats.countriesCount, label: "Zemí" },
       {
         value: avgLabel,
@@ -49,16 +46,16 @@
   function renderMisc(stats) {
     const hardestLine = stats.hardest
       ? `<a href="detail.html?id=${encodeURIComponent(stats.hardest.id)}">${Ferraty.escapeHtml(stats.hardest.name)}</a> — ${Ferraty.escapeHtml(Ferraty.formatDifficulty(stats.hardest.difficulty))}`
-      : "zatím žádná dokončená ferrata se známou obtížností";
+      : "zatím žádná ferrata se známou obtížností";
 
     const elevationLine = stats.elevationGainKnownCount
-      ? `${Ferraty.fmtNumber(stats.totalElevationGain)} m <span class="text-faint">(součet ${stats.elevationGainKnownCount} z ${stats.completedCount} dokončených, u zbylých převýšení neznámo)</span>`
-      : `neznámo <span class="text-faint">(u žádné dokončené ferraty není vyplněné převýšení)</span>`;
+      ? `${Ferraty.fmtNumber(stats.totalElevationGain)} m <span class="text-faint">(součet ${stats.elevationGainKnownCount} z ${stats.total}, u zbylých převýšení neznámo)</span>`
+      : `neznámo <span class="text-faint">(u žádné ferraty není vyplněné převýšení)</span>`;
 
     return `
       <div class="fact-list" style="grid-template-columns:1fr;padding:0;border:none;background:none;">
-        ${fact("Nejtěžší dokončená", hardestLine)}
-        ${fact("Celkové převýšení (dokončené)", elevationLine)}
+        ${fact("Nejtěžší ferrata", hardestLine)}
+        ${fact("Celkové převýšení", elevationLine)}
         ${fact("Se zaznamenanou GPX trasou", `${stats.withGpx} z ${stats.total}`)}
         ${fact("S fotografiemi", `${stats.withPhotos} z ${stats.total}`)}
       </div>

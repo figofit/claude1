@@ -28,7 +28,6 @@
       country: els.country.value,
       difficulty: els.difficulty.value,
       year: els.year.value,
-      status: els.status.value,
     };
   }
 
@@ -36,7 +35,6 @@
     return records.filter((r) => {
       if (f.country && r.country !== f.country) return false;
       if (f.difficulty && (!r.difficulty || r.difficulty.grade !== f.difficulty)) return false;
-      if (f.status && r.status !== f.status) return false;
       if (f.year && String(Ferraty.yearOf(r.date)) !== f.year) return false;
       if (f.search) {
         const hay = [r.name, r.region, r.locality].filter(Boolean).join(" ").toLowerCase();
@@ -86,12 +84,11 @@
 
   function renderRows(records) {
     if (!records.length) {
-      els.tbody.innerHTML = `<tr><td colspan="7" class="empty-state">Žádná ferrata neodpovídá zvoleným filtrům.</td></tr>`;
+      els.tbody.innerHTML = `<tr><td colspan="6" class="empty-state">Žádná ferrata neodpovídá zvoleným filtrům.</td></tr>`;
       return;
     }
     els.tbody.innerHTML = records
       .map((r) => {
-        const status = Ferraty.statusMeta(r.status);
         const overall = Ferraty.ratingValue(r.myRating, "overall");
         return `
         <tr>
@@ -100,7 +97,6 @@
           <td class="muted-cell" data-label="Oblast">${Ferraty.escapeHtml(r.region || "—")}</td>
           <td data-label="Datum">${Ferraty.formatDate(r.date, { day: "numeric", month: "numeric", year: "numeric" })}</td>
           <td data-label="Obtížnost"><span class="badge badge--difficulty">${Ferraty.escapeHtml(Ferraty.formatDifficulty(r.difficulty))}</span></td>
-          <td data-label="Stav"><span class="badge ${status.cls}">${status.label}</span></td>
           <td data-label="Hodnocení">${Ferraty.ratingStarsHtml(overall)}</td>
         </tr>`;
       })
@@ -121,7 +117,6 @@
     els.country.value = "";
     els.difficulty.value = "";
     els.year.value = "";
-    els.status.value = "";
     render();
   }
 
@@ -130,7 +125,6 @@
     els.country = document.getElementById("f-country");
     els.difficulty = document.getElementById("f-difficulty");
     els.year = document.getElementById("f-year");
-    els.status = document.getElementById("f-status");
     els.reset = document.getElementById("f-reset");
     els.count = document.getElementById("result-count");
     els.tbody = document.getElementById("ferraty-tbody");
@@ -139,7 +133,7 @@
       allRecords = await Ferraty.loadAll();
     } catch (err) {
       console.error(err);
-      els.tbody.innerHTML = `<tr><td colspan="7" class="empty-state">Data se nepodařilo načíst. Stránku otevírej přes http(s) server, ne přímo ze souboru.</td></tr>`;
+      els.tbody.innerHTML = `<tr><td colspan="6" class="empty-state">Data se nepodařilo načíst. Stránku otevírej přes http(s) server, ne přímo ze souboru.</td></tr>`;
       return;
     }
 
@@ -154,7 +148,7 @@
       (v) => String(v)
     );
 
-    [els.search, els.country, els.difficulty, els.year, els.status].forEach((el) => {
+    [els.search, els.country, els.difficulty, els.year].forEach((el) => {
       el.addEventListener("input", render);
       el.addEventListener("change", render);
     });

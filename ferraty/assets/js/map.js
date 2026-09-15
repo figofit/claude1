@@ -2,17 +2,12 @@
 (function () {
   "use strict";
 
-  const STATUS_COLOR = {
-    "dokončeno": "#33513c",
-    "pokus": "#af5330",
-    "nedokončeno": "#7a7869",
-  };
+  const MARKER_COLOR = "#33513c";
 
-  function makeIcon(status) {
-    const color = STATUS_COLOR[status] || "#7a7869";
+  function makeIcon() {
     return L.divIcon({
       className: "",
-      html: `<span style="display:block;width:16px;height:16px;border-radius:50%;background:${color};border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,0.25);"></span>`,
+      html: `<span style="display:block;width:16px;height:16px;border-radius:50%;background:${MARKER_COLOR};border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,0.25);"></span>`,
       iconSize: [16, 16],
       iconAnchor: [8, 8],
       popupAnchor: [0, -8],
@@ -20,13 +15,11 @@
   }
 
   function popupHtml(r) {
-    const status = Ferraty.statusMeta(r.status);
     const overall = Ferraty.ratingValue(r.myRating, "overall");
     return `
       <div class="map-popup">
         <h4>${Ferraty.escapeHtml(r.name)}</h4>
         <div class="flex-wrap-gap" style="margin-bottom:6px;">
-          <span class="badge ${status.cls}">${status.label}</span>
           <span class="badge badge--difficulty">${Ferraty.escapeHtml(Ferraty.formatDifficulty(r.difficulty))}</span>
         </div>
         <div class="text-muted" style="font-size:0.85rem;">
@@ -60,7 +53,7 @@
     const markers = [];
 
     withCoords.forEach((r) => {
-      const marker = L.marker([r.coordinates.lat, r.coordinates.lng], { icon: makeIcon(r.status) })
+      const marker = L.marker([r.coordinates.lat, r.coordinates.lng], { icon: makeIcon() })
         .bindPopup(popupHtml(r));
       marker.addTo(map);
       markers.push(marker);
