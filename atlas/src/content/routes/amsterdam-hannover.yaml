@@ -1,0 +1,7 @@
+trip: amsterdam-2018
+mode: bus
+from: amsterdam
+to: hannover
+datePrecision: year
+status: completed
+notes: Součást zpáteční cesty domů.

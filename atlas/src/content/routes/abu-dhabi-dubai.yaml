@@ -1,0 +1,6 @@
+trip: uae-2023
+mode: bus
+from: abu-dhabi
+to: dubai
+datePrecision: year
+status: completed

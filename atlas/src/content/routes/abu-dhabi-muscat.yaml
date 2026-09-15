@@ -1,0 +1,7 @@
+trip: oman-2024
+mode: plane
+from: abu-dhabi
+to: muscat
+date: "2024-03-01"
+datePrecision: month
+status: completed

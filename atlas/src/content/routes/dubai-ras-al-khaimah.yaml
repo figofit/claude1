@@ -1,0 +1,6 @@
+trip: uae-2023
+mode: bus
+from: dubai
+to: ras-al-khaimah
+datePrecision: year
+status: completed

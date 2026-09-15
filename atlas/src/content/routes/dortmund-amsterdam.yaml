@@ -1,0 +1,6 @@
+trip: amsterdam-2018
+mode: bus
+from: dortmund
+to: amsterdam
+datePrecision: year
+status: completed
