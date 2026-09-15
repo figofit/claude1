@@ -11,7 +11,7 @@ const statusLabel: Record<string, string> = { ongoing: 'Probíhá', planned: 'Pl
 
 <a href={`/cesty/${trip.id}`} class="trip-card">
   <div class="trip-card-top">
-    <span class="trip-dates">{formatDateRange(trip.data.dateStart, trip.data.dateEnd, trip.data.datePrecision)}</span>
+    <span class="trip-dates">{formatDateRange(trip.data.dateStart, trip.data.dateEnd, trip.data.datePrecision, trip.data.status)}</span>
     {statusLabel[trip.data.status] && <span class="tag">{statusLabel[trip.data.status]}</span>}
   </div>
   <h3>{trip.data.title}</h3>

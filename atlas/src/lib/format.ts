@@ -20,17 +20,24 @@ export function formatDate(date: Date | undefined, precision: DatePrecision = 'd
   return dayFmt.format(date);
 }
 
-/** Rozsah dat pro výpravu - řeší i probíhající/neukončené cesty. */
+/**
+ * Rozsah dat pro výpravu. Chybějící dateEnd samo o sobě neznamená "probíhá" -
+ * spoustu starších dokončených cest si přesné datum konce nepamatuješ. Text
+ * "(probíhá)" se ukáže jen když je to podložené status: "ongoing".
+ */
 export function formatDateRange(
   start: Date | undefined,
   end: Date | undefined,
   precision: DatePrecision = 'day',
+  status?: 'planned' | 'ongoing' | 'completed',
 ): string {
   if (!start) return NEZNAMO;
   const startLabel = formatDate(start, precision);
-  if (!end) return `od ${startLabel} (probíhá)`;
-  const endLabel = formatDate(end, precision);
-  return startLabel === endLabel ? startLabel : `${startLabel} - ${endLabel}`;
+  if (end) {
+    const endLabel = formatDate(end, precision);
+    return startLabel === endLabel ? startLabel : `${startLabel} - ${endLabel}`;
+  }
+  return status === 'ongoing' ? `od ${startLabel} (probíhá)` : startLabel;
 }
 
 export function formatYear(date: Date | undefined): string {
