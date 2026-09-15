@@ -1,5 +1,5 @@
 /*
- * Moje ferraty — načítání dat a sdílené pomocné funkce.
+ * Moje hory — načítání dat a sdílené pomocné funkce.
  * Načteno jako obyčejný <script> na každé stránce, vystavuje globální objekt `Ferraty`.
  * Stránka musí běžet přes http(s) (fetch nefunguje z file://) — viz README.md.
  */
@@ -92,6 +92,16 @@
     return difficulty.scale ? `${difficulty.grade} (${difficulty.scale})` : difficulty.grade;
   }
 
+  const TYPE_META = {
+    ferrata: { label: "Ferrata", cls: "badge--type-ferrata" },
+    vrchol: { label: "Vrchol", cls: "badge--type-vrchol" },
+    "hřebenovka": { label: "Hřebenovka", cls: "badge--type-hrebenovka" },
+  };
+
+  function typeMeta(type) {
+    return TYPE_META[type] || { label: type || "Neuvedeno", cls: "badge--muted" };
+  }
+
   function formatDate(iso, opts) {
     if (!iso) return "—";
     const d = new Date(iso + "T00:00:00");
@@ -155,6 +165,13 @@
     const byCountry = countMap(records, (r) => r.country);
     const byDifficulty = countMap(records, (r) => (r.difficulty && r.difficulty.grade) || null);
     const byYear = countMap(records, (r) => yearOf(r.date));
+    const byType = countMap(records, (r) => r.type || null);
+
+    let highestAltitude = null;
+    records.forEach((r) => {
+      if (r.altitude_m === null || r.altitude_m === undefined) return;
+      if (!highestAltitude || r.altitude_m > highestAltitude.altitude_m) highestAltitude = r;
+    });
 
     let hardest = null;
     records.forEach((r) => {
@@ -183,7 +200,9 @@
       byCountry,
       byDifficulty,
       byYear,
+      byType,
       hardest,
+      highestAltitude,
       avgOverall,
       ratedOverallCount: ratedOverall.length,
       totalElevationGain,
@@ -216,6 +235,7 @@
     slugify,
     difficultyRank,
     formatDifficulty,
+    typeMeta,
     formatDate,
     yearOf,
     fmtNumber,

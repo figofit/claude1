@@ -1,4 +1,4 @@
-/* Moje ferraty — logika stránky Přidat ferratu (pridat.html) */
+/* Moje hory — logika stránky Přidat výstup (pridat.html) */
 (function () {
   "use strict";
 
@@ -82,7 +82,7 @@
 
     return {
       id,
-      type: "ferrata",
+      type: val("f-type"),
       name,
       country: orNull(val("f-country")),
       region: orNull(val("f-region")),
@@ -121,7 +121,7 @@
     hideError();
 
     if (!val("f-name").trim()) {
-      showError("Vyplň prosím alespoň název ferraty.");
+      showError("Vyplň prosím alespoň název.");
       return;
     }
 

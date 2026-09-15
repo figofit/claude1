@@ -2,7 +2,7 @@
 <html lang="cs">
 <head>
 <meta charset="UTF-8">
-<title>Přidat ferratu | Moje ferraty</title>
+<title>Přidat výstup | Moje hory</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="assets/css/style.css">
@@ -12,7 +12,7 @@
 <header id="app-header" class="site-header"></header>
 
 <main class="container">
-  <h1>Přidat ferratu</h1>
+  <h1>Přidat výstup</h1>
   <p class="page-lead">
     Žádný backend, žádná databáze — formulář jen správně poskládá záznam ve formátu, který aplikace čte.
     Vyplněné pole nech prázdné, pokud údaj nemáš; nic se nedomýšlí.
@@ -23,8 +23,16 @@
       <h2>Základní údaje</h2>
       <div class="form-grid">
         <div class="form-field form-field--full">
-          <label for="f-name">Název ferraty *</label>
-          <input type="text" id="f-name" required placeholder="např. Donnerkogel – Austriaweg">
+          <label for="f-name">Název *</label>
+          <input type="text" id="f-name" required placeholder="např. Grossglockner nebo Donnerkogel – Austriaweg">
+        </div>
+        <div class="form-field">
+          <label for="f-type">Typ</label>
+          <select id="f-type">
+            <option value="ferrata">Ferrata</option>
+            <option value="vrchol">Vrchol</option>
+            <option value="hřebenovka">Hřebenovka</option>
+          </select>
         </div>
         <div class="form-field">
           <label for="f-country">Země</label>

@@ -1,12 +1,17 @@
-/* Moje ferraty — logika stránky Statistiky (statistiky.html) */
+/* Moje hory — logika stránky Statistiky (statistiky.html) */
 (function () {
   "use strict";
 
   function renderStatRow(stats) {
     const avgLabel = stats.avgOverall !== null ? stats.avgOverall.toFixed(1) : "—";
     const tiles = [
-      { value: stats.total, label: "Ferrat celkem" },
+      { value: stats.total, label: "Výstupů celkem" },
       { value: stats.countriesCount, label: "Zemí" },
+      {
+        value: stats.highestAltitude ? Ferraty.fmtNumber(stats.highestAltitude.altitude_m) + " m" : "—",
+        label: "Nejvyšší dosažený bod",
+        note: stats.highestAltitude ? Ferraty.escapeHtml(stats.highestAltitude.name) : "zatím neznámo",
+      },
       {
         value: avgLabel,
         label: "Průměrné hodnocení",
@@ -46,11 +51,11 @@
   function renderMisc(stats) {
     const hardestLine = stats.hardest
       ? `<a href="detail.html?id=${encodeURIComponent(stats.hardest.id)}">${Ferraty.escapeHtml(stats.hardest.name)}</a> — ${Ferraty.escapeHtml(Ferraty.formatDifficulty(stats.hardest.difficulty))}`
-      : "zatím žádná ferrata se známou obtížností";
+      : "zatím žádný výstup se známou obtížností";
 
     const elevationLine = stats.elevationGainKnownCount
       ? `${Ferraty.fmtNumber(stats.totalElevationGain)} m <span class="text-faint">(součet ${stats.elevationGainKnownCount} z ${stats.total}, u zbylých převýšení neznámo)</span>`
-      : `neznámo <span class="text-faint">(u žádné ferraty není vyplněné převýšení)</span>`;
+      : `neznámo <span class="text-faint">(u žádného výstupu není vyplněné převýšení)</span>`;
 
     return `
       <div class="fact-list" style="grid-template-columns:1fr;padding:0;border:none;background:none;">
@@ -90,6 +95,7 @@
     const stats = Ferraty.computeStats(records);
 
     document.getElementById("stat-row").innerHTML = renderStatRow(stats);
+    document.getElementById("by-type").innerHTML = renderBreakdown(stats.byType, (k) => Ferraty.typeMeta(k).label);
     document.getElementById("by-country").innerHTML = renderBreakdown(stats.byCountry, (k) => k);
     document.getElementById("by-difficulty").innerHTML = renderBreakdown(sortByDifficultyRank(stats.byDifficulty), (k) => k);
     const byYearSorted = stats.byYear.slice().sort((a, b) => {

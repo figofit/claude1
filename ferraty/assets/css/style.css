@@ -1,5 +1,5 @@
 /* =========================================================
-   Moje ferraty — sdílený vzhled celé aplikace
+   Moje hory — sdílený vzhled celé aplikace
    Horský/outdoorový styl: přírodní barvy, klid, čitelnost.
    ========================================================= */
 
@@ -446,6 +446,9 @@ table.ferraty-table {
 }
 .badge--difficulty { background: var(--sand); color: var(--forest-dark); }
 .badge--muted { background: var(--bg-alt); color: var(--text-faint); }
+.badge--type-ferrata { background: var(--forest-tint); color: var(--forest-dark); }
+.badge--type-vrchol { background: var(--clay-tint); color: var(--clay-dark); }
+.badge--type-hrebenovka { background: var(--bg-alt); color: var(--stone); }
 
 /* ---------- Hodnocení (hvězdy/tečky) ---------- */
 

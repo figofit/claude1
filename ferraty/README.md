@@ -1,6 +1,7 @@
-# Moje ferraty
+# Moje hory
 
-Osobní evidence absolvovaných via ferrat. Statická webová aplikace (čisté HTML/CSS/JS,
+Osobní evidence absolvovaných ferrat, vrcholů a hřebenovek — jeden společný seznam, mapa
+a statistiky pro všechno, co zvládneš v horách. Statická webová aplikace (čisté HTML/CSS/JS,
 bez frameworku a bez buildu) — žádná databáze, žádný backend. Všechna data jsou v jednom
 čitelném JSON souboru, který postupně doplňuješ ty sám.
 
@@ -25,18 +26,19 @@ Netlify apod.) — je to čistě statický obsah.
 ```
 ferraty/
   index.html         Přehled (hero, souhrnné statistiky, poslední záznamy)
-  ferraty.html        Seznam / tabulka se řazením a filtry
-  mapa.html            Interaktivní mapa všech ferrat
-  detail.html          Detail jedné ferraty (?id=...)
+  ferraty.html        Výstupy — seznam/tabulka se řazením a filtry (typ, země, obtížnost, rok)
+  mapa.html            Interaktivní mapa všech výstupů
+  detail.html          Detail jednoho záznamu (?id=...)
   statistiky.html      Automaticky počítané statistiky
   pridat.html          Formulář pro vygenerování nového záznamu
 
   data/
-    ferraty.json       Jediný zdroj pravdy — pole "records" se všemi ferratami
+    ferraty.json       Jediný zdroj pravdy — pole "records" se všemi výstupy
+                         (ferraty i vrcholy i hřebenovky pohromadě, rozlišené polem "type")
 
   gpx/                 GPX/TCX soubory tras (volitelné, odkazované z data/ferraty.json)
   photos/
-    <id-ferraty>/      Fotografie k dané ferratě (volitelné, jedna složka na záznam)
+    <id-zaznamu>/      Fotografie k danému záznamu (volitelné, jedna složka na záznam)
 
   assets/
     css/style.css      Sdílený vzhled
@@ -48,12 +50,12 @@ ferraty/
 
 ## Datový model
 
-Každý záznam v `data/ferraty.json` → `records[]` vypadá takto (viz i ukázková data):
+Každý záznam v `data/ferraty.json` → `records[]` vypadá takto (viz i uložená data):
 
 ```jsonc
 {
   "id": "donnerkogel-austriaweg-2023",   // stabilní, ručně čitelné ID — nikdy neměnit
-  "type": "ferrata",                      // typ záznamu, viz "Budoucí rozšíření"
+  "type": "ferrata",                      // "ferrata" | "vrchol" | "hřebenovka"
 
   "name": "Donnerkogel – Austriaweg",
   "country": "Rakousko",
@@ -63,10 +65,10 @@ Každý záznam v `data/ferraty.json` → `records[]` vypadá takto (viz i ukáz
 
   "date": "2023-08-12",                   // YYYY-MM-DD, nebo null
 
-  "difficulty": { "grade": "C/D", "scale": "Hüsler" },  // nebo null
+  "difficulty": { "grade": "C/D", "scale": "Hüsler" },  // nebo null — libovolná stupnice
   "length_m": 850,
   "elevationGain_m": 400,
-  "summit": "Donnerkogel",
+  "summit": "Donnerkogel",                // u typu "vrchol" obvykle netřeba (název = vrchol)
   "altitude_m": 2054,
   "duration_min": 240,
 
@@ -84,7 +86,7 @@ Každý záznam v `data/ferraty.json` → `records[]` vypadá takto (viz i ukáz
   "photos": ["photos/donnerkogel-austriaweg-2023/01.jpg"],                       // nebo []
 
   "sourceUrl": "https://www.dachstein-salzkammergut.at/",  // nebo null
-  "relatedIds": [],                        // odkazy na budoucí propojené záznamy (viz níže)
+  "relatedIds": [],                        // odkazy na související záznamy (viz níže)
 
   "createdAt": "2023-08-14T18:00:00Z",
   "updatedAt": "2023-08-14T18:00:00Z"
@@ -95,12 +97,24 @@ Každý záznam v `data/ferraty.json` → `records[]` vypadá takto (viz i ukáz
 nedopočítává ani nedomýšlí — pokud je pole `null`, zobrazí se jako „—“ nebo „neuvedeno“,
 a do statistik se počítá jen z toho, co skutečně je vyplněné (a je to tak i okomentované).
 
+### Typ záznamu
+
+`type` rozlišuje tři druhy výstupů, které appka zvládá v jednom seznamu/mapě/statistikách:
+
+- `"ferrata"` — via ferrata
+- `"vrchol"` — výstup na vrchol pěšky/lezením bez zajištěné ferraty
+- `"hřebenovka"` — traverz/hřebenovka mezi více vrcholy
+
+Pole jako `length_m` (délka zajištěné trasy) dávají smysl hlavně u ferrat, `summit` zase
+hlavně u ferrat (cílový vrchol jiný než název trasy) — u vrcholu je to typicky zbytečné,
+protože `name` už je ten vrchol. Nic se ale nevynucuje, klidně nech prázdné, co nesedí.
+
 ### Obtížnost
 
 `difficulty.grade` je čistě text, který si zapíšeš tak, jak je uvedený u zdroje (např. `C`,
-`C/D`, `4a`...). Pro řazení a seskupování aplikace rozumí klasické Hüslerově stupnici
-A–E (i kombinacím typu `C/D`) — cokoliv jiného zůstane brané jako "nezařaditelné" a při
-řazení skončí na konci, ale zobrazí a filtruje se v pohodě dál.
+`C/D`, `4a`, `PD`...). Pro řazení a seskupování aplikace rozumí klasické Hüslerově stupnici
+A–E (i kombinacím typu `C/D`) — cokoliv jiného (alpská stupnice, UIAA, vlastní odhad) zůstane
+brané jako "nezařaditelné" a při řazení skončí na konci, ale zobrazí a filtruje se v pohodě dál.
 
 ### GPX/TCX trasa
 
@@ -110,13 +124,13 @@ soubor se nabídne ke stažení, ale nevykresluje se (šlo by doplnit později p
 
 ### Fotografie
 
-Slož je do vlastní podsložky `photos/<id-ferraty>/` a v poli `photos` vypiš relativní cesty
+Slož je do vlastní podsložky `photos/<id-zaznamu>/` a v poli `photos` vypiš relativní cesty
 k jednotlivým souborům. Prázdné pole `[]` znamená "zatím žádné fotky", ne chybu.
 
-## Jak přidat novou ferratu
+## Jak přidat nový výstup
 
-1. Otevři stránku **Přidat ferratu** (`pridat.html`) a vyplň formulář — cokoliv nevíš, nech
-   prázdné.
+1. Otevři stránku **Přidat výstup** (`pridat.html`), vyber typ (ferrata/vrchol/hřebenovka)
+   a vyplň formulář — cokoliv nevíš, nech prázdné.
 2. Klikni na „Vygenerovat záznam“. Formulář si sám vymyslí stabilní `id` (ze slugu názvu a
    roku), zkontroluje, že se nekryje s existujícím záznamem, a poskládá kompletní JSON blok
    ve správném formátu.
@@ -139,28 +153,24 @@ souboru) — najdi záznam podle `id` v `data/ferraty.json` a uprav nebo smaž h
 
 ## Stav dat
 
-`data/ferraty.json` teď obsahuje prvních 12 skutečných záznamů. U řady z nich zatím chybí
-datum, obtížnost, GPS nebo přesný název trasy — u těch je v poli `note` napsané, co je potřeba
-doplnit/zkontrolovat. Klidně uprav ručně nebo přes `pridat.html` (u úprav existujícího záznamu
-viz sekci výše).
+`data/ferraty.json` obsahuje reálné záznamy, ne ukázková data. U řady z nich zatím chybí
+datum, obtížnost, GPS nebo přesný název trasy/vrcholu — u těch je v poli `note` napsané,
+co je potřeba doplnit/zkontrolovat. Klidně uprav ručně nebo přes `pridat.html` (u úprav
+existujícího záznamu viz sekci výše).
 
-## Budoucí rozšíření (vrcholy, hřebenovky, výpravy…)
+## Budoucí rozšíření (výpravy, cestovatelský atlas…)
 
-Datový model je záměrně navržený tak, aby šel replikovat pro další typy aktivit beze změny
-základu:
+Datový model je záměrně navržený tak, aby šel dál rozšiřovat beze změny základu:
 
-- Pro nový modul (např. vrcholy) by vznikl vlastní soubor `data/vrcholy.json` se stejnou
-  obálkou (`id`, `type: "peak"`, společná pole `name/country/region/locality/coordinates/
-  date/myRating/note/track/photos/sourceUrl/relatedIds`) a specifickými poli podle
-  potřeby (např. `prominence_m`).
-- `id` je stabilní a nezávislé na pořadí v souboru — proto ho lze bezpečně použít i z jiného
-  modulu.
+- `id` je stabilní a nezávislé na pořadí v souboru — proto ho lze bezpečně použít i
+  z jiného, budoucího datového souboru (např. samostatný cestovatelský atlas).
 - Pole **`relatedIds`** už dnes existuje u každého záznamu právě proto, aby šlo později
-  propojit konkrétní ferratu s konkrétním výstupem, hřebenovkou nebo výpravou — stačí tam
-  vypsat `id` souvisejících záznamů (i z jiného datového souboru, např. `"peak:hoher-dachstein-2023"`).
-- `type` pole u každého záznamu do budoucna umožní sloučit více modulů do jednoho přehledu
-  nebo jedné mapy, pokud by to dávalo smysl.
+  propojit konkrétní výstup s konkrétní výpravou nebo cestou — stačí tam vypsat `id`
+  souvisejících záznamů.
+- Další modul (např. samostatný "cestovatelský atlas" cest a vlaků, jak plánuješ) může žít
+  klidně jako úplně samostatný projekt/appka — nemusí sdílet tenhle datový soubor ani stránky,
+  stačí mu jen stejný přístup (JSON + GPX/fotky ve složkách, žádný backend).
 
-Až budeš chtít modul přidat, stačí zkopírovat vzor stránek (seznam/mapa/detail/statistiky/
-přidat) a napojit ho na nový JSON soubor — `assets/js/data.js` je psané tak, aby šlo stejné
-funkce (formátování, řazení, statistiky) použít i pro nový typ dat.
+Až budeš chtít podobný modul přidat, stačí zkopírovat vzor stránek (seznam/mapa/detail/
+statistiky/přidat) — `assets/js/data.js` je psané tak, aby šlo stejné funkce (formátování,
+řazení, statistiky) použít i pro nový typ dat.

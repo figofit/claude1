@@ -1,4 +1,4 @@
-/* Moje ferraty — logika stránky Detail ferraty (detail.html) */
+/* Moje hory — logika stránky Detail výstupu (detail.html) */
 (function () {
   "use strict";
 
@@ -140,10 +140,14 @@
       return;
     }
 
-    document.title = `${record.name} | Moje ferraty`;
+    document.title = `${record.name} | Moje hory`;
     document.getElementById("crumb-name").textContent = record.name;
 
     document.getElementById("d-name").textContent = record.name;
+    const type = Ferraty.typeMeta(record.type);
+    const typeBadge = document.getElementById("d-type");
+    typeBadge.textContent = type.label;
+    typeBadge.className = `badge ${type.cls}`;
     document.getElementById("d-difficulty").textContent = Ferraty.formatDifficulty(record.difficulty);
 
     const subParts = [record.locality, record.region, record.country].filter(Boolean);

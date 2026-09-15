@@ -1,4 +1,4 @@
-/* Moje ferraty — logika stránky Ferraty (seznam/tabulka) */
+/* Moje hory — logika stránky Výstupy (seznam/tabulka) */
 (function () {
   "use strict";
 
@@ -28,6 +28,7 @@
       country: els.country.value,
       difficulty: els.difficulty.value,
       year: els.year.value,
+      type: els.type.value,
     };
   }
 
@@ -36,6 +37,7 @@
       if (f.country && r.country !== f.country) return false;
       if (f.difficulty && (!r.difficulty || r.difficulty.grade !== f.difficulty)) return false;
       if (f.year && String(Ferraty.yearOf(r.date)) !== f.year) return false;
+      if (f.type && r.type !== f.type) return false;
       if (f.search) {
         const hay = [r.name, r.region, r.locality].filter(Boolean).join(" ").toLowerCase();
         if (!hay.includes(f.search)) return false;
@@ -84,15 +86,17 @@
 
   function renderRows(records) {
     if (!records.length) {
-      els.tbody.innerHTML = `<tr><td colspan="6" class="empty-state">Žádná ferrata neodpovídá zvoleným filtrům.</td></tr>`;
+      els.tbody.innerHTML = `<tr><td colspan="7" class="empty-state">Žádný výstup neodpovídá zvoleným filtrům.</td></tr>`;
       return;
     }
     els.tbody.innerHTML = records
       .map((r) => {
         const overall = Ferraty.ratingValue(r.myRating, "overall");
+        const type = Ferraty.typeMeta(r.type);
         return `
         <tr>
           <td class="cell-title"><a class="row-link" href="detail.html?id=${encodeURIComponent(r.id)}">${Ferraty.escapeHtml(r.name)}</a></td>
+          <td data-label="Typ"><span class="badge ${type.cls}">${type.label}</span></td>
           <td data-label="Země">${Ferraty.escapeHtml(r.country || "—")}</td>
           <td class="muted-cell" data-label="Oblast">${Ferraty.escapeHtml(r.region || "—")}</td>
           <td data-label="Datum">${Ferraty.formatDate(r.date, { day: "numeric", month: "numeric", year: "numeric" })}</td>
@@ -109,7 +113,7 @@
     const sorted = applySort(filtered);
     renderRows(sorted);
     updateSortArrows();
-    els.count.textContent = `Zobrazeno ${filtered.length} z ${allRecords.length} ferrat.`;
+    els.count.textContent = `Zobrazeno ${filtered.length} z ${allRecords.length}.`;
   }
 
   function resetFilters() {
@@ -117,6 +121,7 @@
     els.country.value = "";
     els.difficulty.value = "";
     els.year.value = "";
+    els.type.value = "";
     render();
   }
 
@@ -125,6 +130,7 @@
     els.country = document.getElementById("f-country");
     els.difficulty = document.getElementById("f-difficulty");
     els.year = document.getElementById("f-year");
+    els.type = document.getElementById("f-type");
     els.reset = document.getElementById("f-reset");
     els.count = document.getElementById("result-count");
     els.tbody = document.getElementById("ferraty-tbody");
@@ -133,7 +139,7 @@
       allRecords = await Ferraty.loadAll();
     } catch (err) {
       console.error(err);
-      els.tbody.innerHTML = `<tr><td colspan="6" class="empty-state">Data se nepodařilo načíst. Stránku otevírej přes http(s) server, ne přímo ze souboru.</td></tr>`;
+      els.tbody.innerHTML = `<tr><td colspan="7" class="empty-state">Data se nepodařilo načíst. Stránku otevírej přes http(s) server, ne přímo ze souboru.</td></tr>`;
       return;
     }
 
@@ -148,7 +154,7 @@
       (v) => String(v)
     );
 
-    [els.search, els.country, els.difficulty, els.year].forEach((el) => {
+    [els.search, els.country, els.difficulty, els.year, els.type].forEach((el) => {
       el.addEventListener("input", render);
       el.addEventListener("change", render);
     });

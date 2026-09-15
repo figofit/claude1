@@ -1,4 +1,4 @@
-/* Moje ferraty — logika stránky Přehled (index.html) */
+/* Moje hory — logika stránky Přehled (index.html) */
 (function () {
   "use strict";
 
@@ -7,9 +7,9 @@
       ? Ferraty.formatDifficulty(stats.hardest.difficulty)
       : "—";
     const tiles = [
-      { value: stats.total, label: "Ferrat celkem" },
+      { value: stats.total, label: "Výstupů celkem" },
       { value: stats.countriesCount, label: "Zemí navštíveno" },
-      { value: hardestLabel, label: "Nejtěžší ferrata", note: stats.hardest ? Ferraty.escapeHtml(stats.hardest.name) : "zatím žádná" },
+      { value: hardestLabel, label: "Nejtěžší podle obtížnosti", note: stats.hardest ? Ferraty.escapeHtml(stats.hardest.name) : "zatím žádný" },
     ];
     return tiles
       .map(

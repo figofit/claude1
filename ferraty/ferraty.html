@@ -2,7 +2,7 @@
 <html lang="cs">
 <head>
 <meta charset="UTF-8">
-<title>Ferraty — seznam | Moje ferraty</title>
+<title>Výstupy — seznam | Moje hory</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="assets/css/style.css">
@@ -14,8 +14,8 @@
 <main class="container">
   <div class="section__head">
     <div>
-      <h1>Ferraty</h1>
-      <p class="page-lead">Kompletní seznam. Řaď kliknutím na záhlaví sloupce, filtruj a hledej vpravo/vlevo v panelu níže.</p>
+      <h1>Výstupy</h1>
+      <p class="page-lead">Ferraty, vrcholy i hřebenovky pohromadě. Řaď kliknutím na záhlaví sloupce, filtruj a hledej vpravo/vlevo v panelu níže.</p>
     </div>
   </div>
 
@@ -23,6 +23,15 @@
     <div class="filter-field filter-field--grow">
       <label for="f-search">Hledat</label>
       <input type="search" id="f-search" placeholder="Název nebo oblast…">
+    </div>
+    <div class="filter-field">
+      <label for="f-type">Typ</label>
+      <select id="f-type">
+        <option value="">Všechny</option>
+        <option value="ferrata">Ferrata</option>
+        <option value="vrchol">Vrchol</option>
+        <option value="hřebenovka">Hřebenovka</option>
+      </select>
     </div>
     <div class="filter-field">
       <label for="f-country">Země</label>
@@ -47,6 +56,7 @@
         <thead>
           <tr>
             <th><button data-sort="name">Název <span class="sort-arrow"></span></button></th>
+            <th>Typ</th>
             <th><button data-sort="country">Země <span class="sort-arrow"></span></button></th>
             <th>Oblast</th>
             <th><button data-sort="date">Datum <span class="sort-arrow"></span></button></th>
@@ -55,7 +65,7 @@
           </tr>
         </thead>
         <tbody id="ferraty-tbody">
-          <tr><td colspan="6" class="empty-state">Načítám…</td></tr>
+          <tr><td colspan="7" class="empty-state">Načítám…</td></tr>
         </tbody>
       </table>
     </div>

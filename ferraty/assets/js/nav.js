@@ -1,5 +1,5 @@
 /*
- * Moje ferraty — společná hlavička a patička.
+ * Moje hory — společná hlavička a patička.
  * Každá stránka má <body data-page="..."> a prázdné <div id="app-header">/<div id="app-footer">.
  * Menu se tak upravuje jen na jednom místě.
  */
@@ -8,10 +8,10 @@
 
   const NAV_ITEMS = [
     { page: "prehled", href: "index.html", label: "Přehled" },
-    { page: "ferraty", href: "ferraty.html", label: "Ferraty" },
+    { page: "ferraty", href: "ferraty.html", label: "Výstupy" },
     { page: "mapa", href: "mapa.html", label: "Mapa" },
     { page: "statistiky", href: "statistiky.html", label: "Statistiky" },
-    { page: "pridat", href: "pridat.html", label: "Přidat ferratu" },
+    { page: "pridat", href: "pridat.html", label: "Přidat výstup" },
   ];
 
   function renderHeader(current) {
@@ -24,7 +24,7 @@
       <div class="site-header__inner">
         <a class="brand" href="index.html">
           <span class="brand__mark" aria-hidden="true">⛰</span>
-          <span>Moje ferraty</span>
+          <span>Moje hory</span>
         </a>
         <button class="nav-toggle" type="button" aria-label="Otevřít menu" aria-expanded="false">☰</button>
         <nav class="nav">${links}</nav>
@@ -36,7 +36,7 @@
     const year = new Date().getFullYear();
     return `
       <div class="container">
-        <p>Moje ferraty — osobní evidence absolvovaných via ferrat. Data v <code>data/ferraty.json</code>, žádná databáze ani backend.</p>
+        <p>Moje hory — osobní evidence absolvovaných ferrat, vrcholů a hřebenovek. Data v <code>data/ferraty.json</code>, žádná databáze ani backend.</p>
         <p>&copy; ${year}</p>
       </div>
     `;

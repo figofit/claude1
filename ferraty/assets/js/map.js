@@ -1,13 +1,18 @@
-/* Moje ferraty — logika stránky Mapa (mapa.html) */
+/* Moje hory — logika stránky Mapa (mapa.html) */
 (function () {
   "use strict";
 
-  const MARKER_COLOR = "#33513c";
+  const TYPE_COLOR = {
+    ferrata: "#33513c",
+    vrchol: "#af5330",
+    "hřebenovka": "#83806d",
+  };
 
-  function makeIcon() {
+  function makeIcon(type) {
+    const color = TYPE_COLOR[type] || "#83806d";
     return L.divIcon({
       className: "",
-      html: `<span style="display:block;width:16px;height:16px;border-radius:50%;background:${MARKER_COLOR};border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,0.25);"></span>`,
+      html: `<span style="display:block;width:16px;height:16px;border-radius:50%;background:${color};border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,0.25);"></span>`,
       iconSize: [16, 16],
       iconAnchor: [8, 8],
       popupAnchor: [0, -8],
@@ -16,10 +21,12 @@
 
   function popupHtml(r) {
     const overall = Ferraty.ratingValue(r.myRating, "overall");
+    const type = Ferraty.typeMeta(r.type);
     return `
       <div class="map-popup">
         <h4>${Ferraty.escapeHtml(r.name)}</h4>
         <div class="flex-wrap-gap" style="margin-bottom:6px;">
+          <span class="badge ${type.cls}">${type.label}</span>
           <span class="badge badge--difficulty">${Ferraty.escapeHtml(Ferraty.formatDifficulty(r.difficulty))}</span>
         </div>
         <div class="text-muted" style="font-size:0.85rem;">
@@ -53,7 +60,7 @@
     const markers = [];
 
     withCoords.forEach((r) => {
-      const marker = L.marker([r.coordinates.lat, r.coordinates.lng], { icon: makeIcon() })
+      const marker = L.marker([r.coordinates.lat, r.coordinates.lng], { icon: makeIcon(r.type) })
         .bindPopup(popupHtml(r));
       marker.addTo(map);
       markers.push(marker);
@@ -68,7 +75,7 @@
 
     const missing = records.length - withCoords.length;
     document.getElementById("map-note").textContent = missing
-      ? `${missing} ${missing === 1 ? "ferrata nemá" : "ferrat nemá"} vyplněné GPS souřadnice, takže na mapě chybí.`
+      ? `${missing} ${missing === 1 ? "záznam nemá" : "záznamů nemá"} vyplněné GPS souřadnice, takže na mapě chybí.`
       : "";
   }
 
