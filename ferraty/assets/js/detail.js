@@ -55,6 +55,22 @@
       .join("")}</div>`;
   }
 
+  async function renderRelated(r, sectionEl, containerEl) {
+    if (!r.relatedIds || !r.relatedIds.length) return;
+    const all = await Ferraty.loadAll();
+    const related = r.relatedIds
+      .map((id) => all.find((x) => x.id === id))
+      .filter(Boolean);
+    if (!related.length) return;
+    containerEl.innerHTML = related
+      .map((rel) => {
+        const type = Ferraty.typeMeta(rel.type);
+        return `<a class="btn btn--outline btn--sm" href="detail.html?id=${encodeURIComponent(rel.id)}">${type.label}: ${Ferraty.escapeHtml(rel.name)}</a>`;
+      })
+      .join("");
+    sectionEl.hidden = false;
+  }
+
   function renderLinks(r) {
     const links = [];
     if (r.track && r.track.file) {
@@ -163,6 +179,7 @@
 
     renderGallery(record, document.getElementById("gallery-section"), document.getElementById("d-gallery"));
     document.getElementById("d-links").innerHTML = renderLinks(record);
+    renderRelated(record, document.getElementById("related-section"), document.getElementById("d-related"));
 
     loadingEl.hidden = true;
     contentEl.hidden = false;

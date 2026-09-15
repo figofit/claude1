@@ -172,7 +172,7 @@
     {
       "id": "mojstrana",
       "type": "ferrata",
-      "name": "Mojstrana",
+      "name": "Ferrata Mojstrana",
       "country": "Slovinsko",
       "region": "Julské Alpy",
       "locality": "Mojstrana",
@@ -180,7 +180,7 @@
         "lat": 46.4347,
         "lng": 13.9503
       },
-      "date": null,
+      "date": "2020-07-28",
       "difficulty": null,
       "length_m": null,
       "elevationGain_m": null,
@@ -188,13 +188,15 @@
       "altitude_m": null,
       "duration_min": null,
       "myRating": null,
-      "note": "Doplň konkrétní název ferraty/trasy u Mojstrany.",
+      "note": "Moje první opravdová ferrata — na Triglavu jsem měl ferratový set u sebe, ale na hřebeni jsem ho nakonec nepoužil. Symbolická tečka za výletem na Triglav: na vrcholu téhle ferraty stojí zmenšenina Aljažova stolpu, stejné věžičky, co stojí na vrcholu Triglavu.",
       "track": null,
       "photos": [],
       "sourceUrl": null,
-      "relatedIds": [],
+      "relatedIds": [
+        "triglav"
+      ],
       "createdAt": "2026-09-15T00:00:00Z",
-      "updatedAt": "2026-09-15T00:00:00Z"
+      "updatedAt": "2026-09-17T00:00:00Z"
     },
     {
       "id": "dve-veze",
@@ -753,6 +755,41 @@
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
       "updatedAt": "2026-09-16T00:00:00Z"
+    },
+    {
+      "id": "triglav",
+      "type": "vrchol",
+      "name": "Triglav",
+      "country": "Slovinsko",
+      "region": "Julské Alpy",
+      "locality": "Mojstrana",
+      "coordinates": {
+        "lat": 46.3783,
+        "lng": 13.8358
+      },
+      "date": "2020-07-27",
+      "difficulty": null,
+      "length_m": null,
+      "elevationGain_m": 1850,
+      "summit": null,
+      "altitude_m": 2864,
+      "duration_min": null,
+      "myRating": {
+        "technical": 3,
+        "physical": 4,
+        "exposure": 4,
+        "views": 5,
+        "overall": 5
+      },
+      "note": "Nejvyšší hora Slovinska, šel jsem ji v létě 2020 uprostřed covidu — a bylo v tom od všeho něco. Noční RegioJet z Brna (skoro 3 h zpoždění kvůli incidentu na hranicích), pak přes Lublaň a Jesenice do Mojstrany. Z údolí Vrata (stopem k Aljaževu domu, ~1000 m) nahoru přes Pot čez Prag — moje první pořádně zajištěná vysokohorská cesta, klíčová ~15m stěna na kolících a laně, kamzíci, poledovcová plošina. Na Triglavski dom na Kredarici jsem dorazil kolem páté odpoledne — kvůli covidu byla zavřená společná noclehárna, takže jsem přespal pod schody v bundě a ráno vylezl ven oknem, protože bylo zamčeno. Před pátou ráno výstup přes Mali Triglav po vzdušném zajištěném hřebínku na vrchol — východ slunce jsem sledoval jako čtvrtý člověk na vrcholu ten den, naprostý klid před davem. Sestup Tominškovou cestou byl psychicky náročnější než výstup (řidší jištění, sníh i v červenci) a trval věčně. Symbolická tečka: následující den ferrata Mojstrana, na jejímž vrcholu stojí zmenšenina Aljažova stolpu z Triglavu. Jeden z těch výstupů, co si člověk pamatuje i po letech — trochu chaosu, trochu štěstí, hodně radosti.",
+      "track": null,
+      "photos": [],
+      "sourceUrl": null,
+      "relatedIds": [
+        "mojstrana"
+      ],
+      "createdAt": "2026-09-17T00:00:00Z",
+      "updatedAt": "2026-09-17T00:00:00Z"
     }
   ]
 }
