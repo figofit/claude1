@@ -1,0 +1,7 @@
+trip: orla-perc-2020
+mode: bus
+from: olomouc
+to: zakopane
+datePrecision: month
+status: completed
+notes: Autobusem přes Ostravu a Krakov.

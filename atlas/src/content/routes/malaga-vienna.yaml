@@ -1,0 +1,7 @@
+trip: mulhacen-2022
+mode: plane
+from: malaga
+to: vienna
+date: "2022-01-18"
+datePrecision: day
+status: completed

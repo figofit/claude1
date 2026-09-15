@@ -1,0 +1,8 @@
+trip: mulhacen-2022
+mode: bus
+from: malaga
+to: capileira
+date: "2022-01-14"
+datePrecision: day
+status: completed
+notes: Přes Granadu, odkud pokračoval samostatný spoj do Capileiry.

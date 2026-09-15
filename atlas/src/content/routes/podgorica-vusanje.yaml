@@ -1,0 +1,8 @@
+trip: zla-kolata-2021
+mode: mixed
+from: podgorica
+to: vusanje
+date: "2021-10-19"
+datePrecision: day
+status: completed
+notes: Autobus do Gusinje, odtud dál do Vusanje stopem (autobus tam nejezdil).

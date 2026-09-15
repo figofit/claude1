@@ -1,0 +1,8 @@
+trip: mulhacen-2022
+mode: plane
+from: vienna
+to: malaga
+date: "2022-01-14"
+datePrecision: day
+status: completed
+notes: Noc před odletem strávena přímo na letišti ve Vídni.

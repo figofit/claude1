@@ -1,0 +1,10 @@
+trip: rudoka-2024
+mode: hitchhike
+from: skopje
+to: gostivar
+date: "2024-06-22"
+datePrecision: day
+status: completed
+notes: >
+  Náhrada za nefunkční ranní bus - série stopů přes Gostivar, Negotino,
+  Senokos a Gjurgjeviště až k trailheadu pod Rudokou.

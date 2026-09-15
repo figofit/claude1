@@ -1,0 +1,8 @@
+trip: kazbek-2025
+mode: mixed
+from: olomouc
+to: tbilisi
+date: "2025-06-23"
+datePrecision: day
+status: completed
+notes: RegioJetem do Prahy, odtud letecky přes Istanbul do Tbilisi (týž večer).

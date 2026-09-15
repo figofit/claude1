@@ -1,0 +1,7 @@
+trip: gran-paradiso-2025
+mode: bus
+from: aosta
+to: valsavarenche
+date: "2025-07-22"
+datePrecision: day
+status: completed

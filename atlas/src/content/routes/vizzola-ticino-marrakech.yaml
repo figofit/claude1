@@ -1,0 +1,7 @@
+trip: toubkal-2023
+mode: plane
+from: vizzola-ticino
+to: marrakech
+date: "2023-05-24"
+datePrecision: day
+status: completed

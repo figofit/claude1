@@ -1,0 +1,7 @@
+trip: gran-paradiso-2025
+mode: plane
+from: turin
+to: prague
+date: "2025-07-25"
+datePrecision: day
+status: completed

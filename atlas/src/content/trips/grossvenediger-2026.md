@@ -35,4 +35,4 @@ ještě další pořádný kus chůze navíc.
 Vrchol i zkušenost - hlavně respekt k ledovcům a příště radši vyrazit
 "absurdně brzo".
 
-[Celý článek na blogu →](https://michaldokoupil.cz/blog/grossvenediger)
+[Celý článek na blogu →](https://michaldokoupil.cz/grossvenediger/)

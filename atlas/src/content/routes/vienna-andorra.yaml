@@ -1,0 +1,8 @@
+trip: comapedrosa-2022
+mode: plane
+from: vienna
+to: andorra-la-vella
+date: "2022-09-17"
+datePrecision: day
+status: completed
+notes: Přílet do Barcelony, odtud autobusem do Andorry.

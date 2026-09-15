@@ -43,4 +43,4 @@ Zbytek pobytu jsem si ještě dal Ferratu Mojstrana - moji první opravdovou
 ferratu, kde je na vrcholu zmenšená replika Aljaževa stolpu z Triglavu.
 Pak návrat stejnou cestou zpátky do Brna.
 
-[Celý článek na blogu →](https://michaldokoupil.cz/blog/triglav)
+[Celý článek na blogu →](https://michaldokoupil.cz/triglav/)

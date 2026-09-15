@@ -1,0 +1,7 @@
+trip: zla-kolata-2021
+mode: plane
+from: vienna
+to: podgorica
+date: "2021-10-19"
+datePrecision: day
+status: completed

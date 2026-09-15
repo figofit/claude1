@@ -1,0 +1,8 @@
+trip: toubkal-2023
+mode: bus
+from: marrakech
+to: imlil
+date: "2023-05-24"
+datePrecision: day
+status: completed
+notes: Sdílenou dopravou/minibusem, se dvěma přestupy, cca 4 hodiny.

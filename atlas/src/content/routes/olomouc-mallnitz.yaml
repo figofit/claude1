@@ -1,0 +1,8 @@
+trip: ankogel-2022
+mode: train
+from: olomouc
+to: mallnitz
+date: "2022-05-23"
+datePrecision: day
+status: completed
+notes: Olomouc - Vídeň - směr Villach/Lienz - přes Spittal an der Drau do Mallnitz.

@@ -1,0 +1,9 @@
+trip: gibraltar-2026
+mode: plane
+from: torremolinos
+to: pardubice
+date: "2026-05-15"
+datePrecision: day
+status: completed
+durationMin: 165
+notes: Pěšky asi 8 km na letiště v Málaze, pak let do Pardubic (2 h 45 min) a týž den vlakem domů do Olomouce.

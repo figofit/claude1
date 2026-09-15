@@ -1,0 +1,7 @@
+trip: priel-2023
+mode: car
+from: olomouc
+to: hinterstoder
+date: "2023-07-14"
+datePrecision: day
+status: completed

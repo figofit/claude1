@@ -1,0 +1,7 @@
+trip: aragats-2023
+mode: plane
+from: yerevan
+to: vienna
+date: "2023-09-22"
+datePrecision: day
+status: completed

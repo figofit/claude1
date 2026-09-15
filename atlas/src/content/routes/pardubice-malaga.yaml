@@ -1,0 +1,8 @@
+trip: gibraltar-2026
+mode: plane
+from: pardubice
+to: malaga
+date: "2026-05-11"
+datePrecision: day
+status: completed
+durationMin: 210

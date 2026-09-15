@@ -1,0 +1,7 @@
+trip: teide-2022
+mode: plane
+from: costa-adeje
+to: vienna
+date: "2022-12-01"
+datePrecision: day
+status: completed

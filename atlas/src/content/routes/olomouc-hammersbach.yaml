@@ -1,0 +1,8 @@
+trip: zugspitze-2022
+mode: mixed
+from: olomouc
+to: hammersbach
+date: "2022-07-10"
+datePrecision: day
+status: completed
+notes: Vlakem do Prahy, busem do Mnichova, vlakem do Garmisch-Partenkirchenu a lokálkou do Hammersbachu.

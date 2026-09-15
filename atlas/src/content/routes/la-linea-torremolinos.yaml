@@ -1,0 +1,7 @@
+trip: gibraltar-2026
+mode: bus
+from: la-linea
+to: torremolinos
+date: "2026-05-14"
+datePrecision: day
+status: completed

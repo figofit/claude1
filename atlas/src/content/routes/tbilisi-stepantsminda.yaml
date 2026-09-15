@@ -1,0 +1,8 @@
+trip: kazbek-2025
+mode: bus
+from: tbilisi
+to: stepantsminda
+date: "2025-06-24"
+datePrecision: day
+status: completed
+notes: Metrem na autobusák Didube a odtud maršrutkou.

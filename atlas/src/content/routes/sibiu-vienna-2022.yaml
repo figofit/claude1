@@ -1,0 +1,7 @@
+trip: moldoveanu-2022
+mode: plane
+from: sibiu
+to: vienna
+date: "2022-06-23"
+datePrecision: day
+status: completed

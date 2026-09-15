@@ -1,0 +1,7 @@
+trip: aragats-2023
+mode: bus
+from: yerevan
+to: byurakan
+date: "2023-09-19"
+datePrecision: day
+status: completed

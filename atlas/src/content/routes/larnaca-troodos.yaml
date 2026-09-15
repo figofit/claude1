@@ -1,0 +1,8 @@
+trip: mt-olympos-2025
+mode: bus
+from: larnaca
+to: troodos-village
+date: "2025-11-19"
+datePrecision: day
+status: completed
+notes: Přes Limassol, autobus na této trase jezdí jen jednou denně.

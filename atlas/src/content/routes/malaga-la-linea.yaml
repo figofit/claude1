@@ -1,0 +1,8 @@
+trip: gibraltar-2026
+mode: bus
+from: malaga
+to: la-linea
+date: "2026-05-11"
+datePrecision: day
+status: completed
+notes: Autobusem Avanza podél pobřeží (Marbella, Estepona).

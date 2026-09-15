@@ -1,0 +1,8 @@
+trip: gibraltar-2026
+mode: train
+from: olomouc
+to: pardubice
+date: "2026-05-11"
+datePrecision: day
+status: completed
+notes: RegioJetem.
