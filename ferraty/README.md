@@ -138,11 +138,12 @@ Editaci `data/ferraty.json` jde samozřejmě udělat i přímo (např. rovnou v 
 Formulář zatím neumí editovat/mazat existující záznamy (bezpečně to jde jen přímou úpravou
 souboru) — najdi záznam podle `id` v `data/ferraty.json` a uprav nebo smaž ho ručně.
 
-## Ukázková data
+## Stav dat
 
-Šest záznamů v `data/ferraty.json` je demonstračních (reálné, veřejně známé via ferraty, ale
-osobní údaje jako datum, poznámka a hodnocení jsou vymyšlené). Klidně je smaž a nahraď
-vlastními — stačí smazat obsah pole `records` a začít vyplňovat přes `pridat.html`.
+`data/ferraty.json` teď obsahuje prvních 12 skutečných záznamů. U řady z nich zatím chybí
+datum, obtížnost, GPS nebo přesný název trasy — u těch je v poli `note` napsané, co je potřeba
+doplnit/zkontrolovat. Klidně uprav ručně nebo přes `pridat.html` (u úprav existujícího záznamu
+viz sekci výše).
 
 ## Budoucí rozšíření (vrcholy, hřebenovky, výpravy…)
 
