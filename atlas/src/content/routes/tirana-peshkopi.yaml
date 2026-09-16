@@ -1,0 +1,6 @@
+trip: albania-2020
+mode: bus
+from: tirana
+to: peshkopi
+datePrecision: year
+status: completed

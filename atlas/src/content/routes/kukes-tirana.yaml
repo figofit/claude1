@@ -1,0 +1,6 @@
+trip: albania-2020
+mode: bus
+from: kukes
+to: tirana
+datePrecision: year
+status: completed

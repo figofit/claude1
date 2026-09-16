@@ -1,0 +1,7 @@
+trip: albania-2020
+mode: bus
+from: peshkopi
+to: radomire
+datePrecision: year
+status: completed
+notes: Minibusem, spoj jezdí z Peshkopi jednou denně.
