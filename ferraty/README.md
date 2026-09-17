@@ -25,11 +25,12 @@ Netlify apod.) — je to čistě statický obsah.
 
 ```
 ferraty/
-  index.html         Přehled (hero, souhrnné statistiky, poslední záznamy)
+  index.html         Přehled (hero, souhrnné statistiky, TOP výstupy, poslední záznamy)
   ferraty.html        Výstupy — seznam/tabulka se řazením a filtry (typ, země, obtížnost, rok)
   mapa.html            Interaktivní mapa všech výstupů
   detail.html          Detail jednoho záznamu (?id=...)
-  statistiky.html      Automaticky počítané statistiky
+  statistiky.html      Automaticky počítané statistiky + žebříček podle nadmořské výšky
+  tatry.html           Regionální podstránka pro Vysoké Tatry (výstupy + doprava/logistika)
   pridat.html          Formulář pro vygenerování nového záznamu
 
   data/
@@ -44,7 +45,7 @@ ferraty/
     css/style.css      Sdílený vzhled
     js/data.js          Načítání dat + formátovací a statistické funkce (sdílené)
     js/nav.js           Společná hlavička a patička
-    js/home.js, list.js, map.js, detail.js, stats.js, add.js
+    js/home.js, list.js, map.js, detail.js, stats.js, tatry.js, add.js
                          Logika jednotlivých stránek
 ```
 
@@ -60,6 +61,7 @@ Každý záznam v `data/ferraty.json` → `records[]` vypadá takto (viz i ulož
   "name": "Donnerkogel – Austriaweg",
   "country": "Rakousko",
   "region": "Dachstein – Gosaukamm",
+  "regionGroup": "Alpy",                  // nebo null — pro regionální podstránky (viz níže)
   "locality": "Gosau",
   "coordinates": { "lat": 47.559, "lng": 13.549 },
 
@@ -71,6 +73,19 @@ Každý záznam v `data/ferraty.json` → `records[]` vypadá takto (viz i ulož
   "summit": "Donnerkogel",                // u typu "vrchol" obvykle netřeba (název = vrchol)
   "altitude_m": 2054,
   "duration_min": 240,
+
+  "featured": false,                      // true = "TOP výstup", ukáže se na Přehledu
+
+  "days": [                               // nepovinné — u vícedenních akcí itinerář po dnech
+    {
+      "day": 1,
+      "date": "2023-08-11",               // nebo null
+      "from": "Gosausee",
+      "to": "Gablonzer Hütte",
+      "overnightAt": "Gablonzer Hütte",   // nebo null, pokud se ten den nespalo na chatě
+      "note": "Nástup a nocleh před summit dnem."
+    }
+  ],                                      // nebo [] u jednodenních výstupů
 
   "note": "Volný text — poznámka z hory.",
 
@@ -118,6 +133,26 @@ soubor se nabídne ke stažení, ale nevykresluje se (šlo by doplnit později p
 
 Slož je do vlastní podsložky `photos/<id-zaznamu>/` a v poli `photos` vypiš relativní cesty
 k jednotlivým souborům. Prázdné pole `[]` znamená "zatím žádné fotky", ne chybu.
+
+### Regionální skupina a regionální podstránky
+
+`regionGroup` je volitelný štítek nezávislý na `region` (který je volný text) — používají ho
+regionální podstránky typu `tatry.html`, co k výstupům přidávají vlastní hero, statistiky a
+třeba tipy na dopravu. Zatím existuje jen `"Tatry"` a `tatry.html`; další skupina (Alpy, Balkán,
+Kavkaz…) by fungovala stejně — nová podstránka se stejným vzorem (`tatry.js` jako šablona)
+plus vyplnění `regionGroup` u příslušných záznamů.
+
+### TOP výstupy
+
+`featured: true` označí záznam jako TOP výstup — na `index.html` se pak ukáže v samostatné
+sekci „🏆 Nej výstupy“ úplně nahoře. Appka do toho sama nic nevymýšlí — je to čistě tvůj vlastní
+výběr, buď zaškrtnutím ve formuláři, nebo ruční úpravou pole v JSONu.
+
+### Vícedenní itinerář
+
+Pole `days` je pro výstupy s noclehem na chatě/pod stanem po cestě — pole objektů `{day, date,
+from, to, overnightAt, note}`, jeden objekt na den. Na detailu záznamu se pak zobrazí jako
+sekce „Itinerář“ nad poznámkou. U jednodenních výstupů nech `days: []`.
 
 ## Jak přidat nový výstup
 

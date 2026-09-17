@@ -19,6 +19,7 @@
   <div id="detail-content" hidden>
     <div class="detail-header">
       <h1 id="d-name" class="mt-0"></h1>
+      <span id="d-featured" class="badge badge--featured" hidden>🏆 TOP výstup</span>
       <span id="d-type" class="badge"></span>
       <span id="d-difficulty" class="badge badge--difficulty"></span>
     </div>
@@ -28,7 +29,12 @@
 
     <div class="detail-layout">
       <div>
-        <section class="section" style="margin-top:0;">
+        <section class="section" style="margin-top:0;" id="itinerary-section" hidden>
+          <h2>Itinerář</h2>
+          <div id="d-itinerary"></div>
+        </section>
+
+        <section class="section">
           <h2>Poznámka</h2>
           <div id="d-note"></div>
         </section>

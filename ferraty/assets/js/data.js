@@ -100,6 +100,7 @@
       {
         country: null,
         region: null,
+        regionGroup: null,
         locality: null,
         coordinates: null,
         date: null,
@@ -109,6 +110,8 @@
         summit: null,
         altitude_m: null,
         duration_min: null,
+        featured: false,
+        days: [],
         note: null,
         track: null,
         photos: [],

@@ -51,6 +51,22 @@
     const grade = orNull(val("f-grade"));
     const difficulty = grade ? { grade, scale: orNull(val("f-scale")) } : null;
 
+    const days = val("f-days")
+      .split("\n")
+      .map((l) => l.trim())
+      .filter(Boolean)
+      .map((line) => {
+        const parts = line.split("|").map((p) => p.trim());
+        return {
+          day: parseInt(parts[0], 10) || null,
+          date: orNull(parts[1]),
+          from: orNull(parts[2]),
+          to: orNull(parts[3]),
+          overnightAt: orNull(parts[4]),
+          note: orNull(parts[5]),
+        };
+      });
+
     const trackFileName = val("f-track").trim();
     const track = trackFileName ? { file: `gpx/${trackFileName}`, format: extensionOf(trackFileName) } : null;
 
@@ -68,6 +84,7 @@
       name,
       country: orNull(val("f-country")),
       region: orNull(val("f-region")),
+      regionGroup: orNull(val("f-region-group")),
       locality: orNull(val("f-locality")),
       coordinates,
       date,
@@ -77,6 +94,8 @@
       summit: orNull(val("f-summit")),
       altitude_m: numOrNull(val("f-altitude")),
       duration_min: numOrNull(val("f-duration")),
+      featured: document.getElementById("f-featured").checked,
+      days,
       note: orNull(val("f-note")),
       track,
       photos,

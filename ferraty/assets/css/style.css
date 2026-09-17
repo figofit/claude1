@@ -444,11 +444,36 @@ table.ferraty-table {
   font-weight: 600;
   white-space: nowrap;
 }
+.badge[hidden] { display: none; }
 .badge--difficulty { background: var(--sand); color: var(--forest-dark); }
 .badge--muted { background: var(--bg-alt); color: var(--text-faint); }
 .badge--type-ferrata { background: var(--forest-tint); color: var(--forest-dark); }
 .badge--type-vrchol { background: var(--clay-tint); color: var(--clay-dark); }
 .badge--type-hrebenovka { background: var(--bg-alt); color: var(--stone); }
+.badge--featured { background: var(--sand); color: var(--clay-dark); }
+
+/* ---------- Itinerář (vícedenní výstupy) ---------- */
+
+.itinerary-day {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--forest);
+  border-radius: var(--radius-m);
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+.itinerary-day:last-child { margin-bottom: 0; }
+.itinerary-day__head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.itinerary-day__num { font-weight: 700; color: var(--forest-dark); }
+.itinerary-day__date { font-size: 0.82rem; color: var(--text-faint); }
+.itinerary-day__route { font-weight: 600; margin-bottom: 4px; }
+.itinerary-day__overnight { font-size: 0.86rem; color: var(--text-muted); margin-bottom: 4px; }
+.itinerary-day__note { margin: 0; color: var(--text-muted); font-size: 0.92rem; }
 
 /* ---------- Mapa ---------- */
 
@@ -601,6 +626,31 @@ table.ferraty-table {
   padding: 20px 22px;
 }
 
+.region-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+.region-tile {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  padding: 18px 20px;
+  text-decoration: none;
+  transition: border-color 0.15s ease, transform 0.12s ease;
+}
+.region-tile:hover { border-color: var(--forest); transform: translateY(-1px); }
+.region-tile__name {
+  display: block;
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--forest-dark);
+  margin-bottom: 4px;
+}
+.region-tile__desc { display: block; color: var(--text-muted); font-size: 0.86rem; }
+
 .callout {
   background: var(--forest-tint);
   border: 1px solid var(--border);
@@ -633,6 +683,19 @@ table.ferraty-table {
   color: var(--text);
 }
 .form-field textarea { resize: vertical; min-height: 90px; }
+.form-field input[type="checkbox"] {
+  width: auto;
+  padding: 0;
+  border: none;
+  background: none;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.form-field label:has(input[type="checkbox"]) {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
 .form-field input:focus,
 .form-field select:focus,
 .form-field textarea:focus {

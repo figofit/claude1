@@ -43,6 +43,11 @@
           <input type="text" id="f-region" placeholder="např. Dachstein">
         </div>
         <div class="form-field">
+          <label for="f-region-group">Regionální skupina</label>
+          <input type="text" id="f-region-group" placeholder="např. Tatry">
+          <span class="hint">Nepovinné — používá se pro regionální podstránky jako Tatry.</span>
+        </div>
+        <div class="form-field">
           <label for="f-locality">Lokalita</label>
           <input type="text" id="f-locality" placeholder="např. Gosau">
         </div>
@@ -57,6 +62,12 @@
         <div class="form-field">
           <label for="f-date">Datum absolvování</label>
           <input type="date" id="f-date">
+        </div>
+        <div class="form-field">
+          <label for="f-featured">
+            <input type="checkbox" id="f-featured" style="width:auto;">
+            Označit jako TOP výstup
+          </label>
         </div>
       </div>
     </section>
@@ -101,6 +112,11 @@
         <div class="form-field form-field--full">
           <label for="f-note">Moje poznámka</label>
           <textarea id="f-note" placeholder="Volný text — dojmy, počasí, doporučení do budoucna…"></textarea>
+        </div>
+        <div class="form-field form-field--full">
+          <label for="f-days">Vícedenní itinerář (nepovinné, jeden den na řádek)</label>
+          <textarea id="f-days" placeholder="den | datum (YYYY-MM-DD) | odkud | kam | nocleh | poznámka&#10;1 | 2024-07-16 | Kals | Lucknerhaus | auto |&#10;2 | 2024-07-17 | Lucknerhaus | Erzherzog-Johann-Hütte | Erzherzog-Johann-Hütte |"></textarea>
+          <span class="hint">Formát: <code>den | datum | odkud | kam | nocleh | poznámka</code> — cokoliv nevíš, nech prázdné mezi svislítky.</span>
         </div>
         <div class="form-field">
           <label for="f-track">Soubor s trasou (GPX/TCX)</label>

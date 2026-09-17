@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>Vysoké Tatry | Moje hory</title>
+<meta name="description" content="Výstupy ve Vysokých Tatrách a tipy na dopravu a logistiku — električka, zubačka, autobusy, chaty.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="tatry">
+
+<header id="app-header" class="site-header"></header>
+
+<main class="container">
+
+  <section class="hero">
+    <div class="hero__content">
+      <div class="hero__eyebrow">Regionální podstránka</div>
+      <h1>Vysoké Tatry</h1>
+      <p>Výstupy na slovenské i polské straně Tatier — plus doprava, zubačka, električka a pár tipů na logistiku.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#tatry-list">Zobrazit výstupy</a>
+        <a class="btn btn--ghost" href="#doprava">Doprava a logistika</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div id="stat-row" class="stat-row" aria-live="polite">
+      <div class="stat-tile"><div class="stat-tile__value">…</div><div class="stat-tile__label">Načítám data</div></div>
+    </div>
+  </section>
+
+  <section class="section" id="tatry-list">
+    <div class="section__head">
+      <h2>Výstupy v Tatrách</h2>
+      <a href="ferraty.html">Celý seznam →</a>
+    </div>
+    <div id="tatry-table" class="table-wrap">
+      <p class="empty-state">Načítám…</p>
+    </div>
+  </section>
+
+  <section class="section" id="doprava">
+    <div class="section__head">
+      <h2>Doprava a logistika</h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stats-card">
+        <h3>🚋 Tatranská elektrická železnica (TEŽ)</h3>
+        <p class="text-muted">
+          Úzkorozchodná električka spojuje Poprad — Starý Smokovec — Štrbské Pleso, s odbočkou
+          Starý Smokovec — Tatranská Lomnica. Jezdí často a je to nejpohodlnější způsob, jak se
+          dostat mezi jednotlivými výchozími body pod horami bez auta.
+        </p>
+      </div>
+      <div class="stats-card">
+        <h3>⛰ Zubačka na Štrbské Pleso</h3>
+        <p class="text-muted">
+          Ozubnicová železnice (zubačka) vede ze Štrby nahoru na Štrbské Pleso — klasický výchozí
+          bod pro Rysy. V sezóně bývá docela narváno, takže se vyplatí přijet na první spoje.
+        </p>
+      </div>
+      <div class="stats-card">
+        <h3>🚌 Autobusy pod horami</h3>
+        <p class="text-muted">
+          Mezi Popradem, Starým Smokovcem, Tatranskou Lomnicí, Ždiarem a dalšími výchozími body
+          jezdí i běžné linkové autobusy — hodí se hlavně na polskou stranu (Zakopane, Morskie Oko)
+          nebo když električka zrovna nejede tam, kam potřebuješ.
+        </p>
+      </div>
+      <div class="stats-card">
+        <h3>🅿️ Parkování</h3>
+        <p class="text-muted">
+          V sezóně bývají parkoviště pod horami (Štrbské Pleso, Tatranská Lomnica, Ždiar/Tatranská
+          Javorina na polskou stranu) rychle plná nebo zpoplatněná — přijet brzo ráno se vyplatí
+          dvakrát, jednou kvůli místu a jednou kvůli výhledům bez davu.
+        </p>
+      </div>
+      <div class="stats-card">
+        <h3>🛖 Chaty a rezervace</h3>
+        <p class="text-muted">
+          Na vícedenní trasy (Zbojnícka chata, Téryho chata, Chata pod Rysmi, polská Murowaniec…)
+          se v sezóně vyplatí rezervovat nocleh dopředu — o víkendech bývají chaty plné.
+        </p>
+      </div>
+      <div class="stats-card">
+        <h3>🌦 Počasí a povolenky</h3>
+        <p class="text-muted">
+          Počasí se v Tatrách mění rychle — počítej s tím i mimo hlavní sezónu. Některé trasy
+          (např. na Rysy) mají v zimě omezený nebo uzavřený přístup — vždy se vyplatí ověřit
+          aktuální stav na místě.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="app-footer" class="site-footer"></footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/tatry.js"></script>
+</body>
+</html>

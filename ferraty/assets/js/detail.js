@@ -22,6 +22,27 @@
     ].join("");
   }
 
+  function renderItinerary(r, sectionEl, containerEl) {
+    if (!r.days || !r.days.length) return;
+    containerEl.innerHTML = r.days
+      .map((d) => {
+        const route = [d.from, d.to].filter(Boolean).join(" → ");
+        const dateLabel = d.date ? Ferraty.formatDate(d.date, { day: "numeric", month: "numeric", year: "numeric" }) : null;
+        return `
+        <div class="itinerary-day">
+          <div class="itinerary-day__head">
+            <span class="itinerary-day__num">Den ${d.day}</span>
+            ${dateLabel ? `<span class="itinerary-day__date">${dateLabel}</span>` : ""}
+          </div>
+          ${route ? `<div class="itinerary-day__route">${Ferraty.escapeHtml(route)}</div>` : ""}
+          ${d.overnightAt ? `<div class="itinerary-day__overnight">🏠 Nocleh: ${Ferraty.escapeHtml(d.overnightAt)}</div>` : ""}
+          ${d.note ? `<p class="itinerary-day__note">${Ferraty.escapeHtml(d.note)}</p>` : ""}
+        </div>`;
+      })
+      .join("");
+    sectionEl.hidden = false;
+  }
+
   function renderGallery(r, sectionEl, containerEl) {
     if (!r.photos || !r.photos.length) {
       sectionEl.hidden = false;
@@ -138,6 +159,7 @@
     document.getElementById("crumb-name").textContent = record.name;
 
     document.getElementById("d-name").textContent = record.name;
+    document.getElementById("d-featured").hidden = !record.featured;
     const type = Ferraty.typeMeta(record.type);
     const typeBadge = document.getElementById("d-type");
     typeBadge.textContent = type.label;
@@ -149,6 +171,7 @@
     document.getElementById("d-sub").innerHTML = subParts.length ? subParts.join(" · ") : "Lokalita neuvedena";
 
     document.getElementById("d-facts").innerHTML = renderFacts(record);
+    renderItinerary(record, document.getElementById("itinerary-section"), document.getElementById("d-itinerary"));
 
     const noteEl = document.getElementById("d-note");
     noteEl.innerHTML = record.note

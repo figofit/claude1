@@ -48,11 +48,41 @@
       </div>`;
   }
 
+  function renderFeatured(records) {
+    const featured = records.filter((r) => r.featured);
+    const sectionEl = document.getElementById("featured-section");
+    if (!featured.length) {
+      sectionEl.hidden = true;
+      return;
+    }
+    const rows = featured
+      .map((r) => {
+        const type = Ferraty.typeMeta(r.type);
+        return `
+        <tr>
+          <td class="cell-title"><a class="row-link" href="detail.html?id=${encodeURIComponent(r.id)}">${Ferraty.escapeHtml(r.name)}</a></td>
+          <td data-label="Typ"><span class="badge ${type.cls}">${type.label}</span></td>
+          <td class="muted-cell" data-label="Země">${Ferraty.countryLabelHtml(r.country)}</td>
+          <td data-label="Datum">${Ferraty.formatDate(r.date)}</td>
+        </tr>`;
+      })
+      .join("");
+    document.getElementById("featured-list").innerHTML = `
+      <div class="table-scroll">
+        <table class="ferraty-table">
+          <thead><tr><th>Název</th><th>Typ</th><th>Země</th><th>Datum</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>`;
+    sectionEl.hidden = false;
+  }
+
   async function init() {
     try {
       const records = await Ferraty.loadAll();
       const stats = Ferraty.computeStats(records);
       document.getElementById("stat-row").innerHTML = renderStatRow(stats);
+      renderFeatured(records);
       document.getElementById("latest-list").innerHTML = renderLatest(records);
     } catch (err) {
       console.error(err);
