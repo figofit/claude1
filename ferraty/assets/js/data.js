@@ -109,7 +109,6 @@
         summit: null,
         altitude_m: null,
         duration_min: null,
-        myRating: null,
         note: null,
         track: null,
         photos: [],
@@ -205,20 +204,6 @@
     return `${h} h ${m} min`;
   }
 
-  function ratingValue(myRating, key) {
-    return myRating && typeof myRating[key] === "number" ? myRating[key] : null;
-  }
-
-  function ratingStarsHtml(value, max) {
-    max = max || 5;
-    if (value === null || value === undefined) {
-      return `<span class="rating" data-empty="true">nehodnoceno</span>`;
-    }
-    let out = "";
-    for (let i = 1; i <= max; i++) out += i <= value ? "★" : "☆";
-    return `<span class="rating" title="${value}/${max}">${out}</span>`;
-  }
-
   // ---- Statistiky ----
 
   function computeStats(records) {
@@ -247,11 +232,6 @@
       }
     });
 
-    const ratedOverall = records.filter((r) => ratingValue(r.myRating, "overall") !== null);
-    const avgOverall = ratedOverall.length
-      ? ratedOverall.reduce((sum, r) => sum + r.myRating.overall, 0) / ratedOverall.length
-      : null;
-
     const withGain = records.filter((r) => r.elevationGain_m !== null && r.elevationGain_m !== undefined);
     const totalElevationGain = withGain.reduce((sum, r) => sum + r.elevationGain_m, 0);
 
@@ -267,8 +247,6 @@
       byType,
       hardest,
       highestAltitude,
-      avgOverall,
-      ratedOverallCount: ratedOverall.length,
       totalElevationGain,
       elevationGainKnownCount: withGain.length,
       withGpx,
@@ -309,8 +287,6 @@
     fmtElevation,
     fmtAltitude,
     fmtDuration,
-    ratingValue,
-    ratingStarsHtml,
     computeStats,
   };
 })(window);

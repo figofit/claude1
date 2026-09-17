@@ -4,17 +4,6 @@
 
   let existingIds = new Set();
 
-  function fillRatingOptions() {
-    document.querySelectorAll(".rating-select").forEach((select) => {
-      for (let i = 1; i <= 5; i++) {
-        const opt = document.createElement("option");
-        opt.value = String(i);
-        opt.textContent = `${i} / 5`;
-        select.appendChild(opt);
-      }
-    });
-  }
-
   function orNull(value) {
     const v = (value || "").trim();
     return v === "" ? null : v;
@@ -62,13 +51,6 @@
     const grade = orNull(val("f-grade"));
     const difficulty = grade ? { grade, scale: orNull(val("f-scale")) } : null;
 
-    const ratingKeys = ["technical", "physical", "exposure", "views", "overall"];
-    const ratingValues = ratingKeys.map((k) => numOrNull(val(`f-rate-${k}`)));
-    const hasAnyRating = ratingValues.some((v) => v !== null);
-    const myRating = hasAnyRating
-      ? ratingKeys.reduce((obj, k, i) => Object.assign(obj, { [k]: ratingValues[i] }), {})
-      : null;
-
     const trackFileName = val("f-track").trim();
     const track = trackFileName ? { file: `gpx/${trackFileName}`, format: extensionOf(trackFileName) } : null;
 
@@ -95,7 +77,6 @@
       summit: orNull(val("f-summit")),
       altitude_m: numOrNull(val("f-altitude")),
       duration_min: numOrNull(val("f-duration")),
-      myRating,
       note: orNull(val("f-note")),
       track,
       photos,
@@ -164,7 +145,6 @@
   }
 
   async function init() {
-    fillRatingOptions();
     try {
       const records = await Ferraty.loadAll();
       existingIds = new Set(records.map((r) => r.id));

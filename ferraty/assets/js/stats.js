@@ -3,7 +3,6 @@
   "use strict";
 
   function renderStatRow(stats) {
-    const avgLabel = stats.avgOverall !== null ? stats.avgOverall.toFixed(1) : "—";
     const tiles = [
       { value: stats.total, label: "Výstupů celkem" },
       { value: stats.countriesCount, label: "Zemí" },
@@ -11,11 +10,6 @@
         value: stats.highestAltitude ? Ferraty.fmtNumber(stats.highestAltitude.altitude_m) + " m" : "—",
         label: "Nejvyšší dosažený bod",
         note: stats.highestAltitude ? Ferraty.escapeHtml(stats.highestAltitude.name) : "zatím neznámo",
-      },
-      {
-        value: avgLabel,
-        label: "Průměrné hodnocení",
-        note: stats.ratedOverallCount ? `z ${stats.ratedOverallCount} hodnocených` : "zatím žádné hodnocení",
       },
     ];
     return tiles

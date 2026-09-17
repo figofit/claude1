@@ -90,12 +90,11 @@
 
   function renderRows(records) {
     if (!records.length) {
-      els.tbody.innerHTML = `<tr><td colspan="9" class="empty-state">Žádný výstup neodpovídá zvoleným filtrům.</td></tr>`;
+      els.tbody.innerHTML = `<tr><td colspan="8" class="empty-state">Žádný výstup neodpovídá zvoleným filtrům.</td></tr>`;
       return;
     }
     els.tbody.innerHTML = records
       .map((r) => {
-        const overall = Ferraty.ratingValue(r.myRating, "overall");
         const type = Ferraty.typeMeta(r.type);
         return `
         <tr>
@@ -107,7 +106,6 @@
           <td data-label="Obtížnost"><span class="badge badge--difficulty">${Ferraty.escapeHtml(Ferraty.formatDifficulty(r.difficulty))}</span></td>
           <td data-label="Převýšení">${Ferraty.fmtElevation(r.elevationGain_m)}</td>
           <td data-label="Výška">${Ferraty.fmtAltitude(r.altitude_m)}</td>
-          <td data-label="Hodnocení">${Ferraty.ratingStarsHtml(overall)}</td>
         </tr>`;
       })
       .join("");
@@ -145,7 +143,7 @@
       allRecords = await Ferraty.loadAll();
     } catch (err) {
       console.error(err);
-      els.tbody.innerHTML = `<tr><td colspan="9" class="empty-state">Data se nepodařilo načíst. Stránku otevírej přes http(s) server, ne přímo ze souboru.</td></tr>`;
+      els.tbody.innerHTML = `<tr><td colspan="8" class="empty-state">Data se nepodařilo načíst. Stránku otevírej přes http(s) server, ne přímo ze souboru.</td></tr>`;
       return;
     }
 

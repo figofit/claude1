@@ -450,35 +450,6 @@ table.ferraty-table {
 .badge--type-vrchol { background: var(--clay-tint); color: var(--clay-dark); }
 .badge--type-hrebenovka { background: var(--bg-alt); color: var(--stone); }
 
-/* ---------- Hodnocení (hvězdy/tečky) ---------- */
-
-.rating {
-  display: inline-flex;
-  gap: 2px;
-  color: var(--clay);
-  letter-spacing: 1px;
-}
-.rating[data-empty="true"] { color: var(--text-faint); }
-
-.rating-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 14px;
-  margin: 10px 0;
-}
-.rating-item {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-m);
-  padding: 12px 14px;
-}
-.rating-item__label {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  margin-bottom: 4px;
-}
-.rating-item__value { font-size: 1.1rem; }
-
 /* ---------- Mapa ---------- */
 
 .map-container {

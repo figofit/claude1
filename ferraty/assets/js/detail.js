@@ -2,14 +2,6 @@
 (function () {
   "use strict";
 
-  const RATING_LABELS = {
-    technical: "Technická obtížnost",
-    physical: "Fyzická náročnost",
-    exposure: "Expozice",
-    views: "Výhledy",
-    overall: "Celkové hodnocení",
-  };
-
   function fact(label, value, muted) {
     return `
       <div class="fact">
@@ -28,20 +20,6 @@
       fact("Nadmořská výška", Ferraty.fmtAltitude(r.altitude_m), r.altitude_m === null),
       fact("Čas", Ferraty.fmtDuration(r.duration_min), r.duration_min === null),
     ].join("");
-  }
-
-  function renderRatings(r) {
-    const rating = r.myRating || {};
-    return Object.keys(RATING_LABELS)
-      .map((key) => {
-        const value = Ferraty.ratingValue(rating, key);
-        return `
-        <div class="rating-item">
-          <div class="rating-item__label">${RATING_LABELS[key]}</div>
-          <div class="rating-item__value">${Ferraty.ratingStarsHtml(value)}</div>
-        </div>`;
-      })
-      .join("");
   }
 
   function renderGallery(r, sectionEl, containerEl) {
@@ -171,7 +149,6 @@
     document.getElementById("d-sub").innerHTML = subParts.length ? subParts.join(" · ") : "Lokalita neuvedena";
 
     document.getElementById("d-facts").innerHTML = renderFacts(record);
-    document.getElementById("d-ratings").innerHTML = renderRatings(record);
 
     const noteEl = document.getElementById("d-note");
     noteEl.innerHTML = record.note

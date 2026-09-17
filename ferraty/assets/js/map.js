@@ -20,7 +20,6 @@
   }
 
   function popupHtml(r) {
-    const overall = Ferraty.ratingValue(r.myRating, "overall");
     const type = Ferraty.typeMeta(r.type);
     return `
       <div class="map-popup">
@@ -32,8 +31,7 @@
         <div class="text-muted" style="font-size:0.85rem;">
           ${Ferraty.countryLabelHtml(r.country)} · ${Ferraty.formatDate(r.date, { day: "numeric", month: "numeric", year: "numeric" })}
         </div>
-        <div style="margin:6px 0;">${Ferraty.ratingStarsHtml(overall)}</div>
-        <a class="btn btn--outline btn--sm" href="detail.html?id=${encodeURIComponent(r.id)}">Otevřít detail</a>
+        <a class="btn btn--outline btn--sm" href="detail.html?id=${encodeURIComponent(r.id)}" style="margin-top:6px;">Otevřít detail</a>
       </div>
     `;
   }

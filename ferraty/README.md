@@ -72,14 +72,6 @@ Každý záznam v `data/ferraty.json` → `records[]` vypadá takto (viz i ulož
   "altitude_m": 2054,
   "duration_min": 240,
 
-  "myRating": {                            // každá položka 1–5, nebo null; celý objekt může být null
-    "technical": 4,
-    "physical": 3,
-    "exposure": 5,
-    "views": 5,
-    "overall": 5
-  },
-
   "note": "Volný text — poznámka z hory.",
 
   "track": { "file": "gpx/donnerkogel-austriaweg-2023.gpx", "format": "gpx" },  // nebo null
