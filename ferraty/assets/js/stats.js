@@ -67,6 +67,31 @@
     `;
   }
 
+  function renderAltitudeRanking(records) {
+    const ranked = records
+      .filter((r) => typeof r.altitude_m === "number")
+      .sort((a, b) => b.altitude_m - a.altitude_m);
+    if (!ranked.length) return `<p class="text-faint">Zatím žádný záznam s vyplněnou nadmořskou výškou.</p>`;
+    const rows = ranked
+      .map(
+        (r, i) => `
+        <tr>
+          <td>${i + 1}.</td>
+          <td class="cell-title"><a class="row-link" href="detail.html?id=${encodeURIComponent(r.id)}">${Ferraty.escapeHtml(r.name)}</a></td>
+          <td data-label="Země">${Ferraty.countryLabelHtml(r.country)}</td>
+          <td data-label="Nadmořská výška">${Ferraty.fmtAltitude(r.altitude_m)}</td>
+        </tr>`
+      )
+      .join("");
+    return `
+      <div class="table-scroll">
+        <table class="ferraty-table">
+          <thead><tr><th>#</th><th>Název</th><th>Země</th><th>Nadmořská výška</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>`;
+  }
+
   function fact(label, value) {
     return `<div class="fact"><div class="fact__label">${label}</div><div class="fact__value">${value}</div></div>`;
   }
@@ -108,6 +133,7 @@
     });
     document.getElementById("by-year").innerHTML = renderBreakdown(byYearSorted, (k) => String(k));
     document.getElementById("misc-stats").innerHTML = renderMisc(stats);
+    document.getElementById("altitude-ranking").innerHTML = renderAltitudeRanking(records);
   }
 
   document.addEventListener("DOMContentLoaded", init);
