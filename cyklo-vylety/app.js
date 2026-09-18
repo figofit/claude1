@@ -135,6 +135,7 @@ function formatDuration(min) {
 
 function formatDate(iso) {
   const d = new Date(`${iso}T12:00:00`);
+  if (Number.isNaN(d.getTime())) return iso || "—";
   return d.toLocaleDateString("cs-CZ", {
     day: "numeric",
     month: "long",
@@ -392,6 +393,11 @@ document.querySelector("#cancel-btn-2").addEventListener("click", hideEditor);
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   const next = readForm();
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(next.date)) {
+    alert("Datum zadejte ve formátu RRRR-MM-DD.");
+    form.date.focus();
+    return;
+  }
   const index = trips.findIndex((t) => t.id === next.id);
   if (index >= 0) trips[index] = next;
   else trips.push(next);
