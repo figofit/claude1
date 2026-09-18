@@ -1,35 +1,29 @@
 # CYKLO VÝLETY
 
-Czech cycling-trip journal (MVP). Separate app from the property-valuation site in the repo root.
+Jednoduchá statická stránka — seznam cyklistických výletů s fotkou, mapkou a údaji. Čeština. Žádný build.
 
-Český deník cyklistických výletů — přehled, seznam, detail, přidání / úprava / smazání. Data se ukládají v `localStorage` prohlížeče.
+Leží ve vlastní složce, web odhadů nemovitostí v kořeni repozitáře se nemění.
 
-## Run locally
+## Spuštění / nasazení
+
+Stačí nahrát složku `cyklo-vylety/` na hosting (FTP, GitHub Pages, Netlify…). Otevřete `/cyklo-vylety/`.
+
+Lokálně (kvůli mapovým dlaždicím a fotkám raději přes http, ne `file://`):
 
 ```bash
 cd cyklo-vylety
-npm install
-npm run dev
+python3 -m http.server 5173
 ```
 
-Open [http://localhost:5173](http://localhost:5173).
+Pak http://localhost:5173
 
-Production preview:
+## Použití
 
-```bash
-npm run build
-npm run preview
-```
+- Hlavní pohled je seznam výletů.
+- U každého: datum, trasa, km, čas, poznámky, volitelná fotka, malá mapa start → cíl.
+- **Přidat výlet** / **Upravit** — doplňování průběžně v prohlížeči.
+- Fotka: nahrání ze zařízení, nebo URL.
+- Mapa: tlačítko **Najít místa na mapě** (OpenStreetMap / Nominatim), nebo ruční souřadnice.
+- Data se ukládají v `localStorage`. **Stáhnout zálohu** uloží JSON.
 
-## Features
-
-- Home dashboard with totals (km, time, elevation, trip count) and recent trips
-- Add / edit / delete a trip
-- Search and tag filters (silnice, gravel, MTB)
-- Trip detail with computed average speed
-- Sample trips on first visit, empty states when filters match nothing
-- Mobile-first layout with a bottom navigation on phones
-
-## Stack
-
-Vite + React + TypeScript. No backend.
+Ukázkové výlety a fotky (Wikimedia Commons) jsou předvyplněné, ať stránka není prázdná.
