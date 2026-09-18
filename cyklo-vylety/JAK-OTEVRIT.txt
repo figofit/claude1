@@ -1,0 +1,12 @@
+CYKLO VÝLETY
+============
+
+Toto je celá stránka. Složku si nechte na počítači a později ji můžete zkopírovat na web.
+
+Jak otevřít:
+1. Dvojklik na soubor  index.html
+2. Otevře se v prohlížeči.
+
+Mapy potřebují internet (OpenStreetMap). Fotku k výletu doplníte v úpravě, nebo sem do složky photos/ dáte vlastní soubor.
+
+Přidání dalších výletů: tlačítko „Přidat výlet“ na stránce.
