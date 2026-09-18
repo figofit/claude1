@@ -1,0 +1,8 @@
+trip: amsterdam-2018
+mode: train
+from: rotterdam
+to: hague
+date: "2018-07-03"
+datePrecision: day
+status: completed
+notes: Za mořem/plážemi u Scheveningen.

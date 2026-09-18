@@ -1,0 +1,7 @@
+trip: graz-slovinsko-2018
+mode: car
+from: graz
+to: maribor
+date: "2018-10-06"
+datePrecision: day
+status: completed

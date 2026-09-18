@@ -1,0 +1,7 @@
+trip: benelux-2018
+mode: train
+from: eindhoven
+to: antwerp
+date: "2018-09-07"
+datePrecision: day
+status: completed

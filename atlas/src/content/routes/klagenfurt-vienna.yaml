@@ -1,0 +1,6 @@
+trip: graz-slovinsko-2018
+mode: car
+from: klagenfurt
+to: vienna
+datePrecision: month
+status: completed

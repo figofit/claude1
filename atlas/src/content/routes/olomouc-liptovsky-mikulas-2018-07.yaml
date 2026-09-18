@@ -1,0 +1,7 @@
+trip: slovensko-leto-2018
+mode: train
+from: olomouc
+to: liptovsky-mikulas
+date: "2018-07-31"
+datePrecision: day
+status: completed

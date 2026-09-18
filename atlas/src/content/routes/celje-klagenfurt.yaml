@@ -1,0 +1,6 @@
+trip: graz-slovinsko-2018
+mode: car
+from: celje
+to: klagenfurt
+datePrecision: month
+status: completed

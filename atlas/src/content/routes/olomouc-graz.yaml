@@ -1,0 +1,7 @@
+trip: graz-slovinsko-2018
+mode: car
+from: olomouc
+to: graz
+date: "2018-10-06"
+datePrecision: day
+status: completed

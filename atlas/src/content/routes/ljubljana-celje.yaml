@@ -1,0 +1,6 @@
+trip: graz-slovinsko-2018
+mode: car
+from: ljubljana
+to: celje
+datePrecision: month
+status: completed

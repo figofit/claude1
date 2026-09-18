@@ -1,0 +1,6 @@
+trip: italy-pepa-2018
+mode: car
+from: venice
+to: udine
+datePrecision: month
+status: completed

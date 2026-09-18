@@ -1,7 +1,8 @@
 trip: amsterdam-2018
 mode: bus
-from: amsterdam
+from: hague
 to: hannover
-datePrecision: year
+date: "2018-07-04"
+datePrecision: day
 status: completed
-notes: Součást zpáteční cesty domů.
+notes: Flixbusem, součást zpáteční cesty domů.

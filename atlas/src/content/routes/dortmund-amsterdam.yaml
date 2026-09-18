@@ -2,5 +2,7 @@ trip: amsterdam-2018
 mode: bus
 from: dortmund
 to: amsterdam
-datePrecision: year
+date: "2018-07-02"
+datePrecision: day
 status: completed
+notes: Flixbusem, příjezd do Amsterdamu 2. 7.

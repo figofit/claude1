@@ -1,0 +1,7 @@
+trip: amsterdam-2018
+mode: train
+from: amsterdam
+to: rotterdam
+date: "2018-07-03"
+datePrecision: day
+status: completed

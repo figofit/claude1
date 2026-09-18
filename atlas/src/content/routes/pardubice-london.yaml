@@ -1,0 +1,7 @@
+trip: london-2018
+mode: plane
+from: pardubice
+to: london
+date: "2018-01-27"
+datePrecision: day
+status: completed

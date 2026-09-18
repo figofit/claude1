@@ -1,0 +1,6 @@
+trip: graz-slovinsko-2018
+mode: car
+from: vienna
+to: olomouc
+datePrecision: month
+status: completed

@@ -2,5 +2,7 @@ trip: amsterdam-2018
 mode: bus
 from: hannover
 to: prague
-datePrecision: year
+date: "2018-07-05"
+datePrecision: day
 status: completed
+notes: Flixbusem.

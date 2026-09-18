@@ -1,0 +1,7 @@
+trip: warsaw-2018
+mode: train
+from: katowice
+to: lodz
+date: "2018-04-16"
+datePrecision: day
+status: completed

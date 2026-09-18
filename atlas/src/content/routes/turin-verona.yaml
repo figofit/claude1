@@ -1,0 +1,6 @@
+trip: italy-pepa-2018
+mode: car
+from: turin
+to: verona
+datePrecision: month
+status: completed

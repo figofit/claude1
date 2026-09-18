@@ -1,0 +1,6 @@
+trip: italy-pepa-2018
+mode: car
+from: verona
+to: venice
+datePrecision: month
+status: completed

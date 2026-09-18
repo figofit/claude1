@@ -1,0 +1,8 @@
+trip: liptovsky-mikulas-2018
+mode: train
+from: olomouc
+to: liptovsky-mikulas
+date: "2018-05-22"
+datePrecision: day
+status: completed
+notes: Vlakem s kolem.
