@@ -1,82 +1,29 @@
-const STORAGE_KEY = "cyklo-vylety:trips:v2";
+const STORAGE_KEY = "cyklo-vylety:trips:v4";
 
 const SAMPLE_TRIPS = [
   {
-    id: "sample-kopecek",
-    title: "Ráno na Svatý Kopeček",
-    date: "2026-09-14",
-    startPlace: "Olomouc – centrum",
-    endPlace: "Svatý Kopeček",
-    startLat: 49.5938,
-    startLng: 17.2509,
-    endLat: 49.6297,
-    endLng: 17.3378,
-    distanceKm: 28.4,
-    durationMin: 98,
+    id: "trip-2020-kralovstvi",
+    title: "Slavonín – Grygov – Les Království",
+    date: "2020-06-14",
+    startPlace: "Olomouc-Slavonín",
+    viaPlace: "Grygov",
+    endPlace: "Les Království u Grygova",
+    startLat: 49.56897,
+    startLng: 17.2354,
+    viaLat: 49.538,
+    viaLng: 17.3086,
+    endLat: 49.51767,
+    endLng: 17.3126,
+    waypoints: [
+      { name: "Slavonín", lat: 49.56897, lng: 17.2354 },
+      { name: "Grygov", lat: 49.538, lng: 17.3086 },
+      { name: "Velký dub u tratě", lat: 49.51767, lng: 17.3126 },
+    ],
+    distanceKm: 18,
+    durationMin: 80,
     notes:
-      "Káva u baziliky, zpátky přes Chválkovice. Lehký protivítr na hrázi, jinak pohoda.",
-    photo: "./photos/kopecek.jpg",
-  },
-  {
-    id: "sample-pomoravi",
-    title: "Gravel Litovelským Pomoravím",
-    date: "2026-09-07",
-    startPlace: "Horka nad Moravou",
-    endPlace: "Litovel",
-    startLat: 49.6406,
-    startLng: 17.2108,
-    endLat: 49.7013,
-    endLng: 17.0758,
-    distanceKm: 46.2,
-    durationMin: 175,
-    notes:
-      "Měkké úseky po dešti, krásné světlo v lužním lese. Občerstvení v Litovli, zpět vlakem.",
-    photo: "./photos/pomoravi.jpg",
-  },
-  {
-    id: "sample-jeseniky",
-    title: "Červenohorské sedlo z Loučné",
-    date: "2026-08-23",
-    startPlace: "Loučná nad Desnou",
-    endPlace: "Červenohorské sedlo",
-    startLat: 50.0717,
-    startLng: 17.1433,
-    endLat: 50.1247,
-    endLng: 17.1528,
-    distanceKm: 38.7,
-    durationMin: 168,
-    notes: "Těžké nohy v posledních kilometrech, ale výhled z sedla stál za to.",
-    photo: "./photos/sedlo.jpg",
-  },
-  {
-    id: "sample-bouzov",
-    title: "Za hradem Bouzov",
-    date: "2026-08-10",
-    startPlace: "Loštice",
-    endPlace: "Bouzov",
-    startLat: 49.7447,
-    startLng: 16.9289,
-    endLat: 49.7043,
-    endLng: 16.8897,
-    distanceKm: 52.1,
-    durationMin: 188,
-    notes: "Oběd pod hradem, zpáteční cesta už v kroupách. Jeden defekt, jinak bez dramatu.",
-    photo: "./photos/bouzov.jpg",
-  },
-  {
-    id: "sample-mtb",
-    title: "Kořeny nad Šternberkem",
-    date: "2026-07-19",
-    startPlace: "Šternberk",
-    endPlace: "Šternberk",
-    startLat: 49.7304,
-    startLng: 17.2989,
-    endLat: 49.751,
-    endLng: 17.333,
-    distanceKm: 22.8,
-    durationMin: 132,
-    notes: "Technické sjezdy po dešti, hodně bláta. Skvělé singletracky nad městem.",
-    photo: "./photos/sternberk.jpg",
+      "Cesta na kole ze Slavonína do Grygova do Lesa Království a zpět. Zastávka u velkého dubu u železniční tratě.",
+    photo: "./photos/doplnit.svg",
   },
 ];
 
@@ -117,7 +64,7 @@ function saveTrips() {
 }
 
 function sortTrips(list) {
-  return [...list].sort((a, b) => String(b.date).localeCompare(String(a.date)));
+  return [...list].sort((a, b) => String(a.date).localeCompare(String(b.date)) || String(a.createdAt || "").localeCompare(String(b.createdAt || "")));
 }
 
 function formatKm(km) {
@@ -144,10 +91,12 @@ function formatDate(iso) {
 }
 
 function routeLine(trip) {
-  const start = (trip.startPlace || "").trim();
-  const end = (trip.endPlace || "").trim();
-  if (start && end && start !== end) return `${start} → ${end}`;
-  return start || end || "Bez trasy";
+  const parts = [trip.startPlace, trip.viaPlace, trip.endPlace]
+    .map((value) => (value || "").trim())
+    .filter(Boolean);
+  const unique = parts.filter((item, i) => item !== parts[i - 1]);
+  if (unique.length >= 2) return unique.join(" → ");
+  return unique[0] || "Bez trasy";
 }
 
 function parseCoord(value) {
@@ -181,6 +130,7 @@ function showEditor(trip) {
   form.title.value = trip?.title || "";
   form.date.value = trip?.date || today();
   form.startPlace.value = trip?.startPlace || "";
+  form.viaPlace.value = trip?.viaPlace || "";
   form.endPlace.value = trip?.endPlace || "";
   form.distanceKm.value = trip?.distanceKm || "";
   form.hours.value = trip ? Math.floor((trip.durationMin || 0) / 60) : "";
@@ -188,6 +138,7 @@ function showEditor(trip) {
   form.notes.value = trip?.notes || "";
   form.photoUrl.value = trip?.photo && !String(trip.photo).startsWith("data:") ? trip.photo : "";
   form.startCoord.value = coordString(trip?.startLat, trip?.startLng);
+  form.viaCoord.value = coordString(trip?.viaLat, trip?.viaLng);
   form.endCoord.value = coordString(trip?.endLat, trip?.endLng);
   geocodeStatus.textContent = "";
   updatePhotoPreview();
@@ -215,18 +166,30 @@ function readForm() {
   const hours = Number(form.hours.value) || 0;
   const minutes = Number(form.minutes.value) || 0;
   const start = parseCoord(form.startCoord.value);
+  const via = parseCoord(form.viaCoord.value);
   const end = parseCoord(form.endCoord.value);
   const url = form.photoUrl.value.trim();
+  const startPlace = form.startPlace.value.trim();
+  const viaPlace = form.viaPlace.value.trim();
+  const endPlace = form.endPlace.value.trim();
+  const waypoints = [];
+  if (start.lat != null) waypoints.push({ name: startPlace || "Start", lat: start.lat, lng: start.lng });
+  if (via.lat != null) waypoints.push({ name: viaPlace || "Přes", lat: via.lat, lng: via.lng });
+  if (end.lat != null) waypoints.push({ name: endPlace || "Cíl", lat: end.lat, lng: end.lng });
   return {
     id: form.id.value || uid(),
     title: form.title.value.trim() || "Bez názvu",
     date: form.date.value || today(),
-    startPlace: form.startPlace.value.trim(),
-    endPlace: form.endPlace.value.trim(),
+    startPlace,
+    viaPlace,
+    endPlace,
     startLat: start.lat,
     startLng: start.lng,
+    viaLat: via.lat,
+    viaLng: via.lng,
     endLat: end.lat,
     endLng: end.lng,
+    waypoints,
     distanceKm: Number(form.distanceKm.value) || 0,
     durationMin: hours * 60 + minutes,
     notes: form.notes.value.trim(),
@@ -260,9 +223,12 @@ async function compressImage(file) {
 }
 
 async function geocode(query) {
+  let q = query;
+  if (/království/i.test(q) && !/grygov/i.test(q)) q += ", Grygov, Olomouc";
+  else if (/slavonín/i.test(q) && !/olomouc/i.test(q)) q += ", Olomouc";
   const url =
     "https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=cz&q=" +
-    encodeURIComponent(query);
+    encodeURIComponent(q);
   const res = await fetch(url, { headers: { "Accept-Language": "cs" } });
   if (!res.ok) throw new Error("geocode");
   const data = await res.json();
@@ -284,11 +250,26 @@ function pin(kind) {
   });
 }
 
+function tripPoints(trip) {
+  if (Array.isArray(trip.waypoints) && trip.waypoints.length) {
+    return trip.waypoints.filter((w) => w.lat != null && w.lng != null);
+  }
+  const pts = [];
+  if (trip.startLat != null && trip.startLng != null) {
+    pts.push({ name: trip.startPlace || "Start", lat: trip.startLat, lng: trip.startLng });
+  }
+  if (trip.viaLat != null && trip.viaLng != null) {
+    pts.push({ name: trip.viaPlace || "Přes", lat: trip.viaLat, lng: trip.viaLng });
+  }
+  if (trip.endLat != null && trip.endLng != null) {
+    pts.push({ name: trip.endPlace || "Cíl", lat: trip.endLat, lng: trip.endLng });
+  }
+  return pts;
+}
+
 function renderMap(el, trip) {
-  const points = [];
-  if (trip.startLat != null && trip.startLng != null) points.push([trip.startLat, trip.startLng]);
-  if (trip.endLat != null && trip.endLng != null) points.push([trip.endLat, trip.endLng]);
-  if (!points.length) {
+  const stops = tripPoints(trip);
+  if (!stops.length) {
     el.className = "map-empty";
     el.textContent = "Mapa zatím chybí. V úpravě doplňte místo tlačítkem „Najít místa na mapě“.";
     return;
@@ -297,13 +278,18 @@ function renderMap(el, trip) {
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "&copy; OpenStreetMap",
   }).addTo(map);
-  if (points[0]) L.marker(points[0], { icon: pin("start") }).addTo(map);
-  if (points[1] && (points[1][0] !== points[0][0] || points[1][1] !== points[0][1])) {
-    L.marker(points[1], { icon: pin("end") }).addTo(map);
-    L.polyline(points, { color: "#2f6a4a", weight: 3 }).addTo(map);
-    map.fitBounds(points, { padding: [18, 18], maxZoom: 13 });
+  const latlngs = stops.map((stop) => [stop.lat, stop.lng]);
+  stops.forEach((stop, i) => {
+    const kind = i === 0 ? "start" : i === stops.length - 1 ? "end" : "via";
+    L.marker(latlngs[i], { icon: pin(kind) })
+      .addTo(map)
+      .bindTooltip(stop.name || "", { permanent: false });
+  });
+  if (latlngs.length >= 2) {
+    L.polyline(latlngs, { color: "#2f6a4a", weight: 3 }).addTo(map);
+    map.fitBounds(latlngs, { padding: [18, 18], maxZoom: 13 });
   } else {
-    map.setView(points[0], 12);
+    map.setView(latlngs[0], 12);
   }
   maps.push(map);
   setTimeout(() => map.invalidateSize(), 60);
@@ -325,7 +311,7 @@ function render() {
   const q = searchEl.value.trim().toLowerCase();
   const visible = trips.filter((trip) => {
     if (!q) return true;
-    return [trip.title, trip.startPlace, trip.endPlace, trip.notes].join(" ").toLowerCase().includes(q);
+    return [trip.title, trip.startPlace, trip.viaPlace, trip.endPlace, trip.notes].join(" ").toLowerCase().includes(q);
   });
   renderTotals(trips);
 
@@ -348,7 +334,7 @@ function render() {
     .map((trip) => {
       const photo = trip.photo
         ? `<div class="trip-photo"><img src="${escapeAttr(trip.photo)}" alt=""></div>`
-        : `<div class="trip-photo"><div class="ph">Bez fotky</div></div>`;
+        : `<div class="trip-photo"><div class="ph">Doplňte fotku</div></div>`;
       const notes = trip.notes ? `<p class="notes">${escapeHtml(trip.notes)}</p>` : "";
       return `<article class="trip" data-id="${trip.id}">
         ${photo}
@@ -441,11 +427,16 @@ document.querySelector("#geocode-btn").addEventListener("click", async () => {
       const start = await geocode(form.startPlace.value.trim());
       if (start) form.startCoord.value = coordString(start.lat, start.lng);
     }
+    if (form.viaPlace.value.trim()) {
+      const via = await geocode(form.viaPlace.value.trim());
+      if (via) form.viaCoord.value = coordString(via.lat, via.lng);
+    }
     if (form.endPlace.value.trim()) {
       const end = await geocode(form.endPlace.value.trim());
       if (end) form.endCoord.value = coordString(end.lat, end.lng);
     }
-    geocodeStatus.textContent = form.startCoord.value || form.endCoord.value ? "Mapa doplněna." : "Místo se nenašlo.";
+    geocodeStatus.textContent =
+      form.startCoord.value || form.viaCoord.value || form.endCoord.value ? "Mapa doplněna." : "Místo se nenašlo.";
   } catch {
     geocodeStatus.textContent = "Mapu se teď nepodařilo najít. Zkuste souřadnice ručně.";
   }

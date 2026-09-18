@@ -295,10 +295,8 @@ textarea {
 
 .trip-photo {
   min-height: 180px;
-  background:
-    linear-gradient(160deg, #1b4634, #0b1c14 70%),
-    repeating-linear-gradient(-18deg, transparent 0 10px, rgba(214, 239, 99, 0.08) 10px 12px);
-  color: var(--lime);
+  background: #c5dcb3;
+  color: var(--forest);
   display: grid;
   place-items: center;
 }
@@ -306,7 +304,8 @@ textarea {
 .trip-photo img {
   width: 100%;
   height: 200px;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
 }
 
 .trip-photo .ph {
@@ -395,6 +394,10 @@ textarea {
   background: var(--forest);
 }
 
+.pin.via span {
+  background: #6aa8b8;
+}
+
 .trip-actions {
   display: flex;
   gap: 8px;
@@ -451,11 +454,13 @@ textarea {
 
   .trip-photo {
     grid-row: 1 / span 2;
+    background: #c5dcb3;
   }
 
   .trip-photo img {
     height: 100%;
     min-height: 220px;
+    object-fit: contain;
   }
 
   .trip-body {

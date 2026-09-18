@@ -1,29 +1,31 @@
 # CYKLO VÝLETY
 
-Jednoduchá statická stránka — seznam cyklistických výletů s fotkou, mapkou a údaji. Čeština. Žádný build.
+Složka se seznamem cyklistických výletů. Stačí ji mít v počítači a otevřít `index.html`. Později celou složku zkopírujete na web (FTP, hosting). Žádný build, žádný Node.
 
-Leží ve vlastní složce, web odhadů nemovitostí v kořeni repozitáře se nemění.
+Web odhadů nemovitostí v kořeni tohoto repozitáře se nemění.
 
-## Spuštění / nasazení
+## Jak otevřít
 
-Stačí nahrát složku `cyklo-vylety/` na hosting (FTP, GitHub Pages, Netlify…). Otevřete `/cyklo-vylety/`.
+**Nejjednodušší:** dvojklik na `index.html`.
 
-Lokálně (kvůli mapovým dlaždicím a fotkám raději přes http, ne `file://`):
+Nebo z příkazové řádky (spolehlivější pro mapy):
 
 ```bash
 cd cyklo-vylety
 python3 -m http.server 5173
 ```
 
-Pak http://localhost:5173
+Pak v prohlížeči: http://localhost:5173
 
-## Použití
+## Co uvnitř
 
-- Hlavní pohled je seznam výletů.
-- U každého: datum, trasa, km, čas, poznámky, volitelná fotka, malá mapa start → cíl.
-- **Přidat výlet** / **Upravit** — doplňování průběžně v prohlížeči.
-- Fotka: nahrání ze zařízení, nebo URL.
-- Mapa: tlačítko **Najít místa na mapě** (OpenStreetMap / Nominatim), nebo ruční souřadnice.
-- Data se ukládají v `localStorage`. **Stáhnout zálohu** uloží JSON.
+| soubor | význam |
+| --- | --- |
+| `index.html` | stránka |
+| `styles.css` | vzhled |
+| `app.js` | seznam, uložení, mapy |
+| `photos/` | fotky k výletům (placeholder můžete nahradit) |
 
-Ukázkové výlety a fotky (Wikimedia Commons) jsou předvyplněné, ať stránka není prázdná.
+První zapsaný výlet je z roku **2020**: Slavonín – Grygov – Les Království (les u Grygova, zastávka u velkého dubu u trati).
+
+Další výlety přidáte tlačítkem **Přidat výlet**. Data se ukládají v prohlížeči; **Stáhnout zálohu** uloží JSON.

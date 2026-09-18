@@ -48,7 +48,7 @@
         </div>
       </div>
       <p class="intro">
-        Jednoduchý seznam jízd k prohlížení a doplňování. Ke každému výletu fotka, mapka a pár čísel — nic víc.
+        Jednoduchý seznam jízd k prohlížení a doplňování. Ke každému výletu informace, malá mapa a volitelná fotka.
       </p>
       <div class="header-actions">
         <button type="button" class="btn primary" id="add-btn">Přidat výlet</button>
@@ -67,7 +67,7 @@
 
         <label>
           Název
-          <input name="title" required placeholder="Např. Ráno na Kopeček" />
+          <input name="title" required placeholder="Např. Slavonín – Grygov" />
         </label>
         <label>
           Datum
@@ -76,13 +76,17 @@
         <div class="row">
           <label>
             Odkud
-            <input name="startPlace" placeholder="Start" />
+            <input name="startPlace" placeholder="např. Olomouc-Slavonín" />
           </label>
           <label>
             Kam
-            <input name="endPlace" placeholder="Cíl" />
+            <input name="endPlace" placeholder="např. Les Království u Grygova" />
           </label>
         </div>
+        <label>
+          Přes
+          <input name="viaPlace" placeholder="např. Grygov" />
+        </label>
         <div class="row three">
           <label>
             Kilometry
@@ -125,14 +129,18 @@
             <button type="button" class="btn ghost" id="geocode-btn">Najít místa na mapě</button>
             <span id="geocode-status" class="hint"></span>
           </div>
-          <div class="row">
+          <div class="row three">
             <label>
               Start (lat, lng)
-              <input name="startCoord" placeholder="49.594, 17.251" />
+              <input name="startCoord" placeholder="49.569, 17.235" />
+            </label>
+            <label>
+              Přes (lat, lng)
+              <input name="viaCoord" placeholder="49.538, 17.309" />
             </label>
             <label>
               Cíl (lat, lng)
-              <input name="endCoord" placeholder="49.630, 17.338" />
+              <input name="endCoord" placeholder="49.518, 17.313" />
             </label>
           </div>
         </fieldset>
@@ -157,7 +165,7 @@
     </main>
 
     <footer class="site-footer">
-      <p>Data se ukládají v tomto prohlížeči. Pro jistotu stáhněte zálohu. Ukázkové fotky: Wikimedia Commons.</p>
+      <p>Celá stránka je v této složce — otevřete index.html. Data se ukládají v prohlížeči; pro jistotu stáhněte zálohu.</p>
     </footer>
 
     <script
