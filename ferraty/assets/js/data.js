@@ -155,7 +155,7 @@
 
   function formatDifficulty(difficulty) {
     if (!difficulty || !difficulty.grade) return "—";
-    return difficulty.scale ? `${difficulty.grade} (${difficulty.scale})` : difficulty.grade;
+    return difficulty.grade;
   }
 
   const TYPE_META = {
