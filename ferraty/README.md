@@ -31,6 +31,7 @@ ferraty/
   detail.html          Detail jednoho záznamu (?id=...)
   statistiky.html      Automaticky počítané statistiky + žebříček podle nadmořské výšky
   tatry.html           Regionální podstránka pro Vysoké Tatry (výstupy + doprava/logistika)
+  beskydy.html         Regionální podstránka pro Beskydy (výstupy + doprava/logistika)
   pridat.html          Formulář pro vygenerování nového záznamu
 
   data/
@@ -45,8 +46,11 @@ ferraty/
     css/style.css      Sdílený vzhled
     js/data.js          Načítání dat + formátovací a statistické funkce (sdílené)
     js/nav.js           Společná hlavička a patička
-    js/home.js, list.js, map.js, detail.js, stats.js, tatry.js, add.js
+    js/region.js         Sdílená logika pro regionální podstránky (stat řádek + tabulka)
+    js/home.js, list.js, map.js, detail.js, stats.js, add.js
                          Logika jednotlivých stránek
+    js/tatry.js, beskydy.js
+                         Tenké konfigurace regionálních podstránek nad region.js
 ```
 
 ## Datový model
@@ -137,10 +141,14 @@ k jednotlivým souborům. Prázdné pole `[]` znamená "zatím žádné fotky", 
 ### Regionální skupina a regionální podstránky
 
 `regionGroup` je volitelný štítek nezávislý na `region` (který je volný text) — používají ho
-regionální podstránky typu `tatry.html`, co k výstupům přidávají vlastní hero, statistiky a
-třeba tipy na dopravu. Zatím existuje jen `"Tatry"` a `tatry.html`; další skupina (Alpy, Balkán,
-Kavkaz…) by fungovala stejně — nová podstránka se stejným vzorem (`tatry.js` jako šablona)
-plus vyplnění `regionGroup` u příslušných záznamů.
+regionální podstránky typu `tatry.html`/`beskydy.html`, co k výstupům přidávají vlastní hero,
+statistiky a třeba tipy na dopravu. Sdílenou logiku (stat řádek + tabulka výstupů) má na
+starosti `assets/js/region.js` — samotná stránka je jen HTML (hero + sekce "Doprava a logistika")
+plus tenký `*.js` soubor, který zavolá `Ferraty.Region.init({ regionGroup, countLabel, emptyMessage })`.
+
+Zatím existují `"Tatry"` a `"Beskydy"`. Další skupina (Alpy, Balkán, Kavkaz…) by fungovala
+stejně: nová `<region>.html` podle vzoru `tatry.html`/`beskydy.html`, tenký `<region>.js` podle
+vzoru `tatry.js`, a vyplnění `regionGroup` u příslušných záznamů.
 
 ### TOP výstupy
 

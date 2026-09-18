@@ -12,6 +12,7 @@
     { page: "mapa", href: "mapa.html", label: "Mapa" },
     { page: "statistiky", href: "statistiky.html", label: "Statistiky" },
     { page: "tatry", href: "tatry.html", label: "Tatry" },
+    { page: "beskydy", href: "beskydy.html", label: "Beskydy" },
     { page: "pridat", href: "pridat.html", label: "Přidat výstup" },
   ];
 

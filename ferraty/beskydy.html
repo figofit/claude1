@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>Beskydy | Moje hory</title>
+<meta name="description" content="Výstupy v Beskydech a tipy na dopravu a logistiku — Pustevny, lanovka, chaty, autobusy.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="beskydy">
+
+<header id="app-header" class="site-header"></header>
+
+<main class="container">
+
+  <section class="hero">
+    <div class="hero__content">
+      <div class="hero__eyebrow">Regionální podstránka</div>
+      <h1>Beskydy</h1>
+      <p>Moravskoslezské a Slezské Beskydy — srdcovka, kam se pořád vracím. Výstupy, plus doprava a pár tipů na logistiku.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#beskydy-list">Zobrazit výstupy</a>
+        <a class="btn btn--ghost" href="#doprava">Doprava a logistika</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div id="stat-row" class="stat-row" aria-live="polite">
+      <div class="stat-tile"><div class="stat-tile__value">…</div><div class="stat-tile__label">Načítám data</div></div>
+    </div>
+  </section>
+
+  <section class="section" id="beskydy-list">
+    <div class="section__head">
+      <h2>Výstupy v Beskydech</h2>
+      <a href="ferraty.html">Celý seznam →</a>
+    </div>
+    <div id="region-table" class="table-wrap">
+      <p class="empty-state">Načítám…</p>
+    </div>
+  </section>
+
+  <section class="section" id="doprava">
+    <div class="section__head">
+      <h2>Doprava a logistika</h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stats-card">
+        <h3>🚆 Vlak a bus pod hory</h3>
+        <p class="text-muted">
+          Výchozí body jako Frenštát pod Radhoštěm, Rožnov pod Radhoštěm nebo Prostřední Bečva
+          jsou dobře dostupné vlakem i autobusem z Ostravy nebo Valašského Meziříčí — auto na
+          většinu tras vůbec nepotřebuješ.
+        </p>
+      </div>
+      <div class="stats-card">
+        <h3>🚡 Lanovka na Pustevny</h3>
+        <p class="text-muted">
+          Z Trojanovic vede lanovka přímo na Pustevny — klasický výchozí bod na Radhošť, Tanečnici
+          i hřeben směrem na Combaiku. Vyplatí se hlavně ve dnech, kdy chceš ušetřit nohy na
+          začátku a ne na konci dne.
+        </p>
+      </div>
+      <div class="stats-card">
+        <h3>🅿️ Parkování</h3>
+        <p class="text-muted">
+          Parkoviště na Pustevnách bývá o víkendech a v sezóně narvané už dopoledne — alternativa
+          je zaparkovat níž (Ráztoka, Combi) a přidat si pěší nástup, nebo přijet na první spoje.
+        </p>
+      </div>
+      <div class="stats-card">
+        <h3>🛖 Chaty a útulny</h3>
+        <p class="text-muted">
+          V hřebenových partiích najdeš chaty a útulny typu Martinka, Kněhyně nebo Súkenická bouda
+          — fajn na zastávku i na vícedenní trasu po hřebeni.
+        </p>
+      </div>
+      <div class="stats-card">
+        <h3>🌲 Charakter terénu</h3>
+        <p class="text-muted">
+          Beskydy nejsou vysokohorské — spíš dlouhé zalesněné hřebeny, louky a rozhledny. O to
+          víc je to o kilometrech a převýšení v součtu, ne o technické obtížnosti.
+        </p>
+      </div>
+      <div class="stats-card">
+        <h3>🌦 Počasí</h3>
+        <p class="text-muted">
+          Hřebeny bývají dost větrné a mlha přichází rychle i mimo zimu — na delší hřebenovky
+          se vyplatí sledovat předpověď o něco pečlivěji, než by se čekalo u „jen“ Beskyd.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="app-footer" class="site-footer"></footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/region.js"></script>
+<script src="assets/js/beskydy.js"></script>
+</body>
+</html>
