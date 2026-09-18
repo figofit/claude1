@@ -101,15 +101,22 @@ function routeLine(trip) {
 
 function parseCoord(value) {
   if (!value) return { lat: null, lng: null };
-  const parts = String(value)
-    .replace(";", ",")
-    .split(",")
-    .map((p) => p.trim())
-    .filter(Boolean);
-  const lat = Number(parts[0]);
-  const lng = Number(parts[1]);
+  const raw = String(value).trim();
+  const pair = raw.match(/(-?\d+[.,]\d+|-?\d+)\s*[,;\s]\s*(-?\d+[.,]\d+|-?\d+)/);
+  if (!pair) return { lat: null, lng: null };
+  const lat = Number(pair[1].replace(",", "."));
+  const lng = Number(pair[2].replace(",", "."));
   if (!Number.isFinite(lat) || !Number.isFinite(lng)) return { lat: null, lng: null };
+  if (lat < -90 || lat > 90 || lng < -180 || lng > 180) return { lat: null, lng: null };
   return { lat, lng };
+}
+
+function field(name) {
+  return form.elements.namedItem(name);
+}
+
+function hasCoord(lat, lng) {
+  return Number.isFinite(lat) && Number.isFinite(lng);
 }
 
 function coordString(lat, lng) {
@@ -126,20 +133,20 @@ function showEditor(trip) {
   document.querySelector("#form-title").textContent = trip ? "Upravit výlet" : "Nový výlet";
   form.reset();
   photoDraft = trip?.photo || "";
-  form.id.value = trip?.id || "";
-  form.title.value = trip?.title || "";
-  form.date.value = trip?.date || today();
-  form.startPlace.value = trip?.startPlace || "";
-  form.viaPlace.value = trip?.viaPlace || "";
-  form.endPlace.value = trip?.endPlace || "";
-  form.distanceKm.value = trip?.distanceKm || "";
-  form.hours.value = trip ? Math.floor((trip.durationMin || 0) / 60) : "";
-  form.minutes.value = trip ? Math.round((trip.durationMin || 0) % 60) : "";
-  form.notes.value = trip?.notes || "";
-  form.photoUrl.value = trip?.photo && !String(trip.photo).startsWith("data:") ? trip.photo : "";
-  form.startCoord.value = coordString(trip?.startLat, trip?.startLng);
-  form.viaCoord.value = coordString(trip?.viaLat, trip?.viaLng);
-  form.endCoord.value = coordString(trip?.endLat, trip?.endLng);
+  field("id").value = trip?.id || "";
+  field("title").value = trip?.title || "";
+  field("date").value = trip?.date || today();
+  field("startPlace").value = trip?.startPlace || "";
+  field("viaPlace").value = trip?.viaPlace || "";
+  field("endPlace").value = trip?.endPlace || "";
+  field("distanceKm").value = trip?.distanceKm || "";
+  field("hours").value = trip ? Math.floor((trip.durationMin || 0) / 60) : "";
+  field("minutes").value = trip ? Math.round((trip.durationMin || 0) % 60) : "";
+  field("notes").value = trip?.notes || "";
+  field("photoUrl").value = trip?.photo && !String(trip.photo).startsWith("data:") ? trip.photo : "";
+  field("startCoord").value = coordString(trip?.startLat, trip?.startLng);
+  field("viaCoord").value = coordString(trip?.viaLat, trip?.viaLng);
+  field("endCoord").value = coordString(trip?.endLat, trip?.endLng);
   geocodeStatus.textContent = "";
   updatePhotoPreview();
   editor.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -162,39 +169,70 @@ function updatePhotoPreview() {
   }
 }
 
-function readForm() {
-  const hours = Number(form.hours.value) || 0;
-  const minutes = Number(form.minutes.value) || 0;
-  const start = parseCoord(form.startCoord.value);
-  const via = parseCoord(form.viaCoord.value);
-  const end = parseCoord(form.endCoord.value);
-  const url = form.photoUrl.value.trim();
-  const startPlace = form.startPlace.value.trim();
-  const viaPlace = form.viaPlace.value.trim();
-  const endPlace = form.endPlace.value.trim();
+function buildWaypoints(trip) {
   const waypoints = [];
-  if (start.lat != null) waypoints.push({ name: startPlace || "Start", lat: start.lat, lng: start.lng });
-  if (via.lat != null) waypoints.push({ name: viaPlace || "Přes", lat: via.lat, lng: via.lng });
-  if (end.lat != null) waypoints.push({ name: endPlace || "Cíl", lat: end.lat, lng: end.lng });
-  return {
-    id: form.id.value || uid(),
-    title: form.title.value.trim() || "Bez názvu",
-    date: form.date.value || today(),
-    startPlace,
-    viaPlace,
-    endPlace,
+  if (hasCoord(trip.startLat, trip.startLng)) {
+    waypoints.push({ name: trip.startPlace || "Start", lat: trip.startLat, lng: trip.startLng });
+  }
+  if (hasCoord(trip.viaLat, trip.viaLng)) {
+    waypoints.push({ name: trip.viaPlace || "Přes", lat: trip.viaLat, lng: trip.viaLng });
+  }
+  if (hasCoord(trip.endLat, trip.endLng)) {
+    waypoints.push({ name: trip.endPlace || "Cíl", lat: trip.endLat, lng: trip.endLng });
+  }
+  return waypoints;
+}
+
+function readForm() {
+  const hours = Number(field("hours").value) || 0;
+  const minutes = Number(field("minutes").value) || 0;
+  const start = parseCoord(field("startCoord").value);
+  const via = parseCoord(field("viaCoord").value);
+  const end = parseCoord(field("endCoord").value);
+  const url = field("photoUrl").value.trim();
+  const trip = {
+    id: field("id").value || uid(),
+    title: field("title").value.trim() || "Bez názvu",
+    date: field("date").value || today(),
+    startPlace: field("startPlace").value.trim(),
+    viaPlace: field("viaPlace").value.trim(),
+    endPlace: field("endPlace").value.trim(),
     startLat: start.lat,
     startLng: start.lng,
     viaLat: via.lat,
     viaLng: via.lng,
     endLat: end.lat,
     endLng: end.lng,
-    waypoints,
-    distanceKm: Number(form.distanceKm.value) || 0,
+    distanceKm: Number(field("distanceKm").value) || 0,
     durationMin: hours * 60 + minutes,
-    notes: form.notes.value.trim(),
+    notes: field("notes").value.trim(),
     photo: photoDraft || url || "",
   };
+  trip.waypoints = buildWaypoints(trip);
+  return trip;
+}
+
+async function ensureCoords(trip) {
+  async function fill(place, lat, lng) {
+    if (hasCoord(lat, lng)) return { lat, lng };
+    if (!place) return { lat: null, lng: null };
+    const found = await geocode(place);
+    return found || { lat: null, lng: null };
+  }
+  const start = await fill(trip.startPlace, trip.startLat, trip.startLng);
+  const via = await fill(trip.viaPlace, trip.viaLat, trip.viaLng);
+  const end = await fill(trip.endPlace, trip.endLat, trip.endLng);
+  const next = {
+    ...trip,
+    startLat: start.lat,
+    startLng: start.lng,
+    viaLat: via.lat,
+    viaLng: via.lng,
+    endLat: end.lat,
+    endLng: end.lng,
+  };
+  next.waypoints = buildWaypoints(next);
+  return next;
 }
 
 async function compressImage(file) {
@@ -251,20 +289,9 @@ function pin(kind) {
 }
 
 function tripPoints(trip) {
-  if (Array.isArray(trip.waypoints) && trip.waypoints.length) {
-    return trip.waypoints.filter((w) => w.lat != null && w.lng != null);
-  }
-  const pts = [];
-  if (trip.startLat != null && trip.startLng != null) {
-    pts.push({ name: trip.startPlace || "Start", lat: trip.startLat, lng: trip.startLng });
-  }
-  if (trip.viaLat != null && trip.viaLng != null) {
-    pts.push({ name: trip.viaPlace || "Přes", lat: trip.viaLat, lng: trip.viaLng });
-  }
-  if (trip.endLat != null && trip.endLng != null) {
-    pts.push({ name: trip.endPlace || "Cíl", lat: trip.endLat, lng: trip.endLng });
-  }
-  return pts;
+  const fromWaypoints = (trip.waypoints || []).filter((w) => hasCoord(w.lat, w.lng));
+  if (fromWaypoints.length) return fromWaypoints;
+  return buildWaypoints(trip);
 }
 
 function renderMap(el, trip) {
@@ -355,7 +382,7 @@ function render() {
     .join("");
 
   visible.forEach((trip) => {
-    const el = document.querySelector(`#map-${CSS.escape(trip.id)}`);
+    const el = document.getElementById(`map-${trip.id}`);
     if (el) renderMap(el, trip);
   });
 }
@@ -376,26 +403,34 @@ document.querySelector("#add-btn").addEventListener("click", () => showEditor(nu
 document.querySelector("#cancel-btn").addEventListener("click", hideEditor);
 document.querySelector("#cancel-btn-2").addEventListener("click", hideEditor);
 
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const next = readForm();
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(next.date)) {
+  const submitBtn = form.querySelector("[type=submit]");
+  const draft = readForm();
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(draft.date)) {
     alert("Datum zadejte ve formátu RRRR-MM-DD.");
-    form.date.focus();
+    field("date").focus();
     return;
   }
-  const index = trips.findIndex((t) => t.id === next.id);
-  if (index >= 0) trips[index] = next;
-  else trips.push(next);
-  trips = sortTrips(trips);
+  if (submitBtn) submitBtn.disabled = true;
+  geocodeStatus.textContent = "Ukládám mapu…";
   try {
-    saveTrips();
-  } catch {
-    alert("Fotka je na uložení moc velká. Zkuste menší soubor nebo odkaz.");
-    return;
+    const next = await ensureCoords(draft);
+    const index = trips.findIndex((t) => t.id === next.id);
+    if (index >= 0) trips[index] = next;
+    else trips.push(next);
+    trips = sortTrips(trips);
+    try {
+      saveTrips();
+    } catch {
+      alert("Fotka je na uložení moc velká. Zkuste menší soubor nebo odkaz.");
+      return;
+    }
+    hideEditor();
+    render();
+  } finally {
+    if (submitBtn) submitBtn.disabled = false;
   }
-  hideEditor();
-  render();
 });
 
 form.photoFile.addEventListener("change", async (event) => {
@@ -423,20 +458,22 @@ document.querySelector("#clear-photo").addEventListener("click", () => {
 document.querySelector("#geocode-btn").addEventListener("click", async () => {
   geocodeStatus.textContent = "Hledám…";
   try {
-    if (form.startPlace.value.trim()) {
-      const start = await geocode(form.startPlace.value.trim());
-      if (start) form.startCoord.value = coordString(start.lat, start.lng);
+    if (field("startPlace").value.trim()) {
+      const start = await geocode(field("startPlace").value.trim());
+      if (start) field("startCoord").value = coordString(start.lat, start.lng);
     }
-    if (form.viaPlace.value.trim()) {
-      const via = await geocode(form.viaPlace.value.trim());
-      if (via) form.viaCoord.value = coordString(via.lat, via.lng);
+    if (field("viaPlace").value.trim()) {
+      const via = await geocode(field("viaPlace").value.trim());
+      if (via) field("viaCoord").value = coordString(via.lat, via.lng);
     }
-    if (form.endPlace.value.trim()) {
-      const end = await geocode(form.endPlace.value.trim());
-      if (end) form.endCoord.value = coordString(end.lat, end.lng);
+    if (field("endPlace").value.trim()) {
+      const end = await geocode(field("endPlace").value.trim());
+      if (end) field("endCoord").value = coordString(end.lat, end.lng);
     }
     geocodeStatus.textContent =
-      form.startCoord.value || form.viaCoord.value || form.endCoord.value ? "Mapa doplněna." : "Místo se nenašlo.";
+      field("startCoord").value || field("viaCoord").value || field("endCoord").value
+        ? "Mapa doplněna."
+        : "Místo se nenašlo.";
   } catch {
     geocodeStatus.textContent = "Mapu se teď nepodařilo najít. Zkuste souřadnice ručně.";
   }
