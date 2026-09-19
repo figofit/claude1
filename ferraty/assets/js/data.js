@@ -61,6 +61,8 @@
     "Moldavsko": "🇲🇩",
     "Malta": "🇲🇹",
     "Dánsko": "🇩🇰",
+    "Monako": "🇲🇨",
+    "Vatikán": "🇻🇦",
   };
 
   function countryFlag(country) {
