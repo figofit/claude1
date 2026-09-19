@@ -1,0 +1,7 @@
+trip: kodan-malmo-2018
+mode: plane
+from: krakow
+to: copenhagen
+date: "2018-08-23"
+datePrecision: day
+status: completed

@@ -1,0 +1,8 @@
+trip: kodan-malmo-2018
+mode: train
+from: copenhagen
+to: malmo
+date: "2018-08-25"
+datePrecision: day
+status: completed
+notes: Přes most Öresund spojující Dánsko a Švédsko.
