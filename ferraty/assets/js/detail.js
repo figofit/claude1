@@ -92,22 +92,64 @@
     ]);
   }
 
+  function geocodeQueryFor(r) {
+    const parts = [r.name, r.locality, r.region, r.country].filter(Boolean);
+    return parts.join(", ");
+  }
+
+  // Nominatim (OpenStreetMap) — zdarma, bez API klíče, jen orientační dohledání polohy
+  // podle textu, když u záznamu chybí přesné souřadnice. Vždy jen 1 dotaz na návštěvu detailu.
+  async function geocodeApprox(query) {
+    const cacheKey = "geocode:" + query;
+    const cached = sessionStorage.getItem(cacheKey);
+    if (cached) return JSON.parse(cached);
+
+    const url = `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(query)}`;
+    const res = await fetch(url, { headers: { Accept: "application/json" } });
+    if (!res.ok) throw new Error("Geocoding selhal (HTTP " + res.status + ")");
+    const results = await res.json();
+    if (!results.length) throw new Error("Pro tenhle dotaz se nic nenašlo");
+    const point = { lat: parseFloat(results[0].lat), lng: parseFloat(results[0].lon) };
+    try {
+      sessionStorage.setItem(cacheKey, JSON.stringify(point));
+    } catch (err) {
+      // sessionStorage může být nedostupný (soukromé okno apod.) — cache je jen optimalizace
+    }
+    return point;
+  }
+
   async function renderMiniMap(r) {
     const hasCoords = r.coordinates && typeof r.coordinates.lat === "number" && typeof r.coordinates.lng === "number";
     const noteEl = document.getElementById("d-map-note");
 
-    if (!hasCoords) {
+    let point = hasCoords ? r.coordinates : null;
+    let approx = false;
+
+    if (!point) {
+      try {
+        point = await geocodeApprox(geocodeQueryFor(r));
+        approx = true;
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    if (!point) {
       document.getElementById("map-mini").parentElement.style.display = "none";
-      noteEl.textContent = "Souřadnice nejsou u tohoto záznamu vyplněné.";
+      noteEl.textContent = "Souřadnice nejsou vyplněné a polohu se nepodařilo ani automaticky dohledat.";
       return;
     }
 
     const map = L.map("map-mini", { zoomControl: false, attributionControl: false });
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 18 }).addTo(map);
-    const marker = L.marker([r.coordinates.lat, r.coordinates.lng]).addTo(map);
-    let bounds = L.latLngBounds([[r.coordinates.lat, r.coordinates.lng]]);
+    const marker = L.marker([point.lat, point.lng]).addTo(map);
+    let bounds = L.latLngBounds([[point.lat, point.lng]]);
 
-    if (r.track && r.track.file && r.track.format === "gpx") {
+    const approxNote = "Přibližná poloha dohledaná automaticky podle názvu a oblasti (OpenStreetMap Nominatim) — ne přesné GPS souřadnice z vrcholu.";
+
+    if (approx) {
+      noteEl.textContent = approxNote;
+    } else if (r.track && r.track.file && r.track.format === "gpx") {
       try {
         const points = await loadGpxPoints(r.track.file);
         if (points.length) {
@@ -126,7 +168,7 @@
     }
 
     map.fitBounds(bounds.pad(0.3));
-    if (bounds.getNorthEast().equals(bounds.getSouthWest())) map.setZoom(13);
+    if (bounds.getNorthEast().equals(bounds.getSouthWest())) map.setZoom(approx ? 10 : 13);
   }
 
   async function init() {

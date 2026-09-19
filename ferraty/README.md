@@ -125,6 +125,15 @@ Soubor s trasou dej do `gpx/` a v `track.file` odkaž relativní cestou (`gpx/na
 Živý náhled na mapě detailu funguje zatím jen pro `.gpx` (`track.format: "gpx"`) — `.tcx`
 soubor se nabídne ke stažení, ale nevykresluje se (šlo by doplnit později parserem).
 
+### Poloha na mapě bez souřadnic i bez GPX
+
+Pokud u záznamu chybí `coordinates`, detail se nevzdá — automaticky zkusí najít přibližnou
+polohu podle `name`, `locality`, `region` a `country` přes Nominatim (bezplatný open-source
+geocoder z projektu OpenStreetMap, bez API klíče). Najde-li něco, mini-mapa ukáže orientační
+bod a napíše se to tam jasně („Přibližná poloha dohledaná automaticky…“) — není to náhrada
+za skutečné souřadnice vrcholu, jen lepší než nic. Pokud se nic nenajde (nebo je offline),
+zobrazí se prostě hláška, že polohu nemáme.
+
 ### Fotografie
 
 Slož je do vlastní podsložky `photos/<id-zaznamu>/` a v poli `photos` vypiš relativní cesty
