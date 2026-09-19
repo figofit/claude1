@@ -1,0 +1,6 @@
+trip: bosna-2019
+mode: bus
+from: mostar
+to: blagaj
+datePrecision: month
+status: completed

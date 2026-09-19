@@ -1,0 +1,7 @@
+trip: benelux-paris-2019
+mode: train
+from: liege
+to: luxembourg-city
+date: "2019-09-25"
+datePrecision: day
+status: completed

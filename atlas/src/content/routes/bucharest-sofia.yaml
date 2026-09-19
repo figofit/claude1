@@ -1,0 +1,7 @@
+trip: bukurest-sofie-2019
+mode: bus
+from: bucharest
+to: sofia
+date: "2019-05-29"
+datePrecision: day
+status: completed

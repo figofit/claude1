@@ -1,0 +1,8 @@
+trip: ultra-trip-2019
+mode: plane
+from: madrid
+to: bratislava
+date: "2019-03-28"
+datePrecision: day
+status: completed
+notes: Cílové letiště odhadnuto podle obvyklého vzorce roku 2019 (Bratislava) - není v zápisu výslovně potvrzeno.

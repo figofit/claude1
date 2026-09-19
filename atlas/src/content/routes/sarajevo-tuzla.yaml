@@ -1,0 +1,6 @@
+trip: bosna-2019
+mode: bus
+from: sarajevo
+to: tuzla
+datePrecision: month
+status: completed

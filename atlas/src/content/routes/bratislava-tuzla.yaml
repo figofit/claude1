@@ -1,0 +1,7 @@
+trip: bosna-2019
+mode: plane
+from: bratislava
+to: tuzla
+date: "2019-08-13"
+datePrecision: day
+status: completed

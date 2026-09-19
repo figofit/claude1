@@ -1,0 +1,8 @@
+trip: benelux-paris-2019
+mode: train
+from: luxembourg-city
+to: paris
+date: "2019-09-26"
+datePrecision: day
+status: completed
+notes: Přes Remeš (Reims).

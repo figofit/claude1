@@ -1,0 +1,7 @@
+trip: ultra-trip-2019
+mode: plane
+from: lisbon
+to: porto
+date: "2019-03-25"
+datePrecision: day
+status: completed

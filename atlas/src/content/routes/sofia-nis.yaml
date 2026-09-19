@@ -1,0 +1,8 @@
+trip: bukurest-sofie-2019
+mode: bus
+from: sofia
+to: nis
+date: "2019-05-30"
+datePrecision: day
+status: completed
+notes: Přes hranici zpátky směrem domů.

@@ -1,0 +1,7 @@
+trip: benelux-paris-2019
+mode: train
+from: eindhoven
+to: liege
+date: "2019-09-24"
+datePrecision: day
+status: completed

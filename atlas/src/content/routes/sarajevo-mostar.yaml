@@ -1,0 +1,7 @@
+trip: bosna-2019
+mode: train
+from: sarajevo
+to: mostar
+datePrecision: month
+status: completed
+notes: Krásná panoramatická trať.

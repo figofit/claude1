@@ -1,0 +1,7 @@
+trip: srbsko-2019
+mode: bus
+from: nis
+to: belgrade
+date: "2019-05-17"
+datePrecision: day
+status: completed

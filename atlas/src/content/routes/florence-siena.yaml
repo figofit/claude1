@@ -1,0 +1,7 @@
+trip: toskansko-2019
+mode: train
+from: florence
+to: siena
+date: "2019-02-23"
+datePrecision: day
+status: completed

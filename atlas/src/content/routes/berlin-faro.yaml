@@ -1,0 +1,7 @@
+trip: ultra-trip-2019
+mode: plane
+from: berlin
+to: faro
+date: "2019-03-22"
+datePrecision: day
+status: completed

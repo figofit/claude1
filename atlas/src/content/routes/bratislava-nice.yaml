@@ -1,0 +1,7 @@
+trip: francie-monako-2019
+mode: plane
+from: bratislava
+to: nice
+date: "2019-10-20"
+datePrecision: day
+status: completed

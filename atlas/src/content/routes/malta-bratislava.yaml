@@ -1,0 +1,7 @@
+trip: malta-2019
+mode: plane
+from: valletta
+to: bratislava
+date: "2019-11-17"
+datePrecision: day
+status: completed

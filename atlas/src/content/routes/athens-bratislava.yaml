@@ -1,0 +1,7 @@
+trip: athens-2019
+mode: plane
+from: athens
+to: bratislava
+date: "2019-01-19"
+datePrecision: day
+status: completed

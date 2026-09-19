@@ -1,0 +1,7 @@
+trip: toskansko-2019
+mode: train
+from: bologna
+to: florence
+date: "2019-02-21"
+datePrecision: day
+status: completed

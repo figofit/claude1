@@ -1,0 +1,6 @@
+trip: francie-monako-2019
+mode: train
+from: nice
+to: monaco-city
+datePrecision: month
+status: completed

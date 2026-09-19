@@ -1,0 +1,6 @@
+trip: bosna-2019
+mode: bus
+from: konjic
+to: sarajevo
+datePrecision: month
+status: completed

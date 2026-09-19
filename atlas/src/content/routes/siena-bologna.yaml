@@ -1,0 +1,7 @@
+trip: toskansko-2019
+mode: train
+from: siena
+to: bologna
+date: "2019-02-24"
+datePrecision: day
+status: completed

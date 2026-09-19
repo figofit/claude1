@@ -1,0 +1,8 @@
+trip: ultra-trip-2019
+mode: bus
+from: prague
+to: berlin
+date: "2019-03-21"
+datePrecision: day
+status: completed
+notes: Přes Drážďany (jen průjezd).

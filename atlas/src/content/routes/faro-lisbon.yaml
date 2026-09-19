@@ -1,0 +1,8 @@
+trip: ultra-trip-2019
+mode: train
+from: faro
+to: lisbon
+date: "2019-03-23"
+datePrecision: day
+status: completed
+notes: Vlakem podél pobřeží.
