@@ -445,7 +445,6 @@ table.ferraty-table {
   white-space: nowrap;
 }
 .badge[hidden] { display: none; }
-.badge--difficulty { background: var(--sand); color: var(--forest-dark); }
 .badge--muted { background: var(--bg-alt); color: var(--text-faint); }
 .badge--type-ferrata { background: var(--forest-tint); color: var(--forest-dark); }
 .badge--type-vrchol { background: var(--clay-tint); color: var(--clay-dark); }

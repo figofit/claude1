@@ -41,7 +41,6 @@
           <td data-label="Typ"><span class="badge ${type.cls}">${type.label}</span></td>
           <td data-label="Země">${Ferraty.countryLabelHtml(r.country)}</td>
           <td data-label="Datum">${Ferraty.formatDate(r.date, { day: "numeric", month: "numeric", year: "numeric" })}</td>
-          <td data-label="Obtížnost"><span class="badge badge--difficulty">${Ferraty.escapeHtml(Ferraty.formatDifficulty(r.difficulty))}</span></td>
           <td data-label="Výška">${Ferraty.fmtAltitude(r.altitude_m)}</td>
         </tr>`;
       })
@@ -49,7 +48,7 @@
     return `
       <div class="table-scroll">
         <table class="ferraty-table">
-          <thead><tr><th>Název</th><th>Typ</th><th>Země</th><th>Datum</th><th>Obtížnost</th><th>Výška</th></tr></thead>
+          <thead><tr><th>Název</th><th>Typ</th><th>Země</th><th>Datum</th><th>Výška</th></tr></thead>
           <tbody>${rows}</tbody>
         </table>
       </div>`;

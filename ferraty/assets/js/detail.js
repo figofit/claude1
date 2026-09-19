@@ -13,7 +13,6 @@
   function renderFacts(r) {
     return [
       fact("Datum", Ferraty.formatDate(r.date), !r.date),
-      fact("Obtížnost", Ferraty.formatDifficulty(r.difficulty), !r.difficulty),
       fact("Délka", Ferraty.fmtLength(r.length_m), r.length_m === null),
       fact("Převýšení", Ferraty.fmtElevation(r.elevationGain_m), r.elevationGain_m === null),
       fact("Nejvyšší bod / cíl", r.summit || "—", !r.summit),
@@ -164,7 +163,6 @@
     const typeBadge = document.getElementById("d-type");
     typeBadge.textContent = type.label;
     typeBadge.className = `badge ${type.cls}`;
-    document.getElementById("d-difficulty").textContent = Ferraty.formatDifficulty(record.difficulty);
 
     const subParts = [record.locality, record.region].filter(Boolean).map((p) => Ferraty.escapeHtml(p));
     if (record.country) subParts.push(Ferraty.countryLabelHtml(record.country));

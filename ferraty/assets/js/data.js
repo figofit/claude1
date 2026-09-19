@@ -8,9 +8,6 @@
 
   const DATA_URL = "data/ferraty.json";
 
-  // Hüsler A–E (klasická stupnice via ferrat) použitá pro řazení podle obtížnosti.
-  const HUSLER_RANK = { A: 1, B: 2, C: 3, D: 4, E: 5 };
-
   const COUNTRY_FLAGS = {
     "Rakousko": "🇦🇹",
     "Německo": "🇩🇪",
@@ -106,7 +103,6 @@
         locality: null,
         coordinates: null,
         date: null,
-        difficulty: null,
         length_m: null,
         elevationGain_m: null,
         summit: null,
@@ -142,23 +138,6 @@
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/^-+|-+$/g, "");
-  }
-
-  function difficultyRank(difficulty) {
-    const grade = difficulty && difficulty.grade;
-    if (!grade) return Infinity;
-    const parts = String(grade).split(/[\/\-–]/).map((p) => p.trim().toUpperCase());
-    const ranks = parts.map((p) => HUSLER_RANK[p]).filter((n) => n !== undefined);
-    if (ranks.length) {
-      return ranks.reduce((a, b) => a + b, 0) / ranks.length;
-    }
-    const num = parseFloat(grade);
-    return isNaN(num) ? Infinity : num;
-  }
-
-  function formatDifficulty(difficulty) {
-    if (!difficulty || !difficulty.grade) return "—";
-    return difficulty.grade;
   }
 
   const TYPE_META = {
@@ -218,7 +197,6 @@
     const countrySet = new Set(records.map((r) => r.country).filter(Boolean));
 
     const byCountry = countMap(records, (r) => r.country);
-    const byDifficulty = countMap(records, (r) => (r.difficulty && r.difficulty.grade) || null);
     const byYear = countMap(records, (r) => yearOf(r.date));
     const byType = countMap(records, (r) => r.type || null);
 
@@ -226,16 +204,6 @@
     records.forEach((r) => {
       if (r.altitude_m === null || r.altitude_m === undefined) return;
       if (!highestAltitude || r.altitude_m > highestAltitude.altitude_m) highestAltitude = r;
-    });
-
-    let hardest = null;
-    records.forEach((r) => {
-      if (!r.difficulty || !r.difficulty.grade) return;
-      const rank = difficultyRank(r.difficulty);
-      if (rank === Infinity) return;
-      if (!hardest || rank > hardest._rank) {
-        hardest = Object.assign({ _rank: rank }, r);
-      }
     });
 
     const withGain = records.filter((r) => r.elevationGain_m !== null && r.elevationGain_m !== undefined);
@@ -248,10 +216,8 @@
       total,
       countriesCount: countrySet.size,
       byCountry,
-      byDifficulty,
       byYear,
       byType,
-      hardest,
       highestAltitude,
       totalElevationGain,
       elevationGainKnownCount: withGain.length,
@@ -281,8 +247,6 @@
     byId,
     escapeHtml,
     slugify,
-    difficultyRank,
-    formatDifficulty,
     typeMeta,
     countryFlag,
     countryLabelHtml,

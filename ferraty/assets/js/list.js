@@ -26,7 +26,6 @@
     return {
       search: els.search.value.trim().toLowerCase(),
       country: els.country.value,
-      difficulty: els.difficulty.value,
       year: els.year.value,
       type: els.type.value,
     };
@@ -35,7 +34,6 @@
   function applyFilters(records, f) {
     return records.filter((r) => {
       if (f.country && r.country !== f.country) return false;
-      if (f.difficulty && (!r.difficulty || r.difficulty.grade !== f.difficulty)) return false;
       if (f.year && String(Ferraty.yearOf(r.date)) !== f.year) return false;
       if (f.type && r.type !== f.type) return false;
       if (f.search) {
@@ -54,8 +52,6 @@
         return (r.country || "").toLowerCase();
       case "date":
         return r.date || "";
-      case "difficulty":
-        return Ferraty.difficultyRank(r.difficulty);
       case "elevationGain_m":
         return r.elevationGain_m === null || r.elevationGain_m === undefined ? -Infinity : r.elevationGain_m;
       case "altitude_m":
@@ -90,7 +86,7 @@
 
   function renderRows(records) {
     if (!records.length) {
-      els.tbody.innerHTML = `<tr><td colspan="8" class="empty-state">Žádný výstup neodpovídá zvoleným filtrům.</td></tr>`;
+      els.tbody.innerHTML = `<tr><td colspan="7" class="empty-state">Žádný výstup neodpovídá zvoleným filtrům.</td></tr>`;
       return;
     }
     els.tbody.innerHTML = records
@@ -103,7 +99,6 @@
           <td data-label="Země">${Ferraty.countryLabelHtml(r.country)}</td>
           <td class="muted-cell" data-label="Oblast">${Ferraty.escapeHtml(r.region || "—")}</td>
           <td data-label="Datum">${Ferraty.formatDate(r.date, { day: "numeric", month: "numeric", year: "numeric" })}</td>
-          <td data-label="Obtížnost"><span class="badge badge--difficulty">${Ferraty.escapeHtml(Ferraty.formatDifficulty(r.difficulty))}</span></td>
           <td data-label="Převýšení">${Ferraty.fmtElevation(r.elevationGain_m)}</td>
           <td data-label="Výška">${Ferraty.fmtAltitude(r.altitude_m)}</td>
         </tr>`;
@@ -123,7 +118,6 @@
   function resetFilters() {
     els.search.value = "";
     els.country.value = "";
-    els.difficulty.value = "";
     els.year.value = "";
     els.type.value = "";
     render();
@@ -132,7 +126,6 @@
   async function init() {
     els.search = document.getElementById("f-search");
     els.country = document.getElementById("f-country");
-    els.difficulty = document.getElementById("f-difficulty");
     els.year = document.getElementById("f-year");
     els.type = document.getElementById("f-type");
     els.reset = document.getElementById("f-reset");
@@ -143,22 +136,18 @@
       allRecords = await Ferraty.loadAll();
     } catch (err) {
       console.error(err);
-      els.tbody.innerHTML = `<tr><td colspan="8" class="empty-state">Data se nepodařilo načíst. Stránku otevírej přes http(s) server, ne přímo ze souboru.</td></tr>`;
+      els.tbody.innerHTML = `<tr><td colspan="7" class="empty-state">Data se nepodařilo načíst. Stránku otevírej přes http(s) server, ne přímo ze souboru.</td></tr>`;
       return;
     }
 
     populateSelect(els.country, uniqueSorted(allRecords, (r) => r.country));
-    populateSelect(
-      els.difficulty,
-      uniqueSorted(allRecords, (r) => r.difficulty && r.difficulty.grade)
-    );
     populateSelect(
       els.year,
       uniqueSorted(allRecords, (r) => Ferraty.yearOf(r.date)).sort((a, b) => b - a),
       (v) => String(v)
     );
 
-    [els.search, els.country, els.difficulty, els.year, els.type].forEach((el) => {
+    [els.search, els.country, els.year, els.type].forEach((el) => {
       el.addEventListener("input", render);
       el.addEventListener("change", render);
     });

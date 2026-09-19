@@ -26,7 +26,7 @@ Netlify apod.) — je to čistě statický obsah.
 ```
 ferraty/
   index.html         Přehled (hero, souhrnné statistiky, TOP výstupy, poslední záznamy)
-  ferraty.html        Výstupy — seznam/tabulka se řazením a filtry (typ, země, obtížnost, rok)
+  ferraty.html        Výstupy — seznam/tabulka se řazením a filtry (typ, země, rok)
   mapa.html            Interaktivní mapa všech výstupů
   detail.html          Detail jednoho záznamu (?id=...)
   statistiky.html      Automaticky počítané statistiky + žebříček podle nadmořské výšky
@@ -71,7 +71,6 @@ Každý záznam v `data/ferraty.json` → `records[]` vypadá takto (viz i ulož
 
   "date": "2023-08-12",                   // YYYY-MM-DD, nebo null
 
-  "difficulty": { "grade": "C/D", "scale": "Hüsler" },  // nebo null — libovolná stupnice
   "length_m": 850,
   "elevationGain_m": 400,
   "summit": "Donnerkogel",                // u typu "vrchol" obvykle netřeba (název = vrchol)
@@ -119,13 +118,6 @@ a do statistik se počítá jen z toho, co skutečně je vyplněné (a je to tak
 Pole jako `length_m` (délka zajištěné trasy) dávají smysl hlavně u ferrat, `summit` zase
 hlavně u ferrat (cílový vrchol jiný než název trasy) — u vrcholu je to typicky zbytečné,
 protože `name` už je ten vrchol. Nic se ale nevynucuje, klidně nech prázdné, co nesedí.
-
-### Obtížnost
-
-`difficulty.grade` je čistě text, který si zapíšeš tak, jak je uvedený u zdroje (např. `C`,
-`C/D`, `4a`, `PD`...). Pro řazení a seskupování aplikace rozumí klasické Hüslerově stupnici
-A–E (i kombinacím typu `C/D`) — cokoliv jiného (alpská stupnice, UIAA, vlastní odhad) zůstane
-brané jako "nezařaditelné" a při řazení skončí na konci, ale zobrazí a filtruje se v pohodě dál.
 
 ### GPX/TCX trasa
 
@@ -197,7 +189,7 @@ souboru) — najdi záznam podle `id` v `data/ferraty.json` a uprav nebo smaž h
 ## Stav dat
 
 `data/ferraty.json` obsahuje reálné záznamy, ne ukázková data. U řady z nich zatím chybí
-datum, obtížnost, GPS nebo přesný název trasy/vrcholu — u těch je v poli `note` napsané,
+datum, GPS nebo přesný název trasy/vrcholu — u těch je v poli `note` napsané,
 co je potřeba doplnit/zkontrolovat. Klidně uprav ručně nebo přes `pridat.html` (u úprav
 existujícího záznamu viz sekci výše).
 

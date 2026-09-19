@@ -3,13 +3,9 @@
   "use strict";
 
   function renderStatRow(stats) {
-    const hardestLabel = stats.hardest
-      ? Ferraty.formatDifficulty(stats.hardest.difficulty)
-      : "—";
     const tiles = [
       { value: stats.total, label: "Výstupů celkem" },
       { value: stats.countriesCount, label: "Zemí navštíveno" },
-      { value: hardestLabel, label: "Nejtěžší podle obtížnosti", note: stats.hardest ? Ferraty.escapeHtml(stats.hardest.name) : "zatím žádný" },
     ];
     return tiles
       .map(

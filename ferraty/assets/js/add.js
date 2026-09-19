@@ -48,9 +48,6 @@
     const lng = val("f-lng");
     const coordinates = lat !== "" && lng !== "" ? { lat: Number(lat), lng: Number(lng) } : null;
 
-    const grade = orNull(val("f-grade"));
-    const difficulty = grade ? { grade, scale: orNull(val("f-scale")) } : null;
-
     const days = val("f-days")
       .split("\n")
       .map((l) => l.trim())
@@ -88,7 +85,6 @@
       locality: orNull(val("f-locality")),
       coordinates,
       date,
-      difficulty,
       length_m: numOrNull(val("f-length")),
       elevationGain_m: numOrNull(val("f-gain")),
       summit: orNull(val("f-summit")),

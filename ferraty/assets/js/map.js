@@ -26,7 +26,6 @@
         <h4>${Ferraty.escapeHtml(r.name)}</h4>
         <div class="flex-wrap-gap" style="margin-bottom:6px;">
           <span class="badge ${type.cls}">${type.label}</span>
-          <span class="badge badge--difficulty">${Ferraty.escapeHtml(Ferraty.formatDifficulty(r.difficulty))}</span>
         </div>
         <div class="text-muted" style="font-size:0.85rem;">
           ${Ferraty.countryLabelHtml(r.country)} · ${Ferraty.formatDate(r.date, { day: "numeric", month: "numeric", year: "numeric" })}

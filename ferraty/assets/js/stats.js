@@ -43,17 +43,12 @@
   }
 
   function renderMisc(stats) {
-    const hardestLine = stats.hardest
-      ? `<a href="detail.html?id=${encodeURIComponent(stats.hardest.id)}">${Ferraty.escapeHtml(stats.hardest.name)}</a> — ${Ferraty.escapeHtml(Ferraty.formatDifficulty(stats.hardest.difficulty))}`
-      : "zatím žádný výstup se známou obtížností";
-
     const elevationLine = stats.elevationGainKnownCount
       ? `${Ferraty.fmtNumber(stats.totalElevationGain)} m <span class="text-faint">(součet ${stats.elevationGainKnownCount} z ${stats.total}, u zbylých převýšení neznámo)</span>`
       : `neznámo <span class="text-faint">(u žádného výstupu není vyplněné převýšení)</span>`;
 
     return `
       <div class="fact-list" style="grid-template-columns:1fr;padding:0;border:none;background:none;">
-        ${fact("Nejtěžší ferrata", hardestLine)}
         ${fact("Celkové převýšení", elevationLine)}
         ${fact("Se zaznamenanou GPX trasou", `${stats.withGpx} z ${stats.total}`)}
         ${fact("S fotografiemi", `${stats.withPhotos} z ${stats.total}`)}
@@ -113,16 +108,6 @@
     return `<div class="fact"><div class="fact__label">${label}</div><div class="fact__value">${value}</div></div>`;
   }
 
-  function sortByDifficultyRank(entries) {
-    return entries
-      .slice()
-      .sort((a, b) => {
-        const ra = a.key === null ? Infinity : Ferraty.difficultyRank({ grade: a.key });
-        const rb = b.key === null ? Infinity : Ferraty.difficultyRank({ grade: b.key });
-        return ra - rb;
-      });
-  }
-
   async function init() {
     let records;
     try {
@@ -142,7 +127,6 @@
       const flag = Ferraty.countryFlag(k);
       return flag ? `${flag} ${k}` : k;
     });
-    document.getElementById("by-difficulty").innerHTML = renderBreakdown(sortByDifficultyRank(stats.byDifficulty), (k) => k);
     const byYearSorted = stats.byYear.slice().sort((a, b) => {
       if (a.key === null) return 1;
       if (b.key === null) return -1;
