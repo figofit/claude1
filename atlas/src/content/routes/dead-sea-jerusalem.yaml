@@ -1,0 +1,7 @@
+trip: izrael-2020
+mode: bus
+from: dead-sea
+to: jerusalem
+date: "2020-01-09"
+datePrecision: day
+status: completed

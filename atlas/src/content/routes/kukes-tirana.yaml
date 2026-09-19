@@ -1,6 +1,8 @@
 trip: albania-2020
-mode: bus
+mode: hitchhike
 from: kukes
 to: tirana
-datePrecision: year
+date: "2020-07-06"
+datePrecision: day
 status: completed
+notes: S kávovou zastávkou po cestě.

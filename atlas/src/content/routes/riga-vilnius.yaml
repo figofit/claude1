@@ -1,0 +1,7 @@
+trip: pobalti-2020
+mode: bus
+from: riga
+to: vilnius
+date: "2020-01-30"
+datePrecision: day
+status: completed

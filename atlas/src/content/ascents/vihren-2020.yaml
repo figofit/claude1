@@ -1,6 +1,10 @@
 trip: bulgaria-2020
 peak: vihren
-activityType: ridge
+activityType: hike
 result: summit
-datePrecision: year
-notes: Součást okruhové hřebenovky v Pirinu s Koncheto. Podrobnosti trasy zatím nejsou upřesněné.
+date: "2020-08-09"
+datePrecision: day
+from: bansko
+notes: >
+  Výjezd lanovkou od Banska. Druhá nejvyšší hora Bulharska, po výstupu
+  pokračoval přechod hřebenem Koncheto.

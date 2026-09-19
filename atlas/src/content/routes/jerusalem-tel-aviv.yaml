@@ -1,0 +1,7 @@
+trip: izrael-2020
+mode: bus
+from: jerusalem
+to: tel-aviv
+date: "2020-01-10"
+datePrecision: day
+status: completed

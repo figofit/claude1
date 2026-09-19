@@ -1,0 +1,7 @@
+trip: albania-2020
+mode: plane
+from: vienna
+to: tirana
+date: "2020-07-03"
+datePrecision: day
+status: completed

@@ -1,0 +1,7 @@
+trip: triglav-2020
+mode: bus
+from: bled
+to: ljubljana
+date: "2020-07-28"
+datePrecision: day
+status: completed

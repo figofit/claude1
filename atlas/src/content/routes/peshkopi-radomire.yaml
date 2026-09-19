@@ -1,7 +1,10 @@
 trip: albania-2020
-mode: bus
+mode: hitchhike
 from: peshkopi
 to: radomire
-datePrecision: year
+date: "2020-07-04"
+datePrecision: day
 status: completed
-notes: Minibusem, spoj jezdí z Peshkopi jednou denně.
+notes: >
+  Dvěma autostopy na silnici s odbočkou na Radomirë, odtud poslední kus
+  pěšky podle offline map.

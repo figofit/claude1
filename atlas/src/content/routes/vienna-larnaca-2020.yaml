@@ -1,0 +1,7 @@
+trip: kypr-2020
+mode: plane
+from: vienna
+to: larnaca
+date: "2020-02-22"
+datePrecision: day
+status: completed

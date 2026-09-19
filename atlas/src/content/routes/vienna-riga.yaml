@@ -1,0 +1,7 @@
+trip: pobalti-2020
+mode: plane
+from: vienna
+to: riga
+date: "2020-01-28"
+datePrecision: day
+status: completed

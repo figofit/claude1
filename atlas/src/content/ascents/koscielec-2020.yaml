@@ -2,7 +2,8 @@ trip: orla-perc-2020
 peak: koscielec
 activityType: hike
 result: summit
-datePrecision: month
+date: "2020-11-06"
+datePrecision: day
 from: zakopane
 notes: >
   První den výpravy, "rozcvička" před Orlou Percí. Poctivý kopec i přes

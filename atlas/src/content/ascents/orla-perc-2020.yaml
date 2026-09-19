@@ -2,7 +2,8 @@ trip: orla-perc-2020
 ridge: orla-perc
 activityType: ridge
 result: summit
-datePrecision: month
+date: "2020-11-07"
+datePrecision: day
 from: murowaniec
 notes: >
   Přes sedlo Zawrat napojení na Orlu Perć. Sólo, soustředěný přechod

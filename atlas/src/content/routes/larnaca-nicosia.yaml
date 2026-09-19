@@ -1,0 +1,6 @@
+trip: kypr-2020
+mode: bus
+from: larnaca
+to: nicosia
+datePrecision: month
+status: completed

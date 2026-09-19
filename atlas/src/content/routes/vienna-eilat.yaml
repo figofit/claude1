@@ -1,0 +1,7 @@
+trip: izrael-2020
+mode: plane
+from: vienna
+to: eilat
+date: "2020-01-07"
+datePrecision: day
+status: completed

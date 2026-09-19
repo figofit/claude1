@@ -1,0 +1,8 @@
+trip: bulgaria-2020
+mode: bus
+from: sofia
+to: bansko
+date: "2020-08-08"
+datePrecision: day
+status: completed
+notes: Přesný způsob dopravy nepotvrzen, nejpravděpodobněji pravidelný autobus.

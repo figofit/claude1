@@ -2,6 +2,9 @@ trip: albania-2020
 peak: korab
 activityType: hike
 result: summit
-datePrecision: year
+date: "2020-07-05"
+datePrecision: day
 from: radomire
-notes: Nejvyšší bod Albánie i Severní Makedonie zároveň. Podrobnosti trasy zatím nejsou upřesněné.
+notes: >
+  Sólo. Nejvyšší bod Albánie i Severní Makedonie zároveň. Noc před
+  výstupem strávena v Radomirë jako jediný host na ubytku (covid).

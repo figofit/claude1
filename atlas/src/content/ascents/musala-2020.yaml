@@ -2,5 +2,9 @@ trip: bulgaria-2020
 peak: musala
 activityType: hike
 result: summit
-datePrecision: year
-notes: Nejvyšší bod Bulharska a celého Balkánského poloostrova. Podrobnosti trasy zatím nejsou upřesněné.
+date: "2020-08-11"
+datePrecision: day
+from: borovets
+notes: >
+  Nejvyšší bod Bulharska a celého Balkánského poloostrova. Odtud dál
+  pokračoval přechod přes Irechek a Malou Musalu po hřebenovce Trionite.

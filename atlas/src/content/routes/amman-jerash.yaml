@@ -1,0 +1,6 @@
+trip: jordansko-2020
+mode: bus
+from: amman
+to: jerash
+datePrecision: month
+status: completed

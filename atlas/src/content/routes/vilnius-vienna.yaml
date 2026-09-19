@@ -1,0 +1,8 @@
+trip: pobalti-2020
+mode: plane
+from: vilnius
+to: vienna
+date: "2020-02-01"
+datePrecision: day
+status: completed
+notes: Na letišti už znát blížící se covid - víc lidí v rouškách než obvykle.

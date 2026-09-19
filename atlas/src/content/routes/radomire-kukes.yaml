@@ -1,7 +1,8 @@
 trip: albania-2020
-mode: mixed
+mode: hitchhike
 from: radomire
 to: kukes
-datePrecision: year
+date: "2020-07-06"
+datePrecision: day
 status: completed
-notes: Součást zpáteční cesty po výstupu.
+notes: První řidič ho vzal hned - a ještě koupil croissant a fruko.

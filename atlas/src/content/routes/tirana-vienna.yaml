@@ -1,0 +1,8 @@
+trip: albania-2020
+mode: plane
+from: tirana
+to: vienna
+date: "2020-07-08"
+datePrecision: day
+status: completed
+notes: Přesná zpáteční trasa (přes Vídeň) je odhad podle vzorce ostatních cest roku 2020 - není v zápisu výslovně potvrzena.

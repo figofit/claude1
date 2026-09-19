@@ -1,0 +1,7 @@
+trip: izrael-2020
+mode: bus
+from: eilat
+to: dead-sea
+date: "2020-01-08"
+datePrecision: day
+status: completed

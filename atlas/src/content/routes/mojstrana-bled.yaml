@@ -1,0 +1,8 @@
+trip: triglav-2020
+mode: bus
+from: mojstrana
+to: bled
+date: "2020-07-28"
+datePrecision: day
+status: completed
+notes: Po ferratě Mojstrana, cestou zpátky.

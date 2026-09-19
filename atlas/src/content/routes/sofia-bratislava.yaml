@@ -1,0 +1,7 @@
+trip: bulgaria-2020
+mode: plane
+from: sofia
+to: bratislava
+date: "2020-08-13"
+datePrecision: day
+status: completed

@@ -1,0 +1,7 @@
+trip: jordansko-2020
+mode: plane
+from: vienna
+to: eilat
+date: "2020-02-29"
+datePrecision: day
+status: completed

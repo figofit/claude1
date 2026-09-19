@@ -11,14 +11,16 @@ summary: >
   do údolí Vrata, první zajištěná vysokohorská cesta (Pot čez Prag), noc na
   chatě na Kredarici "pod schody" kvůli covidovým opatřením, východ slunce na
   vrcholu a náročný sestup Tominškovou cestou. K tomu ještě první opravdová
-  via ferrata v Mojstraně.
-tags: [slovinsko, julské-alpy, ferrata, covid]
+  via ferrata v Mojstraně a jezero Bled na závěr.
+tags: [slovinsko, julské-alpy, ferrata, covid, "2020"]
 ---
 
 Triglav jsem šel v létě 2020, přesně 26.–27. července, během covidové doby.
 Zpětně jeden z těch výstupů, na které si člověk pamatuje roky.
 
-Cesta začala nočním vlakem RegioJet z Brna. Se zpožděním asi 169 minut a
+Cesta začala nočním vlakem RegioJet z Brna, v lůžkovém voze - vůbec první
+noc, kterou kdy autor strávil spánkem ve vlaku (stejné platilo i pro
+zpáteční cestu). Se zpožděním asi 169 minut a
 policejním zásahem kvůli nevhodnému chování cestujících někde na hranici
 Maďarska se Slovinskem - to jsem ale prospal. Z Lublaně jsem pokračoval
 vlakem na Jesenice a autobusem do Mojstrany, odkud jsem pěšky (a se dvěma
@@ -39,8 +41,9 @@ východu slunce s dalšími třemi lidmi, co tam čekali zabalení v dekách.
 Dolů jsem šel jinudy, Tominškovou cestou - psychicky náročnější než výstup,
 s ledovými poli i v červenci. Sestup až do Mojstrany trval "věčně".
 
-Zbytek pobytu jsem si ještě dal Ferratu Mojstrana - moji první opravdovou
+28. července jsem si ještě dal Ferratu Mojstrana - moji první opravdovou
 ferratu, kde je na vrcholu zmenšená replika Aljaževa stolpu z Triglavu.
-Pak návrat stejnou cestou zpátky do Brna.
+Pak jsem se zastavil u jezera Bled, než jsem se přes Lublaň vydal stejnou
+cestou zpátky do Brna.
 
 [Celý článek na blogu →](https://michaldokoupil.cz/triglav/)
