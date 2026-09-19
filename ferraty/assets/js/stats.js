@@ -86,6 +86,29 @@
       </div>`;
   }
 
+  function renderCountryHighpoints(records) {
+    const highpoints = records
+      .filter((r) => r.highestOfCountry)
+      .sort((a, b) => (a.country || "").localeCompare(b.country || "", "cs"));
+    if (!highpoints.length) {
+      return `<p class="text-faint">Zatím žádný záznam označený jako nejvyšší bod státu.</p>`;
+    }
+    const cards = highpoints
+      .map((r) => {
+        const flag = Ferraty.countryFlag(r.country) || "🏳";
+        return `
+        <a class="region-tile" href="detail.html?id=${encodeURIComponent(r.id)}">
+          <span class="region-tile__name">${flag} ${Ferraty.escapeHtml(r.country || "—")}</span>
+          <span class="region-tile__desc">${Ferraty.escapeHtml(r.name)} — ${Ferraty.fmtAltitude(r.altitude_m)}</span>
+        </a>`;
+      })
+      .join("");
+    return `
+      <p class="text-muted"><strong>${highpoints.length}</strong> ${highpoints.length === 1 ? "nejvyšší bod státu" : "nejvyšších bodů států"}.</p>
+      <div class="region-tiles">${cards}</div>
+    `;
+  }
+
   function fact(label, value) {
     return `<div class="fact"><div class="fact__label">${label}</div><div class="fact__value">${value}</div></div>`;
   }
@@ -128,6 +151,7 @@
     document.getElementById("by-year").innerHTML = renderBreakdown(byYearSorted, (k) => String(k));
     document.getElementById("misc-stats").innerHTML = renderMisc(stats);
     document.getElementById("altitude-ranking").innerHTML = renderAltitudeRanking(records);
+    document.getElementById("country-highpoints").innerHTML = renderCountryHighpoints(records);
   }
 
   document.addEventListener("DOMContentLoaded", init);

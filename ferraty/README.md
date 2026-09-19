@@ -156,6 +156,14 @@ vzoru `tatry.js`, a vyplnění `regionGroup` u příslušných záznamů.
 sekci „🏆 Nej výstupy“ úplně nahoře. Appka do toho sama nic nevymýšlí — je to čistě tvůj vlastní
 výběr, buď zaškrtnutím ve formuláři, nebo ruční úpravou pole v JSONu.
 
+### Nejvyšší bod státu
+
+`highestOfCountry: true` znamená, že tenhle záznam je nejvyšší bod země uvedené v poli
+`country` — ne jen nejznámější nebo nejvyšší vrchol, na který jsi v té zemi vylezl. Appka to
+nedopočítává sama (musela by znát nejvyšší bod každého státu na světě) — nastavuje se ručně,
+buď zaškrtnutím ve formuláři, nebo v JSONu. Zobrazuje se v sekci „Nejvyšší hory států“ na
+`statistiky.html`.
+
 ### Vícedenní itinerář
 
 Pole `days` je pro výstupy s noclehem na chatě/pod stanem po cestě — pole objektů `{day, date,

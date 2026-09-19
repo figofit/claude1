@@ -113,6 +113,7 @@
         altitude_m: null,
         duration_min: null,
         featured: false,
+        highestOfCountry: false,
         days: [],
         note: null,
         track: null,

@@ -31,7 +31,8 @@
       "updatedAt": "2026-09-16T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "drachenwand",
@@ -60,7 +61,8 @@
       "updatedAt": "2026-09-15T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "priel-klettersteig",
@@ -92,7 +94,8 @@
       "updatedAt": "2026-09-16T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "attersee-klettersteig",
@@ -124,7 +127,8 @@
       "updatedAt": "2026-09-15T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "traunsee-klettersteig",
@@ -156,7 +160,8 @@
       "updatedAt": "2026-09-15T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "hohe-wand-tls",
@@ -185,7 +190,8 @@
       "updatedAt": "2026-09-15T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "mojstrana",
@@ -216,7 +222,8 @@
       "updatedAt": "2026-09-17T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "dve-veze",
@@ -245,7 +252,8 @@
       "updatedAt": "2026-09-17T00:00:00Z",
       "regionGroup": "Tatry",
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "vir",
@@ -271,7 +279,8 @@
       "updatedAt": "2026-09-15T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "zugspitze-ferrata-od-ledovce",
@@ -297,7 +306,7 @@
       "sourceUrl": "https://michaldokoupil.cz/zugspitze/",
       "relatedIds": [],
       "createdAt": "2026-09-15T00:00:00Z",
-      "updatedAt": "2026-09-17T00:00:00Z",
+      "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": null,
       "featured": false,
       "days": [
@@ -317,7 +326,8 @@
           "overnightAt": null,
           "note": "Budíček v 5:20, přes Brett (6:30), ledovec (8:30) a ferratu (9:15) na vrchol v 11:15."
         }
-      ]
+      ],
+      "highestOfCountry": true
     },
     {
       "id": "heidsteig",
@@ -343,7 +353,8 @@
       "updatedAt": "2026-09-15T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "alpenvereinssteig",
@@ -369,7 +380,8 @@
       "updatedAt": "2026-09-15T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "kazbek",
@@ -398,7 +410,8 @@
       "updatedAt": "2026-09-16T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "aneto",
@@ -444,7 +457,8 @@
           "overnightAt": "Refugio de la Renclusa (zpět)",
           "note": "Start v 6:00, vrchol v 11:15, zpět na chatu kolem 17:30."
         }
-      ]
+      ],
+      "highestOfCountry": false
     },
     {
       "id": "grossglockner",
@@ -470,7 +484,7 @@
       "sourceUrl": "https://michaldokoupil.cz/grossglockner/",
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-17T00:00:00Z",
+      "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": null,
       "featured": false,
       "days": [
@@ -498,7 +512,8 @@
           "overnightAt": null,
           "note": "Budíček v 5:15, mačky, cepín, vrchol v 9:12. Mara se otočil kolem 2500 m, sestup sólo."
         }
-      ]
+      ],
+      "highestOfCountry": true
     },
     {
       "id": "grossvenediger",
@@ -527,7 +542,8 @@
       "updatedAt": "2026-09-16T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "grosses-wiesbachhorn",
@@ -556,7 +572,8 @@
       "updatedAt": "2026-09-18T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "teide",
@@ -584,10 +601,11 @@
         "toubkal"
       ],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-18T00:00:00Z",
+      "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": true
     },
     {
       "id": "gerlachovsky-stit",
@@ -613,10 +631,11 @@
       "sourceUrl": "https://michaldokoupil.cz/gerlachovsky-stit-batizovska-proba-brezen/",
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-17T00:00:00Z",
+      "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": "Tatry",
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": true
     },
     {
       "id": "moldoveanu",
@@ -642,7 +661,7 @@
       "sourceUrl": "https://michaldokoupil.cz/moldoveanu/",
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-17T00:00:00Z",
+      "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": null,
       "featured": false,
       "days": [
@@ -662,7 +681,8 @@
           "overnightAt": null,
           "note": "Budíček ve 4:00, zpět na Cabana Podragu a přes Viștea Mare (9:30) na vrchol v 9:45."
         }
-      ]
+      ],
+      "highestOfCountry": true
     },
     {
       "id": "snezka",
@@ -691,7 +711,8 @@
       "updatedAt": "2026-09-16T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "musala",
@@ -717,10 +738,11 @@
       "sourceUrl": null,
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-16T00:00:00Z",
+      "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": true
     },
     {
       "id": "vihren",
@@ -749,7 +771,8 @@
       "updatedAt": "2026-09-16T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "koncheto-vihren-kutelo",
@@ -778,7 +801,8 @@
       "updatedAt": "2026-09-16T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "trionite-hrebenovka",
@@ -804,7 +828,8 @@
       "updatedAt": "2026-09-16T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "rila",
@@ -830,7 +855,8 @@
       "updatedAt": "2026-09-16T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "grauspitz",
@@ -856,10 +882,11 @@
       "sourceUrl": "https://michaldokoupil.cz/grauspitz-lichtenstejnsko-autem-vaduz/",
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-16T00:00:00Z",
+      "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": true
     },
     {
       "id": "watzmann",
@@ -888,7 +915,8 @@
       "updatedAt": "2026-09-16T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "triglav",
@@ -916,10 +944,11 @@
         "mojstrana"
       ],
       "createdAt": "2026-09-17T00:00:00Z",
-      "updatedAt": "2026-09-17T00:00:00Z",
+      "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": true
     },
     {
       "id": "ankogel",
@@ -950,7 +979,8 @@
       "updatedAt": "2026-09-18T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "zla-kolata",
@@ -976,10 +1006,11 @@
       "sourceUrl": "https://michaldokoupil.cz/zla-kolata/",
       "relatedIds": [],
       "createdAt": "2026-09-18T00:00:00Z",
-      "updatedAt": "2026-09-18T00:00:00Z",
+      "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": true
     },
     {
       "id": "toubkal",
@@ -1007,10 +1038,11 @@
         "teide"
       ],
       "createdAt": "2026-09-18T00:00:00Z",
-      "updatedAt": "2026-09-18T00:00:00Z",
+      "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": true
     },
     {
       "id": "mulhacen",
@@ -1041,7 +1073,8 @@
       "updatedAt": "2026-09-18T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "orla-perc",
@@ -1087,7 +1120,8 @@
           "overnightAt": null,
           "note": "Zawrat → Orla Perć: řetězy, kramle i žebřík."
         }
-      ]
+      ],
+      "highestOfCountry": false
     },
     {
       "id": "aragats",
@@ -1113,10 +1147,11 @@
       "sourceUrl": "https://michaldokoupil.cz/aragats-armenie/",
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-16T00:00:00Z",
+      "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": true
     },
     {
       "id": "gran-paradiso",
@@ -1162,7 +1197,8 @@
           "overnightAt": null,
           "note": "Start kolem 5:30, mačky na ledovci, vrchol v 8:45, zpět na parkoviště ve 12:00."
         }
-      ]
+      ],
+      "highestOfCountry": false
     },
     {
       "id": "comapedrosa",
@@ -1188,10 +1224,11 @@
       "sourceUrl": "https://michaldokoupil.cz/comapedrosa/",
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-16T00:00:00Z",
+      "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": true
     },
     {
       "id": "st-katherine",
@@ -1217,10 +1254,11 @@
       "sourceUrl": "https://michaldokoupil.cz/nejvyssi-hora-egypta-svata-katerina-sinaj/",
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-16T00:00:00Z",
+      "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": true
     },
     {
       "id": "mt-olympos-cyprus",
@@ -1246,10 +1284,11 @@
       "sourceUrl": "https://michaldokoupil.cz/mt-olympos-kypr/",
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-16T00:00:00Z",
+      "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": true
     },
     {
       "id": "rudoka",
@@ -1275,10 +1314,11 @@
       "sourceUrl": "https://michaldokoupil.cz/rudoka-kosovo/",
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-16T00:00:00Z",
+      "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": true
     },
     {
       "id": "svistovy-stit",
@@ -1307,7 +1347,8 @@
       "updatedAt": "2026-09-17T00:00:00Z",
       "regionGroup": "Tatry",
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "mytikas-olymp",
@@ -1333,10 +1374,11 @@
       "sourceUrl": null,
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-16T00:00:00Z",
+      "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": true
     },
     {
       "id": "korab",
@@ -1362,10 +1404,11 @@
       "sourceUrl": null,
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-16T00:00:00Z",
+      "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": true
     },
     {
       "id": "pico-de-ruivo",
@@ -1394,7 +1437,8 @@
       "updatedAt": "2026-09-16T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "rysy",
@@ -1425,7 +1469,8 @@
       "updatedAt": "2026-09-17T00:00:00Z",
       "regionGroup": "Tatry",
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "rysy-zimni",
@@ -1453,10 +1498,11 @@
         "rysy"
       ],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-17T00:00:00Z",
+      "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": "Tatry",
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": true
     },
     {
       "id": "bystra-lavka",
@@ -1482,7 +1528,8 @@
       "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": "Tatry",
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "otis",
@@ -1508,7 +1555,8 @@
       "updatedAt": "2026-09-17T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "zelena-glava",
@@ -1534,7 +1582,8 @@
       "updatedAt": "2026-09-17T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "mengusovsky-volovec",
@@ -1560,7 +1609,8 @@
       "updatedAt": "2026-09-17T00:00:00Z",
       "regionGroup": "Tatry",
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "vychodny-mengusovsky-stit",
@@ -1586,7 +1636,8 @@
       "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": "Tatry",
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "mala-basta",
@@ -1612,7 +1663,8 @@
       "updatedAt": "2026-09-17T00:00:00Z",
       "regionGroup": "Tatry",
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "patria",
@@ -1638,7 +1690,8 @@
       "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": "Tatry",
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "strbske-solisko",
@@ -1664,7 +1717,8 @@
       "updatedAt": "2026-09-17T00:00:00Z",
       "regionGroup": "Tatry",
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "mlynicke-solisko",
@@ -1690,7 +1744,8 @@
       "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": "Tatry",
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "huncovsky-stit",
@@ -1716,7 +1771,8 @@
       "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": "Tatry",
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "magaro",
@@ -1742,7 +1798,8 @@
       "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "titov-vrh",
@@ -1768,7 +1825,8 @@
       "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "predne-solisko-ii",
@@ -1794,7 +1852,8 @@
       "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": "Tatry",
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "vychodna-vysoka",
@@ -1820,7 +1879,8 @@
       "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": "Tatry",
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "sedielkova-kopa",
@@ -1846,7 +1906,8 @@
       "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": "Tatry",
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "tupa",
@@ -1872,7 +1933,8 @@
       "updatedAt": "2026-09-17T00:00:00Z",
       "regionGroup": "Tatry",
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "cherni-vrah-vitosha",
@@ -1901,7 +1963,8 @@
       "updatedAt": "2026-09-17T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "trem",
@@ -1927,7 +1990,8 @@
       "updatedAt": "2026-09-17T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "ostrva",
@@ -1953,7 +2017,8 @@
       "updatedAt": "2026-09-17T00:00:00Z",
       "regionGroup": "Tatry",
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "predne-solisko-i",
@@ -1979,7 +2044,8 @@
       "updatedAt": "2026-09-17T00:00:00Z",
       "regionGroup": "Tatry",
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "slavkovsky-stit",
@@ -2008,7 +2074,8 @@
       "updatedAt": "2026-09-17T00:00:00Z",
       "regionGroup": "Tatry",
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "koprovsky-stit",
@@ -2034,7 +2101,8 @@
       "updatedAt": "2026-09-17T00:00:00Z",
       "regionGroup": "Tatry",
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "krivan",
@@ -2063,7 +2131,8 @@
       "updatedAt": "2026-09-17T00:00:00Z",
       "regionGroup": "Tatry",
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "slavic",
@@ -2089,7 +2158,8 @@
       "updatedAt": "2026-09-18T00:00:00Z",
       "regionGroup": "Beskydy",
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "ropice",
@@ -2115,7 +2185,8 @@
       "updatedAt": "2026-09-18T00:00:00Z",
       "regionGroup": "Beskydy",
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "vysoka-beskydy",
@@ -2141,7 +2212,8 @@
       "updatedAt": "2026-09-18T00:00:00Z",
       "regionGroup": "Beskydy",
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "velky-krivan",
@@ -2167,7 +2239,8 @@
       "updatedAt": "2026-09-18T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "maly-fatransky-krivan",
@@ -2193,7 +2266,8 @@
       "updatedAt": "2026-09-18T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "rohace-banikov-tri-kopy",
@@ -2219,7 +2293,8 @@
       "updatedAt": "2026-09-18T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "baranec",
@@ -2245,7 +2320,8 @@
       "updatedAt": "2026-09-18T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "chopok",
@@ -2271,7 +2347,8 @@
       "updatedAt": "2026-09-18T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "dumbier",
@@ -2297,7 +2374,8 @@
       "updatedAt": "2026-09-18T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "bystra-zapadne-tatry",
@@ -2323,7 +2401,8 @@
       "updatedAt": "2026-09-18T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "velky-krivan-2019",
@@ -2349,7 +2428,8 @@
       "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "velka-svistovka",
@@ -2375,7 +2455,8 @@
       "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": "Tatry",
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "hum-mostar",
@@ -2401,7 +2482,8 @@
       "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "trebevic",
@@ -2427,7 +2509,8 @@
       "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": false
     },
     {
       "id": "monako-nejvyssi-bod",
@@ -2453,7 +2536,8 @@
       "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": true
     },
     {
       "id": "malta-ta-dmejrek",
@@ -2479,7 +2563,8 @@
       "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": true
     },
     {
       "id": "vatikan-nejvyssi-bod",
@@ -2505,7 +2590,8 @@
       "updatedAt": "2026-09-19T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "highestOfCountry": true
     }
   ]
 }

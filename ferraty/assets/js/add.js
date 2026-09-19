@@ -95,6 +95,7 @@
       altitude_m: numOrNull(val("f-altitude")),
       duration_min: numOrNull(val("f-duration")),
       featured: document.getElementById("f-featured").checked,
+      highestOfCountry: document.getElementById("f-highest-of-country").checked,
       days,
       note: orNull(val("f-note")),
       track,
