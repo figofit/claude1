@@ -2295,7 +2295,9 @@
       "track": null,
       "photos": [],
       "sourceUrl": null,
-      "relatedIds": [],
+      "relatedIds": [
+        "chopok-spatne-pocasi"
+      ],
       "createdAt": "2026-09-18T00:00:00Z",
       "updatedAt": "2026-09-20T00:00:00Z",
       "regionGroup": null,
@@ -2935,6 +2937,36 @@
         "trionite-hrebenovka"
       ],
       "highestOfCountry": false,
+      "createdAt": "2026-09-20T00:00:00Z",
+      "updatedAt": "2026-09-20T00:00:00Z"
+    },
+    {
+      "id": "chopok-spatne-pocasi",
+      "type": "vrchol",
+      "name": "Chopok",
+      "country": "Slovensko",
+      "region": "Nízke Tatry",
+      "regionGroup": null,
+      "locality": null,
+      "coordinates": null,
+      "date": null,
+      "length_m": null,
+      "elevationGain_m": null,
+      "summit": null,
+      "altitude_m": 2024,
+      "duration_min": null,
+      "featured": false,
+      "days": [],
+      "note": "Dřívější výstup na Chopok, ještě před tím z 7.8.2018 — nebylo moc dobré počasí. Přesné datum zatím chybí, k doplnění. Je docela možné, že tohle je ve skutečnosti \"první 2000 vůbec\" místo záznamu chopok — milník se přesune, až bude datum jasné.",
+      "track": null,
+      "photos": [],
+      "sourceUrl": null,
+      "relatedIds": [
+        "chopok"
+      ],
+      "highestOfCountry": false,
+      "highestOfAreas": [],
+      "milestones": [],
       "createdAt": "2026-09-20T00:00:00Z",
       "updatedAt": "2026-09-20T00:00:00Z"
     }
