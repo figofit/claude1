@@ -182,6 +182,13 @@ a klidně vedle toho ještě jiný záznam může být `highestOfCountry: true` 
 se ručně (ve formuláři jako seznam oddělený čárkou, v JSONu jako pole řetězců). Zobrazuje se
 v sekci „Nejvyšší body dalších oblastí“ na `statistiky.html`.
 
+### Osobní milníky
+
+`milestones: []` je pole volného textu pro osobní "poprvé" — první 2000, první 3000, první
+4000, první 3000 v konkrétním pohoří apod. Funguje stejně jako `highestOfAreas` (víc hodnot
+na záznam, ruční nastavení, ve formuláři jako seznam oddělený čárkou) a zobrazuje se
+chronologicky (podle `date`) v sekci „Osobní milníky“ na `statistiky.html`.
+
 ### Vícedenní itinerář
 
 Pole `days` je pro výstupy s noclehem na chatě/pod stanem po cestě — pole objektů `{day, date,

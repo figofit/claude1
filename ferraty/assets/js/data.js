@@ -111,6 +111,7 @@
         featured: false,
         highestOfCountry: false,
         highestOfAreas: [],
+        milestones: [],
         days: [],
         note: null,
         track: null,

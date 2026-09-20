@@ -963,6 +963,9 @@
       "highestOfCountry": false,
       "highestOfAreas": [
         "Ankogelgruppe"
+      ],
+      "milestones": [
+        "První 3000 v Alpách"
       ]
     },
     {
@@ -1027,6 +1030,9 @@
       "highestOfAreas": [
         "Vysoký Atlas",
         "Severní Afrika"
+      ],
+      "milestones": [
+        "První 4000 vůbec"
       ]
     },
     {
@@ -1062,6 +1068,9 @@
       "highestOfAreas": [
         "Pevninské Španělsko (Iberský poloostrov)",
         "Sierra Nevada"
+      ],
+      "milestones": [
+        "První 3000 vůbec"
       ]
     },
     {
@@ -2288,11 +2297,14 @@
       "sourceUrl": null,
       "relatedIds": [],
       "createdAt": "2026-09-18T00:00:00Z",
-      "updatedAt": "2026-09-18T00:00:00Z",
+      "updatedAt": "2026-09-20T00:00:00Z",
       "regionGroup": null,
       "featured": false,
       "days": [],
-      "highestOfCountry": false
+      "highestOfCountry": false,
+      "milestones": [
+        "První 2000 vůbec"
+      ]
     },
     {
       "id": "dumbier",

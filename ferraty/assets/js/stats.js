@@ -128,6 +128,31 @@
     `;
   }
 
+  function renderMilestones(records) {
+    const entries = [];
+    records.forEach((r) => {
+      (r.milestones || []).forEach((milestone) => entries.push({ milestone, r }));
+    });
+    entries.sort((a, b) => {
+      if (!a.r.date) return 1;
+      if (!b.r.date) return -1;
+      return a.r.date.localeCompare(b.r.date);
+    });
+    if (!entries.length) {
+      return `<p class="text-faint">Zatím žádný záznam označený jako osobní milník.</p>`;
+    }
+    const rows = entries
+      .map(
+        ({ milestone, r }) => `
+        <a class="region-tile" href="detail.html?id=${encodeURIComponent(r.id)}">
+          <span class="region-tile__name">🥇 ${Ferraty.escapeHtml(milestone)}</span>
+          <span class="region-tile__desc">${Ferraty.escapeHtml(r.name)} — ${Ferraty.fmtAltitude(r.altitude_m)} · ${Ferraty.formatDate(r.date)}</span>
+        </a>`
+      )
+      .join("");
+    return `<div class="region-tiles">${rows}</div>`;
+  }
+
   function fact(label, value) {
     return `<div class="fact"><div class="fact__label">${label}</div><div class="fact__value">${value}</div></div>`;
   }
@@ -161,6 +186,7 @@
     document.getElementById("altitude-ranking").innerHTML = renderAltitudeRanking(records);
     document.getElementById("country-highpoints").innerHTML = renderCountryHighpoints(records);
     document.getElementById("area-highpoints").innerHTML = renderAreaHighpoints(records);
+    document.getElementById("milestones").innerHTML = renderMilestones(records);
   }
 
   document.addEventListener("DOMContentLoaded", init);
