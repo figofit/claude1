@@ -104,6 +104,30 @@
     `;
   }
 
+  function renderAreaHighpoints(records) {
+    const entries = [];
+    records.forEach((r) => {
+      (r.highestOfAreas || []).forEach((area) => entries.push({ area, r }));
+    });
+    entries.sort((a, b) => a.area.localeCompare(b.area, "cs"));
+    if (!entries.length) {
+      return `<p class="text-faint">Zatím žádný záznam označený jako nejvyšší bod pohoří, poloostrova nebo jiné oblasti.</p>`;
+    }
+    const cards = entries
+      .map(
+        ({ area, r }) => `
+        <a class="region-tile" href="detail.html?id=${encodeURIComponent(r.id)}">
+          <span class="region-tile__name">⛰ ${Ferraty.escapeHtml(area)}</span>
+          <span class="region-tile__desc">${Ferraty.escapeHtml(r.name)} — ${Ferraty.fmtAltitude(r.altitude_m)}</span>
+        </a>`
+      )
+      .join("");
+    return `
+      <p class="text-muted"><strong>${entries.length}</strong> ${entries.length === 1 ? "nejvyšší bod oblasti" : "nejvyšších bodů oblastí"}.</p>
+      <div class="region-tiles">${cards}</div>
+    `;
+  }
+
   function fact(label, value) {
     return `<div class="fact"><div class="fact__label">${label}</div><div class="fact__value">${value}</div></div>`;
   }
@@ -136,6 +160,7 @@
     document.getElementById("misc-stats").innerHTML = renderMisc(stats);
     document.getElementById("altitude-ranking").innerHTML = renderAltitudeRanking(records);
     document.getElementById("country-highpoints").innerHTML = renderCountryHighpoints(records);
+    document.getElementById("area-highpoints").innerHTML = renderAreaHighpoints(records);
   }
 
   document.addEventListener("DOMContentLoaded", init);

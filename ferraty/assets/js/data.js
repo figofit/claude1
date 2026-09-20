@@ -110,6 +110,7 @@
         duration_min: null,
         featured: false,
         highestOfCountry: false,
+        highestOfAreas: [],
         days: [],
         note: null,
         track: null,

@@ -15,6 +15,13 @@
     return isNaN(n) ? null : n;
   }
 
+  function listOrEmpty(value) {
+    return (value || "")
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean);
+  }
+
   function extensionOf(filename) {
     const m = /\.([a-zA-Z0-9]+)$/.exec(filename.trim());
     const ext = m ? m[1].toLowerCase() : "gpx";
@@ -92,6 +99,7 @@
       duration_min: numOrNull(val("f-duration")),
       featured: document.getElementById("f-featured").checked,
       highestOfCountry: document.getElementById("f-highest-of-country").checked,
+      highestOfAreas: listOrEmpty(val("f-highest-of-areas")),
       days,
       note: orNull(val("f-note")),
       track,

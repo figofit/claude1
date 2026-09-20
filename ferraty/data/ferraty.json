@@ -411,7 +411,7 @@
       "sourceUrl": "https://michaldokoupil.cz/pico-de-aneto/",
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-17T00:00:00Z",
+      "updatedAt": "2026-09-20T00:00:00Z",
       "regionGroup": null,
       "featured": false,
       "days": [
@@ -432,7 +432,10 @@
           "note": "Start v 6:00, vrchol v 11:15, zpět na chatu kolem 17:30."
         }
       ],
-      "highestOfCountry": false
+      "highestOfCountry": false,
+      "highestOfAreas": [
+        "Pyreneje"
+      ]
     },
     {
       "id": "grossglockner",
@@ -457,7 +460,7 @@
       "sourceUrl": "https://michaldokoupil.cz/grossglockner/",
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-19T00:00:00Z",
+      "updatedAt": "2026-09-20T00:00:00Z",
       "regionGroup": null,
       "featured": false,
       "days": [
@@ -486,7 +489,10 @@
           "note": "Budíček v 5:15, mačky, cepín, vrchol v 9:12. Mara se otočil kolem 2500 m, sestup sólo."
         }
       ],
-      "highestOfCountry": true
+      "highestOfCountry": true,
+      "highestOfAreas": [
+        "Vysoké Taury (Hohe Tauern)"
+      ]
     },
     {
       "id": "grossvenediger",
@@ -571,11 +577,15 @@
         "toubkal"
       ],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-19T00:00:00Z",
+      "updatedAt": "2026-09-20T00:00:00Z",
       "regionGroup": null,
       "featured": false,
       "days": [],
-      "highestOfCountry": true
+      "highestOfCountry": true,
+      "highestOfAreas": [
+        "Kanárské ostrovy",
+        "Tenerife"
+      ]
     },
     {
       "id": "gerlachovsky-stit",
@@ -946,11 +956,14 @@
         "mulhacen"
       ],
       "createdAt": "2026-09-18T00:00:00Z",
-      "updatedAt": "2026-09-18T00:00:00Z",
+      "updatedAt": "2026-09-20T00:00:00Z",
       "regionGroup": null,
       "featured": false,
       "days": [],
-      "highestOfCountry": false
+      "highestOfCountry": false,
+      "highestOfAreas": [
+        "Ankogelgruppe"
+      ]
     },
     {
       "id": "zla-kolata",
@@ -1006,11 +1019,15 @@
         "teide"
       ],
       "createdAt": "2026-09-18T00:00:00Z",
-      "updatedAt": "2026-09-19T00:00:00Z",
+      "updatedAt": "2026-09-20T00:00:00Z",
       "regionGroup": null,
       "featured": false,
       "days": [],
-      "highestOfCountry": true
+      "highestOfCountry": true,
+      "highestOfAreas": [
+        "Vysoký Atlas",
+        "Severní Afrika"
+      ]
     },
     {
       "id": "mulhacen",
@@ -1037,11 +1054,15 @@
         "ankogel"
       ],
       "createdAt": "2026-09-18T00:00:00Z",
-      "updatedAt": "2026-09-18T00:00:00Z",
+      "updatedAt": "2026-09-20T00:00:00Z",
       "regionGroup": null,
       "featured": false,
       "days": [],
-      "highestOfCountry": false
+      "highestOfCountry": false,
+      "highestOfAreas": [
+        "Pevninské Španělsko (Iberský poloostrov)",
+        "Sierra Nevada"
+      ]
     },
     {
       "id": "orla-perc",

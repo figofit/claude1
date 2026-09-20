@@ -171,6 +171,17 @@ nedopočítává sama (musela by znát nejvyšší bod každého státu na svět
 buď zaškrtnutím ve formuláři, nebo v JSONu. Zobrazuje se v sekci „Nejvyšší hory států“ na
 `statistiky.html`.
 
+### Nejvyšší bod jiné oblasti (pohoří, poloostrov, ostrov…)
+
+`highestOfAreas: []` je obdoba `highestOfCountry`, ale pro cokoliv jiného než stát — pohoří,
+poloostrov, ostrov, kontinentální část apod. Je to pole volného textu, protože takových
+oblastí a jejich hranic je nekonečno a appka je nezná (na rozdíl od zemí nejde ani sestavit
+jednoduchý seznam vlajek). Jeden záznam jich může mít víc najednou — třeba Mulhacén je
+zároveň nejvyšší bod pevninského Španělska/Iberského poloostrova i pohoří Sierra Nevada,
+a klidně vedle toho ještě jiný záznam může být `highestOfCountry: true` u jiné země. Nastavuje
+se ručně (ve formuláři jako seznam oddělený čárkou, v JSONu jako pole řetězců). Zobrazuje se
+v sekci „Nejvyšší body dalších oblastí“ na `statistiky.html`.
+
 ### Vícedenní itinerář
 
 Pole `days` je pro výstupy s noclehem na chatě/pod stanem po cestě — pole objektů `{day, date,
