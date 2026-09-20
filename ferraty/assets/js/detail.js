@@ -164,7 +164,8 @@
     } else if (r.track && r.track.file) {
       noteEl.textContent = `Trasa je uložena jako ${r.track.format.toUpperCase()} — náhled na mapě zatím podporujeme jen pro GPX, soubor lze stáhnout níže.`;
     } else {
-      noteEl.textContent = "K záznamu není přiložená GPX trasa.";
+      // Bez GPX se nic nepíše — bod na mapě sám o sobě stačí, chybějící GPX není potřeba zdůrazňovat.
+      noteEl.textContent = "";
     }
 
     map.fitBounds(bounds.pad(0.3));
