@@ -890,7 +890,9 @@
       "duration_min": null,
       "note": null,
       "track": null,
-      "photos": [],
+      "photos": [
+        "http://michaldokoupil.cz/wp-content/uploads/2026/08/IMG_20260814_120503.jpg"
+      ],
       "sourceUrl": null,
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
