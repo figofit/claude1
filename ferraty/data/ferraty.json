@@ -882,7 +882,7 @@
         "lat": 47.555,
         "lng": 12.9219
       },
-      "date": null,
+      "date": "2026-08-14",
       "length_m": null,
       "elevationGain_m": null,
       "summit": null,
@@ -894,7 +894,7 @@
       "sourceUrl": null,
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-16T00:00:00Z",
+      "updatedAt": "2026-09-20T00:00:00Z",
       "regionGroup": null,
       "featured": false,
       "days": [],
