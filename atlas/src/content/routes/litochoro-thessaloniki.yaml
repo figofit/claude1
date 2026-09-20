@@ -1,0 +1,7 @@
+trip: mytikas-2021
+mode: train
+from: litochoro
+to: thessaloniki
+date: "2021-07-30"
+datePrecision: day
+status: completed

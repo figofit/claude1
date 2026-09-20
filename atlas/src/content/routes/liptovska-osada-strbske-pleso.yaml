@@ -1,0 +1,7 @@
+trip: dve-veze-strbsky-stit-2021
+mode: car
+from: liptovska-osada
+to: strbske-pleso
+date: "2021-10-03"
+datePrecision: day
+status: completed

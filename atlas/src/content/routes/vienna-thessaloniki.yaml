@@ -1,0 +1,7 @@
+trip: mytikas-2021
+mode: plane
+from: vienna
+to: thessaloniki
+date: "2021-07-27"
+datePrecision: day
+status: completed
