@@ -119,6 +119,12 @@ Pole jako `length_m` (délka zajištěné trasy) dávají smysl hlavně u ferrat
 hlavně u ferrat (cílový vrchol jiný než název trasy) — u vrcholu je to typicky zbytečné,
 protože `name` už je ten vrchol. Nic se ale nevynucuje, klidně nech prázdné, co nesedí.
 
+Pokud `hřebenovka` cestou vede přes další pojmenované vrcholy (ne jen ten v `name`), každý
+takový vrchol si zaslouží i vlastní `vrchol` záznam se stejným datem — ne jen zmínku v
+poznámce hřebenovky. Oba/všechny záznamy se pak propojí přes `relatedIds`, aby bylo z
+detailu vidět, že patří k sobě (příklad: hřebenovka Koncheto Vihren–Kutelo a k ní zvlášť
+vrcholy Vihren i Kutelo).
+
 ### GPX/TCX trasa
 
 Soubor s trasou dej do `gpx/` a v `track.file` odkaž relativní cestou (`gpx/nazev.gpx`).
