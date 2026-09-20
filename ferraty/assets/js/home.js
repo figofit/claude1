@@ -2,10 +2,11 @@
 (function () {
   "use strict";
 
-  function renderStatRow(stats) {
+  function renderStatRow(stats, countryHighpointsCount) {
     const tiles = [
       { value: stats.total, label: "Výstupů celkem" },
       { value: stats.countriesCount, label: "Zemí navštíveno" },
+      { value: countryHighpointsCount, label: "Nejvyšších bodů států" },
     ];
     return tiles
       .map(
@@ -77,7 +78,8 @@
     try {
       const records = await Ferraty.loadAll();
       const stats = Ferraty.computeStats(records);
-      document.getElementById("stat-row").innerHTML = renderStatRow(stats);
+      const countryHighpointsCount = records.filter((r) => r.highestOfCountry).length;
+      document.getElementById("stat-row").innerHTML = renderStatRow(stats, countryHighpointsCount);
       renderFeatured(records);
       document.getElementById("latest-list").innerHTML = renderLatest(records);
     } catch (err) {
