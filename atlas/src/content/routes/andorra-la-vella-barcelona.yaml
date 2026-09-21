@@ -1,0 +1,7 @@
+trip: comapedrosa-2022
+mode: bus
+from: andorra-la-vella
+to: barcelona
+date: "2022-09-19"
+datePrecision: day
+status: completed

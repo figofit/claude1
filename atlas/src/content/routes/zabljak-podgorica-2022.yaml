@@ -1,0 +1,7 @@
+trip: durmitor-2022
+mode: bus
+from: zabljak
+to: podgorica
+date: "2022-06-05"
+datePrecision: day
+status: completed

@@ -21,9 +21,10 @@ Pyrenejském poloostrově, v lednu téměř liduprázdné.
 11:20 registrace na chatě Refugio de Poqueira (~2 500 m), vrchol v 15:05.
 Večer odměna v podobě čtyřchodové večeře na chatě.
 
-Druhý den pokus o přechod na druhou stranu pohoří nedaleko magistrály, který
-kvůli sněhovým podmínkám a chybějící výbavě (mačky/cepín) skončil chytrou
-otočkou zpátky do Capileiry. Zbytek výletu patřil Granadě (Alhambra) a
+Druhý den pokus o přechod směrem k Veletě (3396 m), druhému nejvyššímu
+vrcholu Sierra Nevady, po nedaleké magistrále - kvůli sněhovým podmínkám
+a chybějící výbavě (mačky/cepín) skončil chytrou otočkou zpátky do
+Capileiry. Zbytek výletu patřil Granadě (Alhambra) a
 Málaze, než let zpátky domů.
 
 [Celý článek na blogu →](https://michaldokoupil.cz/mulhacen-spanelsko-prvni-tritisicovka/)

@@ -1,0 +1,8 @@
+trip: durmitor-2022
+mode: train
+from: bar-montenegro
+to: podgorica
+date: "2022-06-10"
+datePrecision: day
+status: completed
+notes: Návrat stejnou železniční tratí před odletem domů.

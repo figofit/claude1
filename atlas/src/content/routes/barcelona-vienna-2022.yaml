@@ -1,0 +1,7 @@
+trip: comapedrosa-2022
+mode: plane
+from: barcelona
+to: vienna
+date: "2022-09-21"
+datePrecision: day
+status: completed
