@@ -1,7 +1,8 @@
 ---
 title: Hora svaté Kateřiny 2023
-dateStart: "2023-01-01"
-datePrecision: month
+dateStart: "2023-01-07"
+dateEnd: "2023-01-13"
+datePrecision: day
 status: completed
 countries: [EG]
 summary: >
@@ -18,7 +19,9 @@ boudě bez izolace, venku mrazivo.
 
 10. ledna 2023 výstup s povinným místním průvodcem (bezpečnost, správná
 trasa, blízkost vojenské oblasti) - start něco po sedmé ráno, vrchol kolem
-poledne, sestup jinou trasou zpátky před pátou odpoledne. Po horách ještě
-dva dny odpočinku u moře.
+poledne, sestup jinou trasou zpátky před pátou odpoledne.
+
+11. ledna návrat přes Dahab zpátky do Sharm El Sheikh, kde následovaly
+ještě dva dny odpočinku u moře před odletem domů.
 
 [Celý článek na blogu →](https://michaldokoupil.cz/nejvyssi-hora-egypta-svata-katerina-sinaj/)

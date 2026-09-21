@@ -2,6 +2,9 @@ trip: uae-2023
 peak: jabal-jais
 activityType: hike
 result: summit
-datePrecision: year
+date: "2023-05-11"
+datePrecision: day
 from: ras-al-khaimah
-notes: Na výchozí bod taxíkem, pak výšlap na vrchol. Podrobnosti trasy zatím nejsou upřesněné.
+notes: >
+  S Helenkou. Na výchozí bod taxíkem, pak výšlap na nejvyšší bod na
+  straně SAE - skutečný vrchol hory leží těsně za hranicí v Ománu.

@@ -18,7 +18,8 @@ s městem. Druhý den bus (číslo 519) do vesnice Byurakan v podhůří Aragats
 20. září výstup: místní odvoz až k jezeru Kari, odkud start v 5:40. Trasa
 přes sedlo mezi jižním a západním vrcholem (kolem 7:45) a dál pod hřebenem
 na předvrchol (10:30), kde většina lidí končí - odtud už úzký exponovaný
-hřebínek se srázem na obě strany až na vrchol (4090 m, 10:50).
+hřebínek se srázem na obě strany až na severní vrchol (4090 m, 10:50) -
+nejvyšší ze čtyř vrcholů Aragatsu.
 
 Zbytek pobytu patřil odpočinku a procházkám po Jerevanu, s odletem domů
 22. září.
