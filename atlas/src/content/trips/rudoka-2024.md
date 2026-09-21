@@ -1,7 +1,7 @@
 ---
 title: Rudoka 2024
-dateStart: "2024-06-01"
-datePrecision: month
+dateStart: "2024-06-22"
+datePrecision: day
 status: completed
 countries: [MK]
 summary: >

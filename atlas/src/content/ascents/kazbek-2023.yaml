@@ -1,10 +1,12 @@
 trip: kazbek-2023
 peak: kazbek
 activityType: hike
-result: attempt
-datePrecision: year
-maxElevationM: 4300
+result: not_completed
+datePrecision: month
+date: "2023-06-01"
+from: stepantsminda
+maxElevationM: 4350
 notes: >
-  První pokus o Kazbek, otočeno kolem 4300 m. Bez dalších detailů -
-  podrobnosti (datum, trasa, důvod otočky) nejsou na blogu popsané,
-  zmínka je jen zpětně v článku o úspěšném výstupu 2025.
+  První pokus o Kazbek, otočeno kolem 4350 m. Sešlo se víc věcí najednou -
+  angína, výšková nemoc, nevhodná výbava a příliš nahuštěná logistika
+  celého výletu. Úspěšný výstup přišel až v roce 2025.

@@ -1,21 +1,22 @@
 ---
 title: Kazbek 2023 (pokus)
-dateStart: "2023-01-01"
-datePrecision: year
+dateStart: "2023-06-01"
+datePrecision: month
 status: completed
 countries: [GE]
 summary: >
-  První pokus o Kazbek, gruzínskou pětitisícovku - otočeno kolem 4300 m.
-  Podrobný samostatný článek o téhle cestě na blogu chybí, fakta jsou jen
-  z dodatečné zmínky v článku o úspěšném výstupu 2025.
+  První pokus o Kazbek, gruzínskou pětitisícovku - otočeno kolem 4350 m.
+  Angína, výšková nemoc, nevhodná výbava a příliš nahuštěná logistika se
+  sečetly dohromady. Autor se moudřejší vrátil o dva roky později, v roce
+  2025, a tentokrát uspěl.
 tags: [gruzie, kavkaz, pětitisícovka, "2023"]
 ---
 
-Autorův první pokus o Kazbek skončil otočkou kolem 4300 m - přesné datum,
-trasa ani doprovodné okolnosti nejsou na blogu samostatně popsané. Zmínka
-o něm je jen v článku o úspěšném výstupu z roku 2025, který na tohle místo
-o dva roky později přímo navazuje ("tady jsem to před dvěma lety musel
-otočit").
+Zatím jen kostra podle rychlé rekapitulace - přesné datum a trasa nejsou
+(zatím) upřesněné.
 
-Autor slíbil, že pokus 2023 časem doplní jako samostatný článek - zatím se
-tak nestalo.
+První pokus o Kazbek skončil otočkou kolem 4350 m. Na vině nebyla jedna
+věc, ale souhra víc okolností najednou: angína, výšková nemoc, nevhodná
+výbava a příliš nahuštěná logistika výletu. Autor se na tohle místo
+moudřejší vrátil o dva roky později, v roce 2025, a tentokrát to vyšlo
+(viz [Kazbek 2025](/cesty/kazbek-2025)).
