@@ -189,6 +189,13 @@ v sekci „Nejvyšší body dalších oblastí“ na `statistiky.html`.
 na záznam, ruční nastavení, ve formuláři jako seznam oddělený čárkou) a zobrazuje se
 chronologicky (podle `date`) v sekci „Osobní milníky“ na `statistiky.html`.
 
+### Sopka a ledovec
+
+`volcano: true` a `glacier: true` jsou jednoduché příznaky pro statistiky — sopka jako typ
+hory (např. Teide) a "cestou byl ledovec" (přešlapal jsi po něm, ne že ho jen vidíš v dálce).
+Nastavují se ručně (checkbox ve formuláři nebo v JSONu), počty se zobrazují na
+`statistiky.html` v kartě „Další“.
+
 ### Vícedenní itinerář
 
 Pole `days` je pro výstupy s noclehem na chatě/pod stanem po cestě — pole objektů `{day, date,

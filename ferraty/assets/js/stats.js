@@ -52,6 +52,8 @@
         ${fact("Celkové převýšení", elevationLine)}
         ${fact("Se zaznamenanou GPX trasou", `${stats.withGpx} z ${stats.total}`)}
         ${fact("S fotografiemi", `${stats.withPhotos} z ${stats.total}`)}
+        ${fact("Sopek", stats.volcanoCount)}
+        ${fact("Míst, kde byl ledovec", stats.glacierCount)}
       </div>
     `;
   }

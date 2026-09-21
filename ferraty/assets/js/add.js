@@ -101,6 +101,8 @@
       highestOfCountry: document.getElementById("f-highest-of-country").checked,
       highestOfAreas: listOrEmpty(val("f-highest-of-areas")),
       milestones: listOrEmpty(val("f-milestones")),
+      volcano: document.getElementById("f-volcano").checked,
+      glacier: document.getElementById("f-glacier").checked,
       days,
       note: orNull(val("f-note")),
       track,

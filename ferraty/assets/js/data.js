@@ -112,6 +112,8 @@
         highestOfCountry: false,
         highestOfAreas: [],
         milestones: [],
+        volcano: false,
+        glacier: false,
         days: [],
         note: null,
         track: null,
@@ -213,6 +215,8 @@
 
     const withGpx = records.filter((r) => r.track && r.track.file).length;
     const withPhotos = records.filter((r) => r.photos && r.photos.length > 0).length;
+    const volcanoCount = records.filter((r) => r.volcano).length;
+    const glacierCount = records.filter((r) => r.glacier).length;
 
     return {
       total,
@@ -225,6 +229,8 @@
       elevationGainKnownCount: withGain.length,
       withGpx,
       withPhotos,
+      volcanoCount,
+      glacierCount,
     };
   }
 
