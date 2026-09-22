@@ -2,18 +2,14 @@
 title: Černá Hora 2026
 dateStart: "2026-09-01"
 datePrecision: month
-status: ongoing
+status: completed
 countries: [ME]
 summary: >
-  Testovací první cesta nového atlasu: pozemní osa Podgorica - Nikšić - Plužine -
-  Mratinje a pokus o výstup na Maglić, nejvyšší horu Bosny a Hercegoviny, z
-  černohorské strany.
-tags: [hory, balkán, testovací cesta]
+  Sólo výprava do Černé Hory: pozemní osa Podgorica - Nikšić - Plužine -
+  Mratinje a nedokončený pokus o výstup na Maglić, nejvyšší horu Bosny
+  a Hercegoviny, z černohorské strany - otočka kvůli medvědovi na trase.
+tags: [balkán, černá hora, medvěd, sólo výlet, "2026"]
 ---
-
-Tahle cesta je první ostrý test celého atlasu - proto je zatím jednoduchá a
-místy neúplná. Přesné GPS stopy, fotky a další zastávky postupně přibydou,
-aniž by bylo potřeba cokoliv na webu přestavovat.
 
 ## Osa cesty
 
@@ -31,3 +27,5 @@ tentokrát nepadl.
 
 Detaily výstupu jsou u [jednotlivého pokusu](/vystupy/maglic-2026) i na
 [stránce samotného vrcholu](/vrcholy/maglic).
+
+[Celý článek na blogu →](https://michaldokoupil.cz/maglic-medved/)

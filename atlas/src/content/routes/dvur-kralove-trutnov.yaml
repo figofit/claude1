@@ -1,0 +1,6 @@
+trip: snezka-2023
+mode: car
+from: dvur-kralove
+to: trutnov
+datePrecision: month
+status: completed
