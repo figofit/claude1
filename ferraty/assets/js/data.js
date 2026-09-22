@@ -60,6 +60,7 @@
     "Dánsko": "🇩🇰",
     "Monako": "🇲🇨",
     "Vatikán": "🇻🇦",
+    "Gibraltar": "🇬🇮",
   };
 
   function countryFlag(country) {
