@@ -1,0 +1,6 @@
+trip: albanie-2025
+mode: car
+from: tirana
+to: durres
+datePrecision: month
+status: completed
