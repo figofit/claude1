@@ -47,7 +47,9 @@ export type FilterCategory =
   | 'ferratas'
   | 'ridges'
   | 'cities'
-  | 'peaks';
+  | 'peaks'
+  | 'castles'
+  | 'zoos';
 
 export interface TravelMapOptions {
   container: HTMLElement;
@@ -107,6 +109,8 @@ function pointColorExpression(): ExpressionSpecification {
       'camp', PLACE_TYPE_COLORS.camp,
       'airport', PLACE_TYPE_COLORS.airport,
       'border', PLACE_TYPE_COLORS.border,
+      'castle', PLACE_TYPE_COLORS.castle,
+      'zoo', PLACE_TYPE_COLORS.zoo,
       PLACE_TYPE_COLORS.other,
     ],
   ] as unknown as ExpressionSpecification;
@@ -129,6 +133,8 @@ function lineCategoryFilter(category: FilterCategory): FilterSpecification {
       return ['==', ['get', 'activityType'], 'ridge'] as FilterSpecification;
     case 'cities':
     case 'peaks':
+    case 'castles':
+    case 'zoos':
       return false as unknown as FilterSpecification;
     default:
       return true as unknown as FilterSpecification;
@@ -145,11 +151,17 @@ function placeCategoryFilter(category: FilterCategory): FilterSpecification {
   if (category === 'cities') {
     return ['in', ['get', 'type'], ['literal', ['city', 'town', 'village']]] as unknown as FilterSpecification;
   }
+  if (category === 'castles') {
+    return ['==', ['get', 'type'], 'castle'] as unknown as FilterSpecification;
+  }
+  if (category === 'zoos') {
+    return ['==', ['get', 'type'], 'zoo'] as unknown as FilterSpecification;
+  }
   return true as unknown as FilterSpecification;
 }
 
 function peakCategoryFilter(category: FilterCategory): FilterSpecification {
-  if (category === 'cities') return false as unknown as FilterSpecification;
+  if (category === 'cities' || category === 'castles' || category === 'zoos') return false as unknown as FilterSpecification;
   return true as unknown as FilterSpecification;
 }
 

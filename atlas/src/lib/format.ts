@@ -132,6 +132,8 @@ export const PLACE_TYPE_LABELS: Record<string, string> = {
   poi: 'Zajímavé místo',
   airport: 'Letiště',
   border: 'Hraniční přechod',
+  castle: 'Hrad',
+  zoo: 'Zoo',
   other: 'Jiné',
 };
 

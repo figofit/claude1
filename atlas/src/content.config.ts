@@ -62,6 +62,8 @@ export const PLACE_TYPES = [
   'poi', // obecný zajímavý bod
   'airport', // letiště
   'border', // hraniční přechod
+  'castle', // hrad/zámek/zřícenina
+  'zoo', // zoo/safari park
   'other',
 ] as const;
 

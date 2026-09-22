@@ -53,7 +53,7 @@ for (const r of tripRoutes) {
 for (const a of tripAscents) if (a.data.from) visitedPlaceIds.add(a.data.from.id);
 const visitedPlaces = [...visitedPlaceIds]
   .map((id) => placesById.get(id))
-  .filter((p): p is NonNullable<typeof p> => Boolean(p) && ['city', 'town', 'village'].includes(p!.data.type));
+  .filter((p): p is NonNullable<typeof p> => Boolean(p) && ['city', 'town', 'village', 'castle', 'zoo'].includes(p!.data.type));
 
 const statusLabel: Record<string, string> = { ongoing: 'Probíhá', planned: 'Plánováno', completed: 'Dokončeno' };
 ---

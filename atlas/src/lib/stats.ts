@@ -81,6 +81,8 @@ function sum(values: (number | undefined)[]): PartialSum {
 export interface AtlasStats {
   countriesVisited: string[];
   citiesCount: number;
+  castlesCount: number;
+  zoosCount: number;
   peaksCount: number;
   peaksCatalogCount: number;
   ferratasCount: number;
@@ -116,6 +118,11 @@ export function computeStats(input: StatsInput): AtlasStats {
   const citiesCount = places.filter(
     (p) => visitedPlaceIds.has(p.id) && ['city', 'town', 'village'].includes(p.data.type),
   ).length;
+  // Hrady a zoo se do katalogu přidávají jen tehdy, když byly skutečně
+  // navštívené (na rozdíl od měst nejde o průjezdní body) - proto se tu
+  // nefiltruje přes visitedPlaceIds a počítá se celý katalog.
+  const castlesCount = places.filter((p) => p.data.type === 'castle').length;
+  const zoosCount = places.filter((p) => p.data.type === 'zoo').length;
 
   const summitedPeakIds = new Set(
     ascents.filter((a) => a.data.peak && SUMMIT_RESULTS.has(a.data.result)).map((a) => a.data.peak!.id),
@@ -180,6 +187,8 @@ export function computeStats(input: StatsInput): AtlasStats {
   return {
     countriesVisited: [...countryTripCounts.keys()].sort(),
     citiesCount,
+    castlesCount,
+    zoosCount,
     peaksCount: summitedPeakIds.size,
     peaksCatalogCount: peaks.length,
     ferratasCount: summitedFerrataIds.size,

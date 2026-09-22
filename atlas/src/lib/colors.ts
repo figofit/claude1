@@ -30,6 +30,8 @@ export const PLACE_TYPE_COLORS: Record<string, string> = {
   poi: '#6e7b8b',
   airport: '#6e7b8b',
   border: '#6e7b8b',
+  castle: '#7a6a52',
+  zoo: '#4a7c4e',
   other: '#6e7b8b',
 };
 
