@@ -354,7 +354,7 @@
       "createdAt": "2026-09-15T00:00:00Z",
       "updatedAt": "2026-09-25T00:00:00Z",
       "regionGroup": null,
-      "featured": false,
+      "featured": true,
       "days": [],
       "highestOfCountry": false,
       "companions": [
@@ -610,9 +610,9 @@
       "sourceUrl": "https://michaldokoupil.cz/grosses-wiesbachhorn/",
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-27T00:00:00Z",
+      "updatedAt": "2026-09-25T00:00:00Z",
       "regionGroup": null,
-      "featured": false,
+      "featured": true,
       "days": [
         {
           "day": 1,
@@ -1024,9 +1024,9 @@
         "mojstrana"
       ],
       "createdAt": "2026-09-17T00:00:00Z",
-      "updatedAt": "2026-09-19T00:00:00Z",
+      "updatedAt": "2026-09-25T00:00:00Z",
       "regionGroup": null,
-      "featured": false,
+      "featured": true,
       "days": [],
       "highestOfCountry": true
     },
