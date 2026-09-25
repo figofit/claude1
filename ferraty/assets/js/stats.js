@@ -59,6 +59,23 @@
     `;
   }
 
+  function renderElevationBands(stats) {
+    const tiles = [
+      { value: stats.above2500Count, label: "Nad 2500 m" },
+      { value: stats.above3000Count, label: "Nad 3000 m" },
+      { value: stats.above4000Count, label: "Nad 4000 m" },
+    ];
+    return `<div class="stat-row">${tiles
+      .map(
+        (t) => `
+      <div class="stat-tile">
+        <div class="stat-tile__value">${t.value}</div>
+        <div class="stat-tile__label">${t.label}</div>
+      </div>`
+      )
+      .join("")}</div>`;
+  }
+
   function renderAltitudeRanking(records) {
     const ranked = records
       .filter((r) => typeof r.altitude_m === "number")
@@ -211,6 +228,7 @@
     });
     document.getElementById("by-year").innerHTML = renderBreakdown(byYearSorted, (k) => String(k));
     document.getElementById("misc-stats").innerHTML = renderMisc(stats);
+    document.getElementById("elevation-bands").innerHTML = renderElevationBands(stats);
     document.getElementById("altitude-ranking").innerHTML = renderAltitudeRanking(records);
     document.getElementById("country-highpoints").innerHTML = renderCountryHighpoints(records);
     document.getElementById("area-highpoints").innerHTML = renderAreaHighpoints(records);

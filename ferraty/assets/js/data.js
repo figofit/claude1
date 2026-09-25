@@ -223,6 +223,15 @@
     const glacierCount = records.filter((r) => r.glacier).length;
     const attemptCount = records.filter((r) => r.reachedSummit === false).length;
 
+    // Jen dosažené vrcholy a ferraty vedoucí na vrchol — hřebenovky se vynechávají, aby se
+    // stejný vrchol (co má i vlastní "vrchol" záznam) nepočítal ve výškových pásmech dvakrát.
+    const summitRecords = records.filter(
+      (r) => typeof r.altitude_m === "number" && (r.type === "vrchol" || r.type === "ferrata") && r.reachedSummit !== false
+    );
+    const above2500Count = summitRecords.filter((r) => r.altitude_m >= 2500).length;
+    const above3000Count = summitRecords.filter((r) => r.altitude_m >= 3000).length;
+    const above4000Count = summitRecords.filter((r) => r.altitude_m >= 4000).length;
+
     return {
       total,
       countriesCount: countrySet.size,
@@ -237,6 +246,9 @@
       volcanoCount,
       glacierCount,
       attemptCount,
+      above2500Count,
+      above3000Count,
+      above4000Count,
     };
   }
 
