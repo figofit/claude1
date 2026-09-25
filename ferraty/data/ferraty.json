@@ -87,9 +87,9 @@
       "sourceUrl": "https://michaldokoupil.cz/priel-klettersteig/",
       "relatedIds": [],
       "createdAt": "2026-09-15T00:00:00Z",
-      "updatedAt": "2026-09-16T00:00:00Z",
+      "updatedAt": "2026-09-27T00:00:00Z",
       "regionGroup": null,
-      "featured": false,
+      "featured": true,
       "days": [],
       "highestOfCountry": false
     },
@@ -305,9 +305,9 @@
       "sourceUrl": "https://michaldokoupil.cz/zugspitze/",
       "relatedIds": [],
       "createdAt": "2026-09-15T00:00:00Z",
-      "updatedAt": "2026-09-26T00:00:00Z",
+      "updatedAt": "2026-09-27T00:00:00Z",
       "regionGroup": null,
-      "featured": false,
+      "featured": true,
       "days": [
         {
           "day": 1,
@@ -872,9 +872,9 @@
         "kutelo"
       ],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-20T00:00:00Z",
+      "updatedAt": "2026-09-27T00:00:00Z",
       "regionGroup": null,
-      "featured": false,
+      "featured": true,
       "days": [],
       "highestOfCountry": false
     },
@@ -987,10 +987,11 @@
       ],
       "sourceUrl": "https://michaldokoupil.cz/watzmann",
       "relatedIds": [
-        "hocheck"
+        "hocheck",
+        "watzmann-hreben"
       ],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-22T00:00:00Z",
+      "updatedAt": "2026-09-27T00:00:00Z",
       "regionGroup": null,
       "featured": false,
       "days": [],
@@ -3728,7 +3729,8 @@
       "photos": [],
       "sourceUrl": null,
       "relatedIds": [
-        "watzmann"
+        "watzmann",
+        "watzmann-hreben"
       ],
       "highestOfCountry": false,
       "highestOfAreas": [],
@@ -3736,7 +3738,7 @@
       "volcano": false,
       "glacier": false,
       "createdAt": "2026-09-22T00:00:00Z",
-      "updatedAt": "2026-09-22T00:00:00Z"
+      "updatedAt": "2026-09-27T00:00:00Z"
     },
     {
       "id": "gibraltar",
@@ -4264,7 +4266,7 @@
       "summit": null,
       "altitude_m": 747,
       "duration_min": null,
-      "featured": true,
+      "featured": false,
       "days": [],
       "note": "S Hausim a Tajchým, taky top. 2017, přesné datum k doplnění.",
       "track": null,
@@ -4280,7 +4282,7 @@
       "volcano": false,
       "glacier": false,
       "createdAt": "2026-09-25T00:00:00Z",
-      "updatedAt": "2026-09-25T00:00:00Z",
+      "updatedAt": "2026-09-27T00:00:00Z",
       "companions": [
         "Hausi",
         "Tajchý"
@@ -4308,7 +4310,9 @@
       "photos": [],
       "sourceUrl": null,
       "relatedIds": [
-        "petrovy-kameny"
+        "petrovy-kameny",
+        "praded-2024",
+        "praded-2019"
       ],
       "highestOfCountry": false,
       "highestOfAreas": [
@@ -4318,7 +4322,7 @@
       "volcano": false,
       "glacier": false,
       "createdAt": "2026-09-25T00:00:00Z",
-      "updatedAt": "2026-09-25T00:00:00Z",
+      "updatedAt": "2026-09-27T00:00:00Z",
       "companions": [
         "Tajchý",
         "Čápi"
@@ -4575,7 +4579,7 @@
       "summit": null,
       "altitude_m": 2178,
       "duration_min": null,
-      "featured": false,
+      "featured": true,
       "days": [],
       "note": "S Polišem — jediná společná akce s ním. Ždiarska chata, Príslop, pak hřeben. Propojeno s výstupem z 31.7.2018.",
       "track": null,
@@ -4648,7 +4652,7 @@
       "summit": null,
       "altitude_m": 2088,
       "duration_min": null,
-      "featured": true,
+      "featured": false,
       "days": [],
       "note": "S Polišem, konec hřebene. \"Docela náhul\" — ale super akce.",
       "track": null,
@@ -4868,6 +4872,118 @@
       "companions": [],
       "createdAt": "2026-09-26T00:00:00Z",
       "updatedAt": "2026-09-26T00:00:00Z"
+    },
+    {
+      "id": "praded-2019",
+      "type": "vrchol",
+      "name": "Praděd",
+      "country": "Česko",
+      "region": "Jeseníky",
+      "regionGroup": null,
+      "locality": null,
+      "coordinates": null,
+      "date": null,
+      "length_m": null,
+      "elevationGain_m": null,
+      "summit": null,
+      "altitude_m": 1491,
+      "duration_min": null,
+      "featured": false,
+      "days": [],
+      "note": "Přes Bílou Opavu. Druhý výstup na Praděd (první 2017, další 2024). Přesný den k doplnění.",
+      "track": null,
+      "photos": [],
+      "sourceUrl": null,
+      "relatedIds": [
+        "praded",
+        "praded-2024"
+      ],
+      "highestOfCountry": false,
+      "highestOfAreas": [
+        "Jeseníky"
+      ],
+      "milestones": [],
+      "companions": [],
+      "volcano": false,
+      "glacier": null,
+      "glacierName": null,
+      "createdAt": "2026-09-27T00:00:00Z",
+      "updatedAt": "2026-09-27T00:00:00Z"
+    },
+    {
+      "id": "praded-2024",
+      "type": "vrchol",
+      "name": "Praděd",
+      "country": "Česko",
+      "region": "Jeseníky",
+      "regionGroup": null,
+      "locality": null,
+      "coordinates": null,
+      "date": null,
+      "length_m": null,
+      "elevationGain_m": null,
+      "summit": null,
+      "altitude_m": 1491,
+      "duration_min": null,
+      "featured": false,
+      "days": [],
+      "note": "Z Karlovy Studánky. Třetí výstup na Praděd (první 2017, druhý 2019). Přesný den k doplnění.",
+      "track": null,
+      "photos": [],
+      "sourceUrl": null,
+      "relatedIds": [
+        "praded",
+        "praded-2019"
+      ],
+      "highestOfCountry": false,
+      "highestOfAreas": [
+        "Jeseníky"
+      ],
+      "milestones": [],
+      "companions": [],
+      "volcano": false,
+      "glacier": null,
+      "glacierName": null,
+      "createdAt": "2026-09-27T00:00:00Z",
+      "updatedAt": "2026-09-27T00:00:00Z"
+    },
+    {
+      "id": "watzmann-hreben",
+      "type": "hřebenovka",
+      "name": "Watzmann: Hocheck – Mittelspitze",
+      "country": "Německo",
+      "region": "Berchtesgadenské Alpy",
+      "regionGroup": null,
+      "locality": null,
+      "coordinates": {
+        "lat": 47.558,
+        "lng": 12.926
+      },
+      "date": "2026-08-14",
+      "length_m": null,
+      "elevationGain_m": null,
+      "summit": null,
+      "altitude_m": 2713,
+      "duration_min": null,
+      "featured": true,
+      "days": [],
+      "note": "Hřebenovka tam a zpět z Hocheck na hlavní vrchol Watzmannu (Mittelspitze) — ne úplné překročení až na Südspitze.",
+      "track": null,
+      "photos": [],
+      "sourceUrl": "https://michaldokoupil.cz/watzmann",
+      "relatedIds": [
+        "watzmann",
+        "hocheck"
+      ],
+      "highestOfCountry": false,
+      "highestOfAreas": [],
+      "milestones": [],
+      "companions": [],
+      "volcano": false,
+      "glacier": null,
+      "glacierName": null,
+      "createdAt": "2026-09-27T00:00:00Z",
+      "updatedAt": "2026-09-27T00:00:00Z"
     }
   ]
 }
