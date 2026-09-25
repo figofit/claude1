@@ -602,7 +602,7 @@
       "summit": null,
       "altitude_m": 3564,
       "duration_min": null,
-      "note": "Dvoudenní výstup z Kaprunu s nocí na Heinrich-Schwaiger-Haus (2802 m) — přes 2600 výškových metrů po svých. Druhý den (sestup) sám o sobě 25 000 kroků. Ledovec je na horu z obou stran po srázech, ale po hřebínku od chaty nahoru jsem přes něj vůbec nešel.",
+      "note": "Celý výstup z Kaprunu na vrchol v jednom dni, vše pěšky — jeden z nejikoničtějších a nejnáročnějších jednodenních výstupů. Po vrcholu sestup k přehradě Mooserboden a nocleh v cca 2000 m na Turistik chatě. Druhý den (dosestup do Kaprunu) sám o sobě 25 000 kroků. Ledovec je na hoře z obou stran po srázech, ale po hřebínku od chaty nahoru jsem přes něj vůbec nešel.",
       "track": null,
       "photos": [],
       "sourceUrl": "https://michaldokoupil.cz/grosses-wiesbachhorn/",
@@ -614,17 +614,17 @@
       "days": [
         {
           "day": 1,
-          "date": "2022-08-15",
+          "date": "2022-08-16",
           "from": "Kaprun",
-          "to": "Heinrich-Schwaiger-Haus (2802 m)",
-          "overnightAt": "Heinrich-Schwaiger-Haus",
+          "to": "Grosses Wiesbachhorn (3564 m), dál dolů k přehradě Mooserboden",
+          "overnightAt": "Turistik chata (Mooserboden, ~2000 m)",
           "note": null
         },
         {
           "day": 2,
-          "date": "2022-08-16",
-          "from": "Heinrich-Schwaiger-Haus",
-          "to": "Grosses Wiesbachhorn (3564 m) a zpět do Kaprunu",
+          "date": "2022-08-17",
+          "from": "Turistik chata (Mooserboden)",
+          "to": "Kaprun",
           "overnightAt": null,
           "note": "Sestup sám o sobě 25 000 kroků."
         }
