@@ -1010,7 +1010,7 @@
       "summit": null,
       "altitude_m": 3252,
       "duration_min": 780,
-      "note": "Na otočku přímo z centra Mallnitz (žádná chata) — start kolem 5:00, vrchol ~11:45 (výstup ~7 h), zpátky v Mallnitz 17:45, celkem ~13 h na nohou. Přes Ankogelbahn, Hannoverhaus a Kleiner Ankogel (~3096 m) po hřebeni k vrcholovému kříži. Moje první alpská třítisícovka a celkově druhá v životě (první byl Mulhacén).",
+      "note": "Na otočku přímo z centra Mallnitz (žádná chata) — start kolem 5:00, vrchol ~11:45 (výstup ~7 h), zpátky v Mallnitz 17:45, celkem ~13 h na nohou. Přes Ankogelbahn, Hannoverhaus a Kleiner Ankogel (~3096 m) po hřebeni k vrcholovému kříži. Moje první alpská třítisícovka a celkově druhá v životě (první byl Mulhacén). Na hřebeni ke Kleiner Ankogel zbytky ledovce (Kleinelendkees), spíš už jen sněhové plotny než pořádný ledovec — tehdy jsem šel bez maček.",
       "track": null,
       "photos": [],
       "sourceUrl": "https://michaldokoupil.cz/ankogel-z-mallnitz/",
@@ -1018,7 +1018,7 @@
         "mulhacen"
       ],
       "createdAt": "2026-09-18T00:00:00Z",
-      "updatedAt": "2026-09-21T00:00:00Z",
+      "updatedAt": "2026-09-26T00:00:00Z",
       "regionGroup": null,
       "featured": true,
       "days": [],
@@ -1028,7 +1028,9 @@
       ],
       "milestones": [
         "První 3000 v Alpách"
-      ]
+      ],
+      "glacier": "route",
+      "glacierName": "Kleinelendkees"
     },
     {
       "id": "zla-kolata",
