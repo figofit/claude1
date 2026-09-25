@@ -28,6 +28,7 @@ interface PlaceData {
   type: string;
   elevation?: number;
   capital?: boolean;
+  island?: string;
 }
 interface RouteData {
   mode: string;
@@ -39,6 +40,7 @@ interface RouteData {
 }
 interface PeakData {
   elevation?: number;
+  island?: string;
 }
 interface AscentData {
   peak?: Ref;
@@ -85,6 +87,8 @@ export interface AtlasStats {
   capitalsCount: number;
   castlesCount: number;
   zoosCount: number;
+  airportsCount: number;
+  islandsCount: number;
   peaksCount: number;
   peaksCatalogCount: number;
   ferratasCount: number;
@@ -130,9 +134,35 @@ export function computeStats(input: StatsInput): AtlasStats {
   const castlesCount = places.filter((p) => p.data.type === 'castle').length;
   const zoosCount = places.filter((p) => p.data.type === 'zoo').length;
 
+  // "Letiště" nejsou v datech samostatný bod (lety se vedou město-město) -
+  // počítá se tedy počet různých míst použitých jako from/to letecké trasy,
+  // což je nejbližší poctivá aproximace bez vymýšlení konkrétních IATA kódů.
+  const airportPlaceIds = new Set<string>();
+  for (const r of routes) {
+    if (r.data.mode === 'plane') {
+      airportPlaceIds.add(r.data.from.id);
+      airportPlaceIds.add(r.data.to.id);
+    }
+  }
+  const airportsCount = airportPlaceIds.size;
+
   const summitedPeakIds = new Set(
     ascents.filter((a) => a.data.peak && SUMMIT_RESULTS.has(a.data.result)).map((a) => a.data.peak!.id),
   );
+
+  // Ostrov je navštívený, když je na něm buď skutečně navštívené místo
+  // (přes visitedPlaceIds), nebo zdolaný vrchol na něm ležící.
+  const peaksById = new Map(peaks.map((p) => [p.id, p.data]));
+  const visitedIslands = new Set<string>();
+  for (const p of places) {
+    if (p.data.island && visitedPlaceIds.has(p.id)) visitedIslands.add(p.data.island);
+  }
+  for (const peakId of summitedPeakIds) {
+    const island = peaksById.get(peakId)?.island;
+    if (island) visitedIslands.add(island);
+  }
+  const islandsCount = visitedIslands.size;
+
   const summitedFerrataIds = new Set(
     ascents.filter((a) => a.data.ferrata && SUMMIT_RESULTS.has(a.data.result)).map((a) => a.data.ferrata!.id),
   );
@@ -156,7 +186,6 @@ export function computeStats(input: StatsInput): AtlasStats {
     ...ascents.map((a) => a.data.elevationGainM),
   ]);
 
-  const peaksById = new Map(peaks.map((p) => [p.id, p.data]));
   const effectiveAscentMaxElevation = (a: EntryLike<AscentData>): number | undefined => {
     if (a.data.maxElevationM !== undefined) return a.data.maxElevationM;
     if (a.data.peak && SUMMIT_RESULTS.has(a.data.result)) {
@@ -196,6 +225,8 @@ export function computeStats(input: StatsInput): AtlasStats {
     capitalsCount,
     castlesCount,
     zoosCount,
+    airportsCount,
+    islandsCount,
     peaksCount: summitedPeakIds.size,
     peaksCatalogCount: peaks.length,
     ferratasCount: summitedFerrataIds.size,

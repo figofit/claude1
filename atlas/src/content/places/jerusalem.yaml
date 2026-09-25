@@ -1,5 +1,6 @@
 name: Jeruzalém
 country: IL
 type: city
+capital: true
 coordinates: [35.2137, 31.7683]
 description: Svaté město s Chrámovou horou a Zdí nářků.

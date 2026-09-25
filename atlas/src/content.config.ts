@@ -126,6 +126,11 @@ const places = defineCollection({
     // případy (Jeruzalém/Tel Aviv, Haag vs. Amsterdam) řešeny individuálně,
     // ne automaticky.
     capital: z.boolean().default(false),
+    // Jméno ostrova/souostroví, pokud je místo na ostrově (pro statistiku
+    // navštívených ostrovů) - jen zjevné "ostrovní" destinace (Madeira,
+    // Malta, Kypr, Tenerife...), ne pevninské státy technicky ležící na
+    // velkém ostrově (VB, Irsko) - to je hraniční případ, řešeno zvlášť.
+    island: z.string().optional(),
     coordinates: lngLat(),
     // Nadmořská výška - pokud není jistá, radši nevyplňovat než odhadovat.
     elevation: z.number().optional(),
@@ -165,6 +170,7 @@ const peaks = defineCollection({
     name: z.string(),
     country: countryCode(),
     range: z.string().optional(), // pohoří, např. "Dinárské hory"
+    island: z.string().optional(), // viz places.island
     elevation: z.number().optional(),
     coordinates: lngLat(),
     description: z.string().optional(),

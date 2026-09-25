@@ -39,6 +39,8 @@ const hasPartial = [stats.kmFoot, stats.kmCar, stats.kmTrain, stats.kmBus, stats
       <StatCard value={String(stats.capitalsCount)} label={countLabel(stats.capitalsCount, { one: 'navštívené hlavní město', few: 'navštívená hlavní města', many: 'navštíveného hlavního města', other: 'navštívených hlavních měst' })} />
       <StatCard value={String(stats.castlesCount)} label={countLabel(stats.castlesCount, { one: 'navštívený hrad', few: 'navštívené hrady', many: 'navštívené hrady', other: 'navštívených hradů' })} />
       <StatCard value={String(stats.zoosCount)} label={countLabel(stats.zoosCount, { one: 'navštívená zoo', few: 'navštívené zoo', many: 'navštívené zoo', other: 'navštívených zoo' })} />
+      <StatCard value={String(stats.islandsCount)} label={countLabel(stats.islandsCount, { one: 'navštívený ostrov', few: 'navštívené ostrovy', many: 'navštíveného ostrova', other: 'navštívených ostrovů' })} />
+      <StatCard value={String(stats.airportsCount)} label={countLabel(stats.airportsCount, { one: 'použité letiště', few: 'použitá letiště', many: 'použitého letiště', other: 'použitých letišť' })} />
       <StatCard value={`${stats.peaksCount} / ${stats.peaksCatalogCount}`} label="zdolaných vrcholů z katalogu" />
       <StatCard value={`${stats.ferratasCount} / ${stats.ferratasCatalogCount}`} label="zdolaných ferrat z katalogu" />
       <StatCard value={`${stats.ridgesCount} / ${stats.ridgesCatalogCount}`} label="zdolaných hřebenovek z katalogu" />
