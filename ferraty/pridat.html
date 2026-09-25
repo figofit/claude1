@@ -94,10 +94,16 @@
           </label>
         </div>
         <div class="form-field">
-          <label for="f-glacier">
-            <input type="checkbox" id="f-glacier" style="width:auto;">
-            Cestou byl ledovec
-          </label>
+          <label for="f-glacier">Ledovec</label>
+          <select id="f-glacier">
+            <option value="">Ne</option>
+            <option value="route">Na trase (šel jsem po něm)</option>
+            <option value="massif">Na masivu (je na hoře, ale ne na mé trase)</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="f-glacier-name">Název ledovce</label>
+          <input type="text" id="f-glacier-name" placeholder="např. Höllentalferner">
         </div>
       </div>
     </section>

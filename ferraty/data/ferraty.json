@@ -305,7 +305,7 @@
       "sourceUrl": "https://michaldokoupil.cz/zugspitze/",
       "relatedIds": [],
       "createdAt": "2026-09-15T00:00:00Z",
-      "updatedAt": "2026-09-21T00:00:00Z",
+      "updatedAt": "2026-09-26T00:00:00Z",
       "regionGroup": null,
       "featured": false,
       "days": [
@@ -327,7 +327,8 @@
         }
       ],
       "highestOfCountry": true,
-      "glacier": true
+      "glacier": "route",
+      "glacierName": "Höllentalferner"
     },
     {
       "id": "heidsteig",
@@ -412,11 +413,13 @@
       "sourceUrl": "https://michaldokoupil.cz/kazbek/",
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-21T00:00:00Z",
+      "updatedAt": "2026-09-26T00:00:00Z",
       "regionGroup": null,
       "featured": true,
       "days": [],
-      "highestOfCountry": false
+      "highestOfCountry": false,
+      "glacier": "route",
+      "glacierName": "Gergetský ledovec"
     },
     {
       "id": "aneto",
@@ -441,7 +444,7 @@
       "sourceUrl": "https://michaldokoupil.cz/pico-de-aneto/",
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-25T00:00:00Z",
+      "updatedAt": "2026-09-26T00:00:00Z",
       "regionGroup": null,
       "featured": true,
       "days": [
@@ -466,10 +469,11 @@
       "highestOfAreas": [
         "Pyreneje"
       ],
-      "glacier": true,
+      "glacier": "route",
       "companions": [
         "Hausi"
-      ]
+      ],
+      "glacierName": "ledovec Aneto"
     },
     {
       "id": "grossglockner",
@@ -494,7 +498,7 @@
       "sourceUrl": "https://michaldokoupil.cz/grossglockner/",
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-25T00:00:00Z",
+      "updatedAt": "2026-09-26T00:00:00Z",
       "regionGroup": null,
       "featured": false,
       "days": [
@@ -529,7 +533,9 @@
       ],
       "companions": [
         "Mara"
-      ]
+      ],
+      "glacier": "route",
+      "glacierName": "ledovec pod Johannishütte"
     },
     {
       "id": "grossvenediger",
@@ -554,11 +560,13 @@
       "sourceUrl": null,
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-16T00:00:00Z",
+      "updatedAt": "2026-09-26T00:00:00Z",
       "regionGroup": null,
       "featured": false,
       "days": [],
-      "highestOfCountry": false
+      "highestOfCountry": false,
+      "glacier": "route",
+      "glacierName": "ledovce skupiny Venediger"
     },
     {
       "id": "grosses-wiesbachhorn",
@@ -583,11 +591,13 @@
       "sourceUrl": "https://michaldokoupil.cz/grosses-wiesbachhorn/",
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-18T00:00:00Z",
+      "updatedAt": "2026-09-26T00:00:00Z",
       "regionGroup": null,
       "featured": false,
       "days": [],
-      "highestOfCountry": false
+      "highestOfCountry": false,
+      "glacier": "route",
+      "glacierName": "ledovec pod Wiesbachhornem"
     },
     {
       "id": "teide",
@@ -1226,7 +1236,7 @@
       "sourceUrl": "https://michaldokoupil.cz/gran-paradiso/",
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-22T00:00:00Z",
+      "updatedAt": "2026-09-26T00:00:00Z",
       "regionGroup": null,
       "featured": true,
       "days": [
@@ -1247,7 +1257,9 @@
           "note": "Start kolem 5:30, mačky na ledovci, vrchol v 8:45, zpět na parkoviště ve 12:00."
         }
       ],
-      "highestOfCountry": false
+      "highestOfCountry": false,
+      "glacier": "route",
+      "glacierName": "ledovec Gran Paradiso"
     },
     {
       "id": "comapedrosa",

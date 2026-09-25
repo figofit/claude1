@@ -191,10 +191,13 @@ chronologicky (podle `date`) v sekci „Osobní milníky“ na `statistiky.html`
 
 ### Sopka a ledovec
 
-`volcano: true` a `glacier: true` jsou jednoduché příznaky pro statistiky — sopka jako typ
-hory (např. Teide) a "cestou byl ledovec" (přešlapal jsi po něm, ne že ho jen vidíš v dálce).
-Nastavují se ručně (checkbox ve formuláři nebo v JSONu), počty se zobrazují na
-`statistiky.html` v kartě „Další“.
+`volcano: true` je jednoduchý příznak pro statistiky — sopka jako typ hory (např. Teide).
+
+`glacier` rozlišuje, jestli byl na hoře ledovec, a hlavně jak: `"route"` znamená, že jsi po
+něm skutečně šel (byl na tvé trase), `"massif"` že na hoře/masivu ledovec je, ale tvoje
+konkrétní trasa přes něj nevedla, `null` že ne. K tomu `glacierName` — jméno ledovce, pokud
+ho znáš. Nastavuje se ručně (výběr + textové pole ve formuláři, v JSONu jako řetězec/`null`).
+Počet (route i massif dohromady) se zobrazuje na `statistiky.html` v kartě „Další“.
 
 ### S kým
 
