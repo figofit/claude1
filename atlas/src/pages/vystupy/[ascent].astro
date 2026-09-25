@@ -3,6 +3,7 @@ import Layout from '../../components/Layout.astro';
 import MapCanvas from '../../components/MapCanvas.astro';
 import StatCard from '../../components/StatCard.astro';
 import { getAtlasData } from '../../lib/content';
+import { slugifyPerson } from '../../lib/people';
 import {
   formatDate,
   formatKm,
@@ -32,6 +33,7 @@ const ridge = ascent.data.ridge ? data.ridges.find((r) => r.id === ascent.data.r
 const target = peak ?? ferrata ?? ridge;
 const fromPlace = ascent.data.from ? data.places.find((p) => p.id === ascent.data.from!.id) : undefined;
 const country = peak?.data.country ?? ferrata?.data.country ?? ridge?.data.country;
+const companions = ascent.data.companions.length > 0 ? ascent.data.companions : trip.data.companions;
 ---
 
 <Layout title={target ? `${target.data.name} - ${trip.data.title}` : trip.data.title}>
@@ -49,6 +51,12 @@ const country = peak?.data.country ?? ferrata?.data.country ?? ridge?.data.count
       {ferrata && <a class="tag" href={`/ferraty/${ferrata.id}`}>o ferratě →</a>}
       {ridge && <a class="tag" href={`/hrebenovky/${ridge.id}`}>o hřebenovce →</a>}
     </div>
+    {companions.length > 0 && (
+      <div class="head-tags companions">
+        <span class="text-faint">S kým:</span>
+        {companions.map((c) => <a class="tag" href={`/lide/${slugifyPerson(c)}`}>{c}</a>)}
+      </div>
+    )}
   </section>
 
   <section class="container">

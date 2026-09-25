@@ -1,0 +1,154 @@
+---
+import Layout from '../../components/Layout.astro';
+import StatCard from '../../components/StatCard.astro';
+import { getAtlasData, byId, sortTripsByDate, sortByDateDesc } from '../../lib/content';
+import { getCompanions } from '../../lib/people';
+import { formatDateRange, formatDate, RESULT_LABELS, countLabel } from '../../lib/format';
+
+export async function getStaticPaths() {
+  const data = await getAtlasData();
+  const companions = getCompanions(data);
+  return [...companions.values()].map((c) => ({ params: { person: c.slug }, props: { slug: c.slug } }));
+}
+
+const { slug } = Astro.props;
+const data = await getAtlasData();
+const companions = getCompanions(data);
+const person = companions.get(slug)!;
+
+const trips = sortTripsByDate(data.trips.filter((t) => person.tripIds.has(t.id)));
+const ascents = sortByDateDesc(data.ascents.filter((a) => person.ascentIds.has(a.id)));
+const peaksById = byId(data.peaks);
+const ferratasById = byId(data.ferratas);
+const ridgesById = byId(data.ridges);
+const tripsById = byId(data.trips);
+---
+
+<Layout title={person.name} description={`Cesty a horské výstupy s: ${person.name}.`}>
+  <section class="container page-head">
+    <p class="eyebrow"><a href="/lide">Lidé</a></p>
+    <h1>{person.name}</h1>
+  </section>
+
+  <section class="section container">
+    <div class="stat-grid">
+      <StatCard value={String(trips.length)} label={countLabel(trips.length, { one: 'výprava', few: 'výpravy', many: 'výpravy', other: 'výprav' })} />
+      {ascents.length > 0 && <StatCard value={String(ascents.length)} label={countLabel(ascents.length, { one: 'horský výstup', few: 'horské výstupy', many: 'horského výstupu', other: 'horských výstupů' })} />}
+    </div>
+  </section>
+
+  {
+    trips.length > 0 && (
+      <section class="section container">
+        <h2>Cesty</h2>
+        <div class="trip-list">
+          {trips.map((t) => (
+            <a class="trip-row" href={`/cesty/${t.id}`}>
+              <strong>{t.data.title}</strong>
+              <span class="text-muted">{formatDateRange(t.data.dateStart, t.data.dateEnd, t.data.datePrecision, t.data.status)}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  {
+    ascents.length > 0 && (
+      <section class="section container">
+        <h2>Horské výstupy</h2>
+        <div class="ascent-list">
+          {ascents.map((a) => {
+            const target = a.data.peak ? peaksById.get(a.data.peak.id) : a.data.ferrata ? ferratasById.get(a.data.ferrata.id) : a.data.ridge ? ridgesById.get(a.data.ridge.id) : undefined;
+            return (
+              <a class="ascent-row" href={`/vystupy/${a.id}`}>
+                <div>
+                  <strong>{target?.data.name ?? '—'}</strong>
+                  <span class="text-muted"> · {tripsById.get(a.data.trip.id)?.data.title}</span>
+                </div>
+                <div class="ascent-meta">
+                  {a.data.date && <span>{formatDate(a.data.date, a.data.datePrecision)}</span>}
+                  <span class={`result result-${a.data.result}`}>{RESULT_LABELS[a.data.result]}</span>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </section>
+    )
+  }
+</Layout>
+
+<style>
+  .page-head {
+    padding-block: var(--space-6) var(--space-4);
+  }
+
+  .page-head a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .page-head h1 {
+    font-size: var(--text-4xl);
+  }
+
+  h2 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-4);
+  }
+
+  .trip-list,
+  .ascent-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .trip-row,
+  .ascent-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.15s ease;
+  }
+
+  .trip-row:hover,
+  .ascent-row:hover {
+    border-color: var(--accent);
+  }
+
+  .ascent-meta {
+    display: flex;
+    gap: var(--space-3);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    align-items: center;
+  }
+
+  .result {
+    font-weight: 600;
+    padding: 0.2em 0.7em;
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    background: var(--bg-elevated-2);
+  }
+
+  .result-summit,
+  .result-repeat_summit {
+    color: #7cc48f;
+  }
+
+  .result-not_completed,
+  .result-attempt {
+    color: var(--accent);
+  }
+</style>

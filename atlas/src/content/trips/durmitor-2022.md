@@ -10,6 +10,7 @@ summary: >
   Durmitor - výstup na Savin Kuk přes Crno jezero a vyhlídka Ćurevac nad
   kaňonem Tary, na závěr pár dní u moře v Baru.
 tags: [černá hora, durmitor, balkán, "2022"]
+companions: [Helenka]
 ---
 
 Zatím jen kostra podle rychlé rekapitulace - podrobnosti trasy nejsou

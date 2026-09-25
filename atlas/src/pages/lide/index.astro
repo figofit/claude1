@@ -1,0 +1,77 @@
+---
+import Layout from '../../components/Layout.astro';
+import { getAtlasData } from '../../lib/content';
+import { getCompanions, sortCompanions } from '../../lib/people';
+import { countLabel } from '../../lib/format';
+
+const data = await getAtlasData();
+const companions = sortCompanions(getCompanions(data));
+---
+
+<Layout title="Lidé" description="S kým jsem na cestách a horských výstupech - přehled spolucestovníků.">
+  <section class="container page-head">
+    <p class="eyebrow">Rejstřík</p>
+    <h1>Lidé</h1>
+    <p class="text-muted">
+      {companions.length === 0 ? 'Zatím nikdo nezapsaný.' : countLabel(companions.length, { one: 'spolucestovník', few: 'spolucestovníci', many: 'spolucestovníka', other: 'spolucestovníků' })}
+    </p>
+  </section>
+
+  <section class="container">
+    {
+      companions.length === 0 ? (
+        <p class="text-muted">Zatím tu není žádný spolucestovník - doplň pole `companions` u výpravy nebo výstupu.</p>
+      ) : (
+        <div class="people-list">
+          {companions.map((c) => (
+            <a class="person-row" href={`/lide/${c.slug}`}>
+              <strong>{c.name}</strong>
+              <span class="text-muted">
+                {countLabel(c.tripIds.size, { one: 'výprava', few: 'výpravy', many: 'výpravy', other: 'výprav' })}
+                {c.ascentIds.size > 0 ? ` · ${countLabel(c.ascentIds.size, { one: 'výstup', few: 'výstupy', many: 'výstupu', other: 'výstupů' })}` : ''}
+              </span>
+            </a>
+          ))}
+        </div>
+      )
+    }
+  </section>
+</Layout>
+
+<style>
+  .page-head {
+    padding-block: var(--space-6) var(--space-4);
+  }
+
+  .people-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--border-soft);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: var(--space-8);
+  }
+
+  .person-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    background: var(--bg-elevated);
+    padding: var(--space-3) var(--space-4);
+    text-decoration: none;
+    color: var(--text);
+    transition: background 0.15s ease;
+  }
+
+  .person-row:hover {
+    background: var(--bg-elevated-2);
+  }
+
+  .person-row span {
+    font-size: var(--text-sm);
+  }
+</style>

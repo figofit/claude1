@@ -6,6 +6,7 @@ status: completed
 countries: [EG]
 summary: S Helenkou znovu u moře v Hurghadě.
 tags: [egypt, moře, "2025"]
+companions: [Helenka]
 ---
 
 Zatím jen kostra podle rychlé rekapitulace - přesné datum není (zatím)

@@ -9,6 +9,7 @@ summary: >
   na pyramidy, celý den přímo u Cheopsovy pyramidy a Sfingy, pak odpočinek
   u moře v Ain Sokhna.
 tags: [egypt, gíza, pyramidy, maďarsko, "2024"]
+companions: [Helenka]
 ---
 
 Noc a procházka Budapeští, pak let do Káhiry a taxi rovnou do Gízy, do

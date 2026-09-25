@@ -109,6 +109,10 @@ const trips = defineCollection({
     cover: z.string().optional(),
     photos: z.array(z.string()).default([]),
     tags: z.array(z.string()).default([]),
+    // Jména/přezdívky spolucestovatelů na celé výpravě - volný text jako u tags,
+    // viz src/lib/people.ts (slugifikace pro /lide). Pokud se lidé liší podle
+    // konkrétního výstupu v rámci výpravy, upřesni to v ascents.companions.
+    companions: z.array(z.string()).default([]),
   }),
 });
 
@@ -226,6 +230,9 @@ const ascents = defineCollection({
     track: trackSchema().optional(),
     notes: z.string().optional(),
     photos: z.array(z.string()).default([]),
+    // Nepovinné - jen když se společníci na tomto konkrétním výstupu liší od
+    // trip.companions (např. sólo vrchol uprostřed jinak skupinové výpravy).
+    companions: z.array(z.string()).default([]),
   }),
 });
 

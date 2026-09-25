@@ -5,6 +5,7 @@ import MapCanvas from '../../components/MapCanvas.astro';
 import StatCard from '../../components/StatCard.astro';
 import { getAtlasData, byId } from '../../lib/content';
 import { computeStats } from '../../lib/stats';
+import { slugifyPerson } from '../../lib/people';
 import {
   formatDateRange,
   formatKm,
@@ -66,6 +67,12 @@ const statusLabel: Record<string, string> = { ongoing: 'Probíhá', planned: 'Pl
       <span class="tag">{statusLabel[trip.data.status]}</span>
       {trip.data.tags.map((t) => <span class="tag">{t}</span>)}
     </div>
+    {trip.data.companions.length > 0 && (
+      <div class="head-tags companions">
+        <span class="text-faint">S kým:</span>
+        {trip.data.companions.map((c) => <a class="tag" href={`/lide/${slugifyPerson(c)}`}>{c}</a>)}
+      </div>
+    )}
   </section>
 
   {(tripRoutes.length > 0 || tripAscents.length > 0) && (

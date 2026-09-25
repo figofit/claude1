@@ -10,6 +10,7 @@ summary: >
   Barbastro a Benasque na chatu Refugio de la Renclusa a odtud přes ledovec
   a legendární exponovaný hřebínek Paso de Mahoma na vrchol.
 tags: [španělsko, pyreneje, nejvyšší bod pohoří, ledovec, "2024"]
+companions: [Hauzi]
 ---
 
 Let z Vídně do Barcelony, noc poblíž Vítězného oblouku. Přesun autobusem

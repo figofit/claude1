@@ -11,6 +11,7 @@ summary: >
   Mara pod vrcholem otočil. O pár dní později, po regeneraci u Lienzu,
   konečně padl i Sauleck - na třetí pokus.
 tags: [rakousko, hohe tauern, alpy, nejvyšší bod země, ledovec, "2024"]
+companions: [Mara Š.]
 ---
 
 Cestou zastávka v Decathlonu v Brně pro lano, které se nakonec nepoužilo.

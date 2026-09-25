@@ -8,6 +8,7 @@ summary: >
   S Helenkou na Sněžku, nejvyšší horu Česka, cestou se zastávkami na
   Kunětické hoře, v Zoo Dvůr Králové nad Labem a v Trutnově.
 tags: [česko, krkonoše, nejvyšší bod země, "2023"]
+companions: [Helenka]
 ---
 
 Zatím jen kostra podle rychlé rekapitulace - přesné datum a trasa výstupu

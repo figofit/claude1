@@ -9,6 +9,7 @@ summary: >
   opakování Heidsteigu na Rax a k tomu ještě nenáročná Mödlinger
   Klettersteig pod Vídní.
 tags: [rakousko, ferrata, "2025"]
+companions: [Máza]
 ---
 
 Zatím jen kostra podle rychlé rekapitulace - přesné datum není (zatím)
