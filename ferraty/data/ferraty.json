@@ -610,7 +610,7 @@
       "sourceUrl": "https://michaldokoupil.cz/grosses-wiesbachhorn/",
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-25T00:00:00Z",
+      "updatedAt": "2026-09-26T00:00:00Z",
       "regionGroup": "Alpy",
       "featured": true,
       "days": [
@@ -620,7 +620,8 @@
           "from": "Kaprun",
           "to": "Grosses Wiesbachhorn (3564 m), dál dolů k přehradě Mooserboden",
           "overnightAt": "Turistik chata (Mooserboden, ~2000 m)",
-          "note": null
+          "note": null,
+          "elevationGain_m": 2600
         },
         {
           "day": 2,
@@ -628,7 +629,8 @@
           "from": "Turistik chata (Mooserboden)",
           "to": "Kaprun",
           "overnightAt": null,
-          "note": "Sestup sám o sobě 25 000 kroků."
+          "note": "Sestup sám o sobě 25 000 kroků.",
+          "elevationGain_m": null
         }
       ],
       "highestOfCountry": false,
