@@ -130,6 +130,31 @@
     `;
   }
 
+  function renderHuts(records) {
+    const entries = [];
+    records.forEach((r) => {
+      const huts = new Set((r.days || []).map((d) => d.overnightAt).filter(Boolean));
+      huts.forEach((hut) => entries.push({ hut, r }));
+    });
+    entries.sort((a, b) => a.hut.localeCompare(b.hut, "cs"));
+    if (!entries.length) {
+      return `<p class="text-faint">Zatím žádný záznam s vyplněným nocleháním v itineráři (pole "days").</p>`;
+    }
+    const rows = entries
+      .map(
+        ({ hut, r }) => `
+        <a class="region-tile" href="detail.html?id=${encodeURIComponent(r.id)}">
+          <span class="region-tile__name">🏠 ${Ferraty.escapeHtml(hut)}</span>
+          <span class="region-tile__desc">${Ferraty.escapeHtml(r.name)} · ${Ferraty.formatDate(r.date)}</span>
+        </a>`
+      )
+      .join("");
+    return `
+      <p class="text-muted"><strong>${entries.length}</strong> ${entries.length === 1 ? "nocleh na chatě/rifugiu" : "noclehů na chatách/rifugiích"}.</p>
+      <div class="region-tiles">${rows}</div>
+    `;
+  }
+
   function renderMilestones(records) {
     const entries = [];
     records.forEach((r) => {
@@ -189,6 +214,7 @@
     document.getElementById("country-highpoints").innerHTML = renderCountryHighpoints(records);
     document.getElementById("area-highpoints").innerHTML = renderAreaHighpoints(records);
     document.getElementById("milestones").innerHTML = renderMilestones(records);
+    document.getElementById("huts").innerHTML = renderHuts(records);
   }
 
   document.addEventListener("DOMContentLoaded", init);

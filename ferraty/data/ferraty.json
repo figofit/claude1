@@ -461,7 +461,7 @@
           "date": "2024-08-19",
           "from": "Refugio de la Renclusa",
           "to": "Aneto (3404 m) přes Paso de Mahoma",
-          "overnightAt": "Refugio de la Renclusa (zpět)",
+          "overnightAt": "Refugio de la Renclusa",
           "note": "Start v 6:00, vrchol v 11:15, zpět na chatu kolem 17:30."
         }
       ],
@@ -563,7 +563,24 @@
       "updatedAt": "2026-09-26T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": [],
+      "days": [
+        {
+          "day": 1,
+          "date": "2026-07-27",
+          "from": "Hinterbichl",
+          "to": "Johannishütte",
+          "overnightAt": "Johannishütte",
+          "note": "Na poslední chvíli sehnaná dvě volná lůžka."
+        },
+        {
+          "day": 2,
+          "date": "2026-07-28",
+          "from": "Johannishütte",
+          "to": "Grossvenediger (3657 m) přes Defreggerhaus",
+          "overnightAt": null,
+          "note": null
+        }
+      ],
       "highestOfCountry": false,
       "glacier": "route",
       "glacierName": "ledovce skupiny Venediger"
@@ -1124,10 +1141,27 @@
         "ankogel"
       ],
       "createdAt": "2026-09-18T00:00:00Z",
-      "updatedAt": "2026-09-20T00:00:00Z",
+      "updatedAt": "2026-09-26T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": [],
+      "days": [
+        {
+          "day": 1,
+          "date": "2022-01-14",
+          "from": "Capileira",
+          "to": "Refugio de Poqueira (~2500 m)",
+          "overnightAt": "Refugio de Poqueira",
+          "note": null
+        },
+        {
+          "day": 2,
+          "date": "2022-01-15",
+          "from": "Refugio de Poqueira",
+          "to": "Mulhacén (3479 m)",
+          "overnightAt": null,
+          "note": null
+        }
+      ],
       "highestOfCountry": false,
       "highestOfAreas": [
         "Pevninské Španělsko (Iberský poloostrov)",
@@ -1286,10 +1320,27 @@
       "sourceUrl": "https://michaldokoupil.cz/comapedrosa/",
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-21T00:00:00Z",
+      "updatedAt": "2026-09-26T00:00:00Z",
       "regionGroup": null,
       "featured": true,
-      "days": [],
+      "days": [
+        {
+          "day": 1,
+          "date": "2022-09-17",
+          "from": "Arinsal",
+          "to": "Refugi de Comapedrosa (2260 m)",
+          "overnightAt": "Refugi de Comapedrosa",
+          "note": null
+        },
+        {
+          "day": 2,
+          "date": "2022-09-18",
+          "from": "Refugi de Comapedrosa",
+          "to": "Comapedrosa (2942 m), okruhem zpět",
+          "overnightAt": null,
+          "note": null
+        }
+      ],
       "highestOfCountry": true
     },
     {
@@ -1428,16 +1479,33 @@
       "summit": null,
       "altitude_m": 2917,
       "duration_min": null,
-      "note": "Pěší výstup od moře (Litochoro) ve 2 dnech, nocleh na chatě pod vrcholem, nové boty Terrex. Jeden z nejsilnějších zážitků — \"dotek s řeckými bohy\".",
+      "note": "Pěší výstup od moře (Litochoro) ve 2 dnech, nocleh na chatě Spilios Agapitos, nové boty Terrex. Jeden z nejsilnějších zážitků — \"dotek s řeckými bohy\".",
       "track": null,
       "photos": [],
       "sourceUrl": null,
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-20T00:00:00Z",
+      "updatedAt": "2026-09-26T00:00:00Z",
       "regionGroup": null,
       "featured": true,
-      "days": [],
+      "days": [
+        {
+          "day": 1,
+          "date": "2021-07-28",
+          "from": "Litochoro (od moře)",
+          "to": "Spilios Agapitos",
+          "overnightAt": "Spilios Agapitos",
+          "note": null
+        },
+        {
+          "day": 2,
+          "date": "2021-07-29",
+          "from": "Spilios Agapitos",
+          "to": "Mytikas (2917 m)",
+          "overnightAt": null,
+          "note": null
+        }
+      ],
       "highestOfCountry": true
     },
     {

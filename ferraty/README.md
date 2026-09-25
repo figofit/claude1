@@ -213,6 +213,10 @@ Pole `days` je pro výstupy s noclehem na chatě/pod stanem po cestě — pole o
 from, to, overnightAt, note}`, jeden objekt na den. Na detailu záznamu se pak zobrazí jako
 sekce „Itinerář“ nad poznámkou. U jednodenních výstupů nech `days: []`.
 
+`overnightAt` (kde jsi tu noc opravdu spal — chata, rifugio, útulna) appka navíc posbírá ze
+všech záznamů dohromady do sekce „Kde jsem spal“ na `statistiky.html`. Piš stejnou chatu
+pokaždé stejně (i při zpáteční cestě přes stejné místo), ať se to v přehledu nezdvojí.
+
 ## Jak přidat nový výstup
 
 1. Otevři stránku **Přidat výstup** (`pridat.html`), vyber typ (ferrata/vrchol/hřebenovka)
