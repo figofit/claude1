@@ -602,19 +602,36 @@
       "summit": null,
       "altitude_m": 3564,
       "duration_min": null,
-      "note": "Dvoudenní výstup z Kaprunu s nocí na Heinrich-Schwaiger-Haus (2802 m) — přes 2600 výškových metrů po svých. Druhý den (sestup) sám o sobě 25 000 kroků.",
+      "note": "Dvoudenní výstup z Kaprunu s nocí na Heinrich-Schwaiger-Haus (2802 m) — přes 2600 výškových metrů po svých. Druhý den (sestup) sám o sobě 25 000 kroků. Ledovec je na horu z obou stran po srázech, ale po hřebínku od chaty nahoru jsem přes něj vůbec nešel.",
       "track": null,
       "photos": [],
       "sourceUrl": "https://michaldokoupil.cz/grosses-wiesbachhorn/",
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-26T00:00:00Z",
+      "updatedAt": "2026-09-27T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": [],
+      "days": [
+        {
+          "day": 1,
+          "date": "2022-08-15",
+          "from": "Kaprun",
+          "to": "Heinrich-Schwaiger-Haus (2802 m)",
+          "overnightAt": "Heinrich-Schwaiger-Haus",
+          "note": null
+        },
+        {
+          "day": 2,
+          "date": "2022-08-16",
+          "from": "Heinrich-Schwaiger-Haus",
+          "to": "Grosses Wiesbachhorn (3564 m) a zpět do Kaprunu",
+          "overnightAt": null,
+          "note": "Sestup sám o sobě 25 000 kroků."
+        }
+      ],
       "highestOfCountry": false,
-      "glacier": "route",
-      "glacierName": "ledovec pod Wiesbachhornem"
+      "glacier": null,
+      "glacierName": null
     },
     {
       "id": "teide",
