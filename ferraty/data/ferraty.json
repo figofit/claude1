@@ -842,10 +842,27 @@
         "koncheto-vihren-kutelo"
       ],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-27T00:00:00Z",
+      "updatedAt": "2026-09-25T00:00:00Z",
       "regionGroup": null,
       "featured": true,
-      "days": [],
+      "days": [
+        {
+          "day": 1,
+          "date": null,
+          "from": null,
+          "to": "Chata Vihren",
+          "overnightAt": "Chata Vihren",
+          "note": null
+        },
+        {
+          "day": 2,
+          "date": "2020-08-09",
+          "from": "Chata Vihren",
+          "to": "Vihren (vrchol), dál hřebenovka Koncheto na Kutelo",
+          "overnightAt": null,
+          "note": null
+        }
+      ],
       "highestOfCountry": false
     },
     {
@@ -1027,7 +1044,24 @@
       "updatedAt": "2026-09-25T00:00:00Z",
       "regionGroup": null,
       "featured": true,
-      "days": [],
+      "days": [
+        {
+          "day": 1,
+          "date": "2020-07-26",
+          "from": "Vrata (Aljažev dom)",
+          "to": "Triglavski dom na Kredarici",
+          "overnightAt": "Triglavski dom na Kredarici",
+          "note": "Výstup přes Pot čez Prag; kvůli covidu zavřená společná noclehárna, přespáno pod schody."
+        },
+        {
+          "day": 2,
+          "date": "2020-07-27",
+          "from": "Triglavski dom na Kredarici",
+          "to": "Triglav (vrchol) přes Mali Triglav, sestup Tominškovou cestou do Vrat",
+          "overnightAt": null,
+          "note": "Výstup před svítáním, východ slunce na vrcholu. Sestup Tominškovou cestou náročnější než výstup."
+        }
+      ],
       "highestOfCountry": true
     },
     {
