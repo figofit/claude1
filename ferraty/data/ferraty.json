@@ -1546,7 +1546,9 @@
       "track": null,
       "photos": [],
       "sourceUrl": null,
-      "relatedIds": [],
+      "relatedIds": [
+        "skala-olymp"
+      ],
       "createdAt": "2026-09-16T00:00:00Z",
       "updatedAt": "2026-09-26T00:00:00Z",
       "regionGroup": null,
@@ -5169,6 +5171,41 @@
       "glacierName": null,
       "createdAt": "2026-09-27T00:00:00Z",
       "updatedAt": "2026-09-27T00:00:00Z"
+    },
+    {
+      "id": "skala-olymp",
+      "type": "vrchol",
+      "name": "Skala",
+      "country": "Řecko",
+      "region": "Olymp",
+      "regionGroup": null,
+      "locality": null,
+      "coordinates": null,
+      "date": "2021-07-29",
+      "length_m": null,
+      "elevationGain_m": null,
+      "summit": null,
+      "altitude_m": 2882,
+      "duration_min": null,
+      "featured": false,
+      "reachedSummit": true,
+      "days": [],
+      "note": "Cestou na Mytikas, stejný den (29. 7. 2021) — hřebenová trasa přes Skala k vrcholu Mytikas.",
+      "track": null,
+      "photos": [],
+      "sourceUrl": null,
+      "relatedIds": [
+        "mytikas-olymp"
+      ],
+      "highestOfCountry": false,
+      "highestOfAreas": [],
+      "milestones": [],
+      "companions": [],
+      "volcano": false,
+      "glacier": null,
+      "glacierName": null,
+      "createdAt": "2026-09-26T00:00:00Z",
+      "updatedAt": "2026-09-26T00:00:00Z"
     }
   ]
 }
