@@ -2399,10 +2399,10 @@
       "photos": [],
       "sourceUrl": null,
       "relatedIds": [
-        "rohace-banikov-tri-kopy-2017"
+        "rohace-banikov-tri-kopy-2021"
       ],
       "createdAt": "2026-09-18T00:00:00Z",
-      "updatedAt": "2026-09-26T00:00:00Z",
+      "updatedAt": "2026-09-27T00:00:00Z",
       "regionGroup": null,
       "featured": false,
       "days": [],
@@ -3835,7 +3835,7 @@
       "summit": null,
       "altitude_m": 1323,
       "duration_min": null,
-      "featured": false,
+      "featured": true,
       "days": [],
       "note": "Sám.",
       "track": null,
@@ -3852,7 +3852,7 @@
       "volcano": false,
       "glacier": false,
       "createdAt": "2026-09-25T00:00:00Z",
-      "updatedAt": "2026-09-25T00:00:00Z"
+      "updatedAt": "2026-09-27T00:00:00Z"
     },
     {
       "id": "smrk-beskydy-2017",
@@ -4544,7 +4544,7 @@
       "updatedAt": "2026-09-25T00:00:00Z"
     },
     {
-      "id": "rohace-banikov-tri-kopy-2017",
+      "id": "rohace-banikov-tri-kopy-2021",
       "type": "hřebenovka",
       "name": "Roháče: Baníkov – Hrubá kopa – Tri kopy",
       "country": "Slovensko",
@@ -4552,7 +4552,7 @@
       "regionGroup": null,
       "locality": null,
       "coordinates": null,
-      "date": "2017-07-21",
+      "date": "2021-07-21",
       "length_m": null,
       "elevationGain_m": null,
       "summit": null,
@@ -4578,7 +4578,7 @@
         "Poliš"
       ],
       "createdAt": "2026-09-26T00:00:00Z",
-      "updatedAt": "2026-09-26T00:00:00Z"
+      "updatedAt": "2026-09-27T00:00:00Z"
     },
     {
       "id": "placlive",
@@ -4589,7 +4589,7 @@
       "regionGroup": null,
       "locality": null,
       "coordinates": null,
-      "date": "2017-07-21",
+      "date": "2021-07-21",
       "length_m": null,
       "elevationGain_m": null,
       "summit": null,
@@ -4602,7 +4602,7 @@
       "photos": [],
       "sourceUrl": null,
       "relatedIds": [
-        "rohace-banikov-tri-kopy-2017",
+        "rohace-banikov-tri-kopy-2021",
         "ostry-rohac"
       ],
       "highestOfCountry": false,
@@ -4614,7 +4614,7 @@
         "Poliš"
       ],
       "createdAt": "2026-09-26T00:00:00Z",
-      "updatedAt": "2026-09-26T00:00:00Z"
+      "updatedAt": "2026-09-27T00:00:00Z"
     },
     {
       "id": "ostry-rohac",
@@ -4625,7 +4625,7 @@
       "regionGroup": null,
       "locality": null,
       "coordinates": null,
-      "date": "2017-07-21",
+      "date": "2021-07-21",
       "length_m": null,
       "elevationGain_m": null,
       "summit": null,
@@ -4638,7 +4638,7 @@
       "photos": [],
       "sourceUrl": null,
       "relatedIds": [
-        "rohace-banikov-tri-kopy-2017",
+        "rohace-banikov-tri-kopy-2021",
         "placlive"
       ],
       "highestOfCountry": false,
@@ -4650,7 +4650,7 @@
         "Poliš"
       ],
       "createdAt": "2026-09-26T00:00:00Z",
-      "updatedAt": "2026-09-26T00:00:00Z"
+      "updatedAt": "2026-09-27T00:00:00Z"
     },
     {
       "id": "irechek",
