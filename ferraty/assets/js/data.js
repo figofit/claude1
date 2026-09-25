@@ -232,6 +232,30 @@
     const above3000Count = summitRecords.filter((r) => r.altitude_m >= 3000).length;
     const above4000Count = summitRecords.filter((r) => r.altitude_m >= 4000).length;
 
+    // Největší převýšení zvládnuté v jednom dni — u jednodenních výstupů je to prostě
+    // elevationGain_m záznamu, u vícedenních jen tehdy, když je vyplněné elevationGain_m
+    // u konkrétního dne v "days" (celkové převýšení celé vícedenní akce by jinak zkreslovalo
+    // srovnání s jednodenním výkonem).
+    let biggestSingleDay = null;
+    records.forEach((r) => {
+      const days = r.days || [];
+      if (days.length <= 1) {
+        if (typeof r.elevationGain_m === "number") {
+          if (!biggestSingleDay || r.elevationGain_m > biggestSingleDay.gain) {
+            biggestSingleDay = { gain: r.elevationGain_m, record: r, day: null };
+          }
+        }
+      } else {
+        days.forEach((d) => {
+          if (typeof d.elevationGain_m === "number") {
+            if (!biggestSingleDay || d.elevationGain_m > biggestSingleDay.gain) {
+              biggestSingleDay = { gain: d.elevationGain_m, record: r, day: d };
+            }
+          }
+        });
+      }
+    });
+
     return {
       total,
       countriesCount: countrySet.size,
@@ -249,6 +273,7 @@
       above2500Count,
       above3000Count,
       above4000Count,
+      biggestSingleDay,
     };
   }
 

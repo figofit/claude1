@@ -35,6 +35,7 @@
             ${dateLabel ? `<span class="itinerary-day__date">${dateLabel}</span>` : ""}
           </div>
           ${route ? `<div class="itinerary-day__route">${Ferraty.escapeHtml(route)}</div>` : ""}
+          ${typeof d.elevationGain_m === "number" ? `<div class="itinerary-day__overnight">⛰ Převýšení: ${Ferraty.fmtElevation(d.elevationGain_m)}</div>` : ""}
           ${d.overnightAt ? `<div class="itinerary-day__overnight">🏠 Nocleh: ${Ferraty.escapeHtml(d.overnightAt)}</div>` : ""}
           ${d.note ? `<p class="itinerary-day__note">${Ferraty.escapeHtml(d.note)}</p>` : ""}
         </div>`;

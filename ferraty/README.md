@@ -87,6 +87,7 @@ Každý záznam v `data/ferraty.json` → `records[]` vypadá takto (viz i ulož
       "from": "Gosausee",
       "to": "Gablonzer Hütte",
       "overnightAt": "Gablonzer Hütte",   // nebo null, pokud se ten den nespalo na chatě
+      "elevationGain_m": 900,             // nepovinné — převýšení JEN za tento den (viz níže)
       "note": "Nástup a nocleh před summit dnem."
     }
   ],                                      // nebo [] u jednodenních výstupů
@@ -223,12 +224,20 @@ z poznámky, i když u starších záznamů byl jednorázově odvozený z volné
 ### Vícedenní itinerář
 
 Pole `days` je pro výstupy s noclehem na chatě/pod stanem po cestě — pole objektů `{day, date,
-from, to, overnightAt, note}`, jeden objekt na den. Na detailu záznamu se pak zobrazí jako
-sekce „Itinerář“ nad poznámkou. U jednodenních výstupů nech `days: []`.
+from, to, overnightAt, elevationGain_m, note}`, jeden objekt na den. Na detailu záznamu se pak
+zobrazí jako sekce „Itinerář“ nad poznámkou. U jednodenních výstupů nech `days: []`.
 
 `overnightAt` (kde jsi tu noc opravdu spal — chata, rifugio, útulna) appka navíc posbírá ze
 všech záznamů dohromady do sekce „Kde jsem spal“ na `statistiky.html`. Piš stejnou chatu
 pokaždé stejně (i při zpáteční cestě přes stejné místo), ať se to v přehledu nezdvojí.
+
+`elevationGain_m` u konkrétního dne (nepovinné, nezaměňovat s `elevationGain_m` na úrovni celého
+záznamu — to je součet/celek za celou akci) slouží k férovému srovnání jednodenního výkonu.
+Bez toho by třeba dvoudenní výstup s celkovým převýšením 2900 m vypadal "výkonnostně" stejně
+jako jednodenní výstup s 2600 m, i když ve skutečnosti šlo o mnohem menší nápor na jeden den.
+Appka z toho počítá „Největší jednodenní převýšení“ na `statistiky.html` — u jednodenních
+výstupů bere přímo `elevationGain_m` záznamu, u vícedenních jen dny, kde je `elevationGain_m`
+vyplněné (jinak se ten den do srovnání nepočítá).
 
 ## Jak přidat nový výstup
 

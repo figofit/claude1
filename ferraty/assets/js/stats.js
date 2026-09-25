@@ -3,6 +3,10 @@
   "use strict";
 
   function renderStatRow(stats) {
+    const biggest = stats.biggestSingleDay;
+    const biggestNote = biggest
+      ? `${Ferraty.escapeHtml(biggest.record.name)}${biggest.day ? ` (den ${biggest.day.day})` : ""}`
+      : null;
     const tiles = [
       { value: stats.total, label: "Výstupů celkem" },
       { value: stats.countriesCount, label: "Zemí" },
@@ -10,6 +14,11 @@
         value: stats.highestAltitude ? Ferraty.fmtNumber(stats.highestAltitude.altitude_m) + " m" : "—",
         label: "Nejvyšší dosažený bod",
         note: stats.highestAltitude ? Ferraty.escapeHtml(stats.highestAltitude.name) : "zatím neznámo",
+      },
+      {
+        value: biggest ? Ferraty.fmtNumber(biggest.gain) + " m" : "—",
+        label: "Největší jednodenní převýšení",
+        note: biggestNote || "zatím neznámo",
       },
     ];
     return tiles
