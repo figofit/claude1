@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>Alpy | Moje hory</title>
+<meta name="description" content="Výstupy v Alpách (Rakousko, Německo, Slovinsko, Itálie...) a tipy na dopravu a logistiku — auto, lanovky, chaty, počasí.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="alpy">
+
+<header id="app-header" class="site-header"></header>
+
+<main class="container">
+
+  <section class="hero">
+    <div class="hero__content">
+      <div class="hero__eyebrow">Regionální podstránka</div>
+      <h1>Alpy</h1>
+      <p>Výstupy v rakouských, německých a slovinsko-italských Alpách — od Vysokých Taur po Julské Alpy. Plus doprava a pár tipů na logistiku.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#alpy-list">Zobrazit výstupy</a>
+        <a class="btn btn--ghost" href="#doprava">Doprava a logistika</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div id="stat-row" class="stat-row" aria-live="polite">
+      <div class="stat-tile"><div class="stat-tile__value">…</div><div class="stat-tile__label">Načítám data</div></div>
+    </div>
+  </section>
+
+  <section class="section" id="alpy-list">
+    <div class="section__head">
+      <h2>Výstupy v Alpách</h2>
+      <a href="ferraty.html">Celý seznam →</a>
+    </div>
+    <div id="region-table" class="table-wrap">
+      <p class="empty-state">Načítám…</p>
+    </div>
+  </section>
+
+  <section class="section" id="doprava">
+    <div class="section__head">
+      <h2>Doprava a logistika</h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stats-card">
+        <h3>🚗 Auto mezi oblastmi</h3>
+        <p class="text-muted">
+          Alpy jsou rozeseté přes několik zemí a pohoří (Hohe Tauern, Dachstein/Salzkammergut,
+          Berchtesgadenské Alpy, Wetterstein, Julské Alpy…) — mezi jednotlivými oblastmi dává
+          smysl auto, veřejná doprava funguje spíš uvnitř jedné oblasti nebo údolí.
+        </p>
+      </div>
+      <div class="stats-card">
+        <h3>🚡 Lanovky k nástupům</h3>
+        <p class="text-muted">
+          Ledovcové a horské lanovky (např. u Kaprunu/Kitzsteinhornu, na Gosau/Dachstein)
+          umí pořádně zkrátit a zjednodušit přístup pod stěny — provoz je ale sezónní, mimo
+          hlavní sezónu se vyplatí ověřit otevírací dobu předem.
+        </p>
+      </div>
+      <div class="stats-card">
+        <h3>🛖 Alpenverein chaty</h3>
+        <p class="text-muted">
+          Na vícedenní trasy jsou klíčové vysokohorské chaty (Alpenverein a spol.) — v sezóně
+          se vyplatí rezervovat dopředu, členství v horolezeckém klubu obvykle znamená slevu
+          na noclehu.
+        </p>
+      </div>
+      <div class="stats-card">
+        <h3>🌩 Počasí a časný start</h3>
+        <p class="text-muted">
+          Odpolední bouřky bývají v teplých měsících v Alpách běžné — brzký start na exponované
+          hřebeny a vrcholové partie je v podstatě pravidlo, ne jen doporučení.
+        </p>
+      </div>
+      <div class="stats-card">
+        <h3>🧊 Ledovce a výbava</h3>
+        <p class="text-muted">
+          Trasy vedoucí přes zbytky ledovců nebo firnová pole (typicky ve vyšších partiích
+          Hohe Tauern nebo na Zugspitzplattu) mohou podle sezóny a sněhových podmínek chtít
+          mačky nebo cepín — stav se vyplatí ověřit těsně před výstupem.
+        </p>
+      </div>
+      <div class="stats-card">
+        <h3>🅿️ Parkování pod horami</h3>
+        <p class="text-muted">
+          Parkoviště u oblíbených výchozích bodů (Kaprun, Gosau, Ramsau…) bývají v sezóně
+          a o víkendech rychle plná — časný příjezd šetří čas i nervy.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="app-footer" class="site-footer"></footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/region.js"></script>
+<script src="assets/js/alpy.js"></script>
+</body>
+</html>

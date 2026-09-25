@@ -13,6 +13,7 @@
     { page: "statistiky", href: "statistiky.html", label: "Statistiky" },
     { page: "tatry", href: "tatry.html", label: "Tatry" },
     { page: "beskydy", href: "beskydy.html", label: "Beskydy" },
+    { page: "alpy", href: "alpy.html", label: "Alpy" },
     { page: "pridat", href: "pridat.html", label: "Přidat výstup" },
   ];
 

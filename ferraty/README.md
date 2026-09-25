@@ -32,6 +32,7 @@ ferraty/
   statistiky.html      Automaticky počítané statistiky + žebříček podle nadmořské výšky
   tatry.html           Regionální podstránka pro Vysoké Tatry (výstupy + doprava/logistika)
   beskydy.html         Regionální podstránka pro Beskydy (výstupy + doprava/logistika)
+  alpy.html            Regionální podstránka pro Alpy (výstupy + doprava/logistika)
   pridat.html          Formulář pro vygenerování nového záznamu
 
   data/
@@ -148,14 +149,17 @@ k jednotlivým souborům. Prázdné pole `[]` znamená "zatím žádné fotky", 
 ### Regionální skupina a regionální podstránky
 
 `regionGroup` je volitelný štítek nezávislý na `region` (který je volný text) — používají ho
-regionální podstránky typu `tatry.html`/`beskydy.html`, co k výstupům přidávají vlastní hero,
-statistiky a třeba tipy na dopravu. Sdílenou logiku (stat řádek + tabulka výstupů) má na
-starosti `assets/js/region.js` — samotná stránka je jen HTML (hero + sekce "Doprava a logistika")
-plus tenký `*.js` soubor, který zavolá `Ferraty.Region.init({ regionGroup, countLabel, emptyMessage })`.
+regionální podstránky typu `tatry.html`/`beskydy.html`/`alpy.html`, co k výstupům přidávají
+vlastní hero, statistiky a třeba tipy na dopravu. Sdílenou logiku (stat řádek + tabulka výstupů)
+má na starosti `assets/js/region.js` — samotná stránka je jen HTML (hero + sekce "Doprava a
+logistika") plus tenký `*.js` soubor, který zavolá
+`Ferraty.Region.init({ regionGroup, countLabel, emptyMessage })`.
 
-Zatím existují `"Tatry"` a `"Beskydy"`. Další skupina (Alpy, Balkán, Kavkaz…) by fungovala
-stejně: nová `<region>.html` podle vzoru `tatry.html`/`beskydy.html`, tenký `<region>.js` podle
-vzoru `tatry.js`, a vyplnění `regionGroup` u příslušných záznamů.
+Zatím existují `"Tatry"`, `"Beskydy"` a `"Alpy"`. `"Pyreneje"` je zatím jen vyplněná u záznamů
+(Aneto, Comapedrosa) bez vlastní podstránky — až tam přibude víc výstupů, založí se stejným
+způsobem. Další skupina (Balkán, Kavkaz…) by fungovala stejně: nová `<region>.html` podle vzoru
+`tatry.html`/`beskydy.html`/`alpy.html`, tenký `<region>.js` podle vzoru `tatry.js`, přidání
+odkazu do `NAV_ITEMS` v `assets/js/nav.js`, a vyplnění `regionGroup` u příslušných záznamů.
 
 ### TOP výstupy
 
