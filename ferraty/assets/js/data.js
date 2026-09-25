@@ -113,6 +113,7 @@
         highestOfCountry: false,
         highestOfAreas: [],
         milestones: [],
+        companions: [],
         volcano: false,
         glacier: false,
         days: [],

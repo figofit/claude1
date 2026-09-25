@@ -22,12 +22,19 @@
     return Array.from(set).sort();
   }
 
+  function uniqueSortedFlat(records, listFn) {
+    const set = new Set();
+    records.forEach((r) => (listFn(r) || []).forEach((v) => v && set.add(v)));
+    return Array.from(set).sort((a, b) => a.localeCompare(b, "cs"));
+  }
+
   function currentFilters() {
     return {
       search: els.search.value.trim().toLowerCase(),
       country: els.country.value,
       year: els.year.value,
       type: els.type.value,
+      companion: els.companion.value,
     };
   }
 
@@ -36,6 +43,7 @@
       if (f.country && r.country !== f.country) return false;
       if (f.year && String(Ferraty.yearOf(r.date)) !== f.year) return false;
       if (f.type && r.type !== f.type) return false;
+      if (f.companion && !(r.companions || []).includes(f.companion)) return false;
       if (f.search) {
         const hay = [r.name, r.region, r.locality].filter(Boolean).join(" ").toLowerCase();
         if (!hay.includes(f.search)) return false;
@@ -120,6 +128,7 @@
     els.country.value = "";
     els.year.value = "";
     els.type.value = "";
+    els.companion.value = "";
     render();
   }
 
@@ -128,6 +137,7 @@
     els.country = document.getElementById("f-country");
     els.year = document.getElementById("f-year");
     els.type = document.getElementById("f-type");
+    els.companion = document.getElementById("f-companion");
     els.reset = document.getElementById("f-reset");
     els.count = document.getElementById("result-count");
     els.tbody = document.getElementById("ferraty-tbody");
@@ -146,8 +156,9 @@
       uniqueSorted(allRecords, (r) => Ferraty.yearOf(r.date)).sort((a, b) => b - a),
       (v) => String(v)
     );
+    populateSelect(els.companion, uniqueSortedFlat(allRecords, (r) => r.companions));
 
-    [els.search, els.country, els.year, els.type].forEach((el) => {
+    [els.search, els.country, els.year, els.type, els.companion].forEach((el) => {
       el.addEventListener("input", render);
       el.addEventListener("change", render);
     });

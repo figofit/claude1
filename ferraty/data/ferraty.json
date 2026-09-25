@@ -24,11 +24,14 @@
       "sourceUrl": "https://michaldokoupil.cz/intersport-klettersteig-donnerkogel/",
       "relatedIds": [],
       "createdAt": "2026-09-15T00:00:00Z",
-      "updatedAt": "2026-09-21T00:00:00Z",
+      "updatedAt": "2026-09-25T00:00:00Z",
       "regionGroup": null,
       "featured": true,
       "days": [],
-      "highestOfCountry": false
+      "highestOfCountry": false,
+      "companions": [
+        "Helenka"
+      ]
     },
     {
       "id": "drachenwand",
@@ -111,11 +114,14 @@
       "sourceUrl": null,
       "relatedIds": [],
       "createdAt": "2026-09-15T00:00:00Z",
-      "updatedAt": "2026-09-21T00:00:00Z",
+      "updatedAt": "2026-09-25T00:00:00Z",
       "regionGroup": null,
       "featured": false,
       "days": [],
-      "highestOfCountry": false
+      "highestOfCountry": false,
+      "companions": [
+        "Helenka"
+      ]
     },
     {
       "id": "traunsee-klettersteig",
@@ -169,11 +175,14 @@
       "sourceUrl": null,
       "relatedIds": [],
       "createdAt": "2026-09-15T00:00:00Z",
-      "updatedAt": "2026-09-22T00:00:00Z",
+      "updatedAt": "2026-09-25T00:00:00Z",
       "regionGroup": null,
       "featured": false,
       "days": [],
-      "highestOfCountry": false
+      "highestOfCountry": false,
+      "companions": [
+        "Mazi"
+      ]
     },
     {
       "id": "mojstrana",
@@ -229,11 +238,14 @@
       "sourceUrl": null,
       "relatedIds": [],
       "createdAt": "2026-09-15T00:00:00Z",
-      "updatedAt": "2026-09-20T00:00:00Z",
+      "updatedAt": "2026-09-25T00:00:00Z",
       "regionGroup": "Tatry",
       "featured": false,
       "days": [],
-      "highestOfCountry": false
+      "highestOfCountry": false,
+      "companions": [
+        "Helenka"
+      ]
     },
     {
       "id": "vir",
@@ -255,11 +267,14 @@
       "sourceUrl": null,
       "relatedIds": [],
       "createdAt": "2026-09-15T00:00:00Z",
-      "updatedAt": "2026-09-22T00:00:00Z",
+      "updatedAt": "2026-09-25T00:00:00Z",
       "regionGroup": null,
       "featured": false,
       "days": [],
-      "highestOfCountry": false
+      "highestOfCountry": false,
+      "companions": [
+        "Mazi"
+      ]
     },
     {
       "id": "zugspitze-ferrata-od-ledovce",
@@ -330,11 +345,14 @@
         "heidsteig-2025"
       ],
       "createdAt": "2026-09-15T00:00:00Z",
-      "updatedAt": "2026-09-22T00:00:00Z",
+      "updatedAt": "2026-09-25T00:00:00Z",
       "regionGroup": null,
       "featured": false,
       "days": [],
-      "highestOfCountry": false
+      "highestOfCountry": false,
+      "companions": [
+        "Helenka"
+      ]
     },
     {
       "id": "alpenvereinssteig",
@@ -356,11 +374,14 @@
       "sourceUrl": null,
       "relatedIds": [],
       "createdAt": "2026-09-15T00:00:00Z",
-      "updatedAt": "2026-09-15T00:00:00Z",
+      "updatedAt": "2026-09-25T00:00:00Z",
       "regionGroup": null,
       "featured": false,
       "days": [],
-      "highestOfCountry": false
+      "highestOfCountry": false,
+      "companions": [
+        "Helenka"
+      ]
     },
     {
       "id": "kazbek",
@@ -414,7 +435,7 @@
       "sourceUrl": "https://michaldokoupil.cz/pico-de-aneto/",
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-21T00:00:00Z",
+      "updatedAt": "2026-09-25T00:00:00Z",
       "regionGroup": null,
       "featured": true,
       "days": [
@@ -439,7 +460,10 @@
       "highestOfAreas": [
         "Pyreneje"
       ],
-      "glacier": true
+      "glacier": true,
+      "companions": [
+        "Hausi"
+      ]
     },
     {
       "id": "grossglockner",
@@ -464,7 +488,7 @@
       "sourceUrl": "https://michaldokoupil.cz/grossglockner/",
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-20T00:00:00Z",
+      "updatedAt": "2026-09-25T00:00:00Z",
       "regionGroup": null,
       "featured": false,
       "days": [
@@ -496,6 +520,9 @@
       "highestOfCountry": true,
       "highestOfAreas": [
         "Vysoké Taury (Hohe Tauern)"
+      ],
+      "companions": [
+        "Mara"
       ]
     },
     {
@@ -646,7 +673,7 @@
         "vistea-mare"
       ],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-21T00:00:00Z",
+      "updatedAt": "2026-09-25T00:00:00Z",
       "regionGroup": null,
       "featured": false,
       "days": [
@@ -667,7 +694,10 @@
           "note": "Budíček ve 4:00, zpět na Cabana Podragu a přes Viștea Mare (9:30) na vrchol v 9:45."
         }
       ],
-      "highestOfCountry": true
+      "highestOfCountry": true,
+      "companions": [
+        "Hausi"
+      ]
     },
     {
       "id": "snezka",
@@ -692,11 +722,14 @@
       "sourceUrl": null,
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-22T00:00:00Z",
+      "updatedAt": "2026-09-25T00:00:00Z",
       "regionGroup": null,
       "featured": false,
       "days": [],
-      "highestOfCountry": true
+      "highestOfCountry": true,
+      "companions": [
+        "Helenka"
+      ]
     },
     {
       "id": "musala",
@@ -1258,11 +1291,14 @@
       "sourceUrl": "https://michaldokoupil.cz/nejvyssi-hora-egypta-svata-katerina-sinaj/",
       "relatedIds": [],
       "createdAt": "2026-09-16T00:00:00Z",
-      "updatedAt": "2026-09-19T00:00:00Z",
+      "updatedAt": "2026-09-25T00:00:00Z",
       "regionGroup": null,
       "featured": false,
       "days": [],
-      "highestOfCountry": true
+      "highestOfCountry": true,
+      "companions": [
+        "Helenka"
+      ]
     },
     {
       "id": "mt-olympos-cyprus",
@@ -1838,11 +1874,14 @@
       "sourceUrl": null,
       "relatedIds": [],
       "createdAt": "2026-09-17T00:00:00Z",
-      "updatedAt": "2026-09-19T00:00:00Z",
+      "updatedAt": "2026-09-25T00:00:00Z",
       "regionGroup": "Tatry",
       "featured": false,
       "days": [],
-      "highestOfCountry": false
+      "highestOfCountry": false,
+      "companions": [
+        "Hausi"
+      ]
     },
     {
       "id": "vychodna-vysoka",
@@ -1864,11 +1903,14 @@
       "sourceUrl": null,
       "relatedIds": [],
       "createdAt": "2026-09-17T00:00:00Z",
-      "updatedAt": "2026-09-19T00:00:00Z",
+      "updatedAt": "2026-09-25T00:00:00Z",
       "regionGroup": "Tatry",
       "featured": false,
       "days": [],
-      "highestOfCountry": false
+      "highestOfCountry": false,
+      "companions": [
+        "Mara"
+      ]
     },
     {
       "id": "sedielkova-kopa",
@@ -2735,7 +2777,10 @@
       "updatedAt": "2026-09-25T00:00:00Z",
       "regionGroup": null,
       "featured": false,
-      "days": []
+      "days": [],
+      "companions": [
+        "Helenka"
+      ]
     },
     {
       "id": "velika-baba",
@@ -2761,7 +2806,10 @@
       "relatedIds": [],
       "highestOfCountry": false,
       "createdAt": "2026-09-20T00:00:00Z",
-      "updatedAt": "2026-09-20T00:00:00Z"
+      "updatedAt": "2026-09-25T00:00:00Z",
+      "companions": [
+        "Helenka"
+      ]
     },
     {
       "id": "jahnaci-stit",
@@ -2790,7 +2838,10 @@
       "relatedIds": [],
       "highestOfCountry": false,
       "createdAt": "2026-09-20T00:00:00Z",
-      "updatedAt": "2026-09-20T00:00:00Z"
+      "updatedAt": "2026-09-25T00:00:00Z",
+      "companions": [
+        "Helenka"
+      ]
     },
     {
       "id": "alpinvereinsteig",
@@ -2818,7 +2869,10 @@
       ],
       "highestOfCountry": false,
       "createdAt": "2026-09-20T00:00:00Z",
-      "updatedAt": "2026-09-20T00:00:00Z"
+      "updatedAt": "2026-09-25T00:00:00Z",
+      "companions": [
+        "Helenka"
+      ]
     },
     {
       "id": "rabenstein",
@@ -2846,7 +2900,10 @@
       ],
       "highestOfCountry": false,
       "createdAt": "2026-09-20T00:00:00Z",
-      "updatedAt": "2026-09-20T00:00:00Z"
+      "updatedAt": "2026-09-25T00:00:00Z",
+      "companions": [
+        "Helenka"
+      ]
     },
     {
       "id": "klettergarten-sedm-vrcholu",
@@ -2900,7 +2957,10 @@
       "relatedIds": [],
       "highestOfCountry": false,
       "createdAt": "2026-09-20T00:00:00Z",
-      "updatedAt": "2026-09-20T00:00:00Z"
+      "updatedAt": "2026-09-25T00:00:00Z",
+      "companions": [
+        "Helenka"
+      ]
     },
     {
       "id": "kutelo",
@@ -3016,7 +3076,10 @@
       "highestOfAreas": [],
       "milestones": [],
       "createdAt": "2026-09-21T00:00:00Z",
-      "updatedAt": "2026-09-21T00:00:00Z"
+      "updatedAt": "2026-09-25T00:00:00Z",
+      "companions": [
+        "Helenka"
+      ]
     },
     {
       "id": "curevac",
@@ -3044,7 +3107,10 @@
       "highestOfAreas": [],
       "milestones": [],
       "createdAt": "2026-09-21T00:00:00Z",
-      "updatedAt": "2026-09-21T00:00:00Z"
+      "updatedAt": "2026-09-25T00:00:00Z",
+      "companions": [
+        "Helenka"
+      ]
     },
     {
       "id": "vistea-mare",
@@ -3074,7 +3140,10 @@
       "highestOfAreas": [],
       "milestones": [],
       "createdAt": "2026-09-21T00:00:00Z",
-      "updatedAt": "2026-09-21T00:00:00Z"
+      "updatedAt": "2026-09-25T00:00:00Z",
+      "companions": [
+        "Hausi"
+      ]
     },
     {
       "id": "opponberg-ferrata",
@@ -3102,7 +3171,10 @@
       "highestOfAreas": [],
       "milestones": [],
       "createdAt": "2026-09-21T00:00:00Z",
-      "updatedAt": "2026-09-21T00:00:00Z"
+      "updatedAt": "2026-09-25T00:00:00Z",
+      "companions": [
+        "Helenka"
+      ]
     },
     {
       "id": "priel-klettersteig-2022",
@@ -3135,7 +3207,10 @@
       "highestOfAreas": [],
       "milestones": [],
       "createdAt": "2026-09-21T00:00:00Z",
-      "updatedAt": "2026-09-21T00:00:00Z"
+      "updatedAt": "2026-09-25T00:00:00Z",
+      "companions": [
+        "Helenka"
+      ]
     },
     {
       "id": "ferrata-cestou-do-kaprunu",
@@ -3283,7 +3358,10 @@
       "volcano": false,
       "glacier": false,
       "createdAt": "2026-09-21T00:00:00Z",
-      "updatedAt": "2026-09-21T00:00:00Z"
+      "updatedAt": "2026-09-25T00:00:00Z",
+      "companions": [
+        "Helenka"
+      ]
     },
     {
       "id": "pico-do-areeiro",
@@ -3379,7 +3457,10 @@
       "volcano": false,
       "glacier": false,
       "createdAt": "2026-09-21T00:00:00Z",
-      "updatedAt": "2026-09-21T00:00:00Z"
+      "updatedAt": "2026-09-25T00:00:00Z",
+      "companions": [
+        "Mara"
+      ]
     },
     {
       "id": "heidsteig-2025",
@@ -3411,7 +3492,10 @@
       "volcano": false,
       "glacier": false,
       "createdAt": "2026-09-22T00:00:00Z",
-      "updatedAt": "2026-09-22T00:00:00Z"
+      "updatedAt": "2026-09-25T00:00:00Z",
+      "companions": [
+        "Mazi"
+      ]
     },
     {
       "id": "modling-ferrata",
@@ -3441,7 +3525,10 @@
       "volcano": false,
       "glacier": false,
       "createdAt": "2026-09-22T00:00:00Z",
-      "updatedAt": "2026-09-22T00:00:00Z"
+      "updatedAt": "2026-09-25T00:00:00Z",
+      "companions": [
+        "Mazi"
+      ]
     },
     {
       "id": "ferrata-zams",
@@ -3732,7 +3819,11 @@
       "volcano": false,
       "glacier": false,
       "createdAt": "2026-09-25T00:00:00Z",
-      "updatedAt": "2026-09-25T00:00:00Z"
+      "updatedAt": "2026-09-25T00:00:00Z",
+      "companions": [
+        "táta",
+        "sestra"
+      ]
     },
     {
       "id": "lysa-hora-2017-2",
@@ -3828,7 +3919,10 @@
       "volcano": false,
       "glacier": false,
       "createdAt": "2026-09-25T00:00:00Z",
-      "updatedAt": "2026-09-25T00:00:00Z"
+      "updatedAt": "2026-09-25T00:00:00Z",
+      "companions": [
+        "Hausi"
+      ]
     },
     {
       "id": "lysa-hora-2017-3",
@@ -3892,7 +3986,11 @@
       "volcano": false,
       "glacier": false,
       "createdAt": "2026-09-25T00:00:00Z",
-      "updatedAt": "2026-09-25T00:00:00Z"
+      "updatedAt": "2026-09-25T00:00:00Z",
+      "companions": [
+        "Čápi",
+        "Vendy"
+      ]
     },
     {
       "id": "serak",
@@ -4026,7 +4124,11 @@
       "volcano": false,
       "glacier": false,
       "createdAt": "2026-09-25T00:00:00Z",
-      "updatedAt": "2026-09-25T00:00:00Z"
+      "updatedAt": "2026-09-25T00:00:00Z",
+      "companions": [
+        "Hausi",
+        "Tajchý"
+      ]
     },
     {
       "id": "radhost-2017-2",
@@ -4059,7 +4161,11 @@
       "volcano": false,
       "glacier": false,
       "createdAt": "2026-09-25T00:00:00Z",
-      "updatedAt": "2026-09-25T00:00:00Z"
+      "updatedAt": "2026-09-25T00:00:00Z",
+      "companions": [
+        "Hausi",
+        "Tajchý"
+      ]
     },
     {
       "id": "praded",
@@ -4093,7 +4199,11 @@
       "volcano": false,
       "glacier": false,
       "createdAt": "2026-09-25T00:00:00Z",
-      "updatedAt": "2026-09-25T00:00:00Z"
+      "updatedAt": "2026-09-25T00:00:00Z",
+      "companions": [
+        "Tajchý",
+        "Čápi"
+      ]
     },
     {
       "id": "petrovy-kameny",
@@ -4125,7 +4235,11 @@
       "volcano": false,
       "glacier": false,
       "createdAt": "2026-09-25T00:00:00Z",
-      "updatedAt": "2026-09-25T00:00:00Z"
+      "updatedAt": "2026-09-25T00:00:00Z",
+      "companions": [
+        "Tajchý",
+        "Čápi"
+      ]
     },
     {
       "id": "pecny",
@@ -4188,7 +4302,10 @@
       "volcano": false,
       "glacier": false,
       "createdAt": "2026-09-25T00:00:00Z",
-      "updatedAt": "2026-09-25T00:00:00Z"
+      "updatedAt": "2026-09-25T00:00:00Z",
+      "companions": [
+        "Hausi"
+      ]
     },
     {
       "id": "certuv-mlyn-2017-2",
@@ -4221,7 +4338,10 @@
       "volcano": false,
       "glacier": false,
       "createdAt": "2026-09-25T00:00:00Z",
-      "updatedAt": "2026-09-25T00:00:00Z"
+      "updatedAt": "2026-09-25T00:00:00Z",
+      "companions": [
+        "Hausi"
+      ]
     },
     {
       "id": "vozka-2017-2",
@@ -4253,7 +4373,11 @@
       "volcano": false,
       "glacier": false,
       "createdAt": "2026-09-25T00:00:00Z",
-      "updatedAt": "2026-09-25T00:00:00Z"
+      "updatedAt": "2026-09-25T00:00:00Z",
+      "companions": [
+        "Hausi",
+        "Rob Kučák"
+      ]
     },
     {
       "id": "smrk-rychlebky-2017",

@@ -196,6 +196,14 @@ hory (např. Teide) a "cestou byl ledovec" (přešlapal jsi po něm, ne že ho j
 Nastavují se ručně (checkbox ve formuláři nebo v JSONu), počty se zobrazují na
 `statistiky.html` v kartě „Další“.
 
+### S kým
+
+`companions: []` je pole jmen lidí, se kterými jsi výstup absolvoval — volný text, víc jmen na
+záznam. Na `ferraty.html` podle něj jde filtrovat (filtr „S kým“), na detailu se zobrazí jako
+fakt. Prázdné pole `[]` znamená sám/neuvedeno. Nastavuje se ručně (ve formuláři jako seznam
+oddělený čárkou, v JSONu jako pole řetězců) — appka ho samo nedomýšlí ani nedopočítává
+z poznámky, i když u starších záznamů byl jednorázově odvozený z volného textu v `note`.
+
 ### Vícedenní itinerář
 
 Pole `days` je pro výstupy s noclehem na chatě/pod stanem po cestě — pole objektů `{day, date,

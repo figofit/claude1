@@ -18,6 +18,7 @@
       fact("Nejvyšší bod / cíl", r.summit || "—", !r.summit),
       fact("Nadmořská výška", Ferraty.fmtAltitude(r.altitude_m), r.altitude_m === null),
       fact("Čas", Ferraty.fmtDuration(r.duration_min), r.duration_min === null),
+      fact("S kým", r.companions && r.companions.length ? Ferraty.escapeHtml(r.companions.join(", ")) : "sám / neuvedeno", !r.companions || !r.companions.length),
     ].join("");
   }
 
