@@ -14,7 +14,7 @@ tags: [slovensko, vysoké tatry, ferrata, "2021"]
 Zatím jen kostra podle rychlé rekapitulace - podrobnosti trasy nejsou
 (zatím) upřesněné.
 
-2. října via ferrata Dve veže u Liptovské Osady - první ferrata na
+2\. října via ferrata Dve veže u Liptovské Osady - první ferrata na
 Liptově, s Helenkou.
 
-3. října výstup na Štrbský štít ve Vysokých Tatrách, s Helenkou.
+3\. října výstup na Štrbský štít ve Vysokých Tatrách, s Helenkou.

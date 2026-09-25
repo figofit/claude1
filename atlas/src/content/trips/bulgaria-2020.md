@@ -14,9 +14,9 @@ summary: >
 tags: [bulharsko, rila, pirin, nejvyšší bod země, hřebenovka, "2020"]
 ---
 
-8. srpna let z Bratislavy do Sofie a přesun do Banska pod Pirinem.
+8\. srpna let z Bratislavy do Sofie a přesun do Banska pod Pirinem.
 
-9. srpna výjezd lanovkou a výstup na Vihren (2914 m, druhá nejvyšší hora
+9\. srpna výjezd lanovkou a výstup na Vihren (2914 m, druhá nejvyšší hora
 Bulharska), hned navázaný přechodem po hřebenovce Koncheto přes vrcholy
 Banski Suhodol a Kutelo - úzký, místy jen 0,5-0,7 m široký hřeben jištěný
 řetězy, jedna z nejexponovanějších tras v Pirinu.

@@ -14,9 +14,9 @@ tags: [slovensko, vysoké tatry, ferrata, "2020"]
 Zatím jen kostra podle rychlé rekapitulace - podrobnosti tras nejsou
 (zatím) upřesněné.
 
-13. července výstup na Furkotský štít (2405 m) v Bystrom sedle mezi
+13\. července výstup na Furkotský štít (2405 m) v Bystrom sedle mezi
 Mlynickou a Furkotskou dolinou, spojený s opakovaným absolvováním via
 ferraty Bystrá lávka - poprvé zdolané v září 2019, tentokrát bez
 předchozího nečekaného sněžení.
 
-14. července následoval výstup na Končistá (2538 m).
+14\. července následoval výstup na Končistá (2538 m).

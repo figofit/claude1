@@ -15,8 +15,8 @@ tags: [česko, beskydy, sólo výlet, "2026"]
 Zatím jen kostra podle rychlé rekapitulace - podrobnosti tras nejsou
 (zatím) upřesněné.
 
-24. srpna sólo okruh z Malenovic přes kamennou mohylu Ivančena na Lysou
+24\. srpna sólo okruh z Malenovic přes kamennou mohylu Ivančena na Lysou
 horu (1324 m), nejvyšší horu Beskyd. Po výletu koupání v Olešné.
 
-27. srpna sólo výstup na Smrk (1276 m) z Ostravice a zpět. Znovu koupání
+27\. srpna sólo výstup na Smrk (1276 m) z Ostravice a zpět. Znovu koupání
 v Olešné.

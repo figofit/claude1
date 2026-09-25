@@ -13,12 +13,12 @@ summary: >
 tags: [albánie, nejvyšší bod země, sólo výlet, "2020"]
 ---
 
-3. července let Vídeň - Tirana. 4. července přesun přes Peshkopi -
+3\. července let Vídeň - Tirana. 4. července přesun přes Peshkopi -
 dvěma autostopy až na silnici s odbočkou na Radomirë, odtud pěšky podle
 offline map do vesnice. Ubytko v krásně vyzdobeném pokoji, autor tam byl
 jako jediný host ("zlatý covid"). K večeři jogurt, pak spát.
 
-5. července výstup na Korab (nejvyšší bod Albánie i Severní Makedonie
+5\. července výstup na Korab (nejvyšší bod Albánie i Severní Makedonie
 zároveň) - "super výšlap". 6. července stopem zpátky do Kukës (první
 řidič ho hned vzal a ještě koupil croissant a fruko), odtud další řidič
 až do Tirany, s kávovou zastávkou po cestě. 7. července Tirana,

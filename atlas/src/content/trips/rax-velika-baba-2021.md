@@ -15,11 +15,11 @@ tags: [rakousko, slovinsko, ferrata, kamniško-savinjske alpe, "2021"]
 Zatím jen kostra podle rychlé rekapitulace - podrobnosti trasy nejsou
 (zatím) upřesněné.
 
-11. července s Helenkou do Vídně. 12. července via ferrata Alpenvereinssteig
+11\. července s Helenkou do Vídně. 12. července via ferrata Alpenvereinssteig
 v masivu Rax - jedna z nejstarších rakouských ferrat (z roku 1910).
 13. července další via ferrata v Rax, Haidsteig - noc v Grazu.
 
-14. července přejezd přes Eisenkappel do slovinských Kamniško-Savinjských
+14\. července přejezd přes Eisenkappel do slovinských Kamniško-Savinjských
 Alp, noc. 15. července výstup od parkoviště na Velika Baba (2127 m)
 a kousek okruhu kolem útulku Kocbekov dom na Korošici - hodně náročný
 sestup - a cesta domů.

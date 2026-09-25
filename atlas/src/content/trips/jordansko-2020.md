@@ -24,12 +24,12 @@ Druhý den průzkum Wadi Rum: canyon Rakabat (ještěrky, náročnější úseky
 nádherná příroda), okruh pouští, slavná písečná duna. Odpoledne dvě
 autostopy a nakonec Němec, který dovezl až do Wadi Musa - brány do Petry.
 
-2. března Petra - podle autora nejlepší zážitek celého tripu: Siq,
+2\. března Petra - podle autora nejlepší zážitek celého tripu: Siq,
 Pokladnice (Treasury), hrobka, divadlo, výstup ke Klášteru (Monastery) po
 dlouhém schodišti. Pak stop a přesun do Ammánu - citadela, amfiteátr,
 obří vlajka, streetfood, sdílená doprava. Navštívil i Jerash s římskými
 ruinami.
 
-6. března let domů přes Polsko, s návštěvou kamarádky poznané při cestě
+6\. března let domů přes Polsko, s návštěvou kamarádky poznané při cestě
 do Říma (ta ho tehdy pozvala i s mámou). Pár dní poté byla vyhlášena
 celostátní karanténa a cestování na čas skončilo.

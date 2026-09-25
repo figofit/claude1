@@ -16,10 +16,10 @@ companions: [Helenka]
 Zatím jen kostra podle rychlé rekapitulace - podrobnosti trasy nejsou
 (zatím) upřesněné.
 
-3. června let s Helenkou do Podgorice - jejich první společný let - a
+3\. června let s Helenkou do Podgorice - jejich první společný let - a
 přesun směr Žabljak, národní park Durmitor.
 
-4. června výstup přes Crno jezero (Černé jezero) na Savin Kuk (2313 m) -
+4\. června výstup přes Crno jezero (Černé jezero) na Savin Kuk (2313 m) -
 parádní výšlap. 5. června výstup na Ćurevac (1625 m), s krásnými výhledy
 na kaňon řeky Tary, poté přesun do Podgorice a vlakem do přímořského Baru.
 

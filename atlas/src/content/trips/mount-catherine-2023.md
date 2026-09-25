@@ -17,11 +17,11 @@ Přes policejní checkpointy na jih Sinaje, vysazení v arabské beduínské
 vesnici mimo běžnou turistickou infrastrukturu. Noc v jednoduché betonové
 boudě bez izolace, venku mrazivo.
 
-10. ledna 2023 výstup s povinným místním průvodcem (bezpečnost, správná
+10\. ledna 2023 výstup s povinným místním průvodcem (bezpečnost, správná
 trasa, blízkost vojenské oblasti) - start něco po sedmé ráno, vrchol kolem
 poledne, sestup jinou trasou zpátky před pátou odpoledne.
 
-11. ledna návrat přes Dahab zpátky do Sharm El Sheikh, kde následovaly
+11\. ledna návrat přes Dahab zpátky do Sharm El Sheikh, kde následovaly
 ještě dva dny odpočinku u moře před odletem domů.
 
 [Celý článek na blogu →](https://michaldokoupil.cz/nejvyssi-hora-egypta-svata-katerina-sinaj/)
