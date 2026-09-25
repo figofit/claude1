@@ -1014,7 +1014,10 @@
       "regionGroup": "Alpy",
       "featured": false,
       "days": [],
-      "highestOfCountry": false
+      "highestOfCountry": false,
+      "highestOfAreas": [
+        "Nejvyšší hora ležící celá v Německu"
+      ]
     },
     {
       "id": "triglav",
@@ -1352,7 +1355,10 @@
       ],
       "highestOfCountry": false,
       "glacier": "route",
-      "glacierName": "ledovec Gran Paradiso"
+      "glacierName": "ledovec Gran Paradiso",
+      "highestOfAreas": [
+        "Nejvyšší hora ležící celá v Itálii"
+      ]
     },
     {
       "id": "comapedrosa",
