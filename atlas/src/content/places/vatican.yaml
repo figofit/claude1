@@ -1,5 +1,6 @@
 name: Vatikán
 country: VA
 type: city
+capital: true
 coordinates: [12.4534, 41.9029]
 description: Nejmenší stát světa, enkláva uvnitř Říma.

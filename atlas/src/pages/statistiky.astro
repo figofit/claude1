@@ -36,6 +36,7 @@ const hasPartial = [stats.kmFoot, stats.kmCar, stats.kmTrain, stats.kmBus, stats
     <div class="stat-grid">
       <StatCard value={String(stats.countriesVisited.length)} label={countLabel(stats.countriesVisited.length, { one: 'navštívená země', few: 'navštívené země', many: 'navštívené země', other: 'navštívených zemí' })} />
       <StatCard value={String(stats.citiesCount)} label="navštívených měst" />
+      <StatCard value={String(stats.capitalsCount)} label={countLabel(stats.capitalsCount, { one: 'navštívené hlavní město', few: 'navštívená hlavní města', many: 'navštíveného hlavního města', other: 'navštívených hlavních měst' })} />
       <StatCard value={String(stats.castlesCount)} label={countLabel(stats.castlesCount, { one: 'navštívený hrad', few: 'navštívené hrady', many: 'navštívené hrady', other: 'navštívených hradů' })} />
       <StatCard value={String(stats.zoosCount)} label={countLabel(stats.zoosCount, { one: 'navštívená zoo', few: 'navštívené zoo', many: 'navštívené zoo', other: 'navštívených zoo' })} />
       <StatCard value={`${stats.peaksCount} / ${stats.peaksCatalogCount}`} label="zdolaných vrcholů z katalogu" />

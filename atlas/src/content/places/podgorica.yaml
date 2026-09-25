@@ -1,6 +1,7 @@
 name: Podgorica
 country: ME
 type: city
+capital: true
 coordinates: [19.2594, 42.4304]
 description: Hlavní město Černé Hory na soutoku řek Morača a Ribnica.
 tags: [hlavní město]

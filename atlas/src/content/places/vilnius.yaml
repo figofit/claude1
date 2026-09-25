@@ -1,5 +1,6 @@
 name: Vilnius
 country: LT
 type: city
+capital: true
 coordinates: [25.2797, 54.6872]
 description: Hlavní město Litvy.

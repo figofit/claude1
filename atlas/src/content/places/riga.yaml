@@ -1,5 +1,6 @@
 name: Riga
 country: LV
 type: city
+capital: true
 coordinates: [24.1052, 56.9496]
 description: Hlavní město Lotyšska.

@@ -1,5 +1,6 @@
 name: Atény
 country: GR
 type: city
+capital: true
 coordinates: [23.7275, 37.9838]
 description: Hlavní město Řecka, Akropolis a Panathinaiko stadion.

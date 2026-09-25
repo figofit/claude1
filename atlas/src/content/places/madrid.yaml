@@ -1,5 +1,6 @@
 name: Madrid
 country: ES
 type: city
+capital: true
 coordinates: [-3.7038, 40.4168]
 description: Hlavní město Španělska.

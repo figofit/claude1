@@ -1,5 +1,6 @@
 name: Bělehrad
 country: RS
 type: city
+capital: true
 coordinates: [20.4489, 44.7866]
 description: Hlavní město Srbska.

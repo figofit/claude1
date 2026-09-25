@@ -1,5 +1,6 @@
 name: Káhira
 country: EG
 type: city
+capital: true
 coordinates: [31.2357, 30.0444]
 description: Hlavní město Egypta.

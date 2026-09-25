@@ -27,6 +27,7 @@ interface TripData {
 interface PlaceData {
   type: string;
   elevation?: number;
+  capital?: boolean;
 }
 interface RouteData {
   mode: string;
@@ -81,6 +82,7 @@ function sum(values: (number | undefined)[]): PartialSum {
 export interface AtlasStats {
   countriesVisited: string[];
   citiesCount: number;
+  capitalsCount: number;
   castlesCount: number;
   zoosCount: number;
   peaksCount: number;
@@ -118,6 +120,10 @@ export function computeStats(input: StatsInput): AtlasStats {
   const citiesCount = places.filter(
     (p) => visitedPlaceIds.has(p.id) && ['city', 'town', 'village'].includes(p.data.type),
   ).length;
+  // Hlavní města jsou podmnožina měst - platí pro ně stejné pravidlo jako
+  // pro citiesCount (počítá se, jen když je město skutečně navštívené přes
+  // routes/ascents, ne jen zmíněné v katalogu).
+  const capitalsCount = places.filter((p) => visitedPlaceIds.has(p.id) && p.data.capital).length;
   // Hrady a zoo se do katalogu přidávají jen tehdy, když byly skutečně
   // navštívené (na rozdíl od měst nejde o průjezdní body) - proto se tu
   // nefiltruje přes visitedPlaceIds a počítá se celý katalog.
@@ -187,6 +193,7 @@ export function computeStats(input: StatsInput): AtlasStats {
   return {
     countriesVisited: [...countryTripCounts.keys()].sort(),
     citiesCount,
+    capitalsCount,
     castlesCount,
     zoosCount,
     peaksCount: summitedPeakIds.size,

@@ -1,5 +1,6 @@
 name: Jerevan
 country: AM
 type: city
+capital: true
 coordinates: [44.5152, 40.1872]
 description: Hlavní město Arménie, výchozí bod pro výstup na Aragats.

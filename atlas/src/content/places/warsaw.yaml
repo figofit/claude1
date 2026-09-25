@@ -1,5 +1,6 @@
 name: Varšava
 country: PL
 type: city
+capital: true
 coordinates: [21.0122, 52.2297]
 description: Hlavní město Polska.

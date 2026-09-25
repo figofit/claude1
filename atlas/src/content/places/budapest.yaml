@@ -1,5 +1,6 @@
 name: Budapešť
 country: HU
 type: city
+capital: true
 coordinates: [19.0402, 47.4979]
 description: Hlavní město Maďarska, častá mezizastávka na cestách na letiště nebo dál do zahraničí.

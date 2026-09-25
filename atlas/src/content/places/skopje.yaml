@@ -1,5 +1,6 @@
 name: Skopje
 country: MK
 type: city
+capital: true
 coordinates: [21.4254, 41.9981]
 description: Hlavní město Severní Makedonie, výchozí bod na Rudoku (nejvyšší horu Kosova z makedonské strany).

@@ -1,5 +1,6 @@
 name: Andorra la Vella
 country: AD
 type: city
+capital: true
 coordinates: [1.5218, 42.5063]
 description: Hlavní město Andorry, uváděné jako nejvýše položené hlavní město Evropy.

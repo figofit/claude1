@@ -1,5 +1,6 @@
 name: Tirana
 country: AL
 type: city
+capital: true
 coordinates: [19.8187, 41.3275]
 description: Hlavní město Albánie.

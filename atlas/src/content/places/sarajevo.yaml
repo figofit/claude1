@@ -1,5 +1,6 @@
 name: Sarajevo
 country: BA
 type: city
+capital: true
 coordinates: [18.413, 43.856]
 description: Hlavní město Bosny a Hercegoviny.

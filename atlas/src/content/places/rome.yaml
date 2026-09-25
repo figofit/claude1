@@ -1,5 +1,6 @@
 name: Řím
 country: IT
 type: city
+capital: true
 coordinates: [12.4964, 41.9028]
 description: Hlavní město Itálie.

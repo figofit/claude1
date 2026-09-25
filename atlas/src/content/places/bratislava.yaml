@@ -1,5 +1,6 @@
 name: Bratislava
 country: SK
 type: city
+capital: true
 coordinates: [17.1077, 48.1486]
 description: Hlavní město Slovenska na Dunaji.

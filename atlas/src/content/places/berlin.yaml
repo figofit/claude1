@@ -1,5 +1,6 @@
 name: Berlín
 country: DE
 type: city
+capital: true
 coordinates: [13.4050, 52.5200]
 description: Hlavní město Německa.

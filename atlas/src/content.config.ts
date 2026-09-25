@@ -122,6 +122,10 @@ const places = defineCollection({
     name: z.string(),
     country: countryCode(),
     type: z.enum(PLACE_TYPES),
+    // Jen u type: 'city' - hlavní město státu (ne kraje/regionu). Sporné
+    // případy (Jeruzalém/Tel Aviv, Haag vs. Amsterdam) řešeny individuálně,
+    // ne automaticky.
+    capital: z.boolean().default(false),
     coordinates: lngLat(),
     // Nadmořská výška - pokud není jistá, radši nevyplňovat než odhadovat.
     elevation: z.number().optional(),
