@@ -52,25 +52,18 @@
       sectionEl.hidden = true;
       return;
     }
-    const rows = featured
+    const cards = featured
       .map((r) => {
         const type = Ferraty.typeMeta(r.type);
+        const sub = [Ferraty.countryLabelHtml(r.country), Ferraty.formatDate(r.date)].filter(Boolean).join(" · ");
         return `
-        <tr>
-          <td class="cell-title"><a class="row-link" href="detail.html?id=${encodeURIComponent(r.id)}">${Ferraty.escapeHtml(r.name)}</a></td>
-          <td data-label="Typ"><span class="badge ${type.cls}">${type.label}</span></td>
-          <td class="muted-cell" data-label="Země">${Ferraty.countryLabelHtml(r.country)}</td>
-          <td data-label="Datum">${Ferraty.formatDate(r.date)}</td>
-        </tr>`;
+        <a class="region-tile" href="detail.html?id=${encodeURIComponent(r.id)}">
+          <span class="region-tile__name">${Ferraty.escapeHtml(r.name)} <span class="badge ${type.cls}" style="margin-left:4px;">${type.label}</span></span>
+          <span class="region-tile__desc">${sub}</span>
+        </a>`;
       })
       .join("");
-    document.getElementById("featured-list").innerHTML = `
-      <div class="table-scroll">
-        <table class="ferraty-table">
-          <thead><tr><th>Název</th><th>Typ</th><th>Země</th><th>Datum</th></tr></thead>
-          <tbody>${rows}</tbody>
-        </table>
-      </div>`;
+    document.getElementById("featured-list").innerHTML = `<div class="region-tiles">${cards}</div>`;
     sectionEl.hidden = false;
   }
 
