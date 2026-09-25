@@ -168,6 +168,14 @@ odkazu do `NAV_ITEMS` v `assets/js/nav.js`, a vyplnění `regionGroup` u přísl
 sekci „🏆 Nej výstupy“ úplně nahoře. Appka do toho sama nic nevymýšlí — je to čistě tvůj vlastní
 výběr, buď zaškrtnutím ve formuláři, nebo ruční úpravou pole v JSONu.
 
+### Nejnáročnější výkony
+
+`toughDay: true` je obdoba `featured`, ale užší — osobní výběr fyzicky nejtvrdších jednodenních
+výstupů (ne automatický výpočet z převýšení, prostě tvůj vlastní pocit, co bylo "ten den fakt
+hodně"). Zobrazí se v sekci „Nejnáročnější výkony“ na `statistiky.html`, seřazené podle
+jednodenního převýšení (viz sekce o vícedenním itineráři výše) tam, kde je vyplněné. Na detailu
+se ukáže štítek „🔥 Nejnáročnější výkon“. Nastavuje se ručně v JSONu.
+
 ### Nedokončené pokusy
 
 `reachedSummit: false` znamená, že vrchol nebyl dosažen — otočka kvůli počasí, zdraví,

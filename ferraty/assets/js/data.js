@@ -110,6 +110,7 @@
         altitude_m: null,
         duration_min: null,
         featured: false,
+        toughDay: false,
         reachedSummit: true,
         highestOfCountry: false,
         highestOfAreas: [],

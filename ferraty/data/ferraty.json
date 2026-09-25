@@ -87,11 +87,12 @@
       "sourceUrl": "https://michaldokoupil.cz/priel-klettersteig/",
       "relatedIds": [],
       "createdAt": "2026-09-15T00:00:00Z",
-      "updatedAt": "2026-09-25T00:00:00Z",
+      "updatedAt": "2026-09-26T00:00:00Z",
       "regionGroup": "Alpy",
       "featured": true,
       "days": [],
-      "highestOfCountry": false
+      "highestOfCountry": false,
+      "toughDay": true
     },
     {
       "id": "attersee-klettersteig",
@@ -305,7 +306,7 @@
       "sourceUrl": "https://michaldokoupil.cz/zugspitze/",
       "relatedIds": [],
       "createdAt": "2026-09-15T00:00:00Z",
-      "updatedAt": "2026-09-25T00:00:00Z",
+      "updatedAt": "2026-09-26T00:00:00Z",
       "regionGroup": "Alpy",
       "featured": true,
       "days": [
@@ -328,7 +329,8 @@
       ],
       "highestOfCountry": true,
       "glacier": "route",
-      "glacierName": "Höllentalferner"
+      "glacierName": "Höllentalferner",
+      "toughDay": true
     },
     {
       "id": "heidsteig",
@@ -635,7 +637,8 @@
       ],
       "highestOfCountry": false,
       "glacier": null,
-      "glacierName": null
+      "glacierName": null,
+      "toughDay": true
     },
     {
       "id": "teide",
@@ -1097,7 +1100,7 @@
         "mulhacen"
       ],
       "createdAt": "2026-09-18T00:00:00Z",
-      "updatedAt": "2026-09-25T00:00:00Z",
+      "updatedAt": "2026-09-26T00:00:00Z",
       "regionGroup": "Alpy",
       "featured": true,
       "days": [],
@@ -1109,7 +1112,8 @@
         "První 3000 v Alpách"
       ],
       "glacier": null,
-      "glacierName": null
+      "glacierName": null,
+      "toughDay": true
     },
     {
       "id": "zla-kolata",
@@ -1165,7 +1169,7 @@
         "teide"
       ],
       "createdAt": "2026-09-18T00:00:00Z",
-      "updatedAt": "2026-09-20T00:00:00Z",
+      "updatedAt": "2026-09-26T00:00:00Z",
       "regionGroup": null,
       "featured": false,
       "days": [],
@@ -1176,7 +1180,8 @@
       ],
       "milestones": [
         "První 4000 vůbec"
-      ]
+      ],
+      "toughDay": true
     },
     {
       "id": "mulhacen",

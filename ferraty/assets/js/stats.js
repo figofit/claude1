@@ -182,6 +182,29 @@
     `;
   }
 
+  function renderToughDays(records) {
+    const entries = records.filter((r) => r.toughDay);
+    if (!entries.length) {
+      return `<p class="text-faint">Zatím žádný záznam označený jako nejnáročnější výkon.</p>`;
+    }
+    entries.sort((a, b) => {
+      const ga = a.elevationGain_m === null || a.elevationGain_m === undefined ? -Infinity : a.elevationGain_m;
+      const gb = b.elevationGain_m === null || b.elevationGain_m === undefined ? -Infinity : b.elevationGain_m;
+      return gb - ga;
+    });
+    const cards = entries
+      .map((r) => {
+        const gainLabel = r.elevationGain_m === null || r.elevationGain_m === undefined ? "převýšení neuvedeno" : Ferraty.fmtElevation(r.elevationGain_m);
+        return `
+        <a class="region-tile" href="detail.html?id=${encodeURIComponent(r.id)}">
+          <span class="region-tile__name">🔥 ${Ferraty.escapeHtml(r.name)}</span>
+          <span class="region-tile__desc">${gainLabel} · ${Ferraty.formatDate(r.date)}</span>
+        </a>`;
+      })
+      .join("");
+    return `<div class="region-tiles">${cards}</div>`;
+  }
+
   function renderMilestones(records) {
     const entries = [];
     records.forEach((r) => {
@@ -242,6 +265,7 @@
     document.getElementById("country-highpoints").innerHTML = renderCountryHighpoints(records);
     document.getElementById("area-highpoints").innerHTML = renderAreaHighpoints(records);
     document.getElementById("milestones").innerHTML = renderMilestones(records);
+    document.getElementById("tough-days").innerHTML = renderToughDays(records);
     document.getElementById("huts").innerHTML = renderHuts(records);
   }
 
