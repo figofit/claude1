@@ -98,6 +98,7 @@
       altitude_m: numOrNull(val("f-altitude")),
       duration_min: numOrNull(val("f-duration")),
       featured: document.getElementById("f-featured").checked,
+      reachedSummit: !document.getElementById("f-not-reached").checked,
       highestOfCountry: document.getElementById("f-highest-of-country").checked,
       highestOfAreas: listOrEmpty(val("f-highest-of-areas")),
       milestones: listOrEmpty(val("f-milestones")),

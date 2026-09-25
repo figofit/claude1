@@ -203,6 +203,7 @@
 
     document.getElementById("d-name").textContent = record.name;
     document.getElementById("d-featured").hidden = !record.featured;
+    document.getElementById("d-not-reached").hidden = record.reachedSummit !== false;
     const type = Ferraty.typeMeta(record.type);
     const typeBadge = document.getElementById("d-type");
     typeBadge.textContent = type.label;

@@ -54,6 +54,7 @@
         ${fact("S fotografiemi", `${stats.withPhotos} z ${stats.total}`)}
         ${fact("Sopek", stats.volcanoCount)}
         ${fact("Míst, kde byl ledovec", stats.glacierCount)}
+        ${fact("Neúspěšných pokusů", stats.attemptCount)}
       </div>
     `;
   }

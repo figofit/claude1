@@ -110,6 +110,7 @@
         altitude_m: null,
         duration_min: null,
         featured: false,
+        reachedSummit: true,
         highestOfCountry: false,
         highestOfAreas: [],
         milestones: [],
@@ -220,6 +221,7 @@
     const withPhotos = records.filter((r) => r.photos && r.photos.length > 0).length;
     const volcanoCount = records.filter((r) => r.volcano).length;
     const glacierCount = records.filter((r) => r.glacier).length;
+    const attemptCount = records.filter((r) => r.reachedSummit === false).length;
 
     return {
       total,
@@ -234,6 +236,7 @@
       withPhotos,
       volcanoCount,
       glacierCount,
+      attemptCount,
     };
   }
 

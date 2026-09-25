@@ -163,6 +163,15 @@ vzoru `tatry.js`, a vyplnění `regionGroup` u příslušných záznamů.
 sekci „🏆 Nej výstupy“ úplně nahoře. Appka do toho sama nic nevymýšlí — je to čistě tvůj vlastní
 výběr, buď zaškrtnutím ve formuláři, nebo ruční úpravou pole v JSONu.
 
+### Nedokončené pokusy
+
+`reachedSummit: false` znamená, že vrchol nebyl dosažen — otočka kvůli počasí, zdraví,
+vybavení a podobně. Výchozí hodnota je `true` (appka to nedomýšlí, ale beze změny pole
+se každý záznam bere jako dokončený). U nedokončeného pokusu nech `altitude_m` prázdné
+(nedosáhl jsi té výšky) — kam ses dostal, popiš v `note`. Na detailu se ukáže žlutý štítek
+„⚠ Nedokončeno (pokus)“, v seznamu výstupů malá značka u názvu, a počet je vidět na
+`statistiky.html` v kartě „Další“.
+
 ### Nejvyšší bod státu
 
 `highestOfCountry: true` znamená, že tenhle záznam je nejvyšší bod země uvedené v poli

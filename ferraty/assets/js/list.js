@@ -102,7 +102,7 @@
         const type = Ferraty.typeMeta(r.type);
         return `
         <tr>
-          <td class="cell-title"><a class="row-link" href="detail.html?id=${encodeURIComponent(r.id)}">${Ferraty.escapeHtml(r.name)}</a></td>
+          <td class="cell-title"><a class="row-link" href="detail.html?id=${encodeURIComponent(r.id)}">${Ferraty.escapeHtml(r.name)}</a>${r.reachedSummit === false ? ` <span class="badge badge--muted" title="Nedokončeno">⚠ pokus</span>` : ""}</td>
           <td data-label="Typ"><span class="badge ${type.cls}">${type.label}</span></td>
           <td data-label="Země">${Ferraty.countryLabelHtml(r.country)}</td>
           <td class="muted-cell" data-label="Oblast">${Ferraty.escapeHtml(r.region || "—")}</td>
