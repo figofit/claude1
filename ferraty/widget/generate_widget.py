@@ -99,12 +99,13 @@ def main():
                 date_label = d.strftime("%-d. %-m. %Y")
             except ValueError:
                 date_label = date
-        sub = " · ".join(x for x in [f"{flag} {esc(r.get('country') or '')}".strip(), date_label] if x.strip())
+        country_label = f"{flag} {esc(r.get('country') or '')}".strip()
+        meta = " · ".join(x for x in [type_label.upper(), date_label] if x)
         items_html.append(
             f'<li class="mh-widget-item">'
-            f'<span class="mh-widget-item__name">{esc(r["name"])}</span>'
-            f'<span class="mh-widget-item__type">{esc(type_label)}</span>'
-            f'<span class="mh-widget-item__sub">{sub}</span>'
+            f'<div class="mh-widget-item__meta">{esc(meta)}</div>'
+            f'<div class="mh-widget-item__name">{esc(r["name"])}'
+            f'<span class="mh-widget-item__country">{country_label}</span></div>'
             f"</li>"
         )
 
@@ -118,24 +119,27 @@ def main():
 
     html = f"""<div class="mh-widget">
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
   .mh-widget {{
-    --mh-bg: #f6f3ec;
-    --mh-surface: #ffffff;
-    --mh-border: #ddd6c1;
-    --mh-text: #2a2a24;
-    --mh-text-muted: #6b6a5c;
-    --mh-text-faint: #93917f;
-    --mh-accent: #af5330;
-    --mh-accent-tint: #f5e6dc;
-    --mh-forest: #33513c;
-    --mh-radius: 12px;
-    --mh-font-head: "Fraunces", Georgia, serif;
-    --mh-font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    /* Design tokens sladěné s michaldokoupil.cz (tmavé, teal akcent) — uprav tady, pokud
+       se přesný odstín/font na webu časem změní. */
+    --mh-bg: #12141f;
+    --mh-surface: #1a1d2c;
+    --mh-border: rgba(255, 255, 255, 0.09);
+    --mh-text: #f4f5f9;
+    --mh-text-muted: #9aa1b8;
+    --mh-text-faint: #6c7288;
+    --mh-accent: #5eead4;
+    --mh-accent-tint: rgba(94, 234, 212, 0.12);
+    --mh-radius: 18px;
+    --mh-font-head: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --mh-font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
     box-sizing: border-box;
     max-width: 720px;
     margin: 24px 0;
-    padding: 20px 22px 18px;
+    padding: 24px 24px 18px;
     background: var(--mh-bg);
     border: 1px solid var(--mh-border);
     border-radius: var(--mh-radius);
@@ -150,83 +154,86 @@ def main():
 
   .mh-widget-eyebrow {{
     font-size: 12px;
-    letter-spacing: 0.06em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--mh-text-faint);
-    margin: 0 0 2px;
+    color: var(--mh-accent);
+    margin: 0 0 8px;
   }}
+  .mh-widget-eyebrow::before {{ content: "— "; }}
   .mh-widget-title {{
     font-family: var(--mh-font-head);
-    font-size: 21px;
-    font-weight: 600;
-    margin: 0 0 14px;
-    color: var(--mh-forest);
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin: 0 0 16px;
+    color: var(--mh-text);
   }}
 
   .mh-widget-stats {{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
   }}
   .mh-widget-stat {{
     background: var(--mh-surface);
     border: 1px solid var(--mh-border);
-    border-radius: calc(var(--mh-radius) - 4px);
-    padding: 10px 10px;
+    border-radius: calc(var(--mh-radius) - 8px);
+    padding: 12px 10px;
     text-align: center;
   }}
   .mh-widget-stat__value {{
     font-family: var(--mh-font-head);
     font-size: 19px;
-    font-weight: 600;
+    font-weight: 800;
     color: var(--mh-accent);
     line-height: 1.15;
   }}
   .mh-widget-stat__label {{
     font-size: 11.5px;
     color: var(--mh-text-muted);
-    margin-top: 2px;
+    margin-top: 4px;
     line-height: 1.3;
   }}
 
   .mh-widget-list-head {{
     font-family: var(--mh-font-head);
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--mh-forest);
-    margin: 0 0 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--mh-text);
+    margin: 0 0 10px;
   }}
   .mh-widget-list {{
     list-style: none;
-    margin: 0 0 14px;
+    margin: 0 0 16px;
     padding: 0;
-    border-top: 1px solid var(--mh-border);
+    display: grid;
+    gap: 8px;
   }}
   .mh-widget-item {{
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-    padding: 8px 2px;
-    border-bottom: 1px solid var(--mh-border);
-    font-size: 14px;
-    flex-wrap: wrap;
+    background: var(--mh-surface);
+    border: 1px solid var(--mh-border);
+    border-radius: calc(var(--mh-radius) - 8px);
+    padding: 10px 14px;
+  }}
+  .mh-widget-item__meta {{
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--mh-accent);
+    margin-bottom: 3px;
   }}
   .mh-widget-item__name {{
-    font-weight: 600;
+    font-weight: 700;
     color: var(--mh-text);
+    font-size: 14.5px;
   }}
-  .mh-widget-item__type {{
-    font-size: 11px;
-    color: var(--mh-accent);
-    background: var(--mh-accent-tint);
-    border-radius: 999px;
-    padding: 1px 8px;
-  }}
-  .mh-widget-item__sub {{
+  .mh-widget-item__country {{
+    font-weight: 400;
     font-size: 12.5px;
     color: var(--mh-text-faint);
-    margin-left: auto;
+    margin-left: 8px;
   }}
 
   .mh-widget-foot {{
@@ -237,8 +244,7 @@ def main():
 
   @media (max-width: 480px) {{
     .mh-widget-stats {{ grid-template-columns: repeat(2, 1fr); }}
-    .mh-widget-item {{ flex-direction: column; align-items: flex-start; gap: 2px; }}
-    .mh-widget-item__sub {{ margin-left: 0; }}
+    .mh-widget-item__country {{ display: block; margin-left: 0; margin-top: 2px; }}
   }}
 </style>
 
