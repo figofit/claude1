@@ -217,10 +217,10 @@ def roster():
             f'<dl>{"".join(groups)}</dl></div>')
 
 
-def league_table():
-    top = max(row[7] for row in TABLE)
+def league_table(rows, caption):
+    top = max(row[7] for row in TABLE + TOP21)  # stejné měřítko pruhů pro obě tabulky
     body = []
-    for pos, team, z, v, r, pr, sk, b in TABLE:
+    for pos, team, z, v, r, pr, sk, b in rows:
         cls = ' class="us"' if team == "N. Sady" else ""
         body.append(
             f'<tr{cls}><td class="ps">{pos}.</td><td class="tm">{nb(team)}'
@@ -230,7 +230,7 @@ def league_table():
     head = ('<thead><tr><th class="ps"><span class="fk-sr">Pořadí</span></th><th class="tm">Tým</th>'
             '<th title="zápasy">Z</th><th title="výhry">V</th><th title="remízy">R</th>'
             '<th title="prohry">P</th><th>Skóre</th><th>Body</th></tr></thead>')
-    return (f'<div class="fk-tbl-wrap"><table class="fk-tbl"><caption class="fk-sr">Tabulka po 19. kole</caption>'
+    return (f'<div class="fk-tbl-wrap"><table class="fk-tbl"><caption class="fk-sr">{caption}</caption>'
             f'{head}<tbody>{"".join(body)}</tbody></table></div>')
 
 
@@ -286,6 +286,7 @@ us19 = next(row for row in TABLE if row[1] == "N. Sady")
 lead19 = us19[7] - TABLE[1][7]
 us21, second21 = TOP21[0], TOP21[1]
 assert us21[1] == "N. Sady" and second21[1] == "Černovír"
+lead21 = us21[7] - second21[7]
 mem_html = "".join(f"<li>{typo(m)}</li>" for m in DATA["vzpominky"])
 lede = (f'Vítězové I.&nbsp;třídy, skupiny A. Ročníky {typo(DATA["rocniky"])}, '
         f'trenér {nb(DATA["trener"])}.')
@@ -301,9 +302,12 @@ SECTION = f"""<section id="fkns" lang="cs" aria-labelledby="fkns-h">
 <ul class="fk-facts">{facts_html}</ul>
 </header>
 <section class="fk-sec" aria-labelledby="fkns-tabulka">
-<div class="fk-sec-head"><h3 id="fkns-tabulka" class="fk-h3">Tabulka po 19. kole</h3><p class="fk-kicker">podle novin</p></div>
-<p class="fk-intro">Čísla jsou přesně tak, jak je noviny otiskly. Nové Sady měly po {us19[2]} zápasech náskok {lead19} {plural(lead19, "bod", "body", "bodů")} před Černovírem. Po 21. kole, kdy už měly za sebou {us21[2]} zápasů, to bylo {us21[7]} bodů proti {second21[7]}.</p>
-{league_table()}
+<div class="fk-sec-head"><h3 id="fkns-tabulka" class="fk-h3">Tabulka</h3><p class="fk-kicker">podle novin</p></div>
+<p class="fk-intro">Čísla jsou přesně tak, jak je noviny otiskly.</p>
+<div class="fk-half"><div class="fk-half-h"><h4>Po 19. kole</h4><p>Nové Sady po {us19[2]} zápasech vedly o {lead19} {plural(lead19, "bod", "body", "bodů")} před Černovírem.</p></div>
+{league_table(TABLE, "Tabulka po 19. kole")}</div>
+<div class="fk-half"><div class="fk-half-h"><h4>Po 21. kole</h4><p>Výstřižek končí 7. místem. Nové Sady po {us21[2]} zápasech vedly o {lead21} {plural(lead21, "bod", "body", "bodů")}, {us21[7]} proti {second21[7]}.</p></div>
+{league_table(TOP21, "Tabulka po 21. kole, prvních 7 míst")}</div>
 </section>
 <section class="fk-sec" aria-labelledby="fkns-sestava">
 <div class="fk-sec-head"><h3 id="fkns-sestava" class="fk-h3">Základní sestava</h3><p class="fk-kicker">4–3–3</p></div>
@@ -419,7 +423,7 @@ CSS = """@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;5
 #fkns .fk-tbl{width:100%;border-collapse:collapse;border-spacing:0;font-size:14px;line-height:1.3;font-variant-numeric:tabular-nums}
 #fkns .fk-tbl th{padding:0 4px 6px;border-bottom:2px dashed var(--rule-2);font:700 11px/1.3 var(--f-type);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:right;white-space:nowrap}
 #fkns .fk-tbl td{padding:7px 4px;border-bottom:1px solid var(--rule);text-align:right;white-space:nowrap;vertical-align:top}
-#fkns .fk-tbl .ps{width:1%;padding-left:6px;text-align:left;font:700 13px/1.5 var(--f-type);color:var(--muted)}
+#fkns .fk-tbl .ps{width:2.8em;padding-left:6px;text-align:left;font:700 13px/1.5 var(--f-type);color:var(--muted)}
 #fkns .fk-tbl .tm{width:100%;text-align:left}
 #fkns .fk-tbl td.tm{font-weight:500}
 #fkns .fk-tbl .pb{display:block;height:4px;margin-top:5px;border-radius:0 2px 2px 0;background:var(--pb)}
