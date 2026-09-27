@@ -85,7 +85,7 @@ assert (total["v"], total["r"], total["p"], total["b"]) == (17, 3, 2, 54), total
 assert (total["gf"], total["ga"]) == (75, 24), total
 assert (unbeaten, best, clean) == (20, 12, 10), (unbeaten, best, clean)
 assert (big["opp"], big["gf"], big["ga"]) == ("Velký Týnec", 8, 0), big
-assert known == 45 and len(missing) == 10, (known, len(missing))
+assert known == 48 and len(missing) == 9, (known, len(missing))
 for g in games:
     if g["strelci"] is not None:
         assert sum(n for _, n in g["strelci"]) == g["gf"], g["n"]
@@ -112,7 +112,10 @@ def scorers_text(g):
     for pid, n in g["strelci"]:
         label = nb(name_of(pid)) + (f"&nbsp;{n}" if n > 1 else "")
         parts.append(mark_me(pid, label))
-    return f'<span class="c">{", ".join(parts)}</span>'
+    if g.get("strelci_pozn"):
+        parts.append(escape(g["strelci_pozn"]))
+    cls = "c hand" if g.get("strelci_zdroj") == "pamet" else "c"
+    return f'<span class="{cls}">{", ".join(parts)}</span>'
 
 
 RES_WORD = {"v": "výhra", "r": "remíza", "p": "prohra"}
@@ -282,6 +285,7 @@ line_html = (
     + f'</div><p class="fk-sr">{line_sr}</p>')
 
 missing_goals = sum(g["gf"] for g in missing)
+memory_notes = " ".join(typo(g["pamet_veta"]) for g in games if g.get("pamet_veta"))
 us19 = next(row for row in TABLE if row[1] == "N. Sady")
 lead19 = us19[7] - TABLE[1][7]
 us21, second21 = TOP21[0], TOP21[1]
@@ -316,7 +320,7 @@ SECTION = f"""<section id="fkns" lang="cs" aria-labelledby="fkns-h">
 </section>
 <section class="fk-sec" aria-labelledby="fkns-strelci">
 <div class="fk-sec-head"><h3 id="fkns-strelci" class="fk-h3">Střelci</h3><p class="fk-kicker">{known} z {t["gf"]} gólů</p></div>
-<p class="fk-intro">Podle novinových zpráv. U {len(missing)} zápasů noviny střelce neuvedly, takže {missing_goals} gólů zůstává bez jména.</p>
+<p class="fk-intro">Podle novinových zpráv. {memory_notes} U {len(missing)} zápasů střelci chybí, takže {missing_goals} gólů zůstává bez jména.</p>
 {scorer_bars()}
 </section>
 <section class="fk-sec" aria-labelledby="fkns-zapasy">
@@ -417,6 +421,7 @@ CSS = """@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;5
 #fkns .fk-g .fk-chip{grid-area:r;align-self:center;justify-self:end;width:22px;height:22px;font-size:13px}
 #fkns .fk-g .c{grid-area:c;padding-top:2px;font-size:14px;line-height:1.45;color:var(--ink-2)}
 #fkns .fk-g .c.none{color:var(--muted);font-style:italic}
+#fkns .fk-g .c.hand{font:600 19px/1.2 var(--f-hand);color:var(--pen)}
 #fkns .fk-g .m .fk-hand{display:block;margin-top:3px;font:600 19px/1.1 var(--f-hand);color:var(--pen)}
 #fkns .fk-yc{display:inline-block;width:9px;height:12px;margin-right:7px;border-radius:1.5px;background:#f5c518;box-shadow:0 0 0 1px rgba(0,0,0,.22);transform:rotate(8deg);vertical-align:-1px}
 #fkns .fk-tbl-wrap{overflow-x:auto}
