@@ -157,23 +157,15 @@ def main():
         for r in featured_of_type("hřebenovka", 5)
     ]
 
-    # --- Nejnáročnější akce (pole toughDay, dle jednodenního převýšení) ---
-    tough = [r for r in records if r.get("toughDay")]
-    tough.sort(key=lambda r: r.get("elevationGain_m") if isinstance(r.get("elevationGain_m"), (int, float)) else -1, reverse=True)
-    tough_rows = [
-        render_row(
-            r["name"],
-            country_label(r),
-            f"{fmt_num(r['elevationGain_m'])} m" if isinstance(r.get("elevationGain_m"), (int, float)) else "—",
-        )
-        for r in tough[:5]
-    ]
+    # Pozn.: sekce "Nejnáročnější akce" (pole toughDay) je záměrně vynechaná — jednodenní
+    # převýšení ještě není u všech záznamů přepočítané (viz Priel Klettersteig), takže by
+    # žebříček byl zavádějící. Až budou čísla sedět, jde vrátit stejným vzorem jako ostatní
+    # sekce (render_section + řazení podle elevationGain_m).
 
     sections_html = "".join([
         render_section("Nejvyšší vrcholy", altitude_rows, "Zatím nic k zobrazení."),
         render_section("Nej ferraty", ferraty_rows, "Zatím žádná TOP ferrata."),
         render_section("Nej hřebenovky", hrebenovky_rows, "Zatím žádná TOP hřebenovka."),
-        render_section("Nejnáročnější akce", tough_rows, "Zatím nic k zobrazení."),
     ])
 
     today = datetime.date.today().strftime("%-d. %-m. %Y")
