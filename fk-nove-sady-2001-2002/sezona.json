@@ -19,11 +19,11 @@
     "foukal":    {"jmeno": "Vít Foukal",              "kratce": "Foukal",    "post": "útočník"},
     "hock":      {"jmeno": "Petr Hock",               "kratce": "Hock",      "post": "útočník", "v_novinach": ["Hoch", "Heck"]},
     "zadnik":    {"jmeno": "Ivo Žádník",              "kratce": "Žádník",    "post": "útočník"},
-    "richter":   {"jmeno": "Jan Richter",             "kratce": "Richter",   "post": null}
+    "richter":   {"jmeno": "Jan Richter",             "kratce": "Richter",   "post": null, "role": "většinou střídal"}
   },
   "sestava": {
     "rozestaveni": "4-3-3",
-    "poznamka": "Takhle jsme nastupovali skoro v každém zápase. V levém útoku se nejčastěji střídali Semjon a Foukal, v prvním mistráku jsem tam hrál já.",
+    "poznamka": "Takhle jsme nastupovali skoro v každém zápase. V levém útoku se nejčastěji střídali Semjon a Foukal a z lavičky většinou naskakoval Honza Richter.",
     "rady_zleva_doprava": "útok, záloha, obrana, brankář",
     "rady": [
       [["semjon", "foukal"], ["hock"], ["zadnik"]],
@@ -34,7 +34,8 @@
   },
   "vzpominky": [
     "Na fotbal jsem začal chodit na jaře 2001. Než se vyřídila registračka, hrát jsem nemohl, tak jsem se s klukama byl aspoň jednou podívat na zápas. Hrály tam tehdy ještě i 86ky.",
-    "Na úplně první trénink jsem přišel zrovna, když ho starší žáci nakonec neměli. Byl jsem tak s mladšími žáky a seznámil se se Svobim a dalšími klukama. Trénoval je jeho táta a strejda.",
+    "Na úplně první trénink jsem přišel zrovna, když ho starší žáci nakonec neměli. Byl jsem tak s mladšími žáky a seznámil se se Svobim a dalšími klukama. Trénoval je jeho táta a strejda. Už tehdy tam byli i Tlumič a Ronzic, se kterými jsme později vytvořili silný další blok.",
+    "V prvním mistráku v Opatovicích jsem hrál levý útok a hned v první půli dal fíka. O poločase mě trenér dal na levou zálohu a tam jsem pak hrál většinu sezóny.",
     "Trenér Jozef Lutonský. To byl borec.",
     "V zimě jsme chodili do haly na Zemědělskou. Top parta a top výsledky.",
     "Největší rival byl Černovír. Silný tým, doma jsme ho porazili 5:4. Legendární zápas."
@@ -54,7 +55,7 @@
     [12, "PS Přerov",     17, 1,  1, 15, "11:72", 4]
   ],
   "zapasy": [
-    {"n": 1,  "kolo_noviny": 4,  "cast": "podzim", "datum": "2001-09-01", "domaci": "Opatovice B",     "hoste": "Nové Sady",       "skore": "2:6", "polocas": "1:3", "pozn": "hráno v Soběchlebech",
+    {"n": 1,  "kolo_noviny": 4,  "cast": "podzim", "datum": "2001-09-01", "domaci": "Opatovice B",     "hoste": "Nové Sady",       "skore": "2:6", "polocas": "1:3", "pozn": "hráno v Soběchlebech", "moje": "můj první mistrák a hned gól",
      "strelci": [["hock", 3], ["semjon", 1], ["dokoupil", 1], ["vlastni", 1]]},
     {"n": 2,  "kolo_noviny": 5,  "cast": "podzim", "datum": "2001-09-08", "domaci": "Nové Sady",       "hoste": "Hodolany B",      "skore": "6:2", "polocas": "3:1",
      "strelci": [["janousek", 2], ["semjon", 2], ["foukal", 1], ["hock", 1]]},
