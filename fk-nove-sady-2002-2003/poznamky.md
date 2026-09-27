@@ -25,6 +25,7 @@ Sbíráme postupně od Michala „Figa“ Dokoupila. Zatím bez výsledků, tabu
 ## Vzpomínky
 - Byli jsme (asi) na soustředění.
 - Kolem týmu byli i rodiče hráčů, bylo to hodně fajn.
+- Kopačky: červenobílé totalky od Nike (po černobílých z jara 2002).
 
 ## Ještě chybí
 - Výsledky: rozpis, výstřižky nebo tabulka (stačí fotky jako u 2001/02).
