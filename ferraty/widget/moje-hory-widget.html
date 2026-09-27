@@ -18,9 +18,9 @@
     --mh-font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
     box-sizing: border-box;
-    max-width: 720px;
+    max-width: 900px;
     margin: 24px 0;
-    padding: 24px 24px 18px;
+    padding: 26px 26px 18px;
     background: var(--mh-bg);
     border: 1px solid var(--mh-border);
     border-radius: var(--mh-radius);
@@ -44,10 +44,10 @@
   .mh-widget-eyebrow::before { content: "— "; }
   .mh-widget-title {
     font-family: var(--mh-font-head);
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 800;
     letter-spacing: -0.01em;
-    margin: 0 0 16px;
+    margin: 0 0 18px;
     color: var(--mh-text);
   }
 
@@ -55,7 +55,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
   }
   .mh-widget-stat {
     background: var(--mh-surface);
@@ -66,90 +66,117 @@
   }
   .mh-widget-stat__value {
     font-family: var(--mh-font-head);
-    font-size: 19px;
+    font-size: 18px;
     font-weight: 800;
     color: var(--mh-accent);
     line-height: 1.15;
   }
   .mh-widget-stat__label {
-    font-size: 11.5px;
+    font-size: 11px;
     color: var(--mh-text-muted);
     margin-top: 4px;
     line-height: 1.3;
   }
 
-  .mh-widget-list-head {
-    font-family: var(--mh-font-head);
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--mh-text);
-    margin: 0 0 10px;
-  }
-  .mh-widget-list {
-    list-style: none;
-    margin: 0 0 16px;
-    padding: 0;
+  .mh-widget-sections {
     display: grid;
-    gap: 8px;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 20px;
   }
-  .mh-widget-item {
-    background: var(--mh-surface);
-    border: 1px solid var(--mh-border);
-    border-radius: calc(var(--mh-radius) - 8px);
-    padding: 10px 14px;
-  }
-  .mh-widget-item__meta {
-    font-size: 11px;
+  .mh-widget-section__head {
+    font-family: var(--mh-font-head);
+    font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.04em;
-    color: var(--mh-accent);
-    margin-bottom: 3px;
-  }
-  .mh-widget-item__name {
-    font-weight: 700;
+    letter-spacing: 0.02em;
     color: var(--mh-text);
-    font-size: 14.5px;
+    margin: 0 0 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--mh-border);
   }
-  .mh-widget-item__country {
-    font-weight: 400;
+  .mh-widget-rows {
+    display: grid;
+    gap: 1px;
+  }
+  .mh-widget-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--mh-border);
+  }
+  .mh-widget-row:last-child { border-bottom: none; }
+  .mh-widget-row__main { min-width: 0; }
+  .mh-widget-row__name {
+    font-weight: 700;
+    font-size: 13.5px;
+    color: var(--mh-text);
+  }
+  .mh-widget-row__meta {
+    font-size: 11.5px;
+    color: var(--mh-text-faint);
+    margin-left: 6px;
+  }
+  .mh-widget-row__value {
+    font-family: var(--mh-font-head);
+    font-weight: 700;
+    font-size: 12.5px;
+    color: var(--mh-accent);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .mh-widget-empty {
     font-size: 12.5px;
     color: var(--mh-text-faint);
-    margin-left: 8px;
+    margin: 0;
   }
 
   .mh-widget-foot {
     font-size: 11.5px;
     color: var(--mh-text-faint);
     text-align: right;
+    margin-top: 18px;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 640px) {
     .mh-widget-stats { grid-template-columns: repeat(2, 1fr); }
-    .mh-widget-item__country { display: block; margin-left: 0; margin-top: 2px; }
+    .mh-widget-sections { grid-template-columns: 1fr; }
   }
 </style>
 
 <div class="mh-widget-eyebrow">Osobní horský deník</div>
-<h3 class="mh-widget-title">Moje hory — přehled</h3>
+<h3 class="mh-widget-title">Moje hory — souhrn</h3>
 
 <div class="mh-widget-stats">
 <div class="mh-widget-stat"><div class="mh-widget-stat__value">161</div><div class="mh-widget-stat__label">Výstupů celkem</div></div>
 <div class="mh-widget-stat"><div class="mh-widget-stat__value">30</div><div class="mh-widget-stat__label">Zemí</div></div>
 <div class="mh-widget-stat"><div class="mh-widget-stat__value">5 047 m</div><div class="mh-widget-stat__label">Nejvýš (Kazbek)</div></div>
-<div class="mh-widget-stat"><div class="mh-widget-stat__value">12</div><div class="mh-widget-stat__label">Vrcholů nad 3000 m</div></div>
-<div class="mh-widget-stat"><div class="mh-widget-stat__value">37</div><div class="mh-widget-stat__label">Vrcholů nad 2500 m</div></div>
+<div class="mh-widget-stat"><div class="mh-widget-stat__value">20 916 m</div><div class="mh-widget-stat__label">Převýšení (u 12 výstupů)</div></div>
+<div class="mh-widget-stat"><div class="mh-widget-stat__value">37</div><div class="mh-widget-stat__label">Nad 2500 m</div></div>
+<div class="mh-widget-stat"><div class="mh-widget-stat__value">12</div><div class="mh-widget-stat__label">Nad 3000 m</div></div>
+<div class="mh-widget-stat"><div class="mh-widget-stat__value">4</div><div class="mh-widget-stat__label">Nad 4000 m</div></div>
 <div class="mh-widget-stat"><div class="mh-widget-stat__value">2 600 m</div><div class="mh-widget-stat__label">Nejtvrdší den (Grosses Wiesbachhorn)</div></div>
+<div class="mh-widget-stat"><div class="mh-widget-stat__value">4</div><div class="mh-widget-stat__label">Neúspěšných pokusů</div></div>
 </div>
 
-<div class="mh-widget-list-head">Poslední TOP výstupy</div>
-<ul class="mh-widget-list">
-<li class="mh-widget-item"><div class="mh-widget-item__meta">HŘEBENOVKA · 14. 8. 2026</div><div class="mh-widget-item__name">Watzmann: Hocheck – Mittelspitze<span class="mh-widget-item__country">🇩🇪 Německo</span></div></li>
-<li class="mh-widget-item"><div class="mh-widget-item__meta">VRCHOL · 28. 7. 2026</div><div class="mh-widget-item__name">Grossvenediger<span class="mh-widget-item__country">🇦🇹 Rakousko</span></div></li>
-<li class="mh-widget-item"><div class="mh-widget-item__meta">VRCHOL · 22. 7. 2025</div><div class="mh-widget-item__name">Gran Paradiso<span class="mh-widget-item__country">🇮🇹 Itálie</span></div></li>
-<li class="mh-widget-item"><div class="mh-widget-item__meta">VRCHOL · 27. 6. 2025</div><div class="mh-widget-item__name">Kazbek<span class="mh-widget-item__country">🇬🇪 Gruzie</span></div></li>
-<li class="mh-widget-item"><div class="mh-widget-item__meta">VRCHOL · 19. 8. 2024</div><div class="mh-widget-item__name">Aneto<span class="mh-widget-item__country">🇪🇸 Španělsko</span></div></li>
-<li class="mh-widget-item"><div class="mh-widget-item__meta">VRCHOL · 20. 7. 2024</div><div class="mh-widget-item__name">Säuleck<span class="mh-widget-item__country">🇦🇹 Rakousko</span></div></li>
-</ul>
+<div class="mh-widget-sections">
+    <div class="mh-widget-section">
+      <div class="mh-widget-section__head">Nejvyšší vrcholy</div>
+      <div class="mh-widget-rows"><div class="mh-widget-row"><div class="mh-widget-row__main"><span class="mh-widget-row__name">Kazbek</span><span class="mh-widget-row__meta">🇬🇪 Gruzie</span></div><div class="mh-widget-row__value">5 047 m</div></div><div class="mh-widget-row"><div class="mh-widget-row__main"><span class="mh-widget-row__name">Toubkal</span><span class="mh-widget-row__meta">🇲🇦 Maroko</span></div><div class="mh-widget-row__value">4 167 m</div></div><div class="mh-widget-row"><div class="mh-widget-row__main"><span class="mh-widget-row__name">Aragats (severní vrchol)</span><span class="mh-widget-row__meta">🇦🇲 Arménie</span></div><div class="mh-widget-row__value">4 090 m</div></div><div class="mh-widget-row"><div class="mh-widget-row__main"><span class="mh-widget-row__name">Gran Paradiso</span><span class="mh-widget-row__meta">🇮🇹 Itálie</span></div><div class="mh-widget-row__value">4 061 m</div></div><div class="mh-widget-row"><div class="mh-widget-row__main"><span class="mh-widget-row__name">Grossglockner</span><span class="mh-widget-row__meta">🇦🇹 Rakousko</span></div><div class="mh-widget-row__value">3 798 m</div></div><div class="mh-widget-row"><div class="mh-widget-row__main"><span class="mh-widget-row__name">Teide</span><span class="mh-widget-row__meta">🇪🇸 Španělsko</span></div><div class="mh-widget-row__value">3 715 m</div></div></div>
+    </div>
+    <div class="mh-widget-section">
+      <div class="mh-widget-section__head">Nej ferraty</div>
+      <div class="mh-widget-rows"><div class="mh-widget-row"><div class="mh-widget-row__main"><span class="mh-widget-row__name">Priel Klettersteig</span><span class="mh-widget-row__meta">🇦🇹 Rakousko</span></div><div class="mh-widget-row__value">14. 7. 2023</div></div><div class="mh-widget-row"><div class="mh-widget-row__main"><span class="mh-widget-row__name">Intersport Klettersteig</span><span class="mh-widget-row__meta">🇦🇹 Rakousko</span></div><div class="mh-widget-row__value">27. 7. 2022</div></div><div class="mh-widget-row"><div class="mh-widget-row__main"><span class="mh-widget-row__name">Zugspitze – ferrata od ledovce</span><span class="mh-widget-row__meta">🇩🇪 Německo</span></div><div class="mh-widget-row__value">11. 7. 2022</div></div><div class="mh-widget-row"><div class="mh-widget-row__main"><span class="mh-widget-row__name">Heidsteig</span><span class="mh-widget-row__meta">🇦🇹 Rakousko</span></div><div class="mh-widget-row__value">13. 7. 2021</div></div></div>
+    </div>
+    <div class="mh-widget-section">
+      <div class="mh-widget-section__head">Nej hřebenovky</div>
+      <div class="mh-widget-rows"><div class="mh-widget-row"><div class="mh-widget-row__main"><span class="mh-widget-row__name">Watzmann: Hocheck – Mittelspitze</span><span class="mh-widget-row__meta">🇩🇪 Německo</span></div><div class="mh-widget-row__value">14. 8. 2026</div></div><div class="mh-widget-row"><div class="mh-widget-row__main"><span class="mh-widget-row__name">Roháče: Baníkov – Hrubá kopa – Tri kopy</span><span class="mh-widget-row__meta">🇸🇰 Slovensko</span></div><div class="mh-widget-row__value">21. 7. 2021</div></div><div class="mh-widget-row"><div class="mh-widget-row__main"><span class="mh-widget-row__name">Trionite</span><span class="mh-widget-row__meta">🇧🇬 Bulharsko</span></div><div class="mh-widget-row__value">11. 8. 2020</div></div><div class="mh-widget-row"><div class="mh-widget-row__main"><span class="mh-widget-row__name">Koncheto (hřebenovka Vihren – Kutelo)</span><span class="mh-widget-row__meta">🇧🇬 Bulharsko</span></div><div class="mh-widget-row__value">9. 8. 2020</div></div></div>
+    </div>
+    <div class="mh-widget-section">
+      <div class="mh-widget-section__head">Nejnáročnější akce</div>
+      <div class="mh-widget-rows"><div class="mh-widget-row"><div class="mh-widget-row__main"><span class="mh-widget-row__name">Grosses Wiesbachhorn</span><span class="mh-widget-row__meta">🇦🇹 Rakousko</span></div><div class="mh-widget-row__value">2 600 m</div></div><div class="mh-widget-row"><div class="mh-widget-row__main"><span class="mh-widget-row__name">Toubkal</span><span class="mh-widget-row__meta">🇲🇦 Maroko</span></div><div class="mh-widget-row__value">2 375 m</div></div><div class="mh-widget-row"><div class="mh-widget-row__main"><span class="mh-widget-row__name">Ankogel</span><span class="mh-widget-row__meta">🇦🇹 Rakousko</span></div><div class="mh-widget-row__value">2 100 m</div></div><div class="mh-widget-row"><div class="mh-widget-row__main"><span class="mh-widget-row__name">Priel Klettersteig</span><span class="mh-widget-row__meta">🇦🇹 Rakousko</span></div><div class="mh-widget-row__value">900 m</div></div><div class="mh-widget-row"><div class="mh-widget-row__main"><span class="mh-widget-row__name">Zugspitze – ferrata od ledovce</span><span class="mh-widget-row__meta">🇩🇪 Německo</span></div><div class="mh-widget-row__value">—</div></div></div>
+    </div>
+</div>
 
-<div class="mh-widget-foot">Snímek k 26. 9. 2026</div>
+<div class="mh-widget-foot">Snímek k 27. 9. 2026</div>
 </div>

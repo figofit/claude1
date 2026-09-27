@@ -21,8 +21,6 @@ COUNTRY_FLAGS = {
     "Monako": "🇲🇨", "Vatikán": "🇻🇦", "Gibraltar": "🇬🇮",
 }
 
-TYPE_LABELS = {"ferrata": "Ferrata", "vrchol": "Vrchol", "hřebenovka": "Hřebenovka"}
-
 
 def esc(s):
     if s is None:
@@ -36,31 +34,25 @@ def esc(s):
 
 
 def fmt_num(n):
-    return f"{n:,}".replace(",", " ")
+    return f"{n:,.0f}".replace(",", " ")
 
 
-def main():
-    with open(DATA_PATH, encoding="utf-8") as f:
-        data = json.load(f)
-    records = data["records"]
+def fmt_date(date):
+    if not date:
+        return ""
+    try:
+        d = datetime.date.fromisoformat(date)
+        return d.strftime("%-d. %-m. %Y")
+    except ValueError:
+        return date
 
-    total = len(records)
-    countries = {r.get("country") for r in records if r.get("country")}
 
-    highest = max((r for r in records if r.get("altitude_m")), key=lambda r: r["altitude_m"])
+def country_label(r):
+    flag = COUNTRY_FLAGS.get(r.get("country"), "")
+    return f"{flag} {esc(r.get('country') or '')}".strip()
 
-    def is_summit(r):
-        return (
-            isinstance(r.get("altitude_m"), (int, float))
-            and r.get("type") in ("vrchol", "ferrata")
-            and r.get("reachedSummit", True) is not False
-        )
 
-    summit_records = [r for r in records if is_summit(r)]
-    above2500 = sum(1 for r in summit_records if r["altitude_m"] >= 2500)
-    above3000 = sum(1 for r in summit_records if r["altitude_m"] >= 3000)
-    above4000 = sum(1 for r in summit_records if r["altitude_m"] >= 4000)
-
+def biggest_single_day(records):
     biggest = None  # (gain, name)
     for r in records:
         days = r.get("days") or []
@@ -73,47 +65,116 @@ def main():
                 g = d.get("elevationGain_m")
                 if isinstance(g, (int, float)) and (biggest is None or g > biggest[0]):
                     biggest = (g, r["name"])
+    return biggest
 
-    featured = [r for r in records if r.get("featured")]
-    featured.sort(key=lambda r: r.get("date") or "", reverse=True)
-    top_list = featured[:6]
+
+def is_summit(r):
+    return (
+        isinstance(r.get("altitude_m"), (int, float))
+        and r.get("type") in ("vrchol", "ferrata")
+        and r.get("reachedSummit", True) is not False
+    )
+
+
+def render_row(name, meta, value):
+    return (
+        f'<div class="mh-widget-row">'
+        f'<div class="mh-widget-row__main"><span class="mh-widget-row__name">{esc(name)}</span>'
+        f'<span class="mh-widget-row__meta">{meta}</span></div>'
+        f'<div class="mh-widget-row__value">{esc(value)}</div>'
+        f"</div>"
+    )
+
+
+def render_section(heading, rows_html, empty_message):
+    body = "".join(rows_html) if rows_html else f'<p class="mh-widget-empty">{empty_message}</p>'
+    return f"""
+    <div class="mh-widget-section">
+      <div class="mh-widget-section__head">{esc(heading)}</div>
+      <div class="mh-widget-rows">{body}</div>
+    </div>"""
+
+
+def main():
+    with open(DATA_PATH, encoding="utf-8") as f:
+        data = json.load(f)
+    records = data["records"]
+
+    total = len(records)
+    countries = {r.get("country") for r in records if r.get("country")}
+    highest = max((r for r in records if r.get("altitude_m")), key=lambda r: r["altitude_m"])
+
+    summit_records = [r for r in records if is_summit(r)]
+    above2500 = sum(1 for r in summit_records if r["altitude_m"] >= 2500)
+    above3000 = sum(1 for r in summit_records if r["altitude_m"] >= 3000)
+    above4000 = sum(1 for r in summit_records if r["altitude_m"] >= 4000)
+
+    with_gain = [r for r in records if isinstance(r.get("elevationGain_m"), (int, float))]
+    total_gain = sum(r["elevationGain_m"] for r in with_gain)
+
+    attempt_count = sum(1 for r in records if r.get("reachedSummit") is False)
+
+    biggest = biggest_single_day(records)
 
     stats = [
         (fmt_num(total), "Výstupů celkem"),
         (str(len(countries)), "Zemí"),
         (f"{fmt_num(highest['altitude_m'])} m", f"Nejvýš ({esc(highest['name'])})"),
-        (str(above3000), "Vrcholů nad 3000 m"),
-        (str(above2500), "Vrcholů nad 2500 m"),
+        (f"{fmt_num(total_gain)} m", f"Převýšení (u {len(with_gain)} výstupů)"),
+        (str(above2500), "Nad 2500 m"),
+        (str(above3000), "Nad 3000 m"),
+        (str(above4000), "Nad 4000 m"),
         (f"{fmt_num(biggest[0])} m" if biggest else "—", f"Nejtvrdší den ({esc(biggest[1])})" if biggest else "Nejtvrdší den"),
+        (str(attempt_count), "Neúspěšných pokusů"),
     ]
-
-    items_html = []
-    for r in top_list:
-        flag = COUNTRY_FLAGS.get(r.get("country"), "")
-        type_label = TYPE_LABELS.get(r.get("type"), "")
-        date = r.get("date")
-        date_label = ""
-        if date:
-            try:
-                d = datetime.date.fromisoformat(date)
-                date_label = d.strftime("%-d. %-m. %Y")
-            except ValueError:
-                date_label = date
-        country_label = f"{flag} {esc(r.get('country') or '')}".strip()
-        meta = " · ".join(x for x in [type_label.upper(), date_label] if x)
-        items_html.append(
-            f'<li class="mh-widget-item">'
-            f'<div class="mh-widget-item__meta">{esc(meta)}</div>'
-            f'<div class="mh-widget-item__name">{esc(r["name"])}'
-            f'<span class="mh-widget-item__country">{country_label}</span></div>'
-            f"</li>"
-        )
-
     stats_html = "\n".join(
         f'<div class="mh-widget-stat"><div class="mh-widget-stat__value">{esc(v)}</div>'
         f'<div class="mh-widget-stat__label">{esc(l)}</div></div>'
         for v, l in stats
     )
+
+    # --- Nejvyšší vrcholy (napříč typy, podle nadmořské výšky) ---
+    top_altitude = sorted((r for r in records if r.get("altitude_m")), key=lambda r: -r["altitude_m"])[:6]
+    altitude_rows = [
+        render_row(r["name"], country_label(r), f"{fmt_num(r['altitude_m'])} m")
+        for r in top_altitude
+    ]
+
+    # --- Nej ferraty / Nej hřebenovky (featured, dle typu) ---
+    featured = [r for r in records if r.get("featured")]
+
+    def featured_of_type(t, limit):
+        items = [r for r in featured if r.get("type") == t]
+        items.sort(key=lambda r: r.get("date") or "", reverse=True)
+        return items[:limit]
+
+    ferraty_rows = [
+        render_row(r["name"], country_label(r), fmt_date(r.get("date")) or "—")
+        for r in featured_of_type("ferrata", 5)
+    ]
+    hrebenovky_rows = [
+        render_row(r["name"], country_label(r), fmt_date(r.get("date")) or "—")
+        for r in featured_of_type("hřebenovka", 5)
+    ]
+
+    # --- Nejnáročnější akce (pole toughDay, dle jednodenního převýšení) ---
+    tough = [r for r in records if r.get("toughDay")]
+    tough.sort(key=lambda r: r.get("elevationGain_m") if isinstance(r.get("elevationGain_m"), (int, float)) else -1, reverse=True)
+    tough_rows = [
+        render_row(
+            r["name"],
+            country_label(r),
+            f"{fmt_num(r['elevationGain_m'])} m" if isinstance(r.get("elevationGain_m"), (int, float)) else "—",
+        )
+        for r in tough[:5]
+    ]
+
+    sections_html = "".join([
+        render_section("Nejvyšší vrcholy", altitude_rows, "Zatím nic k zobrazení."),
+        render_section("Nej ferraty", ferraty_rows, "Zatím žádná TOP ferrata."),
+        render_section("Nej hřebenovky", hrebenovky_rows, "Zatím žádná TOP hřebenovka."),
+        render_section("Nejnáročnější akce", tough_rows, "Zatím nic k zobrazení."),
+    ])
 
     today = datetime.date.today().strftime("%-d. %-m. %Y")
 
@@ -137,9 +198,9 @@ def main():
     --mh-font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
     box-sizing: border-box;
-    max-width: 720px;
+    max-width: 900px;
     margin: 24px 0;
-    padding: 24px 24px 18px;
+    padding: 26px 26px 18px;
     background: var(--mh-bg);
     border: 1px solid var(--mh-border);
     border-radius: var(--mh-radius);
@@ -163,10 +224,10 @@ def main():
   .mh-widget-eyebrow::before {{ content: "— "; }}
   .mh-widget-title {{
     font-family: var(--mh-font-head);
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 800;
     letter-spacing: -0.01em;
-    margin: 0 0 16px;
+    margin: 0 0 18px;
     color: var(--mh-text);
   }}
 
@@ -174,7 +235,7 @@ def main():
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
   }}
   .mh-widget-stat {{
     background: var(--mh-surface);
@@ -185,80 +246,93 @@ def main():
   }}
   .mh-widget-stat__value {{
     font-family: var(--mh-font-head);
-    font-size: 19px;
+    font-size: 18px;
     font-weight: 800;
     color: var(--mh-accent);
     line-height: 1.15;
   }}
   .mh-widget-stat__label {{
-    font-size: 11.5px;
+    font-size: 11px;
     color: var(--mh-text-muted);
     margin-top: 4px;
     line-height: 1.3;
   }}
 
-  .mh-widget-list-head {{
-    font-family: var(--mh-font-head);
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--mh-text);
-    margin: 0 0 10px;
-  }}
-  .mh-widget-list {{
-    list-style: none;
-    margin: 0 0 16px;
-    padding: 0;
+  .mh-widget-sections {{
     display: grid;
-    gap: 8px;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 20px;
   }}
-  .mh-widget-item {{
-    background: var(--mh-surface);
-    border: 1px solid var(--mh-border);
-    border-radius: calc(var(--mh-radius) - 8px);
-    padding: 10px 14px;
-  }}
-  .mh-widget-item__meta {{
-    font-size: 11px;
+  .mh-widget-section__head {{
+    font-family: var(--mh-font-head);
+    font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.04em;
-    color: var(--mh-accent);
-    margin-bottom: 3px;
-  }}
-  .mh-widget-item__name {{
-    font-weight: 700;
+    letter-spacing: 0.02em;
     color: var(--mh-text);
-    font-size: 14.5px;
+    margin: 0 0 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--mh-border);
   }}
-  .mh-widget-item__country {{
-    font-weight: 400;
+  .mh-widget-rows {{
+    display: grid;
+    gap: 1px;
+  }}
+  .mh-widget-row {{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--mh-border);
+  }}
+  .mh-widget-row:last-child {{ border-bottom: none; }}
+  .mh-widget-row__main {{ min-width: 0; }}
+  .mh-widget-row__name {{
+    font-weight: 700;
+    font-size: 13.5px;
+    color: var(--mh-text);
+  }}
+  .mh-widget-row__meta {{
+    font-size: 11.5px;
+    color: var(--mh-text-faint);
+    margin-left: 6px;
+  }}
+  .mh-widget-row__value {{
+    font-family: var(--mh-font-head);
+    font-weight: 700;
+    font-size: 12.5px;
+    color: var(--mh-accent);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }}
+  .mh-widget-empty {{
     font-size: 12.5px;
     color: var(--mh-text-faint);
-    margin-left: 8px;
+    margin: 0;
   }}
 
   .mh-widget-foot {{
     font-size: 11.5px;
     color: var(--mh-text-faint);
     text-align: right;
+    margin-top: 18px;
   }}
 
-  @media (max-width: 480px) {{
+  @media (max-width: 640px) {{
     .mh-widget-stats {{ grid-template-columns: repeat(2, 1fr); }}
-    .mh-widget-item__country {{ display: block; margin-left: 0; margin-top: 2px; }}
+    .mh-widget-sections {{ grid-template-columns: 1fr; }}
   }}
 </style>
 
 <div class="mh-widget-eyebrow">Osobní horský deník</div>
-<h3 class="mh-widget-title">Moje hory — přehled</h3>
+<h3 class="mh-widget-title">Moje hory — souhrn</h3>
 
 <div class="mh-widget-stats">
 {stats_html}
 </div>
 
-<div class="mh-widget-list-head">Poslední TOP výstupy</div>
-<ul class="mh-widget-list">
-{chr(10).join(items_html)}
-</ul>
+<div class="mh-widget-sections">{sections_html}
+</div>
 
 <div class="mh-widget-foot">Snímek k {today}</div>
 </div>
