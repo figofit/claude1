@@ -8,6 +8,7 @@ Výstupy (vedle tohoto skriptu):
 Spuštění: python3 build.py
 """
 import json
+import re
 from collections import Counter, defaultdict
 from datetime import date
 from html import escape
@@ -30,6 +31,11 @@ def plural(n, one, few, many):
 def nb(text):
     """Nezalomitelné mezery uvnitř názvu týmu nebo jména."""
     return escape(text).replace(" ", "&nbsp;")
+
+
+def typo(text):
+    """Escapuje text a přidá nezalomitelnou mezeru za jednopísmenné předložky a spojky."""
+    return re.sub(r"(?<!\w)([vszkouaiVSZKOUAI]) ", r"\1&nbsp;", escape(text))
 
 
 def mark_me(pid, text):
@@ -84,6 +90,12 @@ for g in games:
     if g["strelci"] is not None:
         assert sum(n for _, n in g["strelci"]) == g["gf"], g["n"]
 
+TABLE = DATA["tabulka_po_19_kole"]
+for _, team, z, v, r, pr, sk, b in TABLE:
+    assert z == v + r + pr and b == 3 * v + r, team
+assert sum(row[3] for row in TABLE) == sum(row[5] for row in TABLE)
+assert sum(int(row[6].split(":")[0]) for row in TABLE) == sum(int(row[6].split(":")[1]) for row in TABLE)
+
 
 # ---------- HTML ----------
 def name_of(pid):
@@ -132,6 +144,9 @@ def game_row(g):
     else:
         away = f"<b>{away}</b>"
     note = f'<small>{escape(g["pozn"])}</small>' if g.get("pozn") else ""
+    if g.get("moje"):
+        card = '<i class="fk-yc" aria-hidden="true"></i>' if g.get("zluta") else ""
+        note += f'<small class="fk-hand">{card}{typo(g["moje"])}</small>'
     ht = f'<small>({g["polocas"]})</small>' if g.get("polocas") else ""
     res_title = ' title="' + RES_WORD[g["res"]] + '"'
     return (f'<li class="fk-g"><span class="k">{g["n"]}.</span>{d}'
@@ -178,8 +193,8 @@ def pitch():
             f'{lines}{rows}</figure>')
 
 
-POSTS = [("brankář", "Brankář"), ("obránce", "Obránci"),
-         ("záložník", "Záložníci"), ("útočník", "Útočníci")]
+POSTS = [("brankář", "Brankáři"), ("obránce", "Obránci"),
+         ("záložník", "Záložníci"), ("útočník", "Útočníci"), (None, "Hrál také")]
 
 
 def roster():
@@ -191,10 +206,31 @@ def roster():
                 continue
             n = tally[pid]
             goals = f'<span class="g">{n} {plural(n, "gól", "góly", "gólů")}</span>' if n else ""
+            if p.get("role"):
+                goals = f'<span class="g">{escape(p["role"])}</span>'
             dds.append(f'<dd><span>{mark_me(pid, nb(p["jmeno"]))}</span>{goals}</dd>')
-        groups.append(f'<div class="fk-grp"><dt>{label}</dt>{"".join(dds)}</div>')
+        if dds:
+            groups.append(f'<div class="fk-grp"><dt>{label}</dt>{"".join(dds)}</div>')
+    groups.append(f'<div class="fk-grp"><dt>Trenér</dt><dd><span>{nb(DATA["trener"])}</span></dd></div>')
     return (f'<div class="fk-roster"><h4>Soupiska · {len(PLAYERS)} hráčů</h4>'
             f'<dl>{"".join(groups)}</dl></div>')
+
+
+def league_table():
+    top = max(row[7] for row in TABLE)
+    body = []
+    for pos, team, z, v, r, pr, sk, b in TABLE:
+        cls = ' class="us"' if team == "N. Sady" else ""
+        body.append(
+            f'<tr{cls}><td class="ps">{pos}.</td><td class="tm">{nb(team)}'
+            f'<span class="pb" style="width:{b / top * 100:.1f}%" aria-hidden="true"></span></td>'
+            f'<td>{z}</td><td>{v}</td><td>{r}</td><td>{pr}</td><td class="sk">{sk}</td>'
+            f'<td class="pts">{b}</td></tr>')
+    head = ('<thead><tr><th class="ps"><span class="fk-sr">Pořadí</span></th><th class="tm">Tým</th>'
+            '<th title="zápasy">Z</th><th title="výhry">V</th><th title="remízy">R</th>'
+            '<th title="prohry">P</th><th>Skóre</th><th>Body</th></tr></thead>')
+    return (f'<div class="fk-tbl-wrap"><table class="fk-tbl"><caption class="fk-sr">Tabulka po 19. kole</caption>'
+            f'{head}<tbody>{"".join(body)}</tbody></table></div>')
 
 
 def scorer_bars():
@@ -245,16 +281,27 @@ line_html = (
     + f'</div><p class="fk-sr">{line_sr}</p>')
 
 missing_goals = sum(g["gf"] for g in missing)
+us19 = next(row for row in TABLE if row[1] == "N. Sady")
+lead19 = us19[7] - TABLE[1][7]
+mem_html = "".join(f"<li>{typo(m)}</li>" for m in DATA["vzpominky"])
+lede = (f'Vítězové I.&nbsp;třídy, skupiny A. Ročníky {typo(DATA["rocniky"])}, '
+        f'trenér {nb(DATA["trener"])}.')
+me_name = PLAYERS[ME]["jmeno"]
 
 SECTION = f"""<section id="fkns" lang="cs" aria-labelledby="fkns-h">
 <header class="fk-hero">
 <p class="fk-eyebrow">Starší žáci</p>
 <h2 id="fkns-h" class="fk-title">FK Nové Sady <span>2001/2002</span></h2>
-<p class="fk-lede">Vítězové I.&nbsp;třídy, skupiny A.</p>
+<p class="fk-lede">{lede}</p>
 {line_html}
 <div class="fk-form">{form_row("Podzim", "podzim")}{form_row("Jaro", "jaro")}<p class="fk-legend">{chip("v", "span", ' aria-hidden="true"')} výhra {chip("r", "span", ' aria-hidden="true"')} remíza {chip("p", "span", ' aria-hidden="true"')} prohra</p></div>
 <ul class="fk-facts">{facts_html}</ul>
 </header>
+<section class="fk-sec" aria-labelledby="fkns-tabulka">
+<div class="fk-sec-head"><h3 id="fkns-tabulka" class="fk-h3">Tabulka po 19. kole</h3><p class="fk-kicker">podle novin</p></div>
+<p class="fk-intro">Čísla jsou přesně tak, jak je noviny otiskly. Nové Sady měly po {us19[2]} zápasech náskok {lead19} {plural(lead19, "bod", "body", "bodů")} před Černovírem.</p>
+{league_table()}
+</section>
 <section class="fk-sec" aria-labelledby="fkns-sestava">
 <div class="fk-sec-head"><h3 id="fkns-sestava" class="fk-h3">Základní sestava</h3><p class="fk-kicker">4–3–3</p></div>
 <div class="fk-team">{pitch()}{roster()}</div>
@@ -270,13 +317,17 @@ SECTION = f"""<section id="fkns" lang="cs" aria-labelledby="fkns-h">
 {half_block("Podzim 2001", "podzim")}
 {half_block("Jaro 2002", "jaro")}
 </section>
+<section class="fk-sec" aria-labelledby="fkns-vzpominky">
+<div class="fk-sec-head"><h3 id="fkns-vzpominky" class="fk-h3">Vzpomínky</h3><p class="fk-kicker">{nb(me_name)}</p></div>
+<ul class="fk-mem">{mem_html}</ul>
+</section>
 <p class="fk-foot">Sestaveno z novinových výstřižků (I.&nbsp;tř., sk.&nbsp;A – žáci starší), ručně psaného rozlosování a tištěného rozpisu zápasů. V závorce je poločas, pokud ho noviny uvedly.</p>
 </section>"""
 
-CSS = """@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700;800&family=Courier+Prime:wght@400;700&display=swap");
-#fkns{--sheet:#fcfdfa;--ink:#17221b;--ink-2:#4c5a51;--muted:#6b776f;--rule:#dde3da;--rule-2:#c3ccc0;--pitch:#2f7445;--pitch-2:#367d4c;--chalk:rgba(255,255,255,.78);--marker:#ffe35a;--win:#227a3a;--draw:#e3e8e0;--loss:#b8392f;--bar:#2f7445;--f-disp:"Barlow Condensed","Roboto Condensed","Arial Narrow",sans-serif;--f-body:"Barlow",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--f-type:"Courier Prime","Courier New",Courier,monospace;container-type:inline-size;display:block;box-sizing:border-box;margin:2em 0;padding:clamp(18px,4vw,44px);background:var(--sheet);color:var(--ink);border:1px solid var(--rule);border-radius:4px;font:400 16px/1.5 var(--f-body);text-align:left;-webkit-text-size-adjust:100%}
+CSS = """@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700;800&family=Courier+Prime:wght@400;700&family=Caveat:wght@600&display=swap");
+#fkns{--sheet:#fcfdfa;--ink:#17221b;--ink-2:#4c5a51;--muted:#6b776f;--rule:#dde3da;--rule-2:#c3ccc0;--pitch:#2f7445;--pitch-2:#367d4c;--chalk:rgba(255,255,255,.78);--marker:#ffe35a;--win:#227a3a;--draw:#e3e8e0;--loss:#b8392f;--bar:#2f7445;--pb:#aebdb2;--pen:#2340a0;--f-hand:"Caveat","Segoe Print","Bradley Hand",cursive;--f-disp:"Barlow Condensed","Roboto Condensed","Arial Narrow",sans-serif;--f-body:"Barlow",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--f-type:"Courier Prime","Courier New",Courier,monospace;container-type:inline-size;display:block;box-sizing:border-box;margin:2em 0;padding:clamp(18px,4vw,44px);background:var(--sheet);color:var(--ink);border:1px solid var(--rule);border-radius:4px;font:400 16px/1.5 var(--f-body);text-align:left;-webkit-text-size-adjust:100%}
 #fkns *,#fkns *::before,#fkns *::after{box-sizing:border-box}
-#fkns h2,#fkns h3,#fkns h4,#fkns p,#fkns ol,#fkns ul,#fkns li,#fkns dl,#fkns dt,#fkns dd,#fkns figure,#fkns section,#fkns header,#fkns small,#fkns mark,#fkns b{margin:0;padding:0;border:0;background:none;font:inherit;color:inherit;letter-spacing:normal;text-transform:none;text-shadow:none;box-shadow:none;list-style:none;max-width:none;text-align:inherit}
+#fkns h2,#fkns h3,#fkns h4,#fkns p,#fkns ol,#fkns ul,#fkns li,#fkns dl,#fkns dt,#fkns dd,#fkns figure,#fkns section,#fkns header,#fkns small,#fkns mark,#fkns b,#fkns i,#fkns table,#fkns caption,#fkns thead,#fkns tbody,#fkns tr,#fkns th,#fkns td{margin:0;padding:0;border:0;background:none;font:inherit;color:inherit;letter-spacing:normal;text-transform:none;text-shadow:none;box-shadow:none;list-style:none;max-width:none;text-align:inherit}
 #fkns li::marker{content:none}
 #fkns b{font-weight:600}
 #fkns .fk-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
@@ -359,9 +410,27 @@ CSS = """@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;5
 #fkns .fk-g .fk-chip{grid-area:r;align-self:center;justify-self:end;width:22px;height:22px;font-size:13px}
 #fkns .fk-g .c{grid-area:c;padding-top:2px;font-size:14px;line-height:1.45;color:var(--ink-2)}
 #fkns .fk-g .c.none{color:var(--muted);font-style:italic}
+#fkns .fk-g .m .fk-hand{display:block;margin-top:3px;font:600 19px/1.1 var(--f-hand);color:var(--pen)}
+#fkns .fk-yc{display:inline-block;width:9px;height:12px;margin-right:7px;border-radius:1.5px;background:#f5c518;box-shadow:0 0 0 1px rgba(0,0,0,.22);transform:rotate(8deg);vertical-align:-1px}
+#fkns .fk-tbl-wrap{overflow-x:auto}
+#fkns .fk-tbl{width:100%;border-collapse:collapse;border-spacing:0;font-size:14px;line-height:1.3;font-variant-numeric:tabular-nums}
+#fkns .fk-tbl th{padding:0 4px 6px;border-bottom:2px dashed var(--rule-2);font:700 11px/1.3 var(--f-type);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:right;white-space:nowrap}
+#fkns .fk-tbl td{padding:7px 4px;border-bottom:1px solid var(--rule);text-align:right;white-space:nowrap;vertical-align:top}
+#fkns .fk-tbl .ps{width:1%;padding-left:6px;text-align:left;font:700 13px/1.5 var(--f-type);color:var(--muted)}
+#fkns .fk-tbl .tm{width:100%;text-align:left}
+#fkns .fk-tbl td.tm{font-weight:500}
+#fkns .fk-tbl .pb{display:block;height:4px;margin-top:5px;border-radius:0 2px 2px 0;background:var(--pb)}
+#fkns .fk-tbl .sk{color:var(--ink-2)}
+#fkns .fk-tbl td.pts{padding-right:6px;font:700 18px/1.15 var(--f-disp)}
+#fkns .fk-tbl th:last-child{padding-right:6px}
+#fkns .fk-tbl tr.us td{background:var(--marker);color:var(--ink)}
+#fkns .fk-tbl tr.us td.tm{font-weight:700}
+#fkns .fk-tbl tr.us .pb{background:var(--bar)}
+#fkns .fk-mem{display:grid;gap:14px;max-width:38em}
+#fkns .fk-mem li{font:600 22px/1.3 var(--f-hand);color:var(--pen)}
 #fkns .fk-foot{margin-top:32px;padding-top:14px;border-top:1px solid var(--rule);font-size:13px;line-height:1.5;color:var(--muted)}
 @container (min-width:480px){#fkns .fk-form-lab{flex:0 0 56px}#fkns .fk-chip{width:26px;height:26px;font-size:14px}#fkns .fk-legend{margin-left:68px}#fkns .fk-legend .fk-chip{width:18px;height:18px;font-size:11px}}
-@container (min-width:520px){#fkns .fk-facts{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@container (min-width:520px){#fkns .fk-facts{grid-template-columns:repeat(4,minmax(0,1fr))}#fkns .fk-tbl{font-size:15px}#fkns .fk-tbl th,#fkns .fk-tbl td{padding-left:8px;padding-right:8px}#fkns .fk-tbl .ps{padding-left:6px}#fkns .fk-mem li{font-size:24px}}
 @container (min-width:600px){#fkns .fk-team{grid-template-columns:minmax(0,300px) minmax(0,1fr);align-items:start;gap:36px}}
 @container (min-width:700px){#fkns .fk-cols,#fkns .fk-g{display:grid;grid-template-columns:34px 88px minmax(0,1.2fr) 100px 22px minmax(0,1fr);grid-template-areas:"k d m s r c";column-gap:12px}#fkns .fk-cols{padding-bottom:4px;border-bottom:2px dashed var(--rule-2);font:700 11px/1.3 var(--f-type);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}#fkns .fk-cols span:nth-child(4){text-align:right}#fkns .fk-g .c{padding-top:0}}
 @media (prefers-reduced-motion:no-preference){#fkns .fk-bar .fill{transition:filter .15s}}"""
