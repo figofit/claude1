@@ -91,7 +91,8 @@ for g in games:
         assert sum(n for _, n in g["strelci"]) == g["gf"], g["n"]
 
 TABLE = DATA["tabulka_po_19_kole"]
-for _, team, z, v, r, pr, sk, b in TABLE:
+TOP21 = DATA["tabulka_po_21_kole_prvnich_7"]
+for _, team, z, v, r, pr, sk, b in TABLE + TOP21:
     assert z == v + r + pr and b == 3 * v + r, team
 assert sum(row[3] for row in TABLE) == sum(row[5] for row in TABLE)
 assert sum(int(row[6].split(":")[0]) for row in TABLE) == sum(int(row[6].split(":")[1]) for row in TABLE)
@@ -283,6 +284,8 @@ line_html = (
 missing_goals = sum(g["gf"] for g in missing)
 us19 = next(row for row in TABLE if row[1] == "N. Sady")
 lead19 = us19[7] - TABLE[1][7]
+us21, second21 = TOP21[0], TOP21[1]
+assert us21[1] == "N. Sady" and second21[1] == "Černovír"
 mem_html = "".join(f"<li>{typo(m)}</li>" for m in DATA["vzpominky"])
 lede = (f'Vítězové I.&nbsp;třídy, skupiny A. Ročníky {typo(DATA["rocniky"])}, '
         f'trenér {nb(DATA["trener"])}.')
@@ -299,7 +302,7 @@ SECTION = f"""<section id="fkns" lang="cs" aria-labelledby="fkns-h">
 </header>
 <section class="fk-sec" aria-labelledby="fkns-tabulka">
 <div class="fk-sec-head"><h3 id="fkns-tabulka" class="fk-h3">Tabulka po 19. kole</h3><p class="fk-kicker">podle novin</p></div>
-<p class="fk-intro">Čísla jsou přesně tak, jak je noviny otiskly. Nové Sady měly po {us19[2]} zápasech náskok {lead19} {plural(lead19, "bod", "body", "bodů")} před Černovírem.</p>
+<p class="fk-intro">Čísla jsou přesně tak, jak je noviny otiskly. Nové Sady měly po {us19[2]} zápasech náskok {lead19} {plural(lead19, "bod", "body", "bodů")} před Černovírem. Po 21. kole, kdy už měly za sebou {us21[2]} zápasů, to bylo {us21[7]} bodů proti {second21[7]}.</p>
 {league_table()}
 </section>
 <section class="fk-sec" aria-labelledby="fkns-sestava">

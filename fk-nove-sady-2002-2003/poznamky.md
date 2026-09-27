@@ -4,7 +4,7 @@ Sbíráme postupně od Michala „Figa“ Dokoupila. Zatím bez výsledků, tabu
 
 ## Tým
 - Hráli jsme ročníky 88, 89 a dokonce i kluci 90 – třeba 12–13letí proti 14–15letým, a přesto jsme byli konkurenceschopní.
-- Silný blok vznikl z kluků, kteří v sezóně 2001/02 hráli za mladší žáky (Tlumič, Ronzic/Ronza?, Svobi?).
+- Silný blok vznikl z kluků, kteří v sezóně 2001/02 hráli za mladší žáky (Tlumič, David Ronza, Svobi?).
 
 ## Trenéři
 - Svobiho táta a strejda („to byla topka“). Jména zatím chybí.
@@ -19,7 +19,7 @@ Sbíráme postupně od Michala „Figa“ Dokoupila. Zatím bez výsledků, tabu
 | Brstak | ? | přišel během sezóny (asi) |
 | Marek Florian | ? | |
 | Michal Tůma | ? | |
-| Dávid Ronza | ? | je to „Ronzic“ ze vzpomínky na první trénink? |
+| David Ronza | ? | byl už na Michalově prvním tréninku |
 | Tlumič | ? | |
 
 ## Vzpomínky
