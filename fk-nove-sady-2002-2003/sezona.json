@@ -1,0 +1,39 @@
+{
+  "tym": "FK Nové Sady – starší žáci",
+  "sezona": "2002/2003",
+  "poznamka": "Podle vzpomínek Michala „Figa“ Dokoupila, bez výsledků a tabulky. Ročníky a pozice k potvrzení (viz poznamky.md).",
+  "rocniky": [1988, 1989, 1990],
+  "treneri": ["Standa Svoboda st.", "pan Okleštěk"],
+  "hraci": {
+    "svoboda":  {"jmeno": "Standa „Svobi“ Svoboda", "kratce": "Svoboda",  "post": "brankář",  "rocnik": null, "odkud": "mladsi"},
+    "tlumic":   {"jmeno": "Tlumič",                 "kratce": "Tlumič",   "post": "obránce",  "rocnik": null, "odkud": "mladsi"},
+    "halady":   {"jmeno": "Michal Halady",          "kratce": "Halady",   "post": "obránce",  "rocnik": 1990},
+    "skacelik": {"jmeno": "Ondřej Skácelík",        "kratce": "Skácelík", "post": "obránce",  "rocnik": null, "odkud": "starsi"},
+    "cerny":    {"jmeno": "Jarda Černý",            "kratce": "Černý",    "post": "obránce",  "rocnik": 1990},
+    "tuma":     {"jmeno": "Michal Tůma",            "kratce": "Tůma",     "post": "obránce",  "rocnik": null},
+    "dokoupil": {"jmeno": "Michal „Figo“ Dokoupil", "kratce": "Dokoupil", "post": "záložník", "rocnik": 1988, "odkud": "starsi", "ja": true},
+    "janousek": {"jmeno": "Jarda Janoušek",         "kratce": "Janoušek", "post": "záložník", "rocnik": 1989},
+    "florian":  {"jmeno": "Marek Florián",          "kratce": "Florián",  "post": "záložník", "rocnik": null},
+    "semjon":   {"jmeno": "Martin Semjon",          "kratce": "Semjon",   "post": "útočník",  "rocnik": null, "odkud": "starsi"},
+    "ronza":    {"jmeno": "David Ronza",            "kratce": "Ronza",    "post": "útočník",  "rocnik": null, "odkud": "mladsi"},
+    "foukal":   {"jmeno": "Vít Foukal",             "kratce": "Foukal",   "post": "útočník",  "rocnik": null, "odkud": "starsi"}
+  },
+  "sestava": {
+    "rozestaveni": "4-3-3",
+    "poznamka": "Hráli jsme pořád 4-3-3. Vlevo jsem v záloze hrál nejčastěji já a za mnou na beku Tlumič. V obraně hrál i Michal Tůma. Nejvíc gólů dal rozhodně Vít Foukal.",
+    "rady": [
+      [["semjon"], ["ronza"], ["foukal"]],
+      [["dokoupil"], ["janousek"], ["florian"]],
+      [["tlumic"], ["halady"], ["skacelik"], ["cerny"]],
+      [["svoboda"]]
+    ]
+  },
+  "vzpominky": [
+    "Trénoval nás Svobiho táta Standa Svoboda a pan Okleštěk. To byla topka.",
+    "Hráli za nás ročníky 88, 89 a dokonce i 90. Nejmladší kluci tak byli 12–13letí a hráli proti 14–15letým, a přesto jsme byli konkurenceschopní.",
+    "Myslím, že jsme byli i na soustředění.",
+    "Kolem týmu byli i rodiče hráčů a bylo to hodně fajn.",
+    "Tuhle sezónu jsem hrál v červenobílých totalkách od Nike.",
+    "Později jsme se všichni znovu potkali v dorostu, mladším i starším."
+  ]
+}
