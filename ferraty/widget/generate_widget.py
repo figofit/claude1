@@ -109,18 +109,16 @@ def main():
     above3000 = sum(1 for r in summit_records if r["altitude_m"] >= 3000)
     above4000 = sum(1 for r in summit_records if r["altitude_m"] >= 4000)
 
-    with_gain = [r for r in records if isinstance(r.get("elevationGain_m"), (int, float))]
-    total_gain = sum(r["elevationGain_m"] for r in with_gain)
-
     attempt_count = sum(1 for r in records if r.get("reachedSummit") is False)
 
     biggest = biggest_single_day(records)
 
+    # Pozn.: souhrnné "Převýšení celkem" je záměrně vynechané — u drtivé většiny záznamů
+    # zatím není elevationGain_m vyplněné, takže by součet byl zavádějící (jen zlomek reality).
     stats = [
         (fmt_num(total), "Výstupů celkem"),
         (str(len(countries)), "Zemí"),
         (f"{fmt_num(highest['altitude_m'])} m", f"Nejvýš ({esc(highest['name'])})"),
-        (f"{fmt_num(total_gain)} m", f"Převýšení (u {len(with_gain)} výstupů)"),
         (str(above2500), "Nad 2500 m"),
         (str(above3000), "Nad 3000 m"),
         (str(above4000), "Nad 4000 m"),
@@ -133,28 +131,27 @@ def main():
         for v, l in stats
     )
 
-    # --- Nejvyšší vrcholy (napříč typy, podle nadmořské výšky) ---
-    top_altitude = sorted((r for r in records if r.get("altitude_m")), key=lambda r: -r["altitude_m"])[:6]
-    altitude_rows = [
-        render_row(r["name"], country_label(r), f"{fmt_num(r['altitude_m'])} m")
-        for r in top_altitude
-    ]
-
-    # --- Nej ferraty / Nej hřebenovky (featured, dle typu) ---
+    # --- Nej vrcholy / Nej ferraty / Nej hřebenovky (featured, dle typu) ---
+    # Stejná logika pro všechny tři — jen tvůj vlastní výběr (pole "featured"), ne automatický
+    # výpočet. "Nej vrcholy" se navíc řadí podle nadmořské výšky (u ferrat/hřebenovek podle data).
     featured = [r for r in records if r.get("featured")]
 
-    def featured_of_type(t, limit):
+    def featured_of_type(t, limit, sort_key):
         items = [r for r in featured if r.get("type") == t]
-        items.sort(key=lambda r: r.get("date") or "", reverse=True)
+        items.sort(key=sort_key, reverse=True)
         return items[:limit]
 
+    vrcholy_rows = [
+        render_row(r["name"], country_label(r), f"{fmt_num(r['altitude_m'])} m" if r.get("altitude_m") else "—")
+        for r in featured_of_type("vrchol", 16, lambda r: r.get("altitude_m") or 0)
+    ]
     ferraty_rows = [
         render_row(r["name"], country_label(r), fmt_date(r.get("date")) or "—")
-        for r in featured_of_type("ferrata", 5)
+        for r in featured_of_type("ferrata", 8, lambda r: r.get("date") or "")
     ]
     hrebenovky_rows = [
         render_row(r["name"], country_label(r), fmt_date(r.get("date")) or "—")
-        for r in featured_of_type("hřebenovka", 5)
+        for r in featured_of_type("hřebenovka", 8, lambda r: r.get("date") or "")
     ]
 
     # Pozn.: sekce "Nejnáročnější akce" (pole toughDay) je záměrně vynechaná — jednodenní
@@ -163,7 +160,7 @@ def main():
     # sekce (render_section + řazení podle elevationGain_m).
 
     sections_html = "".join([
-        render_section("Nejvyšší vrcholy", altitude_rows, "Zatím nic k zobrazení."),
+        render_section("Nej vrcholy", vrcholy_rows, "Zatím žádný TOP vrchol."),
         render_section("Nej ferraty", ferraty_rows, "Zatím žádná TOP ferrata."),
         render_section("Nej hřebenovky", hrebenovky_rows, "Zatím žádná TOP hřebenovka."),
     ])
