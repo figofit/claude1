@@ -119,9 +119,9 @@
         "mahdlgupf"
       ],
       "createdAt": "2026-09-15T00:00:00Z",
-      "updatedAt": "2026-09-25T00:00:00Z",
+      "updatedAt": "2026-09-29T00:00:00Z",
       "regionGroup": "Alpy",
-      "featured": false,
+      "featured": true,
       "days": [],
       "highestOfCountry": false,
       "companions": [
@@ -153,9 +153,9 @@
         "traunstein"
       ],
       "createdAt": "2026-09-15T00:00:00Z",
-      "updatedAt": "2026-09-25T00:00:00Z",
+      "updatedAt": "2026-09-29T00:00:00Z",
       "regionGroup": "Alpy",
-      "featured": false,
+      "featured": true,
       "days": [],
       "highestOfCountry": false
     },
