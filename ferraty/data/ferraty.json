@@ -4367,7 +4367,8 @@
       "relatedIds": [
         "petrovy-kameny",
         "praded-2024",
-        "praded-2019"
+        "praded-2019",
+        "jesenicky-hreben-skritek-ovcarna"
       ],
       "highestOfCountry": false,
       "highestOfAreas": [
@@ -4377,7 +4378,7 @@
       "volcano": false,
       "glacier": false,
       "createdAt": "2026-09-25T00:00:00Z",
-      "updatedAt": "2026-09-27T00:00:00Z",
+      "updatedAt": "2026-09-30T00:00:00Z",
       "companions": [
         "Tajchý",
         "Čápi"
@@ -4405,7 +4406,8 @@
       "photos": [],
       "sourceUrl": null,
       "relatedIds": [
-        "praded"
+        "praded",
+        "jesenicky-hreben-skritek-ovcarna"
       ],
       "highestOfCountry": false,
       "highestOfAreas": [],
@@ -4413,7 +4415,7 @@
       "volcano": false,
       "glacier": false,
       "createdAt": "2026-09-25T00:00:00Z",
-      "updatedAt": "2026-09-25T00:00:00Z",
+      "updatedAt": "2026-09-30T00:00:00Z",
       "companions": [
         "Tajchý",
         "Čápi"
@@ -4440,14 +4442,16 @@
       "track": null,
       "photos": [],
       "sourceUrl": null,
-      "relatedIds": [],
+      "relatedIds": [
+        "jesenicky-hreben-skritek-ovcarna"
+      ],
       "highestOfCountry": false,
       "highestOfAreas": [],
       "milestones": [],
       "volcano": false,
       "glacier": false,
       "createdAt": "2026-09-25T00:00:00Z",
-      "updatedAt": "2026-09-25T00:00:00Z"
+      "updatedAt": "2026-09-30T00:00:00Z"
     },
     {
       "id": "knehyne",
@@ -5213,6 +5217,43 @@
       "glacierName": null,
       "createdAt": "2026-09-26T00:00:00Z",
       "updatedAt": "2026-09-26T00:00:00Z"
+    },
+    {
+      "id": "jesenicky-hreben-skritek-ovcarna",
+      "type": "hřebenovka",
+      "name": "Jesenický hřeben: Skřítek – Ovčárna",
+      "country": "Česko",
+      "region": "Jeseníky (Hrubý Jeseník)",
+      "regionGroup": null,
+      "locality": null,
+      "coordinates": null,
+      "date": null,
+      "length_m": null,
+      "elevationGain_m": null,
+      "summit": null,
+      "altitude_m": 1491,
+      "duration_min": null,
+      "featured": false,
+      "reachedSummit": true,
+      "days": [],
+      "note": "Není to jeden souvislý přechod, ale hřeben od Skřítka (přes Rýmařov) po Ovčárnu proputoval postupně během několika návštěv v říjnu 2017 — na téhle konkrétní etapě od Skřítka došel jen po Pecný (2017-10-27), zbytek hřebene k Petrovým kamenům a Pradědu byl z jiné návštěvy (od Ovčárny, 24. 10. 2017, s Tajchým a Čápim). Dohromady ale hřeben Skřítek–Ovčárna prošel celý.",
+      "track": null,
+      "photos": [],
+      "sourceUrl": null,
+      "relatedIds": [
+        "pecny",
+        "petrovy-kameny",
+        "praded"
+      ],
+      "highestOfCountry": false,
+      "highestOfAreas": [],
+      "milestones": [],
+      "companions": [],
+      "volcano": false,
+      "glacier": null,
+      "glacierName": null,
+      "createdAt": "2026-09-30T00:00:00Z",
+      "updatedAt": "2026-09-30T00:00:00Z"
     }
   ]
 }

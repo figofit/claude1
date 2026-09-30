@@ -21,6 +21,8 @@ COUNTRY_FLAGS = {
     "Monako": "🇲🇨", "Vatikán": "🇻🇦", "Gibraltar": "🇬🇮",
 }
 
+TYPE_LABELS = {"ferrata": "Ferrata", "vrchol": "Vrchol", "hřebenovka": "Hřebenovka"}
+
 
 def esc(s):
     if s is None:
@@ -86,11 +88,13 @@ def render_row(name, meta, value):
     )
 
 
-def render_section(heading, rows_html, empty_message):
+def render_section(heading, rows_html, empty_message, count_note=None):
     body = "".join(rows_html) if rows_html else f'<p class="mh-widget-empty">{empty_message}</p>'
+    note_html = f'<div class="mh-widget-section__note">{esc(count_note)}</div>' if count_note else ""
     return f"""
     <div class="mh-widget-section">
       <div class="mh-widget-section__head">{esc(heading)}</div>
+      {note_html}
       <div class="mh-widget-rows">{body}</div>
     </div>"""
 
@@ -154,6 +158,19 @@ def main():
         for r in featured_of_type("hřebenovka", 8, lambda r: r.get("date") or "")
     ]
 
+    # --- Nej Česko (featured, napříč typy, jen country == "Česko") ---
+    czech_count = sum(1 for r in records if r.get("country") == "Česko")
+    czech_featured = [r for r in featured if r.get("country") == "Česko"]
+    czech_featured.sort(key=lambda r: r.get("date") or "", reverse=True)
+    czech_rows = [
+        render_row(
+            r["name"],
+            TYPE_LABELS.get(r.get("type"), ""),
+            f"{fmt_num(r['altitude_m'])} m" if r.get("altitude_m") else (fmt_date(r.get("date")) or "—"),
+        )
+        for r in czech_featured
+    ]
+
     # Pozn.: sekce "Nejnáročnější akce" (pole toughDay) je záměrně vynechaná — jednodenní
     # převýšení ještě není u všech záznamů přepočítané (viz Priel Klettersteig), takže by
     # žebříček byl zavádějící. Až budou čísla sedět, jde vrátit stejným vzorem jako ostatní
@@ -163,6 +180,10 @@ def main():
         render_section("Nej vrcholy", vrcholy_rows, "Zatím žádný TOP vrchol."),
         render_section("Nej ferraty", ferraty_rows, "Zatím žádná TOP ferrata."),
         render_section("Nej hřebenovky", hrebenovky_rows, "Zatím žádná TOP hřebenovka."),
+        render_section(
+            "Nej Česko", czech_rows, "Zatím žádný TOP výstup v Česku.",
+            count_note=f"{czech_count} výstupů v Česku celkem",
+        ),
     ])
 
     today = datetime.date.today().strftime("%-d. %-m. %Y")
@@ -257,9 +278,14 @@ def main():
     font-weight: 700;
     letter-spacing: 0.02em;
     color: var(--mh-text);
-    margin: 0 0 8px;
+    margin: 0 0 4px;
     padding-bottom: 6px;
     border-bottom: 1px solid var(--mh-border);
+  }}
+  .mh-widget-section__note {{
+    font-size: 11.5px;
+    color: var(--mh-text-faint);
+    margin: 0 0 8px;
   }}
   .mh-widget-rows {{
     column-count: 2;
