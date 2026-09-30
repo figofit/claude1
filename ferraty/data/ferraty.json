@@ -4793,13 +4793,15 @@
         "orla-perc"
       ],
       "highestOfCountry": false,
-      "highestOfAreas": [],
+      "highestOfAreas": [
+        "Nejvyšší vrchol ležící celý uvnitř Polska (mimo hraniční hřeben se Slovenskem)"
+      ],
       "milestones": [],
       "volcano": false,
       "glacier": false,
       "companions": [],
       "createdAt": "2026-09-26T00:00:00Z",
-      "updatedAt": "2026-09-26T00:00:00Z"
+      "updatedAt": "2026-09-30T00:00:00Z"
     },
     {
       "id": "hohenburg",
