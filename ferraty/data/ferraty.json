@@ -1255,17 +1255,18 @@
       "summit": null,
       "altitude_m": null,
       "duration_min": null,
-      "note": "Sólo hřebenovka v polských Tatrách na začátku listopadu 2020 — babí léto nahoře, covid v pozadí. Den 1 rozcvička na Kościelci, noc na chatě Murowaniec, den 2 Zawrat → Orla Perć: řetězy, kramle i žebřík, ale hlavně čistý soustředěný mód '100 % přítomnost'. Paní na chatě mě kvůli covidu nejdřív nechtěla ubytovat, nakonec se to vyřešilo lidsky. Na trase i Kozi Wierch — nejvyšší vrchol ležící celý uvnitř polského území (na rozdíl od Rysů, jejichž vrchol leží na hranici se Slovenskem).",
+      "note": "Sólo hřebenovka v polských Tatrách na začátku listopadu 2020 — babí léto nahoře, covid v pozadí. Den 1 rozcvička na Kościelci, noc na chatě Murowaniec, den 2 trasa Zawrat → Kozi Wierch → Granaty → Orla Perć: řetězy, kramle i žebřík, ale hlavně čistý soustředěný mód '100 % přítomnost'. Paní na chatě mě kvůli covidu nejdřív nechtěla ubytovat, nakonec se to vyřešilo lidsky. Na trase i Kozi Wierch — nejvyšší vrchol ležící celý uvnitř polského území (na rozdíl od Rysů, jejichž vrchol leží na hranici se Slovenskem).",
       "track": null,
       "photos": [],
       "sourceUrl": "https://michaldokoupil.cz/solo-orla-perc-koscielec/",
       "relatedIds": [
-        "kozi-wierch"
+        "kozi-wierch",
+        "granaty"
       ],
       "createdAt": "2026-09-18T00:00:00Z",
-      "updatedAt": "2026-09-26T00:00:00Z",
+      "updatedAt": "2026-09-30T00:00:00Z",
       "regionGroup": "Tatry",
-      "featured": false,
+      "featured": true,
       "days": [
         {
           "day": 1,
@@ -1279,9 +1280,9 @@
           "day": 2,
           "date": "2020-11-07",
           "from": "Chata Murowaniec",
-          "to": "Orla Perć (přes Zawrat)",
+          "to": "Orla Perć (přes Zawrat, Kozi Wierch, Granaty)",
           "overnightAt": null,
-          "note": "Zawrat → Orla Perć: řetězy, kramle i žebřík."
+          "note": "Zawrat → Kozi Wierch → Granaty → Orla Perć: řetězy, kramle i žebřík."
         }
       ],
       "highestOfCountry": false
@@ -5244,6 +5245,41 @@
         "pecny",
         "petrovy-kameny",
         "praded"
+      ],
+      "highestOfCountry": false,
+      "highestOfAreas": [],
+      "milestones": [],
+      "companions": [],
+      "volcano": false,
+      "glacier": null,
+      "glacierName": null,
+      "createdAt": "2026-09-30T00:00:00Z",
+      "updatedAt": "2026-09-30T00:00:00Z"
+    },
+    {
+      "id": "granaty",
+      "type": "vrchol",
+      "name": "Granaty",
+      "country": "Polsko",
+      "region": "Vysoké Tatry",
+      "regionGroup": "Tatry",
+      "locality": null,
+      "coordinates": null,
+      "date": "2020-11-07",
+      "length_m": null,
+      "elevationGain_m": null,
+      "summit": null,
+      "altitude_m": null,
+      "duration_min": null,
+      "featured": false,
+      "reachedSummit": true,
+      "days": [],
+      "note": "Skupina vrcholů na trase hřebenovky Orla Perć, mezi Kozím Wierchem a sestupem dolů.",
+      "track": null,
+      "photos": [],
+      "sourceUrl": null,
+      "relatedIds": [
+        "orla-perc"
       ],
       "highestOfCountry": false,
       "highestOfAreas": [],
