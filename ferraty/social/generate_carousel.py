@@ -111,9 +111,9 @@ TEMPLATE = """<!DOCTYPE html>
 """
 
 
-def render_slide(eyebrow, title, tagline, items, out_name):
+def render_slide(eyebrow, title, tagline, items, out_name, start_rank=1):
     rows = []
-    for i, (name, meta, value) in enumerate(items, 1):
+    for i, (name, meta, value) in enumerate(items, start_rank):
         rows.append(f"""    <div class="rank-row">
       <div class="rank-num">{i:02d}</div>
       <div class="rank-main"><div class="rank-name">{esc(name)}</div><div class="rank-meta">{meta}</div></div>
@@ -132,33 +132,47 @@ def render_slide(eyebrow, title, tagline, items, out_name):
     print(f"Written {out_path}")
 
 
+PAGE_SIZE = 7  # kolik řádků se pohodlně vejde na jeden slide (1080x1350) bez přetečení
+
+
 def main():
     with open(DATA_PATH, encoding="utf-8") as f:
         data = json.load(f)
     records = data["records"]
     featured = [r for r in records if r.get("featured")]
 
-    vrcholy = sorted([r for r in featured if r["type"] == "vrchol" and r.get("altitude_m")], key=lambda r: -r["altitude_m"])[:7]
+    vrcholy = sorted([r for r in featured if r["type"] == "vrchol" and r.get("altitude_m")], key=lambda r: -r["altitude_m"])
     ferraty = sorted([r for r in featured if r["type"] == "ferrata"], key=lambda r: r.get("date") or "", reverse=True)
     hrebenovky = sorted([r for r in featured if r["type"] == "hřebenovka"], key=lambda r: r.get("date") or "", reverse=True)
 
-    render_slide(
-        "Osobní horský deník", "Nej vrcholy",
-        "Nejvyšší vrcholy z mého osobního výběru TOP výstupů.",
-        [(r["name"], f"{flag(r.get('country'))} {esc(r.get('country') or '')}".strip(), f"{fmt_num(r['altitude_m'])} m") for r in vrcholy],
-        "moje-hory-social-4x5-2-vrcholy.html",
-    )
+    # Nej vrcholy — všechny TOP vrcholy, stránkované po PAGE_SIZE (žádné tiché ořezání seznamu).
+    pages = [vrcholy[i:i + PAGE_SIZE] for i in range(0, len(vrcholy), PAGE_SIZE)]
+    slide_num = 2
+    for page_idx, page in enumerate(pages):
+        start_rank = page_idx * PAGE_SIZE + 1
+        tagline = "Nejvyšší vrcholy z mého osobního výběru TOP výstupů."
+        if len(pages) > 1:
+            tagline += f" ({page_idx + 1}/{len(pages)})"
+        render_slide(
+            "Osobní horský deník", "Nej vrcholy", tagline,
+            [(r["name"], f"{flag(r.get('country'))} {esc(r.get('country') or '')}".strip(), f"{fmt_num(r['altitude_m'])} m") for r in page],
+            f"moje-hory-social-4x5-{slide_num}-vrcholy-{page_idx + 1}.html",
+            start_rank=start_rank,
+        )
+        slide_num += 1
+
     render_slide(
         "Osobní horský deník", "Nej ferraty",
         "Moje TOP via ferraty — od klasik po nejdelší v Rakousku.",
         [(r["name"], f"{flag(r.get('country'))} {esc(r.get('country') or '')}".strip(), fmt_date(r.get("date"))) for r in ferraty],
-        "moje-hory-social-4x5-3-ferraty.html",
+        f"moje-hory-social-4x5-{slide_num}-ferraty.html",
     )
+    slide_num += 1
     render_slide(
         "Osobní horský deník", "Nej hřebenovky",
         "Moje TOP hřebenové přechody napříč Evropou.",
         [(r["name"], f"{flag(r.get('country'))} {esc(r.get('country') or '')}".strip(), fmt_date(r.get("date"))) for r in hrebenovky],
-        "moje-hory-social-4x5-4-hrebenovky.html",
+        f"moje-hory-social-4x5-{slide_num}-hrebenovky.html",
     )
 
 

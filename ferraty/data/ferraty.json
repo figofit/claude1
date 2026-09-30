@@ -1169,9 +1169,9 @@
         "teide"
       ],
       "createdAt": "2026-09-18T00:00:00Z",
-      "updatedAt": "2026-09-26T00:00:00Z",
+      "updatedAt": "2026-09-30T00:00:00Z",
       "regionGroup": null,
-      "featured": false,
+      "featured": true,
       "days": [],
       "highestOfCountry": true,
       "highestOfAreas": [
