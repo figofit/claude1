@@ -249,8 +249,7 @@ def main():
 
   .mh-widget-sections {{
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px 20px;
+    gap: 18px;
   }}
   .mh-widget-section__head {{
     font-family: var(--mh-font-head);
@@ -263,8 +262,8 @@ def main():
     border-bottom: 1px solid var(--mh-border);
   }}
   .mh-widget-rows {{
-    display: grid;
-    gap: 1px;
+    column-count: 2;
+    column-gap: 20px;
   }}
   .mh-widget-row {{
     display: flex;
@@ -273,6 +272,7 @@ def main():
     gap: 10px;
     padding: 6px 0;
     border-bottom: 1px solid var(--mh-border);
+    break-inside: avoid;
   }}
   .mh-widget-row:last-child {{ border-bottom: none; }}
   .mh-widget-row__main {{ min-width: 0; }}
@@ -309,7 +309,7 @@ def main():
 
   @media (max-width: 640px) {{
     .mh-widget-stats {{ grid-template-columns: repeat(2, 1fr); }}
-    .mh-widget-sections {{ grid-template-columns: 1fr; }}
+    .mh-widget-rows {{ column-count: 1; }}
   }}
 </style>
 
