@@ -359,6 +359,30 @@
       "sourceUrl": null,
       "createdAt": "2026-10-01T00:00:00Z",
       "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "slunecni-zatoka-sazava",
+      "name": "Sluneční zátoka (Sázava)",
+      "country": "Česko",
+      "region": "Sázava",
+      "altitude_m": null,
+      "note": "Není to vrchol, ale sem patří taky — jedno místo u řeky, ať jsou všechny plány pohromadě na jednom seznamu.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "schoenfeldspitze",
+      "name": "Schönfeldspitze",
+      "country": "Rakousko",
+      "region": "Berchtesgadenské Alpy (Steinernes Meer)",
+      "altitude_m": 2653,
+      "note": "Druhý nejvyšší vrchol Steinernes Meer po Selbhornu, blízko hranice s Německem.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
     }
   ]
 }
