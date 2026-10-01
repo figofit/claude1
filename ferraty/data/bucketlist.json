@@ -83,6 +83,126 @@
       "sourceUrl": null,
       "createdAt": "2026-10-01T00:00:00Z",
       "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "lykijska-stezka",
+      "name": "Lykijská stezka (Lycian Way)",
+      "country": "Turecko",
+      "region": "Lykie",
+      "altitude_m": null,
+      "note": "Dálková pěší stezka podél jižního tureckého pobřeží, přes 500 km mezi antickými ruinami a mořem — jde se po etapách, ne najednou.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "korfu-trail",
+      "name": "Korfu Trail",
+      "country": "Řecko",
+      "region": "Korfu",
+      "altitude_m": null,
+      "note": "Dálková stezka napříč celým ostrovem Korfu od jihu na sever, kolem 200 km.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "dachstein",
+      "name": "Dachstein (Hoher Dachstein)",
+      "country": "Rakousko",
+      "region": "Severní vápencové Alpy",
+      "altitude_m": 2995,
+      "note": "Nejvyšší bod Horních Rakous i Štýrska, zaledněná vápencová hora.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "hochkoenig",
+      "name": "Hochkönig",
+      "country": "Rakousko",
+      "region": "Berchtesgadenské Alpy",
+      "altitude_m": 2941,
+      "note": null,
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "tofana-di-rozes",
+      "name": "Tofana di Rozes",
+      "country": "Itálie",
+      "region": "Dolomity",
+      "altitude_m": 3225,
+      "note": null,
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "bobotov-kuk",
+      "name": "Bobotov Kuk",
+      "country": "Černá Hora",
+      "region": "Durmitor",
+      "altitude_m": 2523,
+      "note": "Nejvyšší vrchol pohoří Durmitor.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "hochfeiler",
+      "name": "Hochfeiler",
+      "country": "Rakousko",
+      "region": "Zillertalské Alpy",
+      "altitude_m": 3509,
+      "note": "Nejvyšší vrchol Zillertalských Alp, vrchol leží přímo na hranici s Itálií.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "wildspitze",
+      "name": "Wildspitze",
+      "country": "Rakousko",
+      "region": "Ötztalské Alpy",
+      "altitude_m": 3768,
+      "note": "Druhá nejvyšší hora Rakouska po Grossglockneru.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "mt-fuji",
+      "name": "Mt. Fuji",
+      "country": "Japonsko",
+      "region": null,
+      "altitude_m": 3776,
+      "note": "Nejvyšší hora Japonska, posvátná sopka.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "cerro-chirripo",
+      "name": "Cerro Chirripó",
+      "country": "Kostarika",
+      "region": "Cordillera de Talamanca",
+      "altitude_m": 3821,
+      "note": "Nejvyšší hora Kostariky — za jasného počasí prý vidět Pacifik i Karibik zároveň.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
     }
   ]
 }

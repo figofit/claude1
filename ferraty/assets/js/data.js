@@ -61,6 +61,8 @@
     "Monako": "🇲🇨",
     "Vatikán": "🇻🇦",
     "Gibraltar": "🇬🇮",
+    "Japonsko": "🇯🇵",
+    "Kostarika": "🇨🇷",
   };
 
   function countryFlag(country) {
