@@ -33,11 +33,14 @@ ferraty/
   tatry.html           Regionální podstránka pro Vysoké Tatry (výstupy + doprava/logistika)
   beskydy.html         Regionální podstránka pro Beskydy (výstupy + doprava/logistika)
   alpy.html            Regionální podstránka pro Alpy (výstupy + doprava/logistika)
+  bucketlist.html      Bucket list — kam bych chtěl jet, nesplněné plány a nápady
   pridat.html          Formulář pro vygenerování nového záznamu
 
   data/
     ferraty.json       Jediný zdroj pravdy — pole "records" se všemi výstupy
                          (ferraty i vrcholy i hřebenovky pohromadě, rozlišené polem "type")
+    bucketlist.json    Samostatný seznam nesplněných nápadů/plánů — záměrně oddělený
+                         od ferraty.json, aby se nepletl do statistik absolvovaných výstupů
 
   gpx/                 GPX/TCX soubory tras (volitelné, odkazované z data/ferraty.json)
   photos/
@@ -52,6 +55,7 @@ ferraty/
                          Logika jednotlivých stránek
     js/tatry.js, beskydy.js
                          Tenké konfigurace regionálních podstránek nad region.js
+    js/bucketlist.js     Logika stránky Bucket list
 ```
 
 ## Datový model
@@ -246,6 +250,36 @@ jako jednodenní výstup s 2600 m, i když ve skutečnosti šlo o mnohem menší
 Appka z toho počítá „Největší jednodenní převýšení“ na `statistiky.html` — u jednodenních
 výstupů bere přímo `elevationGain_m` záznamu, u vícedenních jen dny, kde je `elevationGain_m`
 vyplněné (jinak se ten den do srovnání nepočítá).
+
+## Bucket list
+
+`data/bucketlist.json` je úplně samostatný soubor pro nesplněné nápady a plány — kam bych
+chtěl jet, co mě láká — záměrně oddělený od `data/ferraty.json`. Appka nikde nepočítá
+statistiky z obou souborů dohromady, takže bucket list nijak nezkresluje počty a žebříčky
+skutečně absolvovaných výstupů. Zobrazuje se na `bucketlist.html`.
+
+Záznam v `data/bucketlist.json` → `items[]` vypadá takto:
+
+```jsonc
+{
+  "id": "kreta-ida",                      // stabilní, ručně čitelné ID
+  "name": "Kréta — hora Ida (Psiloritis)",
+  "country": "Řecko",
+  "region": "Kréta",                      // nebo null
+  "altitude_m": 2456,                     // nebo null, pokud nejde o konkrétní vrchol
+  "note": "Nejvyšší hora Kréty — kombinace hor a moře.",
+  "coordinates": null,                    // { "lat": …, "lng": … } nebo null
+  "sourceUrl": null,                      // odkaz na inspiraci/popis, nebo null
+  "createdAt": "2026-10-01T00:00:00Z",
+  "updatedAt": "2026-10-01T00:00:00Z"
+}
+```
+
+Stejné pravidlo jako jinde: co nevíš, necháváš `null`. Žádná pole se nedomýšlí ani
+nedopočítávají — je to jen jednoduchý přehledný seznam nápadů.
+
+Až se nějaký nápad skutečně splní, patří se z `bucketlist.json` smazat a místo něj
+přidat nový, plnohodnotný záznam do `ferraty.json` (stejně jako u každého jiného výstupu).
 
 ## Jak přidat nový výstup
 

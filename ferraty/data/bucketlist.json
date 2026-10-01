@@ -1,0 +1,16 @@
+{
+  "items": [
+    {
+      "id": "kreta-ida",
+      "name": "Kréta — hora Ida (Psiloritis)",
+      "country": "Řecko",
+      "region": "Kréta",
+      "altitude_m": 2456,
+      "note": "Nejvyšší hora Kréty — kombinace hor a moře, dalo by se spojit s pobřežím u Heraklionu.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
+    }
+  ]
+}

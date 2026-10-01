@@ -11,6 +11,7 @@
     { page: "ferraty", href: "ferraty.html", label: "Výstupy" },
     { page: "mapa", href: "mapa.html", label: "Mapa" },
     { page: "statistiky", href: "statistiky.html", label: "Statistiky" },
+    { page: "bucketlist", href: "bucketlist.html", label: "Bucket list" },
     { page: "tatry", href: "tatry.html", label: "Tatry" },
     { page: "beskydy", href: "beskydy.html", label: "Beskydy" },
     { page: "alpy", href: "alpy.html", label: "Alpy" },

@@ -649,6 +649,7 @@ table.ferraty-table {
   margin-bottom: 4px;
 }
 .region-tile__desc { display: block; color: var(--text-muted); font-size: 0.86rem; }
+.bucketlist-note { margin: 8px 0 0; color: var(--text-muted); font-size: 0.88rem; line-height: 1.4; }
 
 .callout {
   background: var(--forest-tint);
