@@ -11,6 +11,78 @@
       "sourceUrl": null,
       "createdAt": "2026-10-01T00:00:00Z",
       "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "piz-boe",
+      "name": "Piz Boè",
+      "country": "Itálie",
+      "region": "Dolomity",
+      "altitude_m": 3152,
+      "note": "Nejvyšší vrchol skupiny Sella, dalo by se spojit s Marmoladou do jednoho výletu po Dolomitech.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "marmolada",
+      "name": "Marmolada (Punta Penia)",
+      "country": "Itálie",
+      "region": "Dolomity",
+      "altitude_m": 3343,
+      "note": "Nejvyšší hora celých Dolomit — \"královna Dolomit\".",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "lagginhorn",
+      "name": "Lagginhorn",
+      "country": "Švýcarsko",
+      "region": "Walliské Alpy",
+      "altitude_m": 4010,
+      "note": "Sesterský vrchol Weissmies nad Saas-Fee, nejnižší švýcarská čtyřtisícovka v hlavním hřebeni — dala by se spojit s Weissmies do jednoho výletu.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "weissmies",
+      "name": "Weissmies",
+      "country": "Švýcarsko",
+      "region": "Walliské Alpy",
+      "altitude_m": 4017,
+      "note": "Sesterský vrchol Lagginhornu nad Saas-Fee.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "ortler",
+      "name": "Ortler (Ortles)",
+      "country": "Itálie",
+      "region": "Ortlerské Alpy",
+      "altitude_m": 3905,
+      "note": "Nejvyšší hora Jižního Tyrolska i celých Ortlerských Alp.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "ararat",
+      "name": "Ararat",
+      "country": "Turecko",
+      "region": null,
+      "altitude_m": 5137,
+      "note": "Nejvyšší hora Turecka, osamocená sopka — podle legendy místo, kde přistála Noemova archa.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
     }
   ]
 }
