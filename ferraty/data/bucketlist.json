@@ -275,6 +275,66 @@
       "sourceUrl": null,
       "createdAt": "2026-10-01T00:00:00Z",
       "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "maglic-2-pokus",
+      "name": "Maglić — druhý pokus",
+      "country": "Bosna a Hercegovina",
+      "region": "Dinárské hory",
+      "altitude_m": 2386,
+      "note": "První pokus (září 2026) se nepovedl kvůli medvědovi — ve Výstupech je jako nedokončený, tohle je plán na dokončení.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "ponta-do-pico",
+      "name": "Ponta do Pico",
+      "country": "Portugalsko",
+      "region": "Azory — ostrov Pico",
+      "altitude_m": 2351,
+      "note": "Nejvyšší hora Portugalska i celých Azor, dřímající sopka na ostrově Pico.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "tofana-di-mezzo",
+      "name": "Tofana di Mezzo (Olimpia delle Tofane)",
+      "country": "Itálie",
+      "region": "Dolomity",
+      "altitude_m": 3244,
+      "note": "Lanovkou Freccia nel Cielo z Cortiny — olympijská trať z roku 1956, znovu dějiště ZOH 2026.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "debela-pec",
+      "name": "Debela peč",
+      "country": "Slovinsko",
+      "region": "Julské Alpy",
+      "altitude_m": 2014,
+      "note": "Nejvýchodnější dvoutisícovka Julských Alp, nad Pokljukou.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "golica",
+      "name": "Golica",
+      "country": "Slovinsko",
+      "region": "Karavanky",
+      "altitude_m": 1835,
+      "note": "Slavné jarní louky plné narcisů nad Jesenicemi, na hranici s Rakouskem.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
     }
   ]
 }
