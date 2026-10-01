@@ -335,6 +335,30 @@
       "sourceUrl": null,
       "createdAt": "2026-10-01T00:00:00Z",
       "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "nepal-himalaje",
+      "name": "Nepál — Himálaje",
+      "country": "Nepál",
+      "region": "Himálaje",
+      "altitude_m": null,
+      "note": "Zatím bez konkrétního vrcholu nebo treku — jen velká chuť do Himálají.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "rip",
+      "name": "Hora Říp",
+      "country": "Česko",
+      "region": "Dolnooharská tabule",
+      "altitude_m": 456,
+      "note": "Památná hora Praotce Čecha, symbol české historie.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
     }
   ]
 }

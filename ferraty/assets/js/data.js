@@ -39,6 +39,7 @@
     "Arménie": "🇦🇲",
     "Ázerbájdžán": "🇦🇿",
     "Rusko": "🇷🇺",
+    "Nepál": "🇳🇵",
     "Turecko": "🇹🇷",
     "Maroko": "🇲🇦",
     "Alžírsko": "🇩🇿",
