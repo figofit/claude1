@@ -251,6 +251,30 @@
       "sourceUrl": null,
       "createdAt": "2026-10-01T00:00:00Z",
       "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "san-marino-titano",
+      "name": "San Marino — Monte Titano",
+      "country": "San Marino",
+      "region": null,
+      "altitude_m": 739,
+      "note": "Nejvyšší bod San Marina s historickými věžemi, výchozí bod přes letiště v Rimini.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "fishermans-trail",
+      "name": "Fisherman's Trail (Rota Vicentina)",
+      "country": "Portugalsko",
+      "region": "Alentejo / Algarve",
+      "altitude_m": null,
+      "note": "Dálková pobřežní stezka z Porto Covo do Lagosu, přes 220 km po útesech jihozápadního pobřeží — výchozí bod letiště Faro.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
     }
   ]
 }

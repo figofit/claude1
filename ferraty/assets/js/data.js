@@ -14,6 +14,7 @@
     "Švýcarsko": "🇨🇭",
     "Lichtenštejnsko": "🇱🇮",
     "Itálie": "🇮🇹",
+    "San Marino": "🇸🇲",
     "Francie": "🇫🇷",
     "Španělsko": "🇪🇸",
     "Portugalsko": "🇵🇹",
