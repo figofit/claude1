@@ -203,6 +203,54 @@
       "sourceUrl": null,
       "createdAt": "2026-10-01T00:00:00Z",
       "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "etna",
+      "name": "Etna",
+      "country": "Itálie",
+      "region": "Sicílie",
+      "altitude_m": 3357,
+      "note": "Nejvyšší aktivní sopka v Evropě, výchozí bod obvykle Catania nebo Rifugio Sapienza — výška se mění podle erupcí.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "ben-nevis",
+      "name": "Ben Nevis",
+      "country": "Velká Británie",
+      "region": "Skotská vysočina",
+      "altitude_m": 1345,
+      "note": "Nejvyšší hora Skotska i celých Britských ostrovů, u Fort Williamu — let obvykle přes Edinburgh.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "maja-jezerce",
+      "name": "Maja Jezercë",
+      "country": "Albánie",
+      "region": "Prokletije (Prokleté hory)",
+      "altitude_m": 2694,
+      "note": "Nejvyšší vrchol pohoří Prokletije i celých Dinárských hor, blízko hranice s Černou Horou.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "monte-cinto",
+      "name": "Korsika — Monte Cinto",
+      "country": "Francie",
+      "region": "Korsika",
+      "altitude_m": 2706,
+      "note": "Nejvyšší hora Korsiky, výchozí body ostrova jsou letiště v Ajacciu nebo Bastii.",
+      "coordinates": null,
+      "sourceUrl": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "updatedAt": "2026-10-01T00:00:00Z"
     }
   ]
 }
