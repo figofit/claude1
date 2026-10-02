@@ -51,21 +51,24 @@
       .join("")}</div>`;
   }
 
-  function renderMisc(stats) {
-    const elevationLine = stats.elevationGainKnownCount
-      ? `${Ferraty.fmtNumber(stats.totalElevationGain)} m <span class="text-faint">(součet ${stats.elevationGainKnownCount} z ${stats.total}, u zbylých převýšení neznámo)</span>`
-      : `neznámo <span class="text-faint">(u žádného výstupu není vyplněné převýšení)</span>`;
-
-    return `
-      <div class="fact-list" style="grid-template-columns:1fr;padding:0;border:none;background:none;">
-        ${fact("Celkové převýšení", elevationLine)}
-        ${fact("Se zaznamenanou GPX trasou", `${stats.withGpx} z ${stats.total}`)}
-        ${fact("S fotografiemi", `${stats.withPhotos} z ${stats.total}`)}
-        ${fact("Sopek", stats.volcanoCount)}
-        ${fact("Míst, kde byl ledovec", stats.glacierCount)}
-        ${fact("Neúspěšných pokusů", stats.attemptCount)}
-      </div>
-    `;
+  // Pozn.: Celkové převýšení, GPX trasa a fotogalerie jsou záměrně pryč — data u nich
+  // zatím nejsou zkompletovaná (u drtivé většiny záznamů chybí), takže by součty byly
+  // zavádějící. Až budou doplněné, jde vrátit stejným vzorem (fact-list).
+  function renderExtraFacts(stats) {
+    const tiles = [
+      { value: stats.volcanoCount, label: "Sopek" },
+      { value: stats.glacierCount, label: "Míst, kde byl ledovec" },
+      { value: stats.attemptCount, label: "Neúspěšných pokusů" },
+    ];
+    return tiles
+      .map(
+        (t) => `
+      <div class="stat-tile">
+        <div class="stat-tile__value">${t.value}</div>
+        <div class="stat-tile__label">${t.label}</div>
+      </div>`
+      )
+      .join("");
   }
 
   function renderElevationBands(stats) {
@@ -230,10 +233,6 @@
     return `<div class="region-tiles">${rows}</div>`;
   }
 
-  function fact(label, value) {
-    return `<div class="fact"><div class="fact__label">${label}</div><div class="fact__value">${value}</div></div>`;
-  }
-
   async function init() {
     let records;
     try {
@@ -259,7 +258,7 @@
       return b.key - a.key;
     });
     document.getElementById("by-year").innerHTML = renderBreakdown(byYearSorted, (k) => String(k));
-    document.getElementById("misc-stats").innerHTML = renderMisc(stats);
+    document.getElementById("extra-facts").innerHTML = renderExtraFacts(stats);
     document.getElementById("elevation-bands").innerHTML = renderElevationBands(stats);
     document.getElementById("altitude-ranking").innerHTML = renderAltitudeRanking(records);
     document.getElementById("country-highpoints").innerHTML = renderCountryHighpoints(records);

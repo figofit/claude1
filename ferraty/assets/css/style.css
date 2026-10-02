@@ -278,6 +278,19 @@ img { max-width: 100%; display: block; }
 /* ---------- Sekce obecně ---------- */
 
 .section { margin: 40px 0; }
+
+.stats-details summary {
+  cursor: pointer;
+  color: var(--text);
+  list-style: none;
+}
+.stats-details summary::-webkit-details-marker { display: none; }
+.stats-details summary::before {
+  content: "▸ ";
+  color: var(--text-faint);
+}
+.stats-details[open] summary::before { content: "▾ "; }
+
 .section__head {
   display: flex;
   align-items: baseline;
