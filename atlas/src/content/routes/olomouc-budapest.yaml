@@ -1,0 +1,8 @@
+trip: budapest-2018
+mode: train
+from: olomouc
+to: budapest
+date: "2018-06-14"
+datePrecision: day
+status: completed
+notes: Přesná nástupní stanice/trasa vlakem není jistá.

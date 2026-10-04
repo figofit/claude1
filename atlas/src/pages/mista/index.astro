@@ -2,8 +2,13 @@
 import Layout from '../../components/Layout.astro';
 import { getAtlasData } from '../../lib/content';
 import { PLACE_TYPE_LABELS } from '../../lib/format';
+import { PLACE_TYPES } from '../../content.config';
 
 const data = await getAtlasData();
+
+const typeCounts = new Map<string, number>();
+for (const p of data.places) typeCounts.set(p.data.type, (typeCounts.get(p.data.type) ?? 0) + 1);
+const typesPresent = PLACE_TYPES.filter((t) => typeCounts.has(t));
 
 const tripsByPlace = new Map<string, Set<string>>();
 const addTrip = (placeId: string, tripId: string) => {
@@ -28,16 +33,33 @@ const sorted = [...data.places].sort((a, b) => a.data.name.localeCompare(b.data.
     <p class="text-muted">{sorted.length} {sorted.length === 1 ? 'místo v atlasu' : 'míst v atlasu'} (vrcholy mají vlastní sekci - <a href="/vrcholy">Hory</a>).</p>
   </section>
 
+  {
+    sorted.length > 0 && (
+      <section class="container">
+        <div class="type-filters" role="group" aria-label="Filtr podle typu místa">
+          <button type="button" class="chip" data-type="all" aria-pressed="true">
+            Vše <span class="chip-count">{sorted.length}</span>
+          </button>
+          {typesPresent.map((t) => (
+            <button type="button" class="chip" data-type={t} aria-pressed="false">
+              {PLACE_TYPE_LABELS[t]} <span class="chip-count">{typeCounts.get(t)}</span>
+            </button>
+          ))}
+        </div>
+      </section>
+    )
+  }
+
   <section class="container">
     {
       sorted.length === 0 ? (
         <p class="text-muted">Zatím žádné místo - přidej ho přes `npm run new:place`.</p>
       ) : (
-        <div class="place-list">
+        <div class="place-list" id="place-list">
           {sorted.map((p) => {
             const trips = [...(tripsByPlace.get(p.id) ?? [])].map((id) => tripTitles.get(id)).filter(Boolean);
             return (
-              <div class="place-row">
+              <div class="place-row" data-type={p.data.type}>
                 <div>
                   <strong>{p.data.name}</strong>
                   <span class="text-faint"> · {p.data.country} · {PLACE_TYPE_LABELS[p.data.type]}</span>
@@ -51,6 +73,21 @@ const sorted = [...data.places].sort((a, b) => a.data.name.localeCompare(b.data.
     }
   </section>
 </Layout>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.type-filters .chip');
+  const rows = document.querySelectorAll<HTMLElement>('#place-list .place-row');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const type = btn.dataset.type ?? 'all';
+      buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+      rows.forEach((row) => {
+        row.hidden = type !== 'all' && row.dataset.type !== type;
+      });
+    });
+  });
+</script>
 
 <style>
   .page-head {
@@ -83,8 +120,47 @@ const sorted = [...data.places].sort((a, b) => a.data.name.localeCompare(b.data.
     padding: var(--space-3) var(--space-4);
   }
 
+  .place-row[hidden] {
+    display: none;
+  }
+
   .place-trips {
     font-size: var(--text-sm);
     text-align: right;
+  }
+
+  .type-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  .chip {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--text-muted);
+    background: var(--bg-elevated-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-full);
+    padding: 0.45em 1em;
+    cursor: pointer;
+    transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  }
+
+  .chip:hover {
+    color: var(--text);
+  }
+
+  .chip[aria-pressed='true'] {
+    color: var(--accent-ink);
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .chip-count {
+    opacity: 0.7;
+    font-size: var(--text-xs);
   }
 </style>
