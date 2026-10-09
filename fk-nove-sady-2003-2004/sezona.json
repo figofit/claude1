@@ -1,0 +1,39 @@
+{
+  "tym": "FK Nové Sady – dorost",
+  "sezona": "2003/2004",
+  "soutez": "1. třída, skupina B – dorost",
+  "poznamka": "Přepis dvou rozpisů (podzim 2003, jaro 2004) s Michalovými ručními poznámkami. Skóre je zapsané jako Nové Sady : soupeř (stejně jako u sezóny 2001/02) – k potvrzení. Minuty jsou odhad podle poznámek (min), přesný text je v 'pozn'.",
+  "vzpominky": [
+    "První sezóna v dorostu byla hodně náročná. Hráli všichni čtyři ročníky v jednom týmu, takže jsem tolik nehrál.",
+    "Musel jsem zesílit a zvyknout si. Hraješ klidně jako patnáctiletý proti osmnáctiletým.",
+    "První gól v dorostu jsem dal na jaře doma Dubu nad Moravou. Další dva hned o dva zápasy později proti Nezamyslicím."
+  ],
+  "zapasy": [
+    {"kolo": 1,  "cast": "podzim", "datum": "2003-08-10", "souper": "Tovačov",        "doma": true,  "skore": "7:1",  "min": 25,  "pozn": "hrál jsem 25 minut"},
+    {"kolo": 2,  "cast": "podzim", "datum": "2003-08-16", "souper": "Náměšť",         "doma": false, "skore": "0:4",  "min": 90,  "pozn": "hrál jsem celej zápas"},
+    {"kolo": 3,  "cast": "podzim", "datum": "2003-08-24", "souper": "Čechovice",      "doma": true,  "skore": "0:3",  "min": 25,  "pozn": "hrál jsem asi 25 minut"},
+    {"kolo": 4,  "cast": "podzim", "datum": "2003-08-31", "souper": "Dub nad Moravou", "doma": false, "skore": "1:3",  "min": 25,  "pozn": "hrál jsem asi 25 minut"},
+    {"kolo": 5,  "cast": "podzim", "datum": "2003-09-07", "souper": "Výšovice",       "doma": true,  "skore": "3:4",  "min": 32,  "pozn": "hrál jsem 30–35 minut"},
+    {"kolo": 6,  "cast": "podzim", "datum": "2003-09-13", "souper": "Nezamyslice",    "doma": false, "skore": "4:0",  "min": 40,  "pozn": "hrál jsem cca 40 minut"},
+    {"kolo": 7,  "cast": "podzim", "datum": "2003-09-21", "souper": "Želatovice",     "doma": true,  "skore": "0:1",  "min": 10,  "pozn": "hrál jsem 10 minut"},
+    {"kolo": 8,  "cast": "podzim", "datum": "2003-09-28", "souper": "Vrahovice",      "doma": false, "skore": "0:4",  "min": 45,  "pozn": "hrál jsem 45 minut"},
+    {"kolo": 9,  "cast": "podzim", "datum": "2003-10-05", "souper": "Měrovice",       "doma": true,  "skore": "6:2",  "min": 17,  "pozn": "hrál jsem 15–20 minut"},
+    {"kolo": 10, "cast": "podzim", "datum": "2003-10-11", "souper": "Hlubočky",       "doma": false, "skore": "1:1",  "min": 30,  "pozn": "hrál jsem 30 minut"},
+    {"kolo": 11, "cast": "podzim", "datum": "2003-10-19", "souper": "Prosenice",      "doma": true,  "skore": "2:3",  "min": 0.5, "pozn": "hrál jsem 30 sekund"},
+    {"kolo": 12, "cast": "podzim", "datum": "2003-10-26", "souper": "Určice",         "doma": true,  "skore": "1:0",  "min": 10,  "pozn": "hrál jsem 10 minut"},
+    {"kolo": 13, "cast": "podzim", "datum": "2003-11-01", "souper": "Bělotín",        "doma": false, "skore": "6:1",  "min": 10,  "pozn": "hrál jsem 10 minut"},
+    {"kolo": 14, "cast": "jaro",   "datum": "2004-03-27", "souper": "Tovačov",        "doma": false, "skore": "2:1",  "min": 15,  "pozn": "hrál jsem cca 15 minut"},
+    {"kolo": 15, "cast": "jaro",   "datum": "2004-04-03", "souper": "Náměšť",         "doma": true,  "skore": "1:4",  "min": 90,  "pozn": "hrál jsem celej zápas"},
+    {"kolo": 16, "cast": "jaro",   "datum": "2004-04-10", "souper": "Čechovice",      "doma": false, "skore": "1:3",  "min": 35,  "pozn": "hrál jsem cca 35 minut"},
+    {"kolo": 17, "cast": "jaro",   "datum": "2004-04-17", "souper": "Dub nad Moravou", "doma": true,  "skore": "5:2",  "min": 30,  "pozn": "hrál jsem cca 30 minut", "goly": 1, "gol_pozn": "můj 1. gól v dorostu"},
+    {"kolo": 18, "cast": "jaro",   "datum": "2004-04-24", "souper": "Výšovice",       "doma": false, "skore": "6:0",  "min": 90,  "pozn": "hrál jsem celej zápas"},
+    {"kolo": 19, "cast": "jaro",   "datum": "2004-05-01", "souper": "Nezamyslice",    "doma": true,  "skore": "15:0", "min": 45,  "pozn": "hrál jsem celej 2. poločas", "goly": 2, "gol_pozn": "můj 2. a 3. gól v dorostu"},
+    {"kolo": 20, "cast": "jaro",   "datum": "2004-05-09", "souper": "Želatovice",     "doma": false, "skore": "5:0",  "min": 30,  "pozn": "hrál jsem cca 30 minut"},
+    {"kolo": 21, "cast": "jaro",   "datum": "2004-05-15", "souper": "Vrahovice",      "doma": true,  "skore": "6:0",  "min": 15,  "pozn": "hrál jsem cca 15 minut"},
+    {"kolo": 22, "cast": "jaro",   "datum": "2004-05-22", "souper": "Měrovice",       "doma": false, "skore": "0:3",  "min": 0,   "pozn": "hrál jsem cca 0 minut"},
+    {"kolo": 23, "cast": "jaro",   "datum": "2004-05-29", "souper": "Hlubočky",       "doma": true,  "skore": "2:4",  "min": 45,  "pozn": "hrál jsem celej 2. poločas"},
+    {"kolo": 24, "cast": "jaro",   "datum": "2004-06-06", "souper": "Prosenice",      "doma": false, "skore": "1:3",  "min": 45,  "pozn": "hrál jsem celej 2. poločas"},
+    {"kolo": 25, "cast": "jaro",   "datum": "2004-06-12", "souper": "Určice",         "doma": false, "skore": "3:3",  "min": 2,   "pozn": "hrál jsem celé 2 minuty"},
+    {"kolo": 26, "cast": "jaro",   "datum": "2004-06-19", "souper": "Bělotín",        "doma": true,  "skore": "4:3",  "min": 70,  "pozn": "hrál jsem cca 70 minut", "goly": 1, "gol_pozn": "můj 4. gól v dorostu"}
+  ]
+}
