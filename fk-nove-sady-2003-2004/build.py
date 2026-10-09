@@ -128,6 +128,22 @@ def half_block(title, part):
             f'<ol class="fk-list">{"".join(game_row(g) for g in gs)}</ol></div>')
 
 
+def teammates():
+    groups = []
+    for post, label in (("brankář", "Brankáři"), ("hráč", "V poli")):
+        dds = []
+        for p in DATA["hraci"]:
+            if p["post"] != post:
+                continue
+            name = nb(p["jmeno"])
+            if p.get("ja"):
+                name = f'<mark class="fk-me">{name}</mark>'
+            note = f'<span class="g">{escape(p["pozn"])}</span>' if p.get("pozn") else ""
+            dds.append(f"<dd><span>{name}</span>{note}</dd>")
+        groups.append(f'<div class="fk-grp"><dt>{label}</dt>{"".join(dds)}</div>')
+    return f'<div class="fk-roster fk-mates"><dl>{"".join(groups)}</dl></div>'
+
+
 stats = [(str(len(played)), f"{plural(len(played), 'zápas', 'zápasy', 'zápasů')} na hřišti z {len(games)}"),
          (f"≈&nbsp;{minutes}", "odehraných minut"),
          (str(goals), f"{plural(goals, 'gól', 'góly', 'gólů')}, všechny na jaře"),
@@ -139,7 +155,7 @@ SECTION = f"""<section id="{ROOT}" lang="cs" aria-labelledby="{ROOT}-h">
 <header class="fk-hero">
 <p class="fk-eyebrow">Dorost</p>
 <h2 id="{ROOT}-h" class="fk-title">FK Nové Sady <span>2003/2004</span></h2>
-<p class="fk-lede">{typo(DATA["soutez"].replace(" – dorost", ""))}. První sezóna v dorostu, třetí rok mé kariéry.</p>
+<p class="fk-lede">{typo(DATA["soutez"].replace(" – dorost", ""))}. První sezóna v&nbsp;dorostu, třetí rok mé kariéry. V&nbsp;týmu byly čtyři ročníky, {typo(DATA["rocniky"])}.</p>
 <div class="fk-mine" aria-hidden="true"><span><b>{len(played)}</b>zápasů</span><span><b>≈{minutes}</b>minut</span><span><b>{goals}</b>góly</span></div>
 <p class="fk-sr">Odehrál jsem {len(played)} zápasů, zhruba {minutes} minut, a dal {goals} góly.</p>
 <div class="fk-form">{form_row("Podzim", "podzim")}{form_row("Jaro", "jaro")}<p class="fk-legend">{chip("v", extra=' aria-hidden="true"')} výhra {chip("r", extra=' aria-hidden="true"')} remíza {chip("p", extra=' aria-hidden="true"')} prohra</p><p class="fk-team-rec">Tým celkem {team["v"]} {plural(team["v"], "výhra", "výhry", "výher")}, {team["r"]} {plural(team["r"], "remíza", "remízy", "remíz")}, {team["p"]} {plural(team["p"], "prohra", "prohry", "proher")}, skóre {team["gf"]}:{team["ga"]}.</p></div>
@@ -149,6 +165,11 @@ SECTION = f"""<section id="{ROOT}" lang="cs" aria-labelledby="{ROOT}-h">
 <p class="fk-intro">Na podzim jsem většinou naskakoval na pár minut, na jaře už jsem hrál víc a přišly první góly. Žluté číslo nad sloupcem jsou moje góly.</p>
 {chart()}
 <ul class="fk-facts">{stats_html}</ul>
+</section>
+<section class="fk-sec" aria-labelledby="{ROOT}-spoluhraci">
+<div class="fk-sec-head"><h3 id="{ROOT}-spoluhraci" class="fk-h3">Spoluhráči</h3><p class="fk-kicker">{len(DATA["hraci"])} jmen</p></div>
+<p class="fk-intro">Kluci, na které si z&nbsp;téhle sezóny vzpomínám. Seznam ještě doplním.</p>
+{teammates()}
 </section>
 <section class="fk-sec" aria-labelledby="{ROOT}-zapasy">
 <div class="fk-sec-head"><h3 id="{ROOT}-zapasy" class="fk-h3">Všech {len(games)} zápasů</h3><p class="fk-kicker">1.&nbsp;třída, sk.&nbsp;B</p></div>
@@ -193,6 +214,8 @@ EXTRA_CSS = """#fkns .fk-mine{position:relative;display:flex;flex-wrap:wrap;alig
 #fkns .fk-chips{gap:2px}
 #fkns .fk-chips .fk-chip{width:19px;height:19px;font-size:12px}
 #fkns .fk-team-rec{margin-top:4px;font-size:13px;color:var(--muted)}
+#fkns .fk-mates{max-width:560px}
+#fkns .fk-mates .fk-grp dt{grid-row:1/span 12}
 @container (min-width:480px){#fkns .fk-chips{gap:3px}#fkns .fk-chips .fk-chip{width:26px;height:26px;font-size:14px}#fkns .fk-team-rec{margin-left:68px}}
 @container (max-width:479px){#fkns .fk-min .kn{font-size:8px}}"""
 

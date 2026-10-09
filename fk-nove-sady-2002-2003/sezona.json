@@ -5,22 +5,21 @@
   "rocniky": [1988, 1989, 1990],
   "treneri": ["Standa Svoboda st.", "pan Okleštěk"],
   "hraci": {
-    "svoboda":  {"jmeno": "Standa „Svobi“ Svoboda", "kratce": "Svoboda",  "post": "brankář",  "rocnik": null, "odkud": "mladsi"},
-    "tlumic":   {"jmeno": "Tlumič",                 "kratce": "Tlumič",   "post": "obránce",  "rocnik": null, "odkud": "mladsi"},
+    "svoboda":  {"jmeno": "Standa „Svobi“ Svoboda", "kratce": "Svoboda",  "post": "brankář",  "rocnik": 1989, "odkud": "mladsi"},
+    "tlumic":   {"jmeno": "Michal „Tlumič“ Tůma",   "kratce": "Tlumič",   "post": "obránce",  "rocnik": 1989, "odkud": "mladsi"},
     "halady":   {"jmeno": "Michal Halady",          "kratce": "Halady",   "post": "obránce",  "rocnik": 1990},
-    "skacelik": {"jmeno": "Ondřej Skácelík",        "kratce": "Skácelík", "post": "obránce",  "rocnik": null, "odkud": "starsi"},
+    "skacelik": {"jmeno": "Ondřej Skácelík",        "kratce": "Skácelík", "post": "obránce",  "rocnik": 1988, "odkud": "starsi"},
     "cerny":    {"jmeno": "Jarda Černý",            "kratce": "Černý",    "post": "obránce",  "rocnik": 1990},
-    "tuma":     {"jmeno": "Michal Tůma",            "kratce": "Tůma",     "post": "obránce",  "rocnik": null},
     "dokoupil": {"jmeno": "Michal „Figo“ Dokoupil", "kratce": "Dokoupil", "post": "záložník", "rocnik": 1988, "odkud": "starsi", "ja": true},
     "janousek": {"jmeno": "Jarda Janoušek",         "kratce": "Janoušek", "post": "záložník", "rocnik": 1989},
     "florian":  {"jmeno": "Marek Florián",          "kratce": "Florián",  "post": "záložník", "rocnik": null},
-    "semjon":   {"jmeno": "Martin Semjon",          "kratce": "Semjon",   "post": "útočník",  "rocnik": null, "odkud": "starsi"},
-    "ronza":    {"jmeno": "David Ronza",            "kratce": "Ronza",    "post": "útočník",  "rocnik": null, "odkud": "mladsi"},
-    "foukal":   {"jmeno": "Vít Foukal",             "kratce": "Foukal",   "post": "útočník",  "rocnik": null, "odkud": "starsi"}
+    "semjon":   {"jmeno": "Martin Semjon",          "kratce": "Semjon",   "post": "útočník",  "rocnik": 1988, "odkud": "starsi"},
+    "ronza":    {"jmeno": "David Ronza",            "kratce": "Ronza",    "post": "útočník",  "rocnik": 1989, "odkud": "mladsi"},
+    "foukal":   {"jmeno": "Vít Foukal",             "kratce": "Foukal",   "post": "útočník",  "rocnik": 1988, "odkud": "starsi"}
   },
   "sestava": {
     "rozestaveni": "4-3-3",
-    "poznamka": "Hráli jsme pořád 4-3-3. Vlevo jsem v záloze hrál nejčastěji já a za mnou na beku Tlumič. V obraně hrál i Michal Tůma. Nejvíc gólů dal rozhodně Vít Foukal.",
+    "poznamka": "Hráli jsme pořád 4-3-3. Vlevo jsem v záloze hrál nejčastěji já a za mnou na beku Tlumič. Nejvíc gólů dal rozhodně Vít Foukal.",
     "rady": [
       [["semjon"], ["ronza"], ["foukal"]],
       [["dokoupil"], ["janousek"], ["florian"]],

@@ -59,6 +59,8 @@ def origin(key):
 
 
 years = DATA["rocniky"]
+counts = [(y, sum(1 for p in PLAYERS.values() if p["rocnik"] == y)) for y in years]
+year_counts = ", ".join(f"{n}× ročník {y % 100}" for y, n in counts[:-1]) + f" a {counts[-1][1]}× ročník {counts[-1][0] % 100}"
 years_html = "".join(f"<span>’{y % 100:02d}</span>" for y in years)
 years_sr = ", ".join(str(y) for y in years[:-1]) + f" a {years[-1]}"
 coaches = " a ".join(nb(c) for c in DATA["treneri"])
@@ -72,7 +74,7 @@ SECTION = f"""<section id="{ROOT}" lang="cs" aria-labelledby="{ROOT}-h">
 <p class="fk-lede">Druhá sezóna. Trenéři {coaches}.</p>
 <div class="fk-years" aria-hidden="true">{years_html}</div>
 <p class="fk-sr">Hráli za nás ročníky {years_sr}.</p>
-<p class="fk-years-cap">Tři ročníky v&nbsp;jedné sestavě. Nejmladším bylo 12–13 let a hráli proti 14–15letým.</p>
+<p class="fk-years-cap">Tři ročníky v&nbsp;jedné sestavě: {year_counts}. Nejmladším bylo 12–13 let a hráli proti 14–15letým.</p>
 <dl class="fk-origin">
 <div><dt>Ze starších žáků 2001/02</dt><dd>{origin("starsi")}</dd></div>
 <div><dt>Od mladších žáků</dt><dd>{origin("mladsi")}</dd></div>
