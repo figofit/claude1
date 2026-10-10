@@ -6,7 +6,7 @@
   "rocniky": "nejspíš 1985 až 1988",
   "treneri": [
     {"cast": "Podzim", "jmena": ["Zdeněk Čunderle"]},
-    {"cast": "Jaro", "jmena": ["pan Gaba", "pan Dočkal"]}
+    {"cast": "Jaro", "jmena": ["Jiří Gába", "Petr Dočkal st."]}
   ],
   "hraci": [
     {"jmeno": "Petr Nádvorník",        "post": "brankář", "pozn": "i v sezóně 2001/02"},
@@ -17,6 +17,9 @@
     {"jmeno": "Tomáš Jansa",           "post": "hráč"},
     {"jmeno": "Radek Zouzelka",        "post": "hráč"},
     {"jmeno": "Ivo Žádník",            "post": "hráč", "pozn": "i v sezóně 2001/02"},
+    {"jmeno": "Martin Semjon",         "post": "hráč", "pozn": "i v sezóně 2001/02"},
+    {"jmeno": "Ondřej Skácelík",       "post": "hráč", "pozn": "i v sezóně 2001/02"},
+    {"jmeno": "Jan Svozil",            "post": "hráč", "pozn": "i v sezóně 2001/02"},
     {"jmeno": "Petr Sedlář",           "post": "hráč"},
     {"jmeno": "Petr Čunderle",         "post": "hráč", "pozn": "hrál na podzim"},
     {"jmeno": "Petr „Doci“ Dočkal",    "post": "hráč"},

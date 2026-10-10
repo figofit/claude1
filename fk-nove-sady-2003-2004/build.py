@@ -171,7 +171,7 @@ SECTION = f"""<section id="{ROOT}" lang="cs" aria-labelledby="{ROOT}-h">
 </section>
 <section class="fk-sec" aria-labelledby="{ROOT}-spoluhraci">
 <div class="fk-sec-head"><h3 id="{ROOT}-spoluhraci" class="fk-h3">Spoluhráči</h3><p class="fk-kicker">{len(DATA["hraci"])} jmen</p></div>
-<p class="fk-intro">Kluci, na které si z&nbsp;téhle sezóny vzpomínám. Seznam ještě doplním.</p>
+<p class="fk-intro">Kluci, na které si z&nbsp;téhle sezóny vzpomínám. Z&nbsp;ročníku 88 jsme tam byli já, Semjon, Skácelík a Svozil. Občas nám chodili pomáhat i další hráči.</p>
 {teammates()}
 </section>
 <section class="fk-sec" aria-labelledby="{ROOT}-zapasy">
