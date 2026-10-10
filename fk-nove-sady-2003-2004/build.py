@@ -141,6 +141,9 @@ def teammates():
             note = f'<span class="g">{escape(p["pozn"])}</span>' if p.get("pozn") else ""
             dds.append(f"<dd><span>{name}</span>{note}</dd>")
         groups.append(f'<div class="fk-grp"><dt>{label}</dt>{"".join(dds)}</div>')
+    coaches = "".join(f'<dd><span>{", ".join(nb(j) for j in t["jmena"])}</span><span class="g">{escape(t["cast"].lower())}</span></dd>'
+                      for t in DATA["treneri"])
+    groups.append(f'<div class="fk-grp"><dt>Trenéři</dt>{coaches}</div>')
     return f'<div class="fk-roster fk-mates"><dl>{"".join(groups)}</dl></div>'
 
 

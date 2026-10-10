@@ -5,14 +5,14 @@
   "rocniky": [1988, 1989, 1990],
   "treneri": ["Standa Svoboda st.", "pan Okleštěk"],
   "hraci": {
-    "svoboda":  {"jmeno": "Standa „Svobi“ Svoboda", "kratce": "Svoboda",  "post": "brankář",  "rocnik": 1989, "odkud": "mladsi"},
-    "tlumic":   {"jmeno": "Michal „Tlumič“ Tůma",   "kratce": "Tlumič",   "post": "obránce",  "rocnik": 1989, "odkud": "mladsi"},
+    "svoboda":  {"jmeno": "Standa „Svobi“ Svoboda", "kratce": "Svoboda",  "post": "brankář",  "rocnik": 1990, "odkud": "mladsi"},
+    "tlumic":   {"jmeno": "Michal „Tlumič“ Tůma",   "kratce": "Tlumič",   "post": "obránce",  "rocnik": 1990, "odkud": "mladsi"},
     "halady":   {"jmeno": "Michal Halady",          "kratce": "Halady",   "post": "obránce",  "rocnik": 1990},
     "skacelik": {"jmeno": "Ondřej Skácelík",        "kratce": "Skácelík", "post": "obránce",  "rocnik": 1988, "odkud": "starsi"},
     "cerny":    {"jmeno": "Jarda Černý",            "kratce": "Černý",    "post": "obránce",  "rocnik": 1990},
     "dokoupil": {"jmeno": "Michal „Figo“ Dokoupil", "kratce": "Dokoupil", "post": "záložník", "rocnik": 1988, "odkud": "starsi", "ja": true},
     "janousek": {"jmeno": "Jarda Janoušek",         "kratce": "Janoušek", "post": "záložník", "rocnik": 1989},
-    "florian":  {"jmeno": "Marek Florián",          "kratce": "Florián",  "post": "záložník", "rocnik": null},
+    "florian":  {"jmeno": "Marek Florián",          "kratce": "Florián",  "post": "záložník", "rocnik": 1990},
     "semjon":   {"jmeno": "Martin Semjon",          "kratce": "Semjon",   "post": "útočník",  "rocnik": 1988, "odkud": "starsi"},
     "ronza":    {"jmeno": "David Ronza",            "kratce": "Ronza",    "post": "útočník",  "rocnik": 1989, "odkud": "mladsi"},
     "foukal":   {"jmeno": "Vít Foukal",             "kratce": "Foukal",   "post": "útočník",  "rocnik": 1988, "odkud": "starsi"}

@@ -4,17 +4,22 @@
   "soutez": "1. třída, skupina B – dorost",
   "poznamka": "Přepis dvou rozpisů (podzim 2003, jaro 2004) s Michalovými ručními poznámkami. Skóre je zapsané jako Nové Sady : soupeř (stejně jako u sezóny 2001/02) – k potvrzení. Minuty jsou odhad podle poznámek (min), přesný text je v 'pozn'.",
   "rocniky": "nejspíš 1985 až 1988",
+  "treneri": [
+    {"cast": "Podzim", "jmena": ["Zdeněk Čunderle"]},
+    {"cast": "Jaro", "jmena": ["pan Gaba", "pan Dočkal"]}
+  ],
   "hraci": [
     {"jmeno": "Petr Nádvorník",        "post": "brankář", "pozn": "i v sezóně 2001/02"},
     {"jmeno": "Standa Straka",         "post": "brankář", "pozn": "střídal v bráně"},
     {"jmeno": "Jirka Vojáček",         "post": "hráč"},
     {"jmeno": "David Dostál",          "post": "hráč"},
-    {"jmeno": "Očenášek",              "post": "hráč", "pozn": "křestní jméno?"},
+    {"jmeno": "Martin Očenášek",       "post": "hráč"},
     {"jmeno": "Tomáš Jansa",           "post": "hráč"},
     {"jmeno": "Radek Zouzelka",        "post": "hráč"},
     {"jmeno": "Ivo Žádník",            "post": "hráč", "pozn": "i v sezóně 2001/02"},
     {"jmeno": "Petr Sedlář",           "post": "hráč"},
-    {"jmeno": "Petr Čunderle",         "post": "hráč"},
+    {"jmeno": "Petr Čunderle",         "post": "hráč", "pozn": "hrál na podzim"},
+    {"jmeno": "Petr „Doci“ Dočkal",    "post": "hráč"},
     {"jmeno": "Michal „Figo“ Dokoupil", "post": "hráč", "ja": true}
   ],
   "vzpominky": [

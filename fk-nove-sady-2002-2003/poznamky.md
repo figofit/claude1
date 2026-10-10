@@ -2,6 +2,8 @@
 
 Sbíráme postupně od Michala „Figa“ Dokoupila. Zatím bez výsledků a tabulky.
 
+> Aktuální a potvrzená data (jména, ročníky, sestava) jsou v sezona.json – tyhle poznámky jsou starší pracovní verze.
+
 ## Tým
 - Hráli jsme ročníky 88, 89 a dokonce i kluci 90 – třeba 12–13letí proti 14–15letým, a přesto jsme byli konkurenceschopní.
 - Silný blok vznikl z kluků, kteří v sezóně 2001/02 hráli za mladší žáky (Tlumič, David Ronza, Standa „Svobi“ Svoboda).
