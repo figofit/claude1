@@ -53,6 +53,16 @@ addEventListener('scroll', onScroll, { passive: true });
 addEventListener('resize', onScroll);
 onScroll();
 
+/* Scrollspy: highlight the nav link of the section in view */
+const navLinks = $$('.nav a[href^="#"]:not(.nav-cta)');
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if (!en.isIntersecting) return;
+    navLinks.forEach(a => a.classList.toggle('active', a.hash === `#${en.target.id}`));
+  });
+}, { rootMargin: '-45% 0px -50% 0px' });
+navLinks.forEach(a => { const sec = $(a.hash); if (sec) spy.observe(sec); });
+
 /* Reveal on view + one-shot triggers */
 const revealEls = $$('.sec-head, .svc, .tile, .vet, .tl-step, .contact > *, .reach-grid > div, .egg-item figcaption');
 revealEls.forEach(el => el.classList.add('rv'));

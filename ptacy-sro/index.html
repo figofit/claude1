@@ -42,13 +42,13 @@
         <p class="tag"><span class="pulse"></span>Veterinární péče o drůbež · Morava</p>
         <h1 class="hero-title">
           <span class="line"><span>Zdravé hejno</span></span>
-          <span class="line"><span>je <em>věda</em></span></span>
-          <span class="line"><span>i řemeslo.</span></span>
+          <span class="line l2"><span>je <em>věda</em></span></span>
+          <span class="line l3"><span>i řemeslo.</span></span>
         </h1>
         <p class="hero-lead">Prevence, diagnostika a terapie v užitkových i rozmnožovacích chovech drůbeže. Tři veterináři, jedna odpovědnost – zdraví vašeho hejna.</p>
         <div class="hero-cta">
           <a class="btn btn-yolk" href="#kontakt">Domluvit návštěvu <span aria-hidden="true">→</span></a>
-          <a class="btn btn-line" href="tel:+420602515045">+420 602 515 045</a>
+          <a class="btn btn-line" href="tel:+420602515045"><span class="tel-full">+420 602 515 045</span><span class="tel-short">Zavolat</span></a>
         </div>
       </div>
 
@@ -73,7 +73,11 @@
   <section class="manifest" id="manifest">
     <div class="wrap">
       <p class="mono-label">[ 00 ] Naše motto</p>
-      <blockquote class="motto" id="motto">Neznáme všechno, ale víme, kam se obrátit. Když problém přesáhne naše zkušenosti, sáhneme po síti kolegů a státních veterinárních ústavů – a správná odpověď se k vám dostane.</blockquote>
+      <blockquote class="motto" id="motto">Neznáme všechno, ale víme, kam se obrátit.</blockquote>
+      <div class="motto-foot">
+        <span class="motto-line" aria-hidden="true"></span>
+        <p>Když problém přesáhne naše zkušenosti, sáhneme po síti kolegů a státních veterinárních ústavů. Správná odpověď se k vám dostane – rychle a bez hádání.</p>
+      </div>
     </div>
   </section>
 
@@ -178,9 +182,49 @@
             <button role="tab" aria-selected="false" data-vax="2">Injekce</button>
           </div>
           <p class="vax-text" id="vax-text" aria-live="polite">Hromadná aplikace přes napájecí systém – šetrná ke zvířatům a vhodná pro velká hejna.</p>
-          <div class="vax-visual" aria-hidden="true">
-            <span class="drop"></span><span class="drop"></span><span class="drop"></span>
-          </div>
+          <svg class="vax-visual" viewBox="0 0 300 150" aria-hidden="true">
+            <!-- Voda: napájecí linka s kapátky -->
+            <g class="vx vx-0">
+              <rect class="vx-tank" x="14" y="18" width="40" height="56" rx="6"/>
+              <rect class="vx-level" x="18" y="40" width="32" height="30" rx="3"/>
+              <path class="vx-pipe" d="M54 34 H286"/>
+              <g class="vx-nipple"><path d="M106 34v10l-5 8h10l-5-8"/><path d="M176 34v10l-5 8h10l-5-8"/><path d="M246 34v10l-5 8h10l-5-8"/></g>
+              <circle class="vx-drop" cx="106" cy="58" r="4"/>
+              <circle class="vx-drop d2" cx="176" cy="58" r="4"/>
+              <circle class="vx-drop d3" cx="246" cy="58" r="4"/>
+              <path class="vx-ground" d="M14 132 H286"/>
+            </g>
+            <!-- Sprej: rozprašovač a mlha -->
+            <g class="vx vx-1">
+              <rect class="vx-tank" x="22" y="58" width="44" height="74" rx="8"/>
+              <rect class="vx-level" x="27" y="86" width="34" height="42" rx="4"/>
+              <path class="vx-pipe" d="M44 58 V44 H84"/>
+              <path class="vx-nozzle" d="M84 38 h10 v12 h-10z"/>
+              <g class="vx-mist">
+                <circle cx="100" cy="44" r="3" style="--mx:60px;--my:-26px"/>
+                <circle cx="100" cy="44" r="3" style="--mx:90px;--my:-6px;--md:.3s"/>
+                <circle cx="100" cy="44" r="3" style="--mx:76px;--my:22px;--md:.6s"/>
+                <circle cx="100" cy="44" r="3" style="--mx:130px;--my:-30px;--md:.9s"/>
+                <circle cx="100" cy="44" r="3" style="--mx:150px;--my:8px;--md:1.2s"/>
+                <circle cx="100" cy="44" r="3" style="--mx:120px;--my:36px;--md:.45s"/>
+                <circle cx="100" cy="44" r="3" style="--mx:176px;--my:-14px;--md:.75s"/>
+                <circle cx="100" cy="44" r="3" style="--mx:168px;--my:34px;--md:1.05s"/>
+              </g>
+            </g>
+            <!-- Injekce: stříkačka -->
+            <g class="vx vx-2">
+              <path class="vx-pipe" d="M24 75 H70"/>
+              <rect class="vx-tank" x="70" y="58" width="140" height="34" rx="5"/>
+              <rect class="vx-liquid" x="74" y="62" width="120" height="26" rx="3"/>
+              <g class="vx-ticks"><path d="M100 58v8M125 58v8M150 58v8M175 58v8"/></g>
+              <g class="vx-plunger">
+                <rect x="190" y="61" width="8" height="28" rx="2"/>
+                <rect x="198" y="72" width="70" height="6" rx="3"/>
+                <rect x="266" y="56" width="8" height="38" rx="3"/>
+              </g>
+              <path class="vx-flange" d="M210 52v46"/>
+            </g>
+          </svg>
         </article>
 
         <article class="tile tile-tubes">
