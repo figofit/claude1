@@ -3,200 +3,381 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PTÁCY s.r.o. – veterinární péče o drůbež na Moravě</title>
-  <meta name="description" content="Preventivní, diagnostická a terapeutická činnost v chovech drůbeže. Metodické vedení, vakcinační strategie, klinická vyšetření a odběry vzorků. Působnost: Morava.">
-  <meta name="theme-color" content="#14402f">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2314402f'/%3E%3Ccircle cx='32' cy='34' r='14' fill='%23f2b134'/%3E%3C/svg%3E">
+  <title>PTÁCY s.r.o.</title>
+  <meta name="description" content="Veterinární péče o chovy drůbeže na Moravě – prevence, diagnostika a terapie. Metodické vedení, vakcinační strategie, klinická vyšetření a laboratorní diagnostika.">
+  <meta name="theme-color" content="#0d1611">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d1611'/%3E%3Cpath d='M32 10c-11 0-18 15-18 26a18 18 0 0 0 36 0c0-11-7-26-18-26Z' fill='%23ffb51f'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header class="site-header" id="top">
-  <div class="wrap bar">
-    <a class="brand" href="#top" aria-label="PTÁCY s.r.o. – úvod">
-      <span class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 32 32"><path d="M6 20c0-6 4-11 10-11 3 0 5 1 6 3l5-2-2 5c0 7-5 12-12 12-4 0-7-3-7-7Z" fill="currentColor"/></svg>
-      </span>
-      <span class="brand-text">PTÁCY<small>s.r.o.</small></span>
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-bar">
+    <a class="logo" href="#top" aria-label="PTÁCY s.r.o. – úvod">
+      <svg class="logo-egg" viewBox="0 0 40 48" aria-hidden="true"><path d="M20 2C9 2 2 19 2 29a18 18 0 0 0 36 0C38 19 31 2 20 2Z"/></svg>
+      <span>PTÁCY<i>s.r.o.</i></span>
     </a>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span><span></span></button>
-    <nav id="nav" class="nav">
+    <nav class="nav" id="nav">
       <a href="#sluzby">Služby</a>
-      <a href="#o-nas">O nás</a>
-      <a href="#postup">Jak pracujeme</a>
+      <a href="#druhy">Chovy</a>
+      <a href="#laborator">Laboratoř</a>
+      <a href="#pusobnost">Působnost</a>
       <a href="#tym">Tým</a>
-      <a class="btn btn-small" href="#kontakt">Kontakt</a>
+      <a class="nav-cta" href="#kontakt">Kontakt <span aria-hidden="true">→</span></a>
     </nav>
+    <button class="burger" id="burger" aria-label="Otevřít menu" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
   </div>
 </header>
 
-<main>
-  <!-- HERO -->
+<main id="top">
+
+  <!-- ═════════ HERO ═════════ -->
   <section class="hero">
+    <div class="grain" aria-hidden="true"></div>
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow"><span class="dot"></span> Veterinární služby pro chovy drůbeže · Morava</p>
-        <h1>Zdravé chovy drůbeže. <em>Spolehlivý servis</em> po celé Moravě.</h1>
-        <p class="lead">Preventivní, diagnostická a terapeutická činnost v chovech drůbeže. Od vakcinační strategie až po laboratorní diagnostiku – s týmem, který zná praxi chovatele.</p>
-        <div class="hero-actions">
-          <a class="btn" href="#kontakt">Domluvit konzultaci</a>
-          <a class="btn btn-ghost" href="#sluzby">Co nabízíme</a>
+        <p class="tag"><span class="pulse"></span>Veterinární péče o drůbež · Morava</p>
+        <h1 class="hero-title">
+          <span class="line"><span>Zdravé hejno</span></span>
+          <span class="line"><span>je <em>věda</em></span></span>
+          <span class="line"><span>i řemeslo.</span></span>
+        </h1>
+        <p class="hero-lead">Prevence, diagnostika a terapie v užitkových i rozmnožovacích chovech drůbeže. Tři veterináři, jedna odpovědnost – zdraví vašeho hejna.</p>
+        <div class="hero-cta">
+          <a class="btn btn-yolk" href="#kontakt">Domluvit návštěvu <span aria-hidden="true">→</span></a>
+          <a class="btn btn-line" href="tel:+420602515045">+420 602 515 045</a>
         </div>
-        <p class="motto">„Neznáme všechno, ale víme, kam se obrátit.“</p>
       </div>
-      <div class="hero-visual" aria-hidden="true">
-        <figure class="photo photo-main"><img src="images/banner01.jpg" alt="" width="800" height="270"></figure>
-        <figure class="photo photo-a"><img src="images/banner06.jpg" alt="" width="800" height="270"></figure>
-        <div class="badge"><strong>3</strong><span>veterinární lékaři v týmu</span></div>
+
+      <div class="orbit" aria-hidden="true">
+        <div class="glow"></div>
+        <div class="ring r1"><span class="sat"><b>Bakteriologie</b></span><span class="sat s2"><b>Vakcinace</b></span></div>
+        <div class="ring r2"><span class="sat"><b>Virologie</b></span><span class="sat s2"><b>Patoanatomie</b></span><span class="sat s3"><b>Prevence</b></span></div>
+        <div class="ring r3"><span class="sat"><b>Histopatologie</b></span><span class="sat s2"><b>Metodika</b></span></div>
+        <div class="egg"><span class="egg-shine"></span></div>
       </div>
     </div>
-    <ul class="wrap facts" aria-label="Rychlá fakta">
-      <li><strong>Kur · krůta · holubi · pštrosi</strong><span>chované druhy</span></li>
-      <li><strong>Voda · sprej · injekce</strong><span>způsoby vakcinace</span></li>
-      <li><strong>Státní veterinární ústavy</strong><span>laboratorní spolupráce</span></li>
-    </ul>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Metodické vedení</span><span>✳</span><span>Vakcinační strategie</span><span>✳</span><span>Klinické vyšetření</span><span>✳</span><span>Odběry vzorků</span><span>✳</span><span>Spolupráce se SVÚ</span><span>✳</span><span>Týmová práce</span><span>✳</span>
+        <span>Metodické vedení</span><span>✳</span><span>Vakcinační strategie</span><span>✳</span><span>Klinické vyšetření</span><span>✳</span><span>Odběry vzorků</span><span>✳</span><span>Spolupráce se SVÚ</span><span>✳</span><span>Týmová práce</span><span>✳</span>
+      </div>
+    </div>
   </section>
 
-  <!-- SLUŽBY -->
-  <section class="section" id="sluzby">
+  <!-- ═════════ MOTTO ═════════ -->
+  <section class="manifest" id="manifest">
     <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Služby</p>
-        <h2>Kompletní veterinární péče o vaše hejno</h2>
-        <p>Pokrýváme celý cyklus – prevenci, diagnostiku i léčbu – v užitkových i rozmnožovacích chovech.</p>
+      <p class="mono-label">[ 00 ] Naše motto</p>
+      <blockquote class="motto" id="motto">Neznáme všechno, ale víme, kam se obrátit. Když problém přesáhne naše zkušenosti, sáhneme po síti kolegů a státních veterinárních ústavů – a správná odpověď se k vám dostane.</blockquote>
+    </div>
+  </section>
+
+  <!-- ═════════ SLUŽBY ═════════ -->
+  <section class="services" id="sluzby">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="mono-label">[ 01 ] Služby</p>
+        <h2>Celý cyklus péče.<br><em>Pod jednou střechou.</em></h2>
       </div>
-      <div class="cards">
-        <article class="card">
-          <span class="icon"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h10"/></svg></span>
+
+      <ol class="svc-list">
+        <li class="svc" data-img="images/banner04.jpg">
+          <span class="svc-no">01</span>
           <h3>Metodické vedení</h3>
-          <p>Odborné vedení užitkových a rozmnožovacích chovů drůbeže – kur domácí, krůta, holubi, pštrosi.</p>
-        </article>
-        <article class="card">
-          <span class="icon"><svg viewBox="0 0 24 24"><path d="M14 4l6 6M5 19l1-4 9-9 3 3-9 9-4 1ZM4 20l3-3"/></svg></span>
+          <p>Užitkové a rozmnožovací chovy – kur domácí, krůta, holubi, pštrosi.</p>
+          <span class="svc-arrow" aria-hidden="true">↗</span>
+        </li>
+        <li class="svc" data-img="images/banner03.jpg">
+          <span class="svc-no">02</span>
           <h3>Vakcinační strategie</h3>
-          <p>Návrh a zajištění očkování – aplikace do vody, sprejem nebo injekčně podle typu chovu.</p>
-        </article>
-        <article class="card">
-          <span class="icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M16 16l4 4"/></svg></span>
+          <p>Aplikace do vody, sprejem nebo injekčně – podle typu a věku hejna.</p>
+          <span class="svc-arrow" aria-hidden="true">↗</span>
+        </li>
+        <li class="svc" data-img="images/banner01.jpg">
+          <span class="svc-no">03</span>
           <h3>Klinické vyšetření</h3>
-          <p>Rutinní i speciální vyšetření včetně patoanatomického rozboru pro rychlou a přesnou diagnózu.</p>
-        </article>
-        <article class="card">
-          <span class="icon"><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3M8 15h8"/></svg></span>
+          <p>Rutinní i speciální vyšetření, patoanatomický rozbor přímo na místě.</p>
+          <span class="svc-arrow" aria-hidden="true">↗</span>
+        </li>
+        <li class="svc" data-img="images/banner06.jpg">
+          <span class="svc-no">04</span>
           <h3>Odběry vzorků</h3>
-          <p>Bakteriologie, virologie a histopatologie – vzorky odebereme a zajistíme jejich vyhodnocení.</p>
-        </article>
-        <article class="card">
-          <span class="icon"><svg viewBox="0 0 24 24"><path d="M3 21V9l9-6 9 6v12M9 21v-7h6v7"/></svg></span>
-          <h3>Spolupráce s ústavy</h3>
-          <p>Úzká spolupráce se státními veterinárními ústavy a konzultace s kolegy v ČR i v zahraničí.</p>
-        </article>
-        <article class="card">
-          <span class="icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.5 3-6 6-6s6 2.5 6 6M15 14.5c3 0 6 1.8 6 5"/></svg></span>
+          <p>Bakteriologie, virologie a histopatologie – od odběru po výsledek.</p>
+          <span class="svc-arrow" aria-hidden="true">↗</span>
+        </li>
+        <li class="svc" data-img="images/banner02.jpg">
+          <span class="svc-no">05</span>
+          <h3>Spolupráce</h3>
+          <p>Se státními veterinárními ústavy a s kolegy v ČR i v zahraničí.</p>
+          <span class="svc-arrow" aria-hidden="true">↗</span>
+        </li>
+        <li class="svc" data-img="images/banner04.jpg">
+          <span class="svc-no">06</span>
           <h3>Týmová práce</h3>
-          <p>Spolehlivý a dlouhodobý servis na vysoké úrovni – vždy víte, na koho se obrátit.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- O NÁS -->
-  <section class="section section-dark" id="o-nas">
-    <div class="wrap split">
-      <div>
-        <p class="eyebrow eyebrow-light">O nás</p>
-        <h2>Odbornost, která zná chov zevnitř</h2>
-        <p>Jsme tým veterinárních lékařů se zaměřením na drůbež. Pracujeme přímo v chovech, a proto víme, že na rychlosti a spolehlivosti záleží. Naše práce stojí na pravidelné prevenci, přesné diagnostice a otevřené komunikaci.</p>
-        <p>Když narazíme na problém, který přesahuje naše zkušenosti, nemusíme hádat – <strong>víme, kam se obrátit</strong>. Díky síti kolegů a státních veterinárních ústavů se k vám dostane správná odpověď.</p>
-        <ul class="checks">
-          <li>Dlouhodobý servis, ne jednorázové výjezdy</li>
-          <li>Rutinní i speciální diagnostika</li>
-          <li>Konzultace v ČR i v zahraničí</li>
-        </ul>
-      </div>
-      <div class="photo-stack" aria-hidden="true">
-        <figure class="photo"><img src="images/banner04.jpg" alt="" loading="lazy" width="800" height="270"></figure>
-        <figure class="photo"><img src="images/banner02.jpg" alt="" loading="lazy" width="800" height="270"></figure>
-        <figure class="photo"><img src="images/banner03.jpg" alt="" loading="lazy" width="800" height="270"></figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- POSTUP -->
-  <section class="section" id="postup">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Jak pracujeme</p>
-        <h2>Od první konzultace po stálý servis</h2>
-      </div>
-      <ol class="steps">
-        <li><span>1</span><h3>Konzultace</h3><p>Probereme typ chovu, druh drůbeže a aktuální situaci v hale.</p></li>
-        <li><span>2</span><h3>Vyšetření</h3><p>Klinické a patoanatomické vyšetření, odběry vzorků pro laboratoř.</p></li>
-        <li><span>3</span><h3>Plán</h3><p>Vakcinační a preventivní program přesně na míru vašemu chovu.</p></li>
-        <li><span>4</span><h3>Dlouhodobý servis</h3><p>Pravidelné kontroly a rychlá reakce, kdykoliv je potřeba.</p></li>
+          <p>Spolehlivý a dlouhodobý servis a veterinární služba na vysoké úrovni.</p>
+          <span class="svc-arrow" aria-hidden="true">↗</span>
+        </li>
       </ol>
     </div>
+    <div class="peek" id="peek" aria-hidden="true"><img alt="" src="images/banner04.jpg"></div>
   </section>
 
-  <!-- TÝM -->
-  <section class="section section-soft" id="tym">
+  <!-- ═════════ DRUHY / VEJCE ═════════ -->
+  <section class="species" id="druhy">
     <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Tým</p>
-        <h2>Lidé, na které se můžete obrátit</h2>
-        <p>Působíme po celé Moravě. Zavolejte přímo veterináři, který vás zná.</p>
+      <div class="sec-head sec-head-split">
+        <div>
+          <p class="mono-label">[ 02 ] Chované druhy</p>
+          <h2>Od holubího vejce<br><em>po pštrosí.</em></h2>
+        </div>
+        <p class="sec-note">Každý druh má jiné nároky na prostředí, výživu i vakcinační program. Vedeme užitkové i rozmnožovací chovy – a známe rozdíly.</p>
       </div>
-      <div class="team">
-        <article class="person">
-          <span class="avatar">PS</span>
-          <h3>MVDr. Petr Stolář</h3>
-          <a href="tel:+420602515045">+420 602 515 045</a>
+
+      <div class="eggs" id="eggs">
+        <figure class="egg-item">
+          <div class="egg-s egg-pigeon" style="--h:62px"></div>
+          <figcaption><b>Holubi</b><span>~ 4 cm</span></figcaption>
+        </figure>
+        <figure class="egg-item">
+          <div class="egg-s egg-hen" style="--h:92px"></div>
+          <figcaption><b>Kur domácí</b><span>~ 6 cm</span></figcaption>
+        </figure>
+        <figure class="egg-item">
+          <div class="egg-s egg-turkey" style="--h:106px"></div>
+          <figcaption><b>Krůta</b><span>~ 7 cm</span></figcaption>
+        </figure>
+        <figure class="egg-item">
+          <div class="egg-s egg-ostrich" style="--h:236px"></div>
+          <figcaption><b>Pštrosi</b><span>~ 15 cm</span></figcaption>
+        </figure>
+        <div class="egg-floor" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ LABORATOŘ / BENTO ═════════ -->
+  <section class="lab" id="laborator">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="mono-label">[ 03 ] Prevence &amp; diagnostika</p>
+        <h2>Měříme, ne hádáme.</h2>
+      </div>
+
+      <div class="bento">
+        <article class="tile tile-vax">
+          <p class="mono-label">Vakcinace</p>
+          <h3>Tři cesty k imunitě</h3>
+          <div class="vax-tabs" role="tablist" aria-label="Způsoby vakcinace">
+            <button role="tab" aria-selected="true" data-vax="0">Voda</button>
+            <button role="tab" aria-selected="false" data-vax="1">Sprej</button>
+            <button role="tab" aria-selected="false" data-vax="2">Injekce</button>
+          </div>
+          <p class="vax-text" id="vax-text" aria-live="polite">Hromadná aplikace přes napájecí systém – šetrná ke zvířatům a vhodná pro velká hejna.</p>
+          <div class="vax-visual" aria-hidden="true">
+            <span class="drop"></span><span class="drop"></span><span class="drop"></span>
+          </div>
         </article>
-        <article class="person">
-          <span class="avatar">DŠ</span>
-          <h3>MVDr. David Šenk</h3>
-          <a href="tel:+420605338337">+420 605 338 337</a>
+
+        <article class="tile tile-tubes">
+          <p class="mono-label">Odběry vzorků</p>
+          <h3>Tři laboratorní disciplíny</h3>
+          <div class="tubes" aria-hidden="true">
+            <div class="tube" style="--fill:72%; --c:#ffb51f"><span></span></div>
+            <div class="tube" style="--fill:54%; --c:#8fd3a7"><span></span></div>
+            <div class="tube" style="--fill:86%; --c:#f2876b"><span></span></div>
+          </div>
+          <ul class="tube-legend">
+            <li><i style="--c:#ffb51f"></i>Bakteriologie</li>
+            <li><i style="--c:#8fd3a7"></i>Virologie</li>
+            <li><i style="--c:#f2876b"></i>Histopatologie</li>
+          </ul>
         </article>
-        <article class="person">
-          <span class="avatar">VS</span>
-          <h3>MVDr. Vladimír Sládeček</h3>
-          <a href="tel:+420739002502">+420 739 002 502</a>
+
+        <article class="tile tile-stat">
+          <span class="big-num" data-count="3">0</span>
+          <p>veterinární lékaři<br>v terénu</p>
+        </article>
+
+        <article class="tile tile-stat tile-yolk">
+          <span class="big-num" data-count="4">0</span>
+          <p>druhy drůbeže<br>pod odborným vedením</p>
+        </article>
+
+        <article class="tile tile-net">
+          <p class="mono-label">Spolupráce</p>
+          <h3>Síť, na kterou se dá spolehnout</h3>
+          <svg class="net" viewBox="0 0 300 140" aria-hidden="true">
+            <g class="net-lines">
+              <line x1="150" y1="70" x2="40" y2="30"/><line x1="150" y1="70" x2="260" y2="28"/>
+              <line x1="150" y1="70" x2="50" y2="115"/><line x1="150" y1="70" x2="255" y2="112"/>
+              <line x1="150" y1="70" x2="150" y2="10"/>
+            </g>
+            <circle class="n-core" cx="150" cy="70" r="16"/>
+            <circle class="n" cx="40" cy="30" r="7"/><circle class="n" cx="260" cy="28" r="7"/>
+            <circle class="n" cx="50" cy="115" r="7"/><circle class="n" cx="255" cy="112" r="7"/>
+            <circle class="n" cx="150" cy="10" r="5"/>
+            <text x="40" y="52" text-anchor="middle">SVÚ</text>
+            <text x="260" y="50" text-anchor="middle">Kolegové ČR</text>
+            <text x="50" y="137" text-anchor="middle">Laboratoře</text>
+            <text x="255" y="134" text-anchor="middle">Zahraničí</text>
+          </svg>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- KONTAKT -->
-  <section class="section" id="kontakt">
-    <div class="wrap contact">
-      <div>
-        <p class="eyebrow">Kontakt</p>
-        <h2>Potřebujete poradit? Ozvěte se.</h2>
-        <p>Napište nebo zavolejte – rádi s vámi probereme situaci ve vašem chovu.</p>
-        <dl class="details">
-          <div><dt>Společnost</dt><dd>PTÁCY s.r.o.<br>Valašská Bystřice 194<br>756 27</dd></div>
-          <div><dt>E-mail</dt><dd><a href="mailto:ptacy@ptacy-sro.cz">ptacy@ptacy-sro.cz</a></dd></div>
-          <div><dt>Působnost</dt><dd>Morava</dd></div>
-        </dl>
+  <!-- ═════════ GALERIE ═════════ -->
+  <section class="strip" aria-label="Fotografie z chovů">
+    <div class="strip-track">
+      <img src="images/banner01.jpg" alt="Slepice ve volném výběhu" loading="lazy" width="800" height="270">
+      <img src="images/banner04.jpg" alt="Hala s brojlery" loading="lazy" width="800" height="270">
+      <img src="images/banner02.jpg" alt="Kuřata" loading="lazy" width="800" height="270">
+      <img src="images/banner06.jpg" alt="Odchov kuřat v hale" loading="lazy" width="800" height="270">
+      <img src="images/banner03.jpg" alt="Vakcína a injekční stříkačka" loading="lazy" width="800" height="270">
+      <img src="images/banner01.jpg" alt="" loading="lazy" width="800" height="270" aria-hidden="true">
+      <img src="images/banner04.jpg" alt="" loading="lazy" width="800" height="270" aria-hidden="true">
+      <img src="images/banner02.jpg" alt="" loading="lazy" width="800" height="270" aria-hidden="true">
+      <img src="images/banner06.jpg" alt="" loading="lazy" width="800" height="270" aria-hidden="true">
+      <img src="images/banner03.jpg" alt="" loading="lazy" width="800" height="270" aria-hidden="true">
+    </div>
+  </section>
+
+  <!-- ═════════ POSTUP ═════════ -->
+  <section class="process" id="postup">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="mono-label">[ 04 ] Spolupráce krok za krokem</p>
+        <h2>Od prvního telefonátu<br><em>ke stálému servisu.</em></h2>
       </div>
-      <form class="form" id="contact-form" action="mailto:ptacy@ptacy-sro.cz" method="post" enctype="text/plain">
-        <label>Jméno<input name="Jméno" required autocomplete="name"></label>
-        <label>Telefon nebo e-mail<input name="Kontakt" required autocomplete="email"></label>
-        <label>Zpráva<textarea name="Zpráva" rows="4" required></textarea></label>
-        <button class="btn" type="submit">Odeslat zprávu</button>
-        <p class="hint">Zpráva se otevře ve vašem e-mailovém programu.</p>
-      </form>
+      <div class="timeline" id="timeline">
+        <div class="tl-rail"><div class="tl-fill" id="tl-fill"></div></div>
+        <div class="tl-step"><span class="tl-dot"></span><p class="mono-label">Krok 1</p><h3>Konzultace</h3><p>Typ chovu, druh drůbeže, aktuální stav hejna a vaše cíle.</p></div>
+        <div class="tl-step"><span class="tl-dot"></span><p class="mono-label">Krok 2</p><h3>Vyšetření v chovu</h3><p>Klinické a patoanatomické vyšetření, odběr vzorků pro laboratoř.</p></div>
+        <div class="tl-step"><span class="tl-dot"></span><p class="mono-label">Krok 3</p><h3>Plán na míru</h3><p>Vakcinační a preventivní program přizpůsobený vašemu provozu.</p></div>
+        <div class="tl-step"><span class="tl-dot"></span><p class="mono-label">Krok 4</p><h3>Dlouhodobý servis</h3><p>Pravidelné kontroly a rychlá reakce, když je potřeba.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ PŮSOBNOST ═════════ -->
+  <section class="reach" id="pusobnost">
+    <div class="wrap reach-grid">
+      <div>
+        <p class="mono-label">[ 05 ] Působnost</p>
+        <h2>Celá Morava<br><em>v našem dosahu.</em></h2>
+        <p class="sec-note">Sídlíme ve Valašské Bystřici a za chovateli jezdíme po celé Moravě – od Ostravska po jižní Moravu.</p>
+        <address class="hq">
+          <span class="mono-label">Sídlo</span>
+          PTÁCY s.r.o.<br>Valašská Bystřice 194<br>756 27
+        </address>
+      </div>
+      <svg class="radar" viewBox="0 -5 400 250" role="img" aria-label="Schematická mapa Moravy se sídlem ve Valašské Bystřici">
+        <defs>
+          <radialGradient id="rg" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0" stop-color="#ffb51f" stop-opacity=".35"/>
+            <stop offset="1" stop-color="#ffb51f" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="sweep" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#ffb51f" stop-opacity="0"/>
+            <stop offset="1" stop-color="#ffb51f" stop-opacity=".45"/>
+          </linearGradient>
+          <clipPath id="rclip"><rect x="0" y="-5" width="400" height="250"/></clipPath>
+        </defs>
+        <g clip-path="url(#rclip)">
+          <circle cx="274" cy="118" r="90" fill="url(#rg)"/>
+          <g class="rings">
+            <circle cx="274" cy="118" r="50"/><circle cx="274" cy="118" r="100"/>
+            <circle cx="274" cy="118" r="150"/><circle cx="274" cy="118" r="200"/>
+            <circle cx="274" cy="118" r="250"/>
+          </g>
+          <g class="sweep"><path d="M274 118 L394 118 A120 120 0 0 0 359 33 Z" fill="url(#sweep)"/></g>
+        </g>
+        <g class="towns">
+          <g style="--d:.2s"><circle cx="291" cy="56" r="4"/><text x="299" y="52">Ostrava</text></g>
+          <g style="--d:.4s"><circle cx="190" cy="92" r="4"/><text x="182" y="86" text-anchor="end">Olomouc</text></g>
+          <g style="--d:.6s"><circle cx="231" cy="147" r="4"/><text x="223" y="160" text-anchor="end">Zlín</text></g>
+          <g style="--d:.8s"><circle cx="210" cy="170" r="3"/><text x="202" y="184" text-anchor="end">Uh. Hradiště</text></g>
+          <g style="--d:1s"><circle cx="128" cy="152" r="4"/><text x="120" y="147" text-anchor="end">Brno</text></g>
+          <g style="--d:1.2s"><circle cx="28" cy="120" r="3"/><text x="28" y="110" text-anchor="middle">Jihlava</text></g>
+          <g style="--d:1.4s"><circle cx="73" cy="201" r="3"/><text x="73" y="217" text-anchor="middle">Znojmo</text></g>
+          <g style="--d:1.6s"><circle cx="154" cy="216" r="3"/><text x="154" y="232" text-anchor="middle">Břeclav</text></g>
+        </g>
+        <g class="hq-pin">
+          <circle class="ping" cx="274" cy="118" r="8"/>
+          <circle cx="274" cy="118" r="7"/>
+          <text x="274" y="142" text-anchor="middle">Valašská Bystřice</text>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ═════════ TÝM + KONTAKT ═════════ -->
+  <section class="team" id="tym">
+    <div class="grain" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="mono-label">[ 06 ] Tým</p>
+        <h2>Zavolejte přímo<br><em>svému veterináři.</em></h2>
+      </div>
+      <div class="vets">
+        <a class="vet" href="tel:+420602515045">
+          <span class="vet-init">PS</span>
+          <span class="vet-name">MVDr. Petr Stolář</span>
+          <span class="vet-tel">+420 602 515 045</span>
+          <span class="vet-call" aria-hidden="true">Volat ↗</span>
+        </a>
+        <a class="vet" href="tel:+420605338337">
+          <span class="vet-init">DŠ</span>
+          <span class="vet-name">MVDr. David Šenk</span>
+          <span class="vet-tel">+420 605 338 337</span>
+          <span class="vet-call" aria-hidden="true">Volat ↗</span>
+        </a>
+        <a class="vet" href="tel:+420739002502">
+          <span class="vet-init">VS</span>
+          <span class="vet-name">MVDr. Vladimír Sládeček</span>
+          <span class="vet-tel">+420 739 002 502</span>
+          <span class="vet-call" aria-hidden="true">Volat ↗</span>
+        </a>
+      </div>
+
+      <div class="contact" id="kontakt">
+        <div class="contact-copy">
+          <p class="mono-label">[ 07 ] Kontakt</p>
+          <h2>Řekněte nám,<br><em>co se v hale děje.</em></h2>
+          <a class="mail-big" href="mailto:ptacy@ptacy-sro.cz">ptacy@ptacy-sro.cz</a>
+          <p class="contact-meta">PTÁCY s.r.o. · Valašská Bystřice 194 · 756 27 · Působnost: Morava</p>
+        </div>
+        <form class="form" action="mailto:ptacy@ptacy-sro.cz" method="post" enctype="text/plain">
+          <div class="field"><input id="f-name" name="Jméno" placeholder=" " required autocomplete="name"><label for="f-name">Jméno a farma</label></div>
+          <div class="field"><input id="f-contact" name="Kontakt" placeholder=" " required autocomplete="email"><label for="f-contact">Telefon nebo e-mail</label></div>
+          <div class="chips" role="group" aria-label="Druh chovu">
+            <label><input type="checkbox" name="Druh" value="Kur domácí"><span>Kur domácí</span></label>
+            <label><input type="checkbox" name="Druh" value="Krůta"><span>Krůta</span></label>
+            <label><input type="checkbox" name="Druh" value="Holubi"><span>Holubi</span></label>
+            <label><input type="checkbox" name="Druh" value="Pštrosi"><span>Pštrosi</span></label>
+          </div>
+          <div class="field"><textarea id="f-msg" name="Zpráva" rows="4" placeholder=" " required></textarea><label for="f-msg">S čím potřebujete pomoci?</label></div>
+          <button class="btn btn-yolk btn-wide" type="submit">Odeslat zprávu <span aria-hidden="true">→</span></button>
+          <p class="form-hint">Zpráva se otevře ve vašem e-mailovém programu.</p>
+        </form>
+      </div>
     </div>
   </section>
 </main>
 
-<footer class="site-footer">
-  <div class="wrap foot">
-    <span>© <span id="year">2026</span> PTÁCY s.r.o. · Valašská Bystřice 194</span>
-    <a href="mailto:ptacy@ptacy-sro.cz">ptacy@ptacy-sro.cz</a>
+<footer class="ftr">
+  <div class="wrap">
+    <p class="ftr-word" aria-hidden="true">PTÁCY</p>
+    <div class="ftr-row">
+      <span>© <span id="year">2026</span> PTÁCY s.r.o.</span>
+      <span>Preventivní, diagnostická a terapeutická činnost v chovech drůbeže</span>
+      <a href="#top">Nahoru ↑</a>
+    </div>
   </div>
 </footer>
 
