@@ -305,17 +305,35 @@
 
   /* ---------------- demo notice ---------------- */
   var modal = $("#demoModal"), lastFocus = null;
+  var savedY = 0;
+  function lockScroll() {
+    savedY = window.scrollY;
+    document.body.style.position = "fixed";
+    document.body.style.top = -savedY + "px";
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+  }
+  function unlockScroll() {
+    document.body.style.position = document.body.style.top = document.body.style.left = document.body.style.right = "";
+    document.documentElement.style.scrollBehavior = "auto";
+    window.scrollTo(0, savedY);
+    document.documentElement.style.scrollBehavior = "";
+  }
   function openDemo() {
+    if (!modal.hidden) return;
     lastFocus = document.activeElement;
+    lockScroll();
     modal.hidden = false;
-    document.body.style.overflow = "hidden";
-    $("#demoGo").focus();
+    try { $("#demoGo").focus({ preventScroll: true }); } catch (e) {}
   }
   function closeDemo() {
+    if (modal.hidden) return;
     modal.hidden = true;
-    document.body.style.overflow = "";
+    unlockScroll();
     try { sessionStorage.setItem("demoSeen", "1"); } catch (e) {}
-    if (lastFocus && lastFocus.focus) lastFocus.focus();
+    if (lastFocus && lastFocus !== document.body && lastFocus.focus) {
+      try { lastFocus.focus({ preventScroll: true }); } catch (e) {}
+    }
   }
   $("#demoOpen").addEventListener("click", openDemo);
   $("#demoClose").addEventListener("click", closeDemo);
