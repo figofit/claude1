@@ -23,11 +23,10 @@ Hotový návrh je ve složce `srub-plece/`. Nejde jen o šablonu, web je už pos
 
 | | |
 |---|---|
-| Web na míru včetně nasazení | **14 900 Kč** jednorázově |
+| Web na míru včetně nasazení a kalendáře obsazenosti z e-chalup / Bookingu | **13 000 Kč** jednorázově |
 | Doména + hosting | cca 1 500 Kč / rok (místo cca 4–20 tis. Kč / rok za Lodgify) |
-| Volitelně: automatická synchronizace kalendáře s Bookingem / e-chalupami | +3 900 Kč |
 | Volitelně: anglická / německá / polská verze | +2 500 Kč za jazyk |
-| Volitelně: správa (úpravy ceníku, obsazenosti, fotek) | 390 Kč / měsíc |
+| Volitelně: plně automatické rezervace zapisované i do Bookingu a e-chalup | individuálně (dražší řešení) |
 
 Web se vám zaplatí zhruba za jeden víkend obsazený napřímo místo přes portál.
 
