@@ -63,7 +63,7 @@ Ukázka má v hlavičce `noindex`, takže ji Google nezaindexuje a nebude se pl�
 ## Ostrý provoz
 
 1. Ověřit na https://www.nic.cz/whois/ držitele a expiraci domény `srubplece.cz`. Pokud expirovala, hned ji obnovit.
-2. Odstranit demo prvky: v `index.html` řádek `noindex`, tlačítko `demo-badge`, blok `demo-modal` a odstavec `cal-note`;
+2. Odstranit demo prvky: v `index.html` tlačítko `demo-badge`, blok `demo-modal` a odstavec `cal-note`;
    v `script.js` ukázková data v `OBSAZENO`. Pak smazat v `index.html` řádek `<meta name="robots" content="noindex, nofollow">`, nahrát obsah `srub-plece/` do kořene hostingu a zapnout HTTPS.
 3. Formulář: místo `mailto:` napojit na službu, která pošle e-mail přímo (např. Web3Forms nebo PHP `mail()` na hostingu).
 4. Nastavit adresu webu v Google vizitce, Firmy.cz a na e-chalupách.
