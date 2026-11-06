@@ -52,9 +52,16 @@ V `script.js` je nahoře pole `OBSAZENO`, kam se zapisují obsazené termíny ve
 Pokud bude chtít kalendář synchronizovat s Bookingem nebo e-chalupami automaticky, lze ho napojit
 na jejich iCal export malým skriptem na hostingu (PHP/cron), který pole generuje.
 
+## Ukázka pro majitelku (FTP)
+
+Web je čistě statický. Stačí přes FTP (např. FileZilla) nahrát **obsah** složky `srub-plece/`
+(`index.html`, `styles.css`, `script.js`, `images/`) do podsložky na vlastním hostingu,
+např. `/www/srub-plece/` → `https://tvuj-web.cz/srub-plece/`, a poslat jí odkaz.
+Ukázka má v hlavičce `noindex`, takže ji Google nezaindexuje a nebude se plést s jejím budoucím webem.
+
 ## Ostrý provoz
 
 1. Ověřit na https://www.nic.cz/whois/ držitele a expiraci domény `srubplece.cz`. Pokud expirovala, hned ji obnovit.
-2. Nahrát obsah `srub-plece/` do kořene hostingu a zapnout HTTPS.
+2. Smazat v `index.html` řádek `<meta name="robots" content="noindex, nofollow">`, nahrát obsah `srub-plece/` do kořene hostingu a zapnout HTTPS.
 3. Formulář: místo `mailto:` napojit na službu, která pošle e-mail přímo (např. Web3Forms nebo PHP `mail()` na hostingu).
 4. Nastavit adresu webu v Google vizitce, Firmy.cz a na e-chalupách.
