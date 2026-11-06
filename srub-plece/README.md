@@ -49,6 +49,7 @@ Některé si mezi sebou odporují nebo můžou být zastaralé:
 ## Obsazenost
 
 V `script.js` je nahoře pole `OBSAZENO`, kam se zapisují obsazené termíny ve tvaru `["příjezd", "odjezd"]`.
+Teď jsou v něm **ukázková data** pro demo, před spuštěním je smazat.
 Pokud bude chtít kalendář synchronizovat s Bookingem nebo e-chalupami automaticky, lze ho napojit
 na jejich iCal export malým skriptem na hostingu (PHP/cron), který pole generuje.
 
@@ -62,6 +63,7 @@ Ukázka má v hlavičce `noindex`, takže ji Google nezaindexuje a nebude se pl�
 ## Ostrý provoz
 
 1. Ověřit na https://www.nic.cz/whois/ držitele a expiraci domény `srubplece.cz`. Pokud expirovala, hned ji obnovit.
-2. Smazat v `index.html` řádek `<meta name="robots" content="noindex, nofollow">`, nahrát obsah `srub-plece/` do kořene hostingu a zapnout HTTPS.
+2. Odstranit demo prvky: v `index.html` řádek `noindex`, tlačítko `demo-badge`, blok `demo-modal` a odstavec `cal-note`;
+   v `script.js` ukázková data v `OBSAZENO`. Pak smazat v `index.html` řádek `<meta name="robots" content="noindex, nofollow">`, nahrát obsah `srub-plece/` do kořene hostingu a zapnout HTTPS.
 3. Formulář: místo `mailto:` napojit na službu, která pošle e-mail přímo (např. Web3Forms nebo PHP `mail()` na hostingu).
 4. Nastavit adresu webu v Google vizitce, Firmy.cz a na e-chalupách.

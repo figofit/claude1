@@ -8,7 +8,13 @@
      Po spuštění lze plnit automaticky z iCal (Booking / e-chalupy).
      ------------------------------------------------------------ */
   var OBSAZENO = [
-    // ["2026-12-23", "2026-12-27"],
+    // UKÁZKA – po spuštění se načte automaticky z iCal (e-chalupy / Booking)
+    ["2026-11-20", "2026-11-22"],
+    ["2026-12-04", "2026-12-06"],
+    ["2026-12-23", "2026-12-27"],
+    ["2026-12-30", "2027-01-02"],
+    ["2027-01-15", "2027-01-17"],
+    ["2027-02-06", "2027-02-13"]
   ];
   var EMAIL = "srub.plece@gmail.com";
 
@@ -289,7 +295,36 @@
     var inBooking = r.top < window.innerHeight && r.bottom > 0;
     cta.classList.toggle("show", past && !inBooking);
   }
-  window.addEventListener("scroll", ctaState, { passive: true });
+  var toTop = $("#toTop");
+  function scrollUi() {
+    ctaState();
+    toTop.classList.toggle("show", window.scrollY > window.innerHeight * 0.8);
+  }
+  window.addEventListener("scroll", scrollUi, { passive: true });
+  scrollUi();
+
+  /* ---------------- demo notice ---------------- */
+  var modal = $("#demoModal"), lastFocus = null;
+  function openDemo() {
+    lastFocus = document.activeElement;
+    modal.hidden = false;
+    document.body.style.overflow = "hidden";
+    $("#demoGo").focus();
+  }
+  function closeDemo() {
+    modal.hidden = true;
+    document.body.style.overflow = "";
+    try { sessionStorage.setItem("demoSeen", "1"); } catch (e) {}
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  $("#demoOpen").addEventListener("click", openDemo);
+  $("#demoClose").addEventListener("click", closeDemo);
+  $("#demoGo").addEventListener("click", closeDemo);
+  modal.addEventListener("click", function (e) { if (e.target === modal) closeDemo(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !modal.hidden) closeDemo(); });
+  var seen = false;
+  try { seen = sessionStorage.getItem("demoSeen") === "1"; } catch (e) {}
+  if (!seen) setTimeout(openDemo, 1400);
 
   $("#year").textContent = new Date().getFullYear();
 })();

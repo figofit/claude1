@@ -65,6 +65,7 @@
     <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 34 32 14l24 20" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 32v18h32V32" fill="none" stroke="currentColor" stroke-width="3.5"/><path d="M16 38.5h32M16 44.5h32" stroke="currentColor" stroke-width="2.2"/></svg>
     <span>Srub Pleče</span>
   </a>
+  <button type="button" class="demo-badge" id="demoOpen" aria-haspopup="dialog">Ukázka návrhu</button>
   <nav class="nav-links" id="menu" aria-label="Hlavní navigace">
     <a href="#srub">Srub</a>
     <a href="#pribeh">Příběh</a>
@@ -373,6 +374,7 @@
           <span><i class="lg sel"></i>Váš výběr</span>
         </div>
       </div>
+      <p class="cal-note"><strong>Ukázka:</strong> obsazené dny v kalendáři jsou zatím jen pro příklad. Po spuštění se obsazenost bude načítat automaticky z e-chalup / Bookingu (přes iCal), takže bude vždycky aktuální a nehrozí dvojí rezervace.</p>
     </div>
 
     <form class="inquiry" id="inquiry" novalidate>
@@ -545,6 +547,27 @@
 </div>
 
 <a class="mobile-cta" href="#rezervace">Ověřit volný termín</a>
+<a class="to-top" id="toTop" href="#top" aria-label="Zpět nahoru"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>
+
+<!-- demo notice -->
+<div class="demo-modal" id="demoModal" role="dialog" aria-modal="true" aria-labelledby="demoTitle" hidden>
+  <div class="demo-card">
+    <button type="button" class="demo-x" id="demoClose" aria-label="Zavřít">×</button>
+    <p class="eyebrow">Ukázka návrhu</p>
+    <h2 id="demoTitle">Takhle by mohl vypadat nový web Srubu Pleče</h2>
+    <p class="demo-lead">Web je hotový a funkční. Před spuštěním na srubplece.cz se doplní:</p>
+    <ul class="demo-list">
+      <li><strong>Fotky srubu</strong> do galerie, k příběhu stavby a pro sdílení na sociálních sítích. Teď jsou na jejich místě zástupné dlaždice.</li>
+      <li><strong>Automatická obsazenost</strong> z e-chalup / Bookingu. Kalendář se bude sám aktualizovat, obsazené dny v ukázce jsou jen pro příklad.</li>
+      <li><strong>Aktuální ceník</strong> a rozdělení sezón (léto, zima, mimo sezónu, svátky).</li>
+      <li><strong>Pravidla pobytu</strong>: psi, časy příjezdu a odjezdu, sauna a káď.</li>
+      <li><strong>Poptávky rovnou do mailu</strong> na srub.plece@gmail.com, bez provize portálům.</li>
+      <li><strong>Doména a hosting</strong> na jméno majitelky, aby web nikdo nemohl vypnout.</li>
+      <li><em>Volitelně</em> anglická, německá a polská verze pro zahraniční hosty.</li>
+    </ul>
+    <button type="button" class="btn btn-amber btn-block" id="demoGo">Prohlédnout ukázku</button>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
