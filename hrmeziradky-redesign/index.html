@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HR mezi řádky – HR audit, interim HR a HR konzultace | Brno</title>
+<meta name="description" content="Mgr. Lucie Halušková – právnička a HR manažerka. HR audity, interim HR management, nastavení HR procesů a HR controlling pro výrobu, zdravotnictví a retail. Brno a celá ČR.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f7f3ec; --paper-2:#efe8dc; --ink:#1d1b26; --ink-2:#4a4656; --muted:#7a7484;
+  --line:#d9cfbf; --accent:#7a2e3a; --accent-2:#a8475a; --gold:#c49a5a; --card:#fffdf9;
+  --radius:14px; --max:1160px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;line-height:1.12;letter-spacing:-.01em}
+h1{font-size:clamp(2.4rem,5.6vw,4.4rem)}
+h2{font-size:clamp(1.9rem,3.6vw,2.8rem);margin-bottom:.5em}
+h3{font-size:1.35rem;margin-bottom:.4em}
+em.hl{font-style:italic;color:var(--accent)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+.lead{font-size:1.15rem;color:var(--ink-2);max-width:60ch}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;transition:.2s;border:1.5px solid transparent;cursor:pointer}
+.btn-primary{background:var(--ink);color:var(--paper)}
+.btn-primary:hover{background:var(--accent)}
+.btn-ghost{border-color:var(--ink);color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+section{padding:110px 0}
+
+/* lined-paper motif = "mezi řádky" */
+.ruled{background-image:repeating-linear-gradient(to bottom,transparent 0 35px,rgba(122,46,58,.09) 35px 36px)}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(247,243,236,.88);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:.2s}
+header.scrolled{border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{display:flex;align-items:baseline;gap:6px;text-decoration:none;font-family:Fraunces,serif;font-size:1.35rem;font-weight:600}
+.logo span{font-style:italic;font-weight:400;color:var(--accent)}
+.nav ul{display:flex;gap:30px;list-style:none;align-items:center}
+.nav ul a{text-decoration:none;font-size:.93rem;font-weight:500;color:var(--ink-2)}
+.nav ul a:hover{color:var(--accent)}
+.nav .btn{padding:10px 18px;color:var(--paper)}
+.burger{display:none;background:none;border:0;width:40px;height:40px;cursor:pointer}
+.burger span{display:block;height:2px;background:var(--ink);margin:6px 8px;transition:.2s}
+
+/* hero */
+.hero{padding:90px 0 100px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:64px;align-items:center}
+.hero h1{margin-bottom:26px}
+.hero .lead{margin-bottom:36px}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.trust{display:flex;gap:34px;margin-top:52px;padding-top:28px;border-top:1px solid var(--line);flex-wrap:wrap}
+.trust div{font-size:.85rem;color:var(--muted)}
+.trust strong{display:block;font-family:Fraunces,serif;font-size:1.25rem;color:var(--ink);font-weight:600}
+.portrait{position:relative;aspect-ratio:4/5;border-radius:220px 220px var(--radius) var(--radius);background:linear-gradient(160deg,#d9c3b0,#8f5a5f);overflow:hidden;box-shadow:0 30px 60px -30px rgba(29,27,38,.45)}
+.portrait .ph{position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.8);font-size:.85rem;text-align:center;padding:30px}
+.quote-card{position:absolute;left:-40px;bottom:36px;background:var(--card);padding:18px 22px;border-radius:12px;max-width:260px;box-shadow:0 18px 40px -18px rgba(29,27,38,.35);font-family:Fraunces,serif;font-style:italic;font-size:1rem;line-height:1.4}
+.quote-card small{display:block;font-family:Inter,sans-serif;font-style:normal;font-size:.75rem;color:var(--muted);margin-top:8px}
+
+/* problems */
+.problems{background:var(--ink);color:var(--paper)}
+.problems .eyebrow{color:var(--gold)}
+.prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.12);margin-top:50px;border-radius:var(--radius);overflow:hidden}
+.prob{background:var(--ink);padding:34px 30px}
+.prob .q{font-family:Fraunces,serif;font-size:1.25rem;font-style:italic;margin-bottom:12px}
+.prob p{color:#bdb6c6;font-size:.95rem}
+
+/* services */
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:50px}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:36px;transition:.25s;position:relative}
+.svc:hover{transform:translateY(-4px);box-shadow:0 24px 50px -30px rgba(29,27,38,.4);border-color:var(--accent-2)}
+.svc .num{font-family:Fraunces,serif;color:var(--accent);font-size:.95rem;margin-bottom:18px;display:block}
+.svc p{color:var(--ink-2);font-size:.97rem;margin-bottom:16px}
+.svc ul{list-style:none;font-size:.9rem;color:var(--ink-2)}
+.svc li{padding:7px 0;border-top:1px dashed var(--line)}
+.svc li::before{content:"→ ";color:var(--accent)}
+.svc.featured{background:var(--accent);color:var(--paper);border-color:var(--accent)}
+.svc.featured p,.svc.featured ul{color:#f1dfe2}
+.svc.featured .num,.svc.featured li::before{color:var(--gold)}
+.svc.featured li{border-color:rgba(255,255,255,.25)}
+
+/* sectors */
+.sectors{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.sector{padding:30px;border-left:2px solid var(--accent);background:linear-gradient(90deg,rgba(122,46,58,.05),transparent)}
+.sector p{color:var(--ink-2);font-size:.95rem}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:56px;counter-reset:s}
+.step{position:relative;padding-top:58px}
+.step::before{counter-increment:s;content:"0" counter(s);position:absolute;top:0;font-family:Fraunces,serif;font-size:2.4rem;color:var(--accent);line-height:1}
+.step::after{content:"";position:absolute;top:20px;left:72px;right:-14px;height:1px;background:var(--line)}
+.step:last-child::after{display:none}
+.step p{color:var(--ink-2);font-size:.94rem}
+
+/* about */
+.about{background:var(--paper-2)}
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+.about-img{aspect-ratio:1;border-radius:var(--radius);background:linear-gradient(200deg,#cbb8a5,#6e4a50);display:grid;place-items:center;color:rgba(255,255,255,.8);font-size:.85rem;text-align:center;padding:30px}
+.about p{color:var(--ink-2);margin-bottom:16px}
+.creds{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.creds span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:.84rem;font-weight:500}
+
+/* events */
+.events-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:22px;margin-top:50px}
+.event{border-radius:var(--radius);padding:40px;position:relative;overflow:hidden;min-height:340px;display:flex;flex-direction:column;justify-content:flex-end}
+.event.big{background:linear-gradient(150deg,#3b1c25 0%,#7a2e3a 60%,#b0704f 100%);color:var(--paper)}
+.event.small{background:var(--card);border:1px solid var(--line)}
+.event .tag{position:absolute;top:28px;left:40px;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.85}
+.event .date{font-family:Fraunces,serif;font-size:1.05rem;font-style:italic;margin-bottom:6px;opacity:.9}
+.event h3{font-size:1.9rem}
+.event p{opacity:.85;margin-bottom:22px;max-width:46ch}
+.event.big .btn{background:var(--paper);color:var(--ink);align-self:flex-start}
+.event.small .btn{align-self:flex-start}
+
+/* testimonials */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px}
+.testi{background:var(--card);border-radius:var(--radius);padding:32px;border:1px solid var(--line)}
+.testi blockquote{font-family:Fraunces,serif;font-size:1.08rem;line-height:1.5;margin-bottom:20px}
+.testi blockquote::before{content:"„";display:block;color:var(--accent);font-size:3rem;line-height:.6;margin-bottom:8px}
+.testi cite{font-style:normal;font-size:.85rem;color:var(--muted)}
+.testi cite b{display:block;color:var(--ink);font-weight:600}
+.note{font-size:.8rem;color:var(--muted);margin-top:18px;font-style:italic}
+
+/* contact */
+.contact{background:var(--ink);color:var(--paper)}
+.contact .eyebrow{color:var(--gold)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px}
+.contact .lead{color:#c9c2d2}
+.c-list{margin-top:34px;list-style:none}
+.c-list li{padding:16px 0;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;gap:20px;font-size:.95rem}
+.c-list li span:first-child{color:#9b94a6}
+.c-list a{text-decoration:none;border-bottom:1px solid var(--gold)}
+form{background:var(--card);color:var(--ink);border-radius:var(--radius);padding:36px;display:grid;gap:16px}
+label{font-size:.82rem;font-weight:600;color:var(--ink-2);display:grid;gap:6px}
+input,select,textarea{font:inherit;font-size:.95rem;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
+textarea{min-height:110px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+form .btn{justify-content:center}
+.form-ok{display:none;padding:14px;border-radius:10px;background:#e8f2ea;color:#24572f;font-size:.92rem}
+
+footer{background:#15131c;color:#8f899b;padding:44px 0;font-size:.85rem}
+.foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+footer .logo{color:var(--paper);font-size:1.1rem}
+footer a{text-decoration:none}
+footer a:hover{color:var(--paper)}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+.proto-badge{position:fixed;right:16px;bottom:16px;z-index:60;background:var(--accent);color:#fff;font-size:.75rem;font-weight:600;padding:8px 14px;border-radius:999px;box-shadow:0 8px 20px -8px rgba(0,0,0,.4)}
+
+@media (max-width:960px){
+  section{padding:80px 0}
+  .hero-grid,.about-grid,.contact-grid,.events-grid{grid-template-columns:1fr;gap:44px}
+  .portrait{max-width:420px;margin:0 auto;width:100%}
+  .quote-card{left:-10px}
+  .prob-grid,.sectors,.testi-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .step::after{display:none}
+  .nav ul{position:fixed;inset:76px 0 auto 0;flex-direction:column;background:var(--paper);padding:24px;gap:18px;border-bottom:1px solid var(--line);transform:translateY(-120%);transition:.3s;z-index:-1}
+  .nav ul.open{transform:none}
+  .burger{display:block}
+}
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  body{font-size:16px}
+  .svc-grid,.steps,.row2{grid-template-columns:1fr}
+  .svc,.event,form{padding:26px}
+  .trust{gap:22px}
+  .quote-card{position:relative;left:0;bottom:0;margin:-60px 16px 0;max-width:none}
+  .c-list li{flex-direction:column;gap:2px}
+}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#top" class="logo">HR <span>mezi řádky</span></a>
+    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul id="menu">
+      <li><a href="#sluzby">Služby</a></li>
+      <li><a href="#jak">Jak pracuji</a></li>
+      <li><a href="#o-mne">O mně</a></li>
+      <li><a href="#akce">Konference & akce</a></li>
+      <li><a href="#kontakt" class="btn btn-primary">Nezávazná konzultace</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero ruled">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <div class="eyebrow">HR konzultantka & interim HR · Brno</div>
+      <h1>Čtu vaše HR <em class="hl">mezi řádky</em>. A nastavím ho tak, aby fungovalo.</h1>
+      <p class="lead">Pomáhám firmám ve výrobě, zdravotnictví a retailu najít slabá místa v HR, dát procesům řád a v kritických chvílích převzít řízení HR jako interim manažerka. S právním základem, takže vše stojí na pevných nohou.</p>
+      <div class="cta-row">
+        <a href="#kontakt" class="btn btn-primary">Domluvit 30min konzultaci zdarma →</a>
+        <a href="#sluzby" class="btn btn-ghost">Co umím</a>
+      </div>
+      <div class="trust">
+        <div><strong>Právo + HR</strong>právnička a HR manažerka</div>
+        <div><strong>Interim HR</strong>okamžitý nástup do firmy</div>
+        <div><strong>Celá ČR</strong>osobně i online</div>
+      </div>
+    </div>
+    <div class="reveal" style="position:relative">
+      <div class="portrait"><div class="ph">[ Profesionální portrét – Lucie Halušková ]<br>doporučeno: přirozené světlo, teplé tóny</div></div>
+      <div class="quote-card">„Dobré HR není o papírech. Je o lidech, kteří ve firmě chtějí zůstat.“<small>— Lucie Halušková</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMS -->
+<section class="problems">
+  <div class="wrap">
+    <div class="eyebrow reveal">Poznáváte se?</div>
+    <h2 class="reveal" style="max-width:20ch">Když HR drhne, firma to cítí všude.</h2>
+    <div class="prob-grid reveal">
+      <div class="prob"><div class="q">„Lidi nám odcházejí a nevíme proč.“</div><p>Fluktuace žere čas i peníze. Analýza ukáže, kde přesně to uniká.</p></div>
+      <div class="prob"><div class="q">„HR manažerka odešla a nemá kdo převzít.“</div><p>Interim HR nastoupí rychle, udrží chod a předá to dalšímu člověku v pořádku.</p></div>
+      <div class="prob"><div class="q">„Nemáme jistotu, že děláme vše podle zákona.“</div><p>HR audit odhalí rizika v dokumentaci a procesech dřív, než to udělá inspekce.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="sluzby">
+  <div class="wrap">
+    <div class="eyebrow reveal">Služby</div>
+    <h2 class="reveal">S čím vám pomohu</h2>
+    <p class="lead reveal">Žádné šablony. Každou spolupráci začínám tím, že pochopím, jak vaše firma skutečně funguje.</p>
+    <div class="svc-grid">
+      <article class="svc featured reveal">
+        <span class="num">01 / nejčastější poptávka</span>
+        <h3>HR audit</h3>
+        <p>Komplexní prověrka HR procesů, dokumentace a souladu s pracovním právem. Dostanete jasný report s prioritami, co řešit hned a co počká.</p>
+        <ul><li>Pracovněprávní dokumentace a smlouvy</li><li>Nábor, onboarding, odchody</li><li>Akční plán s prioritami</li></ul>
+      </article>
+      <article class="svc reveal">
+        <span class="num">02</span>
+        <h3>Interim HR management</h3>
+        <p>Dočasné vedení HR při odchodu manažera, restrukturalizaci nebo růstu. Nastoupím rychle a odcházím, až je vše předané.</p>
+        <ul><li>Převzetí agendy a týmu</li><li>Stabilizace v krizových situacích</li><li>Výběr a zaučení nástupce</li></ul>
+      </article>
+      <article class="svc reveal">
+        <span class="num">03</span>
+        <h3>HR procesy a lean HR</h3>
+        <p>Zjednodušení a zefektivnění HR procesů tak, aby šetřily čas manažerům i zaměstnancům.</p>
+        <ul><li>Mapování a optimalizace procesů</li><li>Digitalizace HR agendy</li><li>Interní směrnice a pravidla</li></ul>
+      </article>
+      <article class="svc reveal">
+        <span class="num">04</span>
+        <h3>HR controlling a HR partnering</h3>
+        <p>Data místo dojmů. Nastavím metriky, které vedení ukážou, co se ve firmě s lidmi skutečně děje.</p>
+        <ul><li>Fluktuace, absence, náklady na pracovníka</li><li>Reporting pro vedení</li><li>Dlouhodobé HR partnerství</li></ul>
+      </article>
+    </div>
+
+    <h3 class="reveal" style="margin-top:80px;font-size:1.6rem">Obory, kterým rozumím</h3>
+    <div class="sectors">
+      <div class="sector reveal"><h3>Výroba</h3><p>Směnové provozy, vysoká fluktuace, zahraniční pracovníci, BOZP a kolektivní vyjednávání.</p></div>
+      <div class="sector reveal"><h3>Zdravotnictví</h3><p>Specifické pracovní doby, nedostatek personálu a přísné regulace. Vím, jak na to.</p></div>
+      <div class="sector reveal"><h3>Retail</h3><p>Rozptýlené pobočky, sezónní nábor, motivace a udržení lidí v první linii.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="jak" class="ruled" style="background-color:var(--paper)">
+  <div class="wrap">
+    <div class="eyebrow reveal">Jak pracuji</div>
+    <h2 class="reveal">Od první kávy k výsledkům</h2>
+    <div class="steps">
+      <div class="step reveal"><h3>Konzultace</h3><p>30 minut zdarma. Řeknete mi, co vás pálí, a já vám řeknu, jestli a jak můžu pomoci.</p></div>
+      <div class="step reveal"><h3>Diagnostika</h3><p>Rozhovory, data, dokumenty. Čtu mezi řádky, co se ve firmě opravdu děje.</p></div>
+      <div class="step reveal"><h3>Návrh řešení</h3><p>Konkrétní plán s rozpočtem a termíny. Žádná překvapení na faktuře.</p></div>
+      <div class="step reveal"><h3>Realizace</h3><p>Řešení zavedu s vámi, ne jen pro vás. A nechám po sobě fungující systém.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="o-mne" class="about">
+  <div class="wrap about-grid">
+    <div class="about-img reveal">[ Fotka z akce / přednášky ]</div>
+    <div class="reveal">
+      <div class="eyebrow">O mně</div>
+      <h2>Lucie Halušková</h2>
+      <p>Jsem právnička a HR manažerka. Prošla jsem HR ve výrobě, zdravotnictví i retailu a vím, že nejlepší řešení vznikají tam, kde se potká právní jistota se zdravým selským rozumem.</p>
+      <p>Proto jsem založila HR mezi řádky: abych firmám pomáhala vidět to, co v tabulkách a směrnicích na první pohled není. A abych propojovala HR komunitu na konferencích a setkáních, kde se mluví otevřeně.</p>
+      <div class="creds"><span>Mgr. – právo</span><span>Interim HR</span><span>Auditorka HR procesů</span><span>Garantka HR Summitu</span><span>Hostka podcastů</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="akce">
+  <div class="wrap">
+    <div class="eyebrow reveal">Konference & akce</div>
+    <h2 class="reveal">Kde se HR potkává</h2>
+    <p class="lead reveal">Pořádám setkání, kde se o HR mluví bez kravat a bez prázdných frází. S praktiky, právníky a manažery.</p>
+    <div class="events-grid">
+      <article class="event big reveal">
+        <span class="tag">Konference · Zaječí, jižní Morava</span>
+        <div class="date">26.–27. listopadu 2026</div>
+        <h3>HR mezi řádky</h3>
+        <p>Dva dny přednášek, diskuzí a networkingu v rodinném vinařství. Omezená kapacita vstupenek i ubytování.</p>
+        <a href="#" class="btn">Program a vstupenky →</a>
+      </article>
+      <article class="event small reveal">
+        <span class="tag" style="color:var(--accent)">Networking · Brno</span>
+        <div class="date">pravidelně</div>
+        <h3>HR Aperitivo</h3>
+        <p style="color:var(--ink-2)">Neformální večer s krátkými HR talky a sklenkou dobrého vína. Pro HR profesionály a manažery.</p>
+        <a href="#" class="btn btn-ghost">Nejbližší termín →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow reveal">Reference</div>
+    <h2 class="reveal">Co říkají klienti</h2>
+    <div class="testi-grid">
+      <div class="testi reveal"><blockquote>[Sem doplnit skutečnou referenci klienta – ideálně konkrétní výsledek.]</blockquote><cite><b>Jméno Příjmení</b>pozice, firma</cite></div>
+      <div class="testi reveal"><blockquote>[Reference z interim spolupráce – jak rychle se situace stabilizovala.]</blockquote><cite><b>Jméno Příjmení</b>pozice, firma</cite></div>
+      <div class="testi reveal"><blockquote>[Ohlas účastníka konference HR mezi řádky.]</blockquote><cite><b>Jméno Příjmení</b>účastník konference</cite></div>
+    </div>
+    <p class="note reveal">Prototyp: reference doplníme od paní Haluškové (souhlas klientů).</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="kontakt" class="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <div class="eyebrow">Kontakt</div>
+      <h2>Pojďme si to probrat u kávy</h2>
+      <p class="lead">Prvních 30 minut je zdarma a nezávazně. Ozvu se do jednoho pracovního dne.</p>
+      <ul class="c-list">
+        <li><span>E-mail</span><a href="mailto:info@hrmeziradky.cz">info@hrmeziradky.cz</a></li>
+        <li><span>Telefon</span><span>[doplnit]</span></li>
+        <li><span>Působím</span><span>Brno · celá ČR · online</span></li>
+        <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/luciehaluskovahrmeziradky/" target="_blank" rel="noopener">Lucie Halušková</a></li>
+      </ul>
+    </div>
+    <form class="reveal" id="cform">
+      <div class="row2">
+        <label>Jméno<input required placeholder="Jana Nováková"></label>
+        <label>Firma<input placeholder="Název firmy"></label>
+      </div>
+      <div class="row2">
+        <label>E-mail<input type="email" required placeholder="jana@firma.cz"></label>
+        <label>Telefon<input type="tel" placeholder="+420"></label>
+      </div>
+      <label>Co řešíte?
+        <select><option>HR audit</option><option>Interim HR</option><option>HR procesy</option><option>HR controlling</option><option>Konference / akce</option><option>Něco jiného</option></select>
+      </label>
+      <label>Zpráva<textarea placeholder="Pár vět o situaci ve firmě…"></textarea></label>
+      <button class="btn btn-primary" type="submit">Odeslat poptávku</button>
+      <div class="form-ok" id="ok">Děkuji! Ozvu se vám do jednoho pracovního dne. — Lucie</div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a href="#top" class="logo">HR <span style="font-style:italic;font-weight:400;color:var(--gold)">mezi řádky</span></a>
+    <div>Mgr. Lucie Halušková · IČ 17594693 · Brno</div>
+    <div><a href="#">Obchodní podmínky</a> · <a href="#">GDPR</a></div>
+  </div>
+</footer>
+
+<div class="proto-badge">Návrh redesignu · prototyp</div>
+
+<script>
+const h=document.querySelector('header');
+addEventListener('scroll',()=>h.classList.toggle('scrolled',scrollY>10),{passive:true});
+const b=document.querySelector('.burger'),m=document.getElementById('menu');
+b.addEventListener('click',()=>{const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>m.classList.remove('open')));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.getElementById('cform').addEventListener('submit',e=>{e.preventDefault();document.getElementById('ok').style.display='block';e.target.querySelector('button').disabled=true});
+</script>
+</body>
+</html>
