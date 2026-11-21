@@ -1,9 +1,29 @@
 # HR mezi řádky: obchodní postup pro redesign webu
 
-**Klientka:** Mgr. Lucie Halušková, HR mezi řádky (Brno), info@hrmeziradky.cz, LinkedIn: luciehaluskovahrmeziradky
-**Co nabízí:** HR audity, interim HR management, HR procesy a lean HR, HR controlling. Obory: výroba, zdravotnictví, retail. Pořádá konferenci HR mezi řádky (Zaječí, vinařství) a networkingový večer HR Aperitivo (Brno).
+**Klientka:** Mgr. Lucie Halušková, HR mezi řádky, tel. +420 774 942 290, info@hrmeziradky.cz
+**Kdo je:** právnička a HR manažerka, v HR od 2006. Byla Plant HR Manager v IVECO, stála u vstupu řetězce Action do ČR, vedla interim HR v automotive, výrobě a retailu.
+**Co nabízí:** pracovní právo a školení zákoníku práce, **audity transparentního odměňování (směrnice EU)**, HR audity a controlling, interim management, absence a fluktuace, nábor a rozvoj lidí.
+**Akce:** konference (Ne)vinné HR pod Pálavou, HR Aperitivo v Brně (naposledy #09, 590 Kč, 50 míst), Grand HR Xmas Party, HR na Gotbergu.
 
-> ⚠️ **Načasování:** konference je podle webu 26.–27. 11. 2026, tedy za pár dní. Lucie teď nemá čas na nic jiného.
+## 0) Co jsem na jejím webu našel (audit, 21. 11. 2026)
+
+Web je na **Webnode** (šablona). Vizuálně není hrozný (hezká fotka vinic, profi portréty), ale **jako obchodní nástroj nefunguje**:
+
+| Problém | Proč to vadí |
+|---|---|
+| Úvodní stránka = vinice + „HR ze ❤️ Jižní Moravy“ + fotka + slogan. **Žádná služba, žádné tlačítko, žádný kontakt nahoře.** | Ředitel firmy za 5 vteřin nepozná, s čím mu pomůže. Odejde. |
+| **Titulek homepage v Googlu je „nevinneHR2025“** (zbytek z kopírování stránky konference) | Ve výsledcích vyhledávání to vypadá jako chyba, SEO hodnota nulová. |
+| Stránka Reference má adresu **/color-options/** (pozůstatek šablony), loga mají názvy „stažený soubor (3)“ | Neprofesionální detail, hůř se indexuje. |
+| Služby = jeden odstavec + slider s **AI fotkami** (na stránce konference je obrázek pojmenovaný „ChatGPT Image…“) | Nejcennější obsah (7 oblastí služeb) je schovaný na stránce „Kdo jsem“. |
+| Nejžhavější téma, **transparentní odměňování podle směrnice EU**, není nikde vidět na první pohled | Firmy to teď řeší, je to ideální vstupní služba. |
+| Míchají se 4 různá písma, zlatý text na zlatém podkladu, prázdná místa, na mobilu text zarovnaný „na střed i do bloku“ | Působí to „poslepovaně“. |
+| Cookie lišta napůl anglicky („Open advanced settings“), menu „More“, patička „All rights reserved 2022“ | Drobnosti, které podkopávají dojem precizní právničky. |
+| Překlep „Perosnalistiky“ na stránce konference | Viz výše. |
+| **40+ log klientů** schovaných na podstránce bez jediné věty reference | Obrovská důvěryhodnost, kterou web nevyužívá. |
+
+👉 **Nejsilnější argument do e-mailu:** titulek „nevinneHR2025“ a homepage bez služeb. Konkrétní, ověřitelné, a ukazuje, že web reálně přichází o zakázky.
+
+> ⚠️ **Načasování:** konference je podle webu konference 26.–27. 11. 2026 (některé starší zdroje uvádějí červen, ověř si to na konference.hrmeziradky.cz). Pokud je to teď, nemá čas na nic jiného.
 > **Doporučení:** první e-mail poslat **v úterý 1. 12. 2026**, až konference skončí. Navíc do něj jde přidat vstřícná zmínka o tom, jak akce proběhla.
 
 ---
@@ -31,12 +51,14 @@ Tři věci, které má nový web udělat:
 >
 > gratuluji k dalšímu ročníku konference v Zaječí. Je vidět, že kolem HR mezi řádky budujete opravdovou komunitu.
 >
-> Ozývám se, protože jsem si prošel Váš web, a jako webdesignér jsem si všiml jedné věci: Vaše odbornost (právo + HR, audity, interim) je mnohem silnější, než jak ji web dnes prezentuje. Ředitel výrobní firmy, který hledá auditorku HR procesů, se rozhoduje během pár vteřin, a web by mu měl rovnou říct „tady je řád“.
+> Ozývám se, protože jsem si prošel Váš web a jako webdesignér jsem si všiml, že Vaše odbornost je mnohem silnější, než jak ji web dnes ukazuje. Právo + 20 let HR, IVECO, Action, audity transparentního odměňování, který teď řeší snad každá firma… To vše je schované na podstránce „Kdo jsem“. Na úvodní stránce návštěvník uvidí krásné vinice, ale ne to, s čím mu pomůžete.
+>
+> A jedna drobnost, která Vás možná překvapí: v Googlu se Vaše hlavní stránka zobrazuje s názvem **„nevinneHR2025“**. Opravit se to dá za minutu, klidně i bez mě. 🙂
 >
 > Místo dlouhého vysvětlování jsem Vám rovnou připravil **nezávazný návrh, jak by mohl nový web vypadat**:
 > 👉 [ODKAZ NA PROTOTYP]
 >
-> Funguje na mobilu i počítači a je postavený tak, aby z návštěvníků dělal poptávky: jasné služby, obory, Váš příběh, konference a jednoduchý formulář na konzultaci.
+> Funguje na mobilu i počítači a je postavený tak, aby z návštěvníků dělal poptávky: jasné služby (v čele transparentní odměňování), Váš příběh, loga klientů, konference a jednoduchý formulář na poptávku. Použil jsem Vaše texty a fotky, takže si to dokážete představit „naostro“.
 >
 > Jestli Vás to zaujme, rád to s Vámi probřu na 15minutovém hovoru. Co by se dalo upravit, kolik by to stálo a jak rychle by to šlo spustit.
 >
@@ -50,6 +72,7 @@ Tři věci, které má nový web udělat:
 - Gratulace na začátku = vím, kdo je, nejde o hromadný spam.
 - Kritika je formulovaná jako *„Vaše odbornost je silnější než web“*, ne *„máte ošklivý web“*. Dělala si ho sama, takže nesmí mít pocit, že ji shazujeme.
 - Prototyp **předem** = dávám hodnotu dřív, než o něco žádám (princip reciprocity).
+- Tip „nevinneHR2025“ jí dáváš **zdarma** → ukážeš expertízu a získáš důvěru, i kdyby web nekoupila.
 - Jedna jasná výzva (15min hovor), žádná cena v prvním e-mailu.
 
 ---
@@ -131,8 +154,8 @@ Prostřední varianta je ta, kterou chceme prodat. Horní ji zlevní v očích k
 
 ## 5) Co do e-mailu/prototypu ještě doplnit, než to pošleš
 
-- [ ] Zkontrolovat aktuální web a ověřit detaily (termín konference, služby, telefon). Prototyp vznikl z veřejných informací, web samotný jsem nemohl načíst.
+- [ ] Ověřit termín konference na konference.hrmeziradky.cz.
 - [ ] Nasadit prototyp na veřejný odkaz (Netlify / Vercel / GitHub Pages / vlastní subdoména typu `hrmeziradky.tvojedomena.cz`).
-- [ ] Ideálně do prototypu vložit její skutečnou fotku z LinkedInu/webu → efekt „wow, to už je můj web“ je pak mnohem silnější.
+- [ ] Prototyp načítá její fotky a loga přímo z jejího webu (Webnode CDN). Pro trvalé nasazení je stáhnout k sobě.
 - [ ] Doplnit vlastní podpis, portfolio a 1–2 reference.
 - [ ] Sledování otevření e-mailu (např. Mailtrack) → víš, kdy volat.
