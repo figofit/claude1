@@ -1,52 +1,56 @@
-# Nový web pro Auto Vodný (Olomouc): postup a nabídka
+# Nový web pro AUTO VODNÝ (Tomáš Vodný, Olomouc-Holice): postup a nabídka
 
-> Pozn.: současný web autovodny.cz se mi z pracovního prostředí nepodařilo otevřít, takže v prototypu jsou **ukázková auta a zástupné kontakty** (zvýrazněné žlutě). Před tím, než ho ukážeš, doplň aspoň telefon, adresu a otevírací dobu.
+## Z čeho návrh vychází (současný web autovodny.cz)
 
-## Co je v prototypu (`prototyp.html`)
+Současný web je na **Webnode** (zdarma, s patičkou „Vytvořeno službou Webnode“) a má jen dvě stránky:
+- **Úvod**: obrázek a odkaz „!!!AKTUÁLNÍ NABÍDKA VOZŮ!!!“, který vede na jeho profil na Sbazaru (`sbazar.cz/bazar/t.vodny`).
+- **Kontakt**: AUTO VODNÝ, Tomáš Vodný, IČ 05804116, tel. +420 732 336 428, t.vodny@email.cz, Olomouc-Holice 857, provoz Po–Ne podle telefonické domluvy. K tomu krátký text: 15+ let v oboru, většina vozů z ČR s dohledatelnou historií, garance původu a kilometrů, spolupráce s Cebia a carVertical.
 
-**Veřejný web**
-- Úvod s jasným sdělením („ojeté auto od člověka, kterého znáte“) a živým přehledem skladu (počet vozů, cena od).
-- Nabídka vozů: filtr podle značky, paliva a ceny, řazení, štítky *Skladem / Rezervováno / Prodáno*.
-- Detail vozu: parametry, výbava, popis, fotogalerie, **tlačítko „Kompletní inzerát“** (odkaz na Sauto/Tipcars…) a krátký formulář „Mám zájem“.
-- Služby (výkup, financování, prověření historie, auto na přání), postup nákupu, o nás, kontakt.
-- Funguje na mobilu, světlý i tmavý režim.
+**Co nový web přebírá:** logo a barvy (antracit, oranžová, bílá), všechny kontakty, jeho texty a sliby (původ, kilometry, Cebia, carVertical, 15 let), fotku provozovny s auty, odkaz na Sbazar a hlavní výzvu „Aktuální nabídka vozů“.
 
-**Administrace** (odkaz nahoře „Administrace (ukázka)“)
-- Přidat / upravit / smazat vůz, nahrát fotky, změnit stav jedním kliknutím.
-- V prototypu se změny ukládají jen v prohlížeči. V ostré verzi bude přihlášení a data na serveru.
+**Co přidává:**
+- Auta přímo na webu, s filtrem, cenou, parametry a stavem *Skladem / Rezervováno / Prodáno*. U každého auta je odkaz na kompletní inzerát.
+- Sekci „Proč koupit auto u mě“ postavenou na jeho vlastních slibech.
+- Postup nákupu, část „O mně“ a kontakty s tlačítkem pro kopírování.
+- Jednoduchou administraci, kde auta přidává sám, i z mobilu.
+- Vlastní vzhled bez reklamy Webnode a se správným titulkem pro Google. Dnes má titulek jen „Prodej ojetých vozů“, nové je „Auto Vodný Olomouc“.
+
+**Co je potřeba ověřit nebo doplnit:**
+- Vozy v nabídce jsou **ukázkové**. Jeho inzeráty na Sbazaru jsem nenačetl, protože se tam načítají až skriptem. Inspiroval jsem se auty z fotky provozovny (Octavia, Fabia, Focus, Touran).
+- Texty „O mně“ a „Jak to probíhá“ jsou psané jeho hlasem, ale jsou to **moje návrhy**. Doslovně z jeho webu je jen citát v uvozovkách a body o původu, kilometrech a Cebia/carVertical.
+- Zeptat se, jestli nabízí i **výkup, financování nebo leasing**. Pokud ano, přidat je jako službu. Teď na webu nejsou, aby nic nesliboval navíc.
+- Fotka provozovny je z roku 2022 (podle názvu souboru). Ideálně nafotit novou.
 
 ## Postup krok za krokem
 
-1. **Oslovení**: krátká zpráva přes Messenger (návrh níže) + odkaz na prototyp. Nic netlačit, nabídnout kafe a ukázku.
-2. **Schůzka (30 min)**: zjistit:
-   - kde dnes inzeruje (Sauto, Tipcars, Bazoš, FB Marketplace) a kolik aut má průměrně skladem,
-   - jestli používá nějaký program na hromadné inzerování (pak se dá napojit automatický import, viz varianta B),
-   - kdo bude auta na web zadávat (on sám? z mobilu?),
-   - doménu a hosting autovodny.cz: kdo je spravuje, přístupy,
-   - jaké služby opravdu nabízí (výkup, leasing, dovoz…), aby web neslibovat nic navíc.
-3. **Úprava návrhu**: jeho logo/barvy, skutečné texty, fotka majitele, reálná auta.
-4. **Vývoj ostré verze** (1–2 týdny po večerech).
-5. **Obsah**: zadat aktuální auta, nafotit provozovnu, pár vět o něm.
-6. **Spuštění**: přesměrovat doménu, Google vizitka (Firemní profil), Search Console, měření návštěvnosti.
-7. **Předání**: 20 min zaškolení do administrace + jednoduchý návod.
+1. **Oslovení**: krátká zpráva přes Messenger (návrh níže) s odkazem na prototyp.
+2. **Schůzka (30 min)**:
+   - Jak dnes zadává auta na Sbazar a kolik jich má průměrně skladem?
+   - Kdo bude auta na web zadávat, on sám z mobilu?
+   - Má přístup k doméně autovodny.cz a k účtu Webnode?
+   - Nabízí výkup, financování nebo něco dalšího?
+3. **Úprava návrhu**: skutečná auta, jeho fotka, případné služby navíc.
+4. **Vývoj ostré verze**: 1–2 týdny.
+5. **Spuštění**: přesměrovat doménu z Webnode na nový hosting, založit nebo upravit Firemní profil na Google (Mapy), připojit Search Console.
+6. **Předání**: 20 minut zaškolení do administrace a krátký návod.
 
 ## Technické varianty administrace
 
 | Varianta | Jak funguje | Pro | Proti |
 |---|---|---|---|
-| **A) Vlastní jednoduchá administrace** *(doporučuji na start)* | Web + malá administrace (PHP + databáze) na běžném českém hostingu. Zadává auta z mobilu. | Levný provoz, přesně na míru, rychlé | Auta zadává ručně (kromě inzerce na Sauto) |
-| **B) Automatický import** | Pokud používá inzertní software s exportem (XML feed), web si auta stahuje sám. | Nulová práce navíc | Závisí na jeho softwaru, zjistit na schůzce |
-| **C) WordPress + plugin** | Hotový redakční systém | Známé prostředí | Těžší, pomalejší, nutné aktualizace a zabezpečení |
+| **A) Vlastní jednoduchá administrace** *(doporučuji)* | Web + malá administrace (PHP + databáze) na běžném českém hostingu | Levný provoz, na míru, rychlé | Auta zadává zvlášť na web a na Sbazar |
+| **B) Jen odkazy na Sbazar** | Na webu jen pár vybraných aut nebo jen tlačítko na Sbazar | Nejméně práce | Návštěvník z webu hned odchází jinam |
+| **C) Zůstat na Webnode, jen přestylovat** | Placený tarif Webnode s novým vzhledem | Zná to | Omezené možnosti, žádná skutečná správa aut |
 
-## Orientační cena (doladit podle rozsahu)
+## Orientační cena (můj odhad, doladit podle rozsahu)
 
 - Prototyp: zdarma.
 - Ostrý web + administrace (varianta A): **cca 15–30 tis. Kč** jednorázově.
-- Hosting + doména: **cca 1–3 tis. Kč / rok** (doménu už má).
+- Hosting: **cca 1–3 tis. Kč / rok**. Doménu už má.
 - Volitelná správa (zálohy, drobné úpravy): **cca 500–1 000 Kč / měsíc**.
 
 ## Návrh první zprávy (Messenger)
 
-> Ahoj, tady [jméno], myslím, že se známe od vidění z Olomouce 🙂 Všiml jsem si, že prodáváš auta. Dělám weby a zkusil jsem pro tebe nanečisto připravit, jak by mohl vypadat nový web autobazaru: s přehlednou nabídkou aut, odkazy na tvoje inzeráty a jednoduchou administrací, kde si auta přidáváš sám i z mobilu. Ukázka je tady: [odkaz]. Kdyby tě to zaujalo, rád to probereme u kafe. Je to nezávazné.
+> Ahoj Tomáši, tady [jméno], myslím, že se známe od vidění z Olomouce 🙂 Všiml jsem si, že prodáváš auta, a mrknul jsem na autovodny.cz. Zkusil jsem nanečisto připravit, jak by mohl vypadat nový web: tvoje logo, kontakty a texty zůstávají, ale auta by byla přímo na webu s cenou a fotkami, s odkazem na Sbazar a s jednoduchou administrací, kde si je přidáváš sám i z mobilu. Ukázka je tady: [odkaz]. Kdyby tě to zaujalo, rád to probereme u kafe, nezávazně.
 
 *(Jméno a tón si uprav podle sebe.)*
