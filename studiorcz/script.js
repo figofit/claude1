@@ -81,3 +81,20 @@ if ('IntersectionObserver' in window) {
 }
 
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// Slider v úvodu (jako na původním webu)
+const slides = [...document.querySelectorAll('.hero-slider img')];
+const dots = [...document.querySelectorAll('.hero-slider .hero-dots span')];
+if (slides.length > 1 && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  let s = 0;
+  setInterval(() => {
+    slides[s].classList.remove('on'); dots[s].classList.remove('on');
+    s = (s + 1) % slides.length;
+    slides[s].classList.add('on'); dots[s].classList.add('on');
+  }, 5000);
+}
+
+// Dlaždice otevřou rovnou správnou záložku výrobků
+document.querySelectorAll('.tiles a[data-tab]').forEach(a => a.addEventListener('click', () => {
+  selectTab(document.getElementById(a.dataset.tab));
+}));

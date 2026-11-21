@@ -14,7 +14,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Courier+Prime:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">
   {
@@ -53,9 +53,10 @@
       <span></span><span></span><span></span>
     </button>
     <nav id="menu" class="nav" aria-label="Hlavní navigace">
-      <a href="#vyrobky">Výrobky</a>
-      <a href="#technologie">Technologie</a>
-      <a href="#o-firme">O firmě</a>
+      <a href="#o-firme"><b>O firmě</b><small>Seznámení, historie<br>a prezentace firmy</small></a>
+      <a href="#technologie"><b>Strojní park</b><small>Technická výbava<br>výrobního sektoru</small></a>
+      <a href="#vyrobky"><b>Výrobky</b><small>Hrubé nastínění<br>rozsahu portfolia</small></a>
+      <a href="#kontakt"><b>Kontakt</b><small>Kontaktujte nás<br>e-mailem nebo telefonicky</small></a>
       <a href="#kontakt" class="nav-cta">Poptat výrobu</a>
     </nav>
   </div>
@@ -65,10 +66,8 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-media" aria-hidden="true">
-      <img src="assets/img/stroj-1.webp" alt="" fetchpriority="high">
-    </div>
     <div class="wrap hero-inner">
+      <div class="hero-text">
       <p class="eyebrow"><span class="dot"></span> Kovovýroba na zakázku · od roku 1993</p>
       <h1>Přesné kovové díly.<br><span class="accent">Od výkresu po finální povrch.</span></h1>
       <p class="lead">CNC obrábění, broušení, leštění, lakování i svařování pod jednou střechou. Vyrábíme strojní dílce, nábytkové kování a komponenty ke sklu – v kusové i sériové výrobě.</p>
@@ -81,6 +80,24 @@
         <li><strong>CNC</strong><span>soustružnické centrum</span></li>
         <li><strong>210×100×100</strong><span>cm vypalovací pec</span></li>
       </ul>
+      </div>
+      <div class="hero-slider" aria-hidden="true">
+        <img src="assets/img/stroj-1.webp" alt="" fetchpriority="high" class="on">
+        <img src="assets/img/stroj-2.webp" alt="" loading="lazy">
+        <img src="assets/img/stroj-3.webp" alt="" loading="lazy">
+        <div class="hero-dots"><span class="on"></span><span></span><span></span></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 4 dlaždice jako na původním webu -->
+  <section class="tiles-wrap">
+    <div class="wrap tiles">
+      <a href="#vyrobky" data-tab="tab-strojni"><h3>Strojní dílce</h3><img src="assets/img/strojni-1092.webp" alt="" loading="lazy"></a>
+      <a href="#vyrobky" data-tab="tab-nabytek"><h3>Nábytkové dílce</h3><img src="assets/img/nabytek-1172-2.webp" alt="" loading="lazy"></a>
+      <a href="#vyrobky" data-tab="tab-povrch"><h3>Povrchové úpravy</h3><img src="assets/img/nabytek-1139.webp" alt="" loading="lazy"></a>
+      <a href="#vyrobky" data-tab="tab-sklo"><h3>Komponenty ke sklu</h3><img src="assets/img/sklo-1050.webp" alt="" loading="lazy"></a>
     </div>
   </section>
 
